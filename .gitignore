@@ -1,0 +1,17 @@
+# General
+*.swp
+*.swo
+*.rbo
+*.gem
+.DS_Store
+.rbenv-version
+.rbx/
+xcuserdata
+project.xcworkspace
+DerivedData
+/concatenated.*
+Podfile.lock
+
+# IDEs
+*.xccheckout
+.idea/
