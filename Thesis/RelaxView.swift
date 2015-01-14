@@ -21,6 +21,8 @@ class RelaxView: UIView {
         return button
     }()
     
+    var buttonSize = CGSizeMake(100, 100)
+    
     // MARK: Initializers
     
     convenience override init() {
@@ -31,6 +33,7 @@ class RelaxView: UIView {
         super.init(frame: frame)
         
         addSubview(growingButton)
+        growingButton.addTarget(self, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -46,11 +49,29 @@ class RelaxView: UIView {
     override func updateConstraints() {
         growingButton.snp_makeConstraints { make in
             make.center.equalTo(self)
+            make.width.equalTo(self.buttonSize.width).priorityLow()
+            make.height.equalTo(self.buttonSize.height).priorityLow()
             make.width.lessThanOrEqualTo(self)
             make.height.lessThanOrEqualTo(self)
         }
         
         super.updateConstraints()
+    }
+    
+    // MARK: Handlers
+    
+    func didTapGrowingButton(button: UIButton!) {
+        buttonSize = CGSizeMake(buttonSize.width * 1.3, buttonSize.height * 1.3)
+        
+        // tell constraints they need updating
+        setNeedsUpdateConstraints()
+        
+        // update constraints now so we can animate the change
+        updateConstraintsIfNeeded()
+        
+        UIView.animateWithDuration(0.4) {
+            self.layoutIfNeeded()
+        }
     }
     
 }

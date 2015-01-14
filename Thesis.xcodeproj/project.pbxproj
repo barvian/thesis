@@ -12,6 +12,7 @@
 		CF0BE80C1A61DA98007FCA8E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE80B1A61DA98007FCA8E /* RootViewController.swift */; };
 		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
+		CF723D841A647C21008E0865 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF723D831A647C21008E0865 /* Constants.swift */; };
 		EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3317A21A64378D00DD6604 /* RelaxViewController.swift */; };
 		EC4E68A11A644566005EC9E1 /* RelaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E68A01A644566005EC9E1 /* RelaxView.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,8 @@
 		CF0BE8141A61DA98007FCA8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
+		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
+		CF723D831A647C21008E0865 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5C53AE276EA08AB906DFD73 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3317A21A64378D00DD6604 /* RelaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxViewController.swift; sourceTree = "<group>"; };
 		EC4E68A01A644566005EC9E1 /* RelaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxView.swift; sourceTree = "<group>"; };
@@ -85,10 +88,12 @@
 				CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */,
 				CF0BE80B1A61DA98007FCA8E /* RootViewController.swift */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
+				CF723D831A647C21008E0865 /* Constants.swift */,
 				EC4E68A01A644566005EC9E1 /* RelaxView.swift */,
 				CF0BE8141A61DA98007FCA8E /* Images.xcassets */,
 				CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */,
 				CF0BE8071A61DA98007FCA8E /* Supporting Files */,
+				CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */,
 			);
 			path = Thesis;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF723D841A647C21008E0865 /* Constants.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				EC4E68A11A644566005EC9E1 /* RelaxView.swift in Sources */,
 				CF0BE80C1A61DA98007FCA8E /* RootViewController.swift in Sources */,
@@ -330,6 +336,7 @@
 			baseConfigurationReference = C2684FB78F3DE3C94E8F7299 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Thesis/Thesis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -337,6 +344,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Thesis/Thesis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public/**";
 			};
 			name = Debug;
 		};
@@ -345,6 +355,7 @@
 			baseConfigurationReference = 103EE2BE3C6876CE274F4D9A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Thesis/Thesis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -352,6 +363,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Thesis/Thesis-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public/**";
 			};
 			name = Release;
 		};
