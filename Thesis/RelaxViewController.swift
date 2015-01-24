@@ -29,7 +29,7 @@ class RelaxViewController: UIViewController, RelaxViewDelegate {
     
     // MARK: RelaxViewDelegate
     
-    func didTapGrowingButton(button: UIButton!) {
+    func didTapGrowingButton() {
         (view as RelaxView).growButton()
     }
     

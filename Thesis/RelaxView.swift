@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol RelaxViewDelegate {
-    optional func didTapGrowingButton(button: UIButton!)
+    optional func didTapGrowingButton()
 }
 
 class RelaxView: UIView {
@@ -38,7 +38,7 @@ class RelaxView: UIView {
         super.init(frame: frame)
         
         addSubview(growingButton)
-        growingButton.addTarget(self.delegate, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
+        growingButton.addTarget(self, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -65,6 +65,12 @@ class RelaxView: UIView {
     
     // MARK: Handlers
     
+    func didTapGrowingButton(button: UIButton!) {
+        delegate?.didTapGrowingButton?()
+    }
+    
+    // MARK: API
+    
     func growButton() {
         buttonSize = CGSizeMake(buttonSize.width * 1.3, buttonSize.height * 1.3)
         
@@ -74,11 +80,9 @@ class RelaxView: UIView {
         // update constraints now so we can animate the change
         updateConstraintsIfNeeded()
         
-        UIView.animateWithDuration(0.3, delay: 0.0, options: .AllowUserInteraction, animations: {
+        UIView.animateWithDuration(0.3) {
             self.layoutIfNeeded()
-        }, completion: {
-                (value: Bool) in
-        })
+        }
     }
     
 }
