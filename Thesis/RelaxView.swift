@@ -7,9 +7,14 @@
 //
 
 import UIKit
-import Snap
+
+@objc protocol RelaxViewDelegate {
+    optional func didTapGrowingButton(button: UIButton!)
+}
 
 class RelaxView: UIView {
+    
+    weak var delegate: RelaxViewDelegate?
     
     lazy var growingButton: UIButton = {
         let button = UIButton.buttonWithType(.System) as UIButton
@@ -33,7 +38,7 @@ class RelaxView: UIView {
         super.init(frame: frame)
         
         addSubview(growingButton)
-        growingButton.addTarget(self, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
+        growingButton.addTarget(self.delegate, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -47,12 +52,12 @@ class RelaxView: UIView {
     }
     
     override func updateConstraints() {
-        growingButton.snp_makeConstraints { make in
-            make.center.equalTo(self)
-            make.width.equalTo(self.buttonSize.width).priorityLow()
-            make.height.equalTo(self.buttonSize.height).priorityLow()
-            make.width.lessThanOrEqualTo(self)
-            make.height.lessThanOrEqualTo(self)
+        growingButton.mas_updateConstraints { make in
+            make.center.equalTo()(self)
+            make.width.equalTo()(self.buttonSize.width).priorityLow()
+            make.height.equalTo()(self.buttonSize.height).priorityLow()
+            make.width.lessThanOrEqualTo()(self)
+            make.height.lessThanOrEqualTo()(self)
         }
         
         super.updateConstraints()
@@ -60,7 +65,7 @@ class RelaxView: UIView {
     
     // MARK: Handlers
     
-    func didTapGrowingButton(button: UIButton!) {
+    func growButton() {
         buttonSize = CGSizeMake(buttonSize.width * 1.3, buttonSize.height * 1.3)
         
         // tell constraints they need updating
@@ -69,9 +74,11 @@ class RelaxView: UIView {
         // update constraints now so we can animate the change
         updateConstraintsIfNeeded()
         
-        UIView.animateWithDuration(0.4) {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .AllowUserInteraction, animations: {
             self.layoutIfNeeded()
-        }
+        }, completion: {
+                (value: Bool) in
+        })
     }
     
 }

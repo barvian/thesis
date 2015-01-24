@@ -9,7 +9,7 @@
 import UIKit
 import Snap
 
-class RelaxViewController: UIViewController {
+class RelaxViewController: UIViewController, RelaxViewDelegate {
     
     convenience override init() {
         self.init(nibName: nil, bundle: nil)
@@ -17,13 +17,20 @@ class RelaxViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = RelaxView()
+        var view = RelaxView()
+        view.delegate = self
+        
+        self.view = view
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // MARK: RelaxViewDelegate
     
+    func didTapGrowingButton(button: UIButton!) {
+        (view as RelaxView).growButton()
+    }
     
 }
