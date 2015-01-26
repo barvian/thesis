@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import Snap
 
 class RelaxViewController: UIViewController, RelaxViewDelegate {
     
     convenience override init() {
         self.init(nibName: nil, bundle: nil)
+        
         title = "Relax"
     }
     

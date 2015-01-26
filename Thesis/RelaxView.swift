@@ -22,11 +22,19 @@ class RelaxView: UIView {
         button.setTitle("Open!", forState: .Normal)
         button.layer.borderColor = UIColor.greenColor().CGColor
         button.layer.borderWidth = 3
+        button.addTarget(self, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
         
         return button
     }()
     
-    var buttonSize = CGSizeMake(100, 100)
+    lazy var resizingLabel: UILabel = {
+        let label = UILabel()
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.text = "This label will resize."
+        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        
+        return label
+    }()
     
     // MARK: Initializers
     
@@ -37,8 +45,11 @@ class RelaxView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        layer.borderColor = UIColor.purpleColor().CGColor
+        layer.borderWidth = 3
+        
         addSubview(growingButton)
-        growingButton.addTarget(self, action: "didTapGrowingButton:", forControlEvents: .TouchUpInside)
+        addSubview(resizingLabel)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -51,14 +62,32 @@ class RelaxView: UIView {
         return true
     }
     
+    var didSetupConstraints = false
+    
+    var buttonSize = CGSizeMake(100, 100)
+    var growingButtonWidthConstraint: NSLayoutConstraint!, growingButtonHeightConstraint: NSLayoutConstraint!
+    
     override func updateConstraints() {
-        growingButton.mas_updateConstraints { make in
-            make.center.equalTo()(self)
-            make.width.equalTo()(self.buttonSize.width).priorityLow()
-            make.height.equalTo()(self.buttonSize.height).priorityLow()
-            make.width.lessThanOrEqualTo()(self)
-            make.height.lessThanOrEqualTo()(self)
+        if !didSetupConstraints {
+            growingButtonWidthConstraint = NSLayoutConstraint(item: growingButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 0)
+            growingButton.setContentHuggingPriority(251, forAxis: .Horizontal)
+            growingButtonHeightConstraint = NSLayoutConstraint(item: growingButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 0)
+            growingButton.setContentHuggingPriority(251, forAxis: .Vertical)
+            addConstraint(growingButtonWidthConstraint)
+            addConstraint(growingButtonHeightConstraint)
+            addConstraint(NSLayoutConstraint(item: growingButton, attribute: .Width, relatedBy: .LessThanOrEqual, toItem: self, attribute: .Width, multiplier: 1, constant: 0))
+            addConstraint(NSLayoutConstraint(item: growingButton, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: self, attribute: .Height, multiplier: 1, constant: 0))
+            addConstraint(NSLayoutConstraint(item: growingButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
+            addConstraint(NSLayoutConstraint(item: growingButton, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
+            
+            addConstraint(NSLayoutConstraint(item: resizingLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
+            addConstraint(NSLayoutConstraint(item: resizingLabel, attribute: .Bottom, relatedBy: .Equal, toItem: growingButton, attribute: .Top, multiplier: 1, constant: 0))
+            
+            didSetupConstraints = true
         }
+        
+        growingButtonWidthConstraint.constant = buttonSize.width
+        growingButtonHeightConstraint.constant = buttonSize.height
         
         super.updateConstraints()
     }
