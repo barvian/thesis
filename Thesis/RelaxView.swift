@@ -115,5 +115,3 @@ class RelaxView: UIView {
     }
     
 }
-
-

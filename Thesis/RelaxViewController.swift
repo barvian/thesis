@@ -27,6 +27,7 @@ class RelaxViewController: UIViewController, RelaxViewDelegate {
     
     func didTapGrowingButton() {
         (view as RelaxView).growButton()
+        (UIApplication.sharedApplication().keyWindow?.rootViewController! as RootViewController).selectedIndex = 0
     }
     
 }

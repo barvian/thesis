@@ -12,6 +12,7 @@
 		CF0BE80C1A61DA98007FCA8E /* SlidingTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE80B1A61DA98007FCA8E /* SlidingTabController.swift */; };
 		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
+		CF4C5D041A7669B90078A3C6 /* SlidingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4C5D031A7669B90078A3C6 /* SlidingTabBar.swift */; };
 		CF723D841A647C21008E0865 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF723D831A647C21008E0865 /* Constants.swift */; };
 		CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */; };
 		CFE9B9B71A75D9260039E019 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */; };
@@ -30,6 +31,7 @@
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
+		CF4C5D031A7669B90078A3C6 /* SlidingTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingTabBar.swift; sourceTree = "<group>"; };
 		CF723D831A647C21008E0865 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
 				CF723D831A647C21008E0865 /* Constants.swift */,
+				CF4C5D031A7669B90078A3C6 /* SlidingTabBar.swift */,
 				EC4E68A01A644566005EC9E1 /* RelaxView.swift */,
 				CF0BE8141A61DA98007FCA8E /* Images.xcassets */,
 				CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */,
@@ -242,6 +245,7 @@
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				EC4E68A11A644566005EC9E1 /* RelaxView.swift in Sources */,
 				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
+				CF4C5D041A7669B90078A3C6 /* SlidingTabBar.swift in Sources */,
 				CFE9B9B71A75D9260039E019 /* WelcomeViewController.swift in Sources */,
 				CF0BE80C1A61DA98007FCA8E /* SlidingTabController.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,

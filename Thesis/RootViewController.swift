@@ -22,6 +22,8 @@ class RootViewController: SlidingTabController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if !SDCloudUserDefaults.boolForKey(Constants.UserDefaults.hasSeenWelcome) {
             let welcomeController = WelcomeViewController()
             welcomeController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "didTapDoneButton:")

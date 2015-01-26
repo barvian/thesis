@@ -10,8 +10,36 @@ import UIKit
 
 class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    var viewControllers: [UIViewController]!
-    var selectedIndex = 0
+    private var _viewDidAppear = false
+    
+    var viewControllers: [UIViewController]! {
+        willSet {
+            if viewControllers != nil {
+                let previousViewController = viewControllers[_selectedIndex]
+                if let newIndex = find(newValue, previousViewController) {
+                    _selectedIndex = newIndex
+                } else if _selectedIndex >= newValue.count {
+                    _selectedIndex = 0
+                }
+            }
+            
+            pageViewController.setViewControllers([newValue[_selectedIndex]], direction: .Forward, animated: false, completion: nil)
+        }
+    }
+    
+    private var _selectedIndex = 0
+    var selectedIndex: Int {
+        get {
+            return _selectedIndex
+        }
+        set(newIndex) {
+            if viewControllers != nil {
+                pageViewController.setViewControllers([viewControllers[newIndex]], direction: (newIndex < _selectedIndex) ? .Reverse : .Forward, animated: _viewDidAppear && (newIndex != _selectedIndex), completion: nil)
+            }
+            
+            _selectedIndex = newIndex
+        }
+    }
     
     lazy var pageViewController: UIPageViewController! = {
         let controller = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
@@ -49,8 +77,6 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.pageViewController.setViewControllers([viewControllers[selectedIndex]], direction: .Forward, animated: true, completion: {done in })
-        
         for viewController in viewControllers {
             if let tabTitle = viewController.title {
                 let label = UILabel()
@@ -58,6 +84,12 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
                 self.view.addSubview(label)
             }
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        _viewDidAppear = true
     }
     
     // MARK: Constraints
@@ -93,6 +125,14 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
             return index >= viewControllers.count - 1 ? nil : viewControllers[index + 1]
         } else {
             return nil
+        }
+    }
+    
+    // MARK: UIPageViewControllerDelegate
+    
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+        if completed {
+            _selectedIndex = find(viewControllers, pageViewController.viewControllers.last! as UIViewController)!
         }
     }
     
