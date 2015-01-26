@@ -16,7 +16,7 @@ class RelaxView: UIView {
     
     weak var delegate: RelaxViewDelegate?
     
-    lazy var growingButton: UIButton = {
+    private(set) lazy var growingButton: UIButton = {
         let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("Open!", forState: .Normal)
@@ -27,7 +27,7 @@ class RelaxView: UIView {
         return button
     }()
     
-    lazy var resizingLabel: UILabel = {
+    private(set) lazy var resizingLabel: UILabel = {
         let label = UILabel()
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
         label.text = "This label will resize."
@@ -44,7 +44,7 @@ class RelaxView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+                
         layer.borderColor = UIColor.purpleColor().CGColor
         layer.borderWidth = 3
         
@@ -64,7 +64,7 @@ class RelaxView: UIView {
     
     private var didSetupConstraints = false
     
-    private var buttonSize = CGSizeMake(100, 100)
+    private var buttonSize = CGSize(width: 100, height: 100)
     private var growingButtonWidthConstraint: NSLayoutConstraint!, growingButtonHeightConstraint: NSLayoutConstraint!
     
     override func updateConstraints() {

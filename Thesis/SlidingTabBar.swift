@@ -9,12 +9,16 @@
 import UIKit
 
 @objc protocol SlidingTabBarDelegate {
-    optional func didTapTab()
+    optional func didSelectItem()
 }
 
 class SlidingTabBar: UIView {
     
     weak var delegate: SlidingTabBarDelegate?
+    
+    var items: [UITabBarItem]!
+    
+    var selectedItem: UITabBarItem?
     
     // MARK: Initializers
     
@@ -23,9 +27,7 @@ class SlidingTabBar: UIView {
     }
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        
+        super.init(frame: frame)        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -38,11 +40,18 @@ class SlidingTabBar: UIView {
         return true
     }
     
-    private var didSetupConstraints = false
+    override func intrinsicContentSize() -> CGSize {
+        return CGSize(width: 100, height: 100)
+    }
     
+    private var didSetupConstraints = false
     
     override func updateConstraints() {
         if !didSetupConstraints {
+            removeConstraints(constraints())
+            
+            
+            
             didSetupConstraints = true
         }
         
@@ -51,8 +60,8 @@ class SlidingTabBar: UIView {
     
     // MARK: Handlers
     
-    func didTapTab(button: UIButton!) {
-        delegate?.didTapTab?()
+    func didSelectItem(button: UIButton!) {
+        delegate?.didSelectItem?()
     }    
 }
 

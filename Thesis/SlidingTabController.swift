@@ -18,11 +18,12 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
                 let previousViewController = viewControllers[_selectedIndex]
                 if let newIndex = find(newValue, previousViewController) {
                     _selectedIndex = newIndex
-                } else if _selectedIndex >= newValue.count {
+                } else if _selectedIndex >= newValue.count - 1 {
                     _selectedIndex = 0
                 }
             }
             
+            tabBar.items = newValue.map { $0.tabBarItem }
             pageViewController.setViewControllers([newValue[_selectedIndex]], direction: .Forward, animated: false, completion: nil)
         }
     }
@@ -35,13 +36,32 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
         set(newIndex) {
             if viewControllers != nil {
                 pageViewController.setViewControllers([viewControllers[newIndex]], direction: (newIndex < _selectedIndex) ? .Reverse : .Forward, animated: _viewDidAppear && (newIndex != _selectedIndex), completion: nil)
+                
+                _selectedIndex = newIndex
             }
-            
-            _selectedIndex = newIndex
         }
     }
     
-    lazy var pageViewController: UIPageViewController! = {
+    var selectedViewController: UIViewController? {
+        get {
+            return viewControllers == nil || _selectedIndex >= viewControllers.count ? nil : viewControllers[_selectedIndex]
+        }
+        set(newController) {
+            if let selected = newController {
+                if let newIndex = find(viewControllers, selected) {
+                    selectedIndex = newIndex
+                }
+            }
+        }
+    }
+    
+    private(set) lazy var tabBar: SlidingTabBar! = {
+        let tabBar = SlidingTabBar()
+        
+        return tabBar
+    }()
+    
+    private(set) lazy var pageViewController: UIPageViewController! = {
         let controller = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
         controller.dataSource = self
         controller.delegate = self
@@ -62,9 +82,7 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
         
         addChildViewController(pageViewController)
         view.addSubview(pageViewController.view)
-        
-        pageViewController.view.layer.borderColor = UIColor.redColor().CGColor
-        pageViewController.view.layer.borderWidth = 3
+        view.addSubview(tabBar)
         
         pageViewController.didMoveToParentViewController(self)
         
@@ -72,18 +90,6 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
         self.view.gestureRecognizers = self.pageViewController.gestureRecognizers
         
         view.setNeedsUpdateConstraints()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        for viewController in viewControllers {
-            if let tabTitle = viewController.title {
-                let label = UILabel()
-                label.text = tabTitle
-                self.view.addSubview(label)
-            }
-        }
     }
     
     override func viewDidAppear(animated: Bool) {

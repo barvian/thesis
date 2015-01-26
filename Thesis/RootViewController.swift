@@ -10,13 +10,31 @@ import UIKit
 
 class RootViewController: SlidingTabController {
     
+    private(set) lazy var learnController: UIViewController = {
+       let learnController = UIViewController()
+        
+        return learnController
+    }()
+    
+    private(set) lazy var relaxController: RelaxViewController = {
+        let relaxController = RelaxViewController()
+        
+        return relaxController
+    }()
+    
+    private(set) lazy var reflectController: UIViewController = {
+        let reflectController = UIViewController()
+        
+        return reflectController
+    }()
+    
     convenience override init() {
         self.init(nibName: nil, bundle: nil)
         
         viewControllers = [
-            UIViewController(),
-            RelaxViewController(),
-            UIViewController()
+            learnController,
+            relaxController,
+            reflectController
         ]
         selectedIndex = 1
     }
