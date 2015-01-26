@@ -9,7 +9,7 @@
 struct Constants {
     
     struct UserDefaults {
-        static let hasSeenTutorial = "hasSeenTutorial"
+        static let hasSeenWelcome = "hasSeenWelcome"
     }
     
 }

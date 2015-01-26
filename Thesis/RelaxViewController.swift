@@ -22,11 +22,7 @@ class RelaxViewController: UIViewController, RelaxViewDelegate {
         
         self.view = view
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+        
     // MARK: RelaxViewDelegate
     
     func didTapGrowingButton() {

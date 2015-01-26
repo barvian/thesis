@@ -62,7 +62,7 @@ class SlidingTabController: UIViewController, UIPageViewControllerDelegate, UIPa
     
     // MARK: Constraints
     
-    var didSetupConstraints = false
+    private var didSetupConstraints = false
     
     override func updateViewConstraints() {
         if !didSetupConstraints {

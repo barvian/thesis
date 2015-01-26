@@ -14,15 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var window: UIWindow = {
         let win = UIWindow(frame: UIScreen.mainScreen().bounds)
         win.backgroundColor = UIColor.whiteColor()
-        
-        let slidingTabController = SlidingTabController()
-        slidingTabController.viewControllers = [
-            UIViewController(),
-            RelaxViewController(),
-            UIViewController()
-        ]
-        slidingTabController.selectedIndex = 1
-        win.rootViewController = slidingTabController
+        win.rootViewController = RootViewController()
         
         return win
     }()

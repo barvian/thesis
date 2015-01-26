@@ -62,10 +62,10 @@ class RelaxView: UIView {
         return true
     }
     
-    var didSetupConstraints = false
+    private var didSetupConstraints = false
     
-    var buttonSize = CGSizeMake(100, 100)
-    var growingButtonWidthConstraint: NSLayoutConstraint!, growingButtonHeightConstraint: NSLayoutConstraint!
+    private var buttonSize = CGSizeMake(100, 100)
+    private var growingButtonWidthConstraint: NSLayoutConstraint!, growingButtonHeightConstraint: NSLayoutConstraint!
     
     override func updateConstraints() {
         if !didSetupConstraints {
