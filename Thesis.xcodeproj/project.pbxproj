@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		25A911E3DD109BA9B5A30F65 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C53AE276EA08AB906DFD73 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */; };
-		CF0BE80C1A61DA98007FCA8E /* SlidingTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE80B1A61DA98007FCA8E /* SlidingTabController.swift */; };
 		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
-		CF4C5D041A7669B90078A3C6 /* SlidingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4C5D031A7669B90078A3C6 /* SlidingTabBar.swift */; };
 		CF723D841A647C21008E0865 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF723D831A647C21008E0865 /* Constants.swift */; };
 		CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */; };
 		CFE9B9B71A75D9260039E019 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */; };
+		CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */; };
+		CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */; };
+		CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */; };
+		CFF8D7161A7ECA54003CF3DD /* Readings in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D7151A7ECA54003CF3DD /* Readings */; };
 		EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3317A21A64378D00DD6604 /* RelaxViewController.swift */; };
-		EC4E68A11A644566005EC9E1 /* RelaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E68A01A644566005EC9E1 /* RelaxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,18 +27,19 @@
 		CF0BE8041A61DA98007FCA8E /* Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0BE8081A61DA98007FCA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF0BE80B1A61DA98007FCA8E /* SlidingTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabController.swift; sourceTree = "<group>"; };
 		CF0BE8141A61DA98007FCA8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
-		CF4C5D031A7669B90078A3C6 /* SlidingTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingTabBar.swift; sourceTree = "<group>"; };
 		CF723D831A647C21008E0865 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Readings.plist; sourceTree = "<group>"; };
+		CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
+		CFF8D7151A7ECA54003CF3DD /* Readings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Readings; sourceTree = "<group>"; };
 		E5C53AE276EA08AB906DFD73 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3317A21A64378D00DD6604 /* RelaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxViewController.swift; sourceTree = "<group>"; };
-		EC4E68A01A644566005EC9E1 /* RelaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,15 +92,13 @@
 		CF0BE8061A61DA98007FCA8E /* Thesis */ = {
 			isa = PBXGroup;
 			children = (
-				CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */,
 				CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */,
 				CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */,
-				CF0BE80B1A61DA98007FCA8E /* SlidingTabController.swift */,
 				CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
+				CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */,
+				CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */,
 				CF723D831A647C21008E0865 /* Constants.swift */,
-				CF4C5D031A7669B90078A3C6 /* SlidingTabBar.swift */,
-				EC4E68A01A644566005EC9E1 /* RelaxView.swift */,
 				CF0BE8141A61DA98007FCA8E /* Images.xcassets */,
 				CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */,
 				CF0BE8071A61DA98007FCA8E /* Supporting Files */,
@@ -110,7 +110,10 @@
 		CF0BE8071A61DA98007FCA8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFF8D7151A7ECA54003CF3DD /* Readings */,
+				CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */,
 				CF0BE8081A61DA98007FCA8E /* Info.plist */,
+				CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -183,6 +186,8 @@
 			files = (
 				CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */,
 				CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */,
+				CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */,
+				CFF8D7161A7ECA54003CF3DD /* Readings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,12 +248,11 @@
 			files = (
 				CF723D841A647C21008E0865 /* Constants.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
-				EC4E68A11A644566005EC9E1 /* RelaxView.swift in Sources */,
 				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
-				CF4C5D041A7669B90078A3C6 /* SlidingTabBar.swift in Sources */,
 				CFE9B9B71A75D9260039E019 /* WelcomeViewController.swift in Sources */,
-				CF0BE80C1A61DA98007FCA8E /* SlidingTabController.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
+				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
+				CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

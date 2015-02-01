@@ -8,10 +8,10 @@
 
 import UIKit
 
-class RootViewController: SlidingTabController {
+class RootViewController: UITabBarController {
     
     private(set) lazy var learnController: UIViewController = {
-       let learnController = UIViewController()
+        let learnController = LearnViewController()
         
         return learnController
     }()
@@ -32,7 +32,7 @@ class RootViewController: SlidingTabController {
         self.init(nibName: nil, bundle: nil)
         
         viewControllers = [
-            learnController,
+            UINavigationController(rootViewController: learnController),
             relaxController,
             reflectController
         ]
@@ -44,17 +44,10 @@ class RootViewController: SlidingTabController {
         
         if !SDCloudUserDefaults.boolForKey(Constants.UserDefaults.hasSeenWelcome) {
             let welcomeController = WelcomeViewController()
-            welcomeController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "didTapDoneButton:")
-            presentViewController(UINavigationController(rootViewController: welcomeController), animated: true, completion: {
+            presentViewController(welcomeController, animated: true, completion: {
                 SDCloudUserDefaults.setBool(true, forKey: Constants.UserDefaults.hasSeenWelcome)
             })
         }
-    }
-    
-    // MARK: Handlers
-    
-    func didTapDoneButton(button: UIBarButtonItem!) {
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: Constraints
