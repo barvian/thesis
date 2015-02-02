@@ -43,7 +43,7 @@ class RootViewController: UITabBarController {
         super.viewDidAppear(animated)
         
         if !SDCloudUserDefaults.boolForKey(Constants.UserDefaults.hasSeenWelcome) {
-            let welcomeController = WelcomeViewController()
+            let welcomeController = OnboardingViewController()
             presentViewController(welcomeController, animated: true, completion: {
                 SDCloudUserDefaults.setBool(true, forKey: Constants.UserDefaults.hasSeenWelcome)
             })

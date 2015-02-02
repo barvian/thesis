@@ -8,5 +8,35 @@
 		<key>File</key>
 		<string>gad</string>
 	</dict>
+	<dict>
+		<key>Title</key>
+		<string>How to use this app</string>
+		<key>File</key>
+		<string>gad</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Common issues</string>
+		<key>File</key>
+		<string>gad</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Anxious episodes</string>
+		<key>File</key>
+		<string>gad</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Self-talk cycles</string>
+		<key>File</key>
+		<string>gad</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>FAQs</string>
+		<key>File</key>
+		<string>gad</string>
+	</dict>
 </array>
 </plist>

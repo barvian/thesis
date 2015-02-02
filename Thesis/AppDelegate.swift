@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         SDCloudUserDefaults.registerForNotifications()
         
+        var pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
+        pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
+        pageControl.backgroundColor = UIColor.whiteColor()
+        
         window.makeKeyAndVisible()
         return true
     }

@@ -12,8 +12,10 @@
 		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
 		CF723D841A647C21008E0865 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF723D831A647C21008E0865 /* Constants.swift */; };
+		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
+		CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */; };
+		CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */; };
 		CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */; };
-		CFE9B9B71A75D9260039E019 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */; };
 		CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */; };
 		CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */; };
 		CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */; };
@@ -32,8 +34,10 @@
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF723D831A647C21008E0865 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeController.swift; sourceTree = "<group>"; };
+		CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteController.swift; sourceTree = "<group>"; };
 		CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Readings.plist; sourceTree = "<group>"; };
 		CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */,
-				CFE9B9B61A75D9260039E019 /* WelcomeViewController.swift */,
+				CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */,
 				CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
 				CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */,
@@ -101,6 +105,7 @@
 				CF723D831A647C21008E0865 /* Constants.swift */,
 				CF0BE8141A61DA98007FCA8E /* Images.xcassets */,
 				CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */,
+				CF76D1CD1A7EF67000A32859 /* Onboarding */,
 				CF0BE8071A61DA98007FCA8E /* Supporting Files */,
 				CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */,
 			);
@@ -116,6 +121,15 @@
 				CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF76D1CD1A7EF67000A32859 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */,
+				CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,10 +262,12 @@
 			files = (
 				CF723D841A647C21008E0865 /* Constants.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
+				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
 				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
-				CFE9B9B71A75D9260039E019 /* WelcomeViewController.swift in Sources */,
+				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
+				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
 				CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

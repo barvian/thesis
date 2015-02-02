@@ -13,7 +13,6 @@ class LearnViewController: UITableViewController {
     private(set) lazy var 📖: NSArray = {
         let path = NSBundle.mainBundle().pathForResource("Readings", ofType: "plist")!
         let data = NSArray(contentsOfFile: path)!
-        println(data)
         
         return data
     }()

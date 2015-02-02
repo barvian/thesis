@@ -19,7 +19,7 @@ class ReadingViewController: UIViewController {
     
     private(set) lazy var webView: WKWebView = {
         let webView = WKWebView()
-        webView.setTranslatesAutoresizingMaskIntoConstraints(false)
+//         webView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         return webView
     }()
@@ -30,8 +30,9 @@ class ReadingViewController: UIViewController {
             title = reading["Title"] as? String
             
             let file = reading["File"] as String
-            let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource(file, ofType: "html", inDirectory: "Readings")!)
-            webView.loadRequest(NSURLRequest(URL: url!))
+            let path = NSBundle.mainBundle().pathForResource(file, ofType: "html", inDirectory: "Readings")!
+            let html = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!
+            webView.loadHTMLString(html, baseURL: nil)
         }
     }
     
@@ -41,12 +42,10 @@ class ReadingViewController: UIViewController {
         hidesBottomBarWhenPushed = true
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        self.view = webView
         
-        view.addSubview(webView)
-        
-        view.setNeedsUpdateConstraints()
+//        view.setNeedsUpdateConstraints()
     }
     
     // MARK: Constraints
@@ -55,10 +54,10 @@ class ReadingViewController: UIViewController {
     
     override func updateViewConstraints() {
         if !didSetupConstraints {
-            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0))
-            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0))
+//            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
+//            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
+//            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0))
+//            view.addConstraint(NSLayoutConstraint(item: webView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0))
             
             didSetupConstraints = true
         }
