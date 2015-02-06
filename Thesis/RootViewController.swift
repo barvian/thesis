@@ -10,7 +10,7 @@ import UIKit
 
 class RootViewController: UITabBarController {
     
-    private(set) lazy var learnController: UIViewController = {
+    private(set) lazy var learnController: LearnViewController = {
         let learnController = LearnViewController()
         
         return learnController
@@ -22,8 +22,8 @@ class RootViewController: UITabBarController {
         return relaxController
     }()
     
-    private(set) lazy var reflectController: UIViewController = {
-        let reflectController = UIViewController()
+    private(set) lazy var reflectController: ReflectViewController = {
+        let reflectController = ReflectViewController()
         
         return reflectController
     }()
@@ -34,7 +34,7 @@ class RootViewController: UITabBarController {
         viewControllers = [
             UINavigationController(rootViewController: learnController),
             relaxController,
-            reflectController
+            UINavigationController(rootViewController: reflectController)
         ]
         selectedIndex = 1
     }

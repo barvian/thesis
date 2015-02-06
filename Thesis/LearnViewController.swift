@@ -30,15 +30,15 @@ class LearnViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-        
         super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        
         super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: UITableViewDataSource

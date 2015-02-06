@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    let viewControllers = [
+    let viewControllers: [UIViewController] = [
         OnboardingWelcomeController(),
         OnboardingCompleteController()
     ]
@@ -73,7 +73,7 @@ class OnboardingViewController: UIViewController, UIPageViewControllerDelegate, 
     // MARK: UIPageViewControllerDataSource
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 2
+        return viewControllers.count
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
