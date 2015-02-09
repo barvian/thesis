@@ -104,9 +104,9 @@ class RelaxViewController: UIViewController {
             view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
             view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(margin)-[happyButton(70)]-[neutralButton(==happyButton)]-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-[headlineLabel]-|", options: nil, metrics: metrics, views: views))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[happyButton(70,==neutralButton,==flusteredButton)]", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[headlineLabel]-|", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[happyButton(70,==neutralButton,==flusteredButton)]", options: nil, metrics: metrics, views: views))
             for (_, subview) in views {
                 view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
             }

@@ -22,6 +22,12 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
         return header
     }()
     
+    var notificationToken: RLMNotificationToken?
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     convenience override init() {
         self.init(style: .Plain)
         
@@ -30,6 +36,30 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureTableView()
+        
+        // Set realm notification block
+        notificationToken = RLMRealm.defaultRealm().addNotificationBlock { note, realm in
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func configureTableView() {
+        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationGreenColor()
+        tableView.backgroundColor = UIColor.applicationGreenColor()
         
         tableView.tableHeaderView = headerView
         headerView.setNeedsLayout()
@@ -42,20 +72,12 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
         headerView.frame = headerFrame
         tableView.tableHeaderView = headerView
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        tableView.reloadData()
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        tableView.allowsSelection = false
+        tableView.registerClass(ReflectTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .None
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 64.0
+
     }
     
     // MARK: UITableViewDataSource
@@ -65,11 +87,13 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as ReflectTableViewCell
         let index = UInt(indexPath.row)
         let reflection = 📅.objectAtIndex(index) as Reflection
+        cell.configureForReflection(reflection)
         
-        cell.textLabel.text = reflection.event
+        cell.setNeedsUpdateConstraints()
+        cell.updateConstraintsIfNeeded()
         
         return cell
     }
@@ -79,7 +103,7 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     
     // MARK: ReflectHeaderViewDelegate
     
-    func didTapAddButton() {
+    func reflectHeaderView(reflectHeaderView: ReflectHeaderView, didTapAddButton addButton: UIButton!) {
         let addController = AddReflectionViewController()
         addController.delegate = self
         let navController = UINavigationController(rootViewController: addController)
@@ -89,16 +113,16 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     
     // MARK: AddReflectionViewControllerDelegate
     
-    func didFinishTypingEvent(typedText: String!) {
+    func addReflectionViewController(addReflectionViewController: AddReflectionViewController, didFinishTyping typedText: String!) {
         if typedText?.utf16Count > 0 {
             let reflection = Reflection()
             reflection.event = typedText!
+            reflection.reason = typedText!
             
             let realm = RLMRealm.defaultRealm()
             realm.transactionWithBlock() {
                 realm.addObject(reflection)
             }
-            tableView.reloadData()
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDCloudUserDefaults
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

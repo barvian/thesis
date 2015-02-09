@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDCloudUserDefaults
 
 class RootViewController: UITabBarController {
     
@@ -42,10 +43,10 @@ class RootViewController: UITabBarController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !SDCloudUserDefaults.boolForKey(Constants.UserDefaults.hasSeenWelcome) {
+        if !SDCloudUserDefaults.hasSeenWelcome {
             let welcomeController = OnboardingViewController()
             presentViewController(welcomeController, animated: true, completion: {
-                SDCloudUserDefaults.setBool(true, forKey: Constants.UserDefaults.hasSeenWelcome)
+                SDCloudUserDefaults.hasSeenWelcome = true
             })
         }
     }
@@ -62,5 +63,6 @@ class RootViewController: UITabBarController {
         
         super.updateViewConstraints()
     }
+    
 }
 
