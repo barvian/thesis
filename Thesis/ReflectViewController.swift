@@ -48,6 +48,7 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationGreenColor()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -58,7 +59,6 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     }
     
     func configureTableView() {
-        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationGreenColor()
         tableView.backgroundColor = UIColor.applicationGreenColor()
         
         tableView.tableHeaderView = headerView
@@ -113,17 +113,25 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
     
     // MARK: AddReflectionViewControllerDelegate
     
-    func addReflectionViewController(addReflectionViewController: AddReflectionViewController, didFinishTyping typedText: String!) {
-        if typedText?.utf16Count > 0 {
+    func addReflectionViewController(addReflectionViewController: AddReflectionViewController, didFinishTypingEvent eventText: String!, reason reasonText: String!) {
+        if eventText?.utf16Count > 0 && reasonText?.utf16Count > 0 {
             let reflection = Reflection()
-            reflection.event = typedText!
-            reflection.reason = typedText!
+            reflection.event = eventText!
+            reflection.reason = reasonText!
             
             let realm = RLMRealm.defaultRealm()
             realm.transactionWithBlock() {
                 realm.addObject(reflection)
             }
+            
+            addReflectionViewController.view.endEditing(true)
+            dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    func addReflectionViewControllerShouldCancel(addReflectionViewController: AddReflectionViewController) {
+        addReflectionViewController.view.endEditing(true)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

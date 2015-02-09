@@ -7,48 +7,70 @@
 //
 
 import UIKit
+import SSDynamicText
 
 class RelaxViewController: UIViewController {
     
     private(set) lazy var headlineLabel: UILabel = {
-        let label = UILabel()
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
         label.text = "How are you feeling right now?"
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.textColor = UIColor(r: 169, g: 231, b: 252)
+        label.lineBreakMode = .ByTruncatingTail
         label.numberOfLines = 0
         label.textAlignment = .Center
+        
+        label.layer.shadowOffset = CGSize(width: 0, height: 2)
+        label.layer.shadowRadius = 3
+        label.layer.shadowColor = UIColor.blackColor().CGColor
+        label.layer.shadowOpacity = 0.075
+        label.layer.shouldRasterize = true
+        label.layer.rasterizationScale = UIScreen.mainScreen().scale
+        
+        return label
+    }()
+    
+    private(set) lazy var subheaderLabel: UILabel = {
+        let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
+        label.text = "Subheader reminder thing text."
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.textColor = UIColor(r: 169, g: 231, b: 252, a: 0.8)
+        label.lineBreakMode = .ByTruncatingTail
+        label.numberOfLines = 0
+        label.textAlignment = .Center
+        
+        label.layer.shadowOffset = CGSize(width: 0, height: 2)
+        label.layer.shadowRadius = 3
+        label.layer.shadowColor = UIColor.blackColor().CGColor
+        label.layer.shadowOpacity = 0.075
+        label.layer.shouldRasterize = true
+        label.layer.rasterizationScale = UIScreen.mainScreen().scale
         
         return label
     }()
     
     private(set) lazy var 😊Button: UIButton = {
-        let button = UIButton.buttonWithType(.System) as UIButton
+        let button = CircleButton()
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("☺️", forState: .Normal)
-        button.layer.borderColor = UIColor.greenColor().CGColor
-        button.layer.borderWidth = 3
         button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
         
         return button
     }()
     
     private(set) lazy var 😐Button: UIButton = {
-        let button = UIButton.buttonWithType(.System) as UIButton
+        let button = CircleButton()
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😐", forState: .Normal)
-        button.layer.borderColor = UIColor.yellowColor().CGColor
-        button.layer.borderWidth = 3
         button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
         
         return button
     }()
     
     private(set) lazy var 😖Button: UIButton = {
-        let button = UIButton.buttonWithType(.System) as UIButton
+        let button = CircleButton()
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😖", forState: .Normal)
-        button.layer.borderColor = UIColor.redColor().CGColor
-        button.layer.borderWidth = 3
         button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
         
         return button
@@ -64,23 +86,34 @@ class RelaxViewController: UIViewController {
         return spacers
     }()
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     convenience override init() {
         self.init(nibName: nil, bundle: nil)
         
         title = "Relax"
     }
     
-    override func loadView() {
-        self.view = UIView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.applicationBlueColor()
         
         view.addSubview(spacerViews[0])
         view.addSubview(headlineLabel)
+        view.addSubview(subheaderLabel)
         view.addSubview(😊Button)
         view.addSubview(😐Button)
         view.addSubview(😖Button)
         view.addSubview(spacerViews[1])
         
         view.setNeedsUpdateConstraints() // bootstrap AutoLayout
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBlueColor()
     }
     
     // MARK: Constraints
@@ -92,20 +125,22 @@ class RelaxViewController: UIViewController {
             let views = [
                 "spacer1": spacerViews[0],
                 "headlineLabel": headlineLabel,
+                "subheaderLabel": subheaderLabel,
                 "happyButton": 😊Button,
                 "neutralButton": 😐Button,
                 "flusteredButton": 😖Button,
                 "spacer2": spacerViews[1]
             ]
             let metrics = [
-                "margin": 16
+                "margin": 26
             ]
             
             view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
             view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(margin)-[happyButton(70)]-[neutralButton(==happyButton)]-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(4)-[subheaderLabel]-(margin)-[happyButton(70)]-(12)-[neutralButton(==happyButton)]-(12)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[headlineLabel]-|", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[subheaderLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[happyButton(70,==neutralButton,==flusteredButton)]", options: nil, metrics: metrics, views: views))
             for (_, subview) in views {
                 view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))

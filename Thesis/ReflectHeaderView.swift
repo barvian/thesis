@@ -56,15 +56,9 @@ class ReflectHeaderView: UIView {
     }()
     
     private(set) lazy var addButton: UIButton = {
-        let button = UIButton.buttonWithType(.System) as UIButton
+        let button = CircleButton()
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("Add", forState: .Normal)
-        button.backgroundColor = UIColor.whiteColor()
-        button.layer.cornerRadius = 35
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = UIColor.blackColor().CGColor
-        button.layer.shadowOpacity = 0.1
         button.addTarget(self, action: "didTapAddButton:", forControlEvents: .TouchUpInside)
         
         return button
@@ -114,17 +108,16 @@ class ReflectHeaderView: UIView {
                 "lineView": lineView
             ]
             let metrics = [
-                "addButtonSize": addButton.layer.cornerRadius * 2,
                 "hMargin": 26,
                 "vMargin": 52
             ]
             
             addConstraint(NSLayoutConstraint(item: addButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
             addConstraint(NSLayoutConstraint(item: lineView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-(4)-[subheaderLabel]-(vMargin)-[addButton(addButtonSize)][lineView(64)]|", options: nil, metrics: metrics, views: views))
+            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-(4)-[subheaderLabel]-(vMargin)-[addButton][lineView(64)]|", options: nil, metrics: metrics, views: views))
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[headlineLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton(addButtonSize)]", options: nil, metrics: metrics, views: views))
+            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton]", options: nil, metrics: metrics, views: views))
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[lineView(2)]", options: nil, metrics: metrics, views: views))
             
             didSetupConstraints = true

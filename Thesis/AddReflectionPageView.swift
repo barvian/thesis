@@ -19,7 +19,7 @@ class AddReflectionPageView: UIView {
         label.textColor = UIColor.grayColor()
         label.lineBreakMode = .ByTruncatingTail
         label.numberOfLines = 0
-        label.textAlignment = .Left
+        label.textAlignment = .Center
         
         return label
     }()
@@ -27,8 +27,7 @@ class AddReflectionPageView: UIView {
     private(set) lazy var textView: UITextView = {
         let textView = SSDynamicTextView(font: "HelveticaNeue-Light", baseSize: 21.0)
         textView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        textView.textAlignment = .Left
-        textView.returnKeyType = .Next
+        textView.textAlignment = .Center
         
         return textView
     }()
@@ -41,11 +40,9 @@ class AddReflectionPageView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = UIColor.redColor()
-        
-//        addSubview(headlineLabel)
-//        addSubview(textView)
+                
+        addSubview(headlineLabel)
+        addSubview(textView)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -58,26 +55,26 @@ class AddReflectionPageView: UIView {
         return true
     }
     
-//    private var didSetupConstraints = false
-//    
-//    override func updateConstraints() {
-//        if !didSetupConstraints {
-//            let views = [
-//                "headlineLabel": headlineLabel,
-//                "textView": textView
-//            ]
-//            let metrics = [
-//                "margin": 26
-//            ]
-//            
-//            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[headlineLabel]-(margin)-[textView]-(margin)-|", options: nil, metrics: metrics, views: views))
-//            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
-//            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[textView]-(margin)-|", options: nil, metrics: metrics, views: views))
-//            
-//            didSetupConstraints = true
-//        }
-//        
-//        super.updateConstraints()
-//    }
+    private var didSetupConstraints = false
+    
+    override func updateConstraints() {
+        if !didSetupConstraints {
+            let views = [
+                "headlineLabel": headlineLabel,
+                "textView": textView
+            ]
+            let metrics = [
+                "margin": 26
+            ]
+            
+            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[headlineLabel]-(margin)-[textView]-(margin)-|", options: nil, metrics: metrics, views: views))
+            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
+            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[textView]-(margin)-|", options: nil, metrics: metrics, views: views))
+            
+            didSetupConstraints = true
+        }
+        
+        super.updateConstraints()
+    }
     
 }

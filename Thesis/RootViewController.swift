@@ -40,6 +40,13 @@ class RootViewController: UITabBarController {
         selectedIndex = 1
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tabBar.backgroundColor = UIColor.applicationGreenColor()
+        tabBar.translucent = false
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         

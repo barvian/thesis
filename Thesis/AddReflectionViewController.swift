@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol AddReflectionViewControllerDelegate {
-    optional func addReflectionViewController(addReflectionViewController: AddReflectionViewController, didFinishTyping typedText: String!)
+    optional func addReflectionViewController(addReflectionViewController: AddReflectionViewController, didFinishTypingEvent eventText: String!, reason reasonText: String!)
     optional func addReflectionViewControllerShouldCancel(addReflectionViewController: AddReflectionViewController)
 }
 
@@ -17,44 +17,12 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
     
     weak var delegate: AddReflectionViewControllerDelegate?
     
-    private(set) lazy var scrollViewContainer: UIView = {
-        let container = UIView()
-        container.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        return container
-    }()
-    
-    private(set) lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        scrollView.pagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.showsVerticalScrollIndicator = false
-        
-        return scrollView
-    }()
-    
-    private(set) lazy var scrollContentView: UIView = {
-        let content = UIView()
-        content.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        return content
-    }()
-    
-    private(set) lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
-        pageControl.setTranslatesAutoresizingMaskIntoConstraints(false)
-        pageControl.numberOfPages = 2
-        pageControl.currentPage = 0
-        
-        return pageControl
-    }()
-    
     private(set) lazy var eventPage: AddReflectionPageView = {
         let eventPage = AddReflectionPageView()
         eventPage.setTranslatesAutoresizingMaskIntoConstraints(false)
-        eventPage.headlineLabel.text = "What went well?"
+        eventPage.headlineLabel.text = "What went well today?"
         eventPage.textView.returnKeyType = .Next
+        eventPage.textView.delegate = self
         
         return eventPage
     }()
@@ -64,6 +32,7 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
         reasonPage.setTranslatesAutoresizingMaskIntoConstraints(false)
         reasonPage.headlineLabel.text = "Why did it go well?"
         reasonPage.textView.returnKeyType = .Done
+        reasonPage.textView.delegate = self
         
         return reasonPage
     }()
@@ -75,6 +44,8 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.translucent = true
@@ -82,64 +53,47 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "didTapCancel")
         
         view.backgroundColor = UIColor.whiteColor()
-        scrollView.addSubview(scrollContentView)
-        scrollViewContainer.addSubview(scrollView)
-        view.addSubview(scrollViewContainer)
-        view.addSubview(pageControl)
         
-        scrollContentView.addSubview(eventPage)
-        scrollContentView.addSubview(reasonPage)
+        view.addSubview(eventPage)
+        view.addSubview(reasonPage)
         
         view.setNeedsUpdateConstraints() // bootstrap AutoLayout
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-//        textView.becomeFirstResponder()
+        eventPage.textView.becomeFirstResponder()
     }
     
     // MARK: Constraints
     
     private var didSetupConstraints = false
+    private var keyboardDelta: CGFloat?
+    private var keyboardDuration: CGFloat?
+    
+    private var bottomLayoutConstraint: NSLayoutConstraint!
     
     override func updateViewConstraints() {
         if !didSetupConstraints {
             let views = [
-                "scrollViewContainer": scrollViewContainer,
-                "scrollView": scrollView,
-                "scrollContentView": scrollContentView,
                 "eventPage": eventPage,
-                "reasonPage": reasonPage,
-                "pageControl": pageControl
-            ]
-            let metrics = [
-                "margin": 26
+                "reasonPage": reasonPage
             ]
             
-            view.addConstraint(NSLayoutConstraint(item: scrollViewContainer, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollViewContainer][pageControl(52)]", options: nil, metrics: metrics, views: views))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollViewContainer]|", options: nil, metrics: metrics, views: views))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[pageControl]|", options: nil, metrics: metrics, views: views))
-            view.addConstraint(NSLayoutConstraint(item: pageControl, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-            
-            scrollViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: nil, metrics: metrics, views: views))
-            scrollViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollView]|", options: nil, metrics: metrics, views: views))
-            
-            scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollContentView]|", options: nil, metrics: metrics, views: views))
-            scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollContentView]|", options: nil, metrics: metrics, views: views))
-            scrollViewContainer.addConstraint(NSLayoutConstraint(item: scrollContentView, attribute: .Height, relatedBy: .Equal, toItem: scrollViewContainer, attribute: .Height, multiplier: 1, constant: 0))
-            scrollViewContainer.addConstraint(NSLayoutConstraint(item: scrollContentView, attribute: .Width, relatedBy: .Equal, toItem: scrollViewContainer, attribute: .Width, multiplier: CGFloat(pageControl.numberOfPages), constant: 0))
-            
-            scrollViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[eventPage(==scrollViewContainer)]", options: nil, metrics: metrics, views: views))
-            scrollContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[reasonPage(==eventPage)]", options: nil, metrics: metrics, views: views))
-            scrollViewContainer.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[eventPage(==scrollViewContainer)]", options: nil, metrics: metrics, views: views))
-            scrollContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[reasonPage(==eventPage)]", options: nil, metrics: metrics, views: views))
-            scrollContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[eventPage]", options: nil, metrics: metrics, views: views))
-            scrollContentView.addConstraint(NSLayoutConstraint(item: reasonPage, attribute: .Top, relatedBy: .Equal, toItem: eventPage, attribute: .Top, multiplier: 1, constant: 0))
-            scrollContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[eventPage][reasonPage]", options: nil, metrics: metrics, views: views))
+            view.addConstraint(NSLayoutConstraint(item: eventPage, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[eventPage][reasonPage(==eventPage)]", options: nil, metrics: nil, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[eventPage]|", options: nil, metrics: nil, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[reasonPage]|", options: nil, metrics: nil, views: views))
+            bottomLayoutConstraint = NSLayoutConstraint(item: reasonPage, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0)
+            view.addConstraint(bottomLayoutConstraint)
             
             didSetupConstraints = true
+        }
+        
+        if let delta = keyboardDelta {
+            bottomLayoutConstraint.constant = delta
+            println(delta)
         }
         
         super.updateViewConstraints()
@@ -151,13 +105,49 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
         delegate?.addReflectionViewControllerShouldCancel?(self)
     }
     
+    func keyboardWillChangeFrame(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        var animationCurve = UIViewAnimationOptions.CurveEaseOut
+        (userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber).getValue(&animationCurve)
+        let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSValue) as Double
+        let keyboardEndFrame = view.convertRect((userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue(), fromView: view.window)
+        let keyboardBeginFrame = view.convertRect((userInfo[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue(), fromView: view.window)
+        keyboardDelta = keyboardEndFrame.origin.y - keyboardBeginFrame.origin.y
+        
+        view.setNeedsUpdateConstraints()
+        view.updateConstraintsIfNeeded()
+        
+        UIView.animateWithDuration(duration, delay: 0, options: animationCurve, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     // MARK: UITextFieldDelegate
     
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        switch (text, textView.returnKeyType) {
+        case ("\n", .Next):
+            reasonPage.textView.becomeFirstResponder()
+            return false
+        case ("\n", .Done):
+            delegate?.addReflectionViewController?(self, didFinishTypingEvent: eventPage.textView.text, reason: reasonPage.textView.text)
+            return false
+        default:
+            return true
+        }
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        delegate?.addReflectionViewController?(self, didFinishTyping: textField.text)
+        
         textField.resignFirstResponder()
         
         return true
+    }
+    
+    // MARK: Deinitializer
+    
+    deinit {
+        
     }
     
 }

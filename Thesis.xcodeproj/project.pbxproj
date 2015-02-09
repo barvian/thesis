@@ -11,6 +11,7 @@
 		CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */; };
 		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
+		CF189C8A1A88EC93006E019D /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF189C891A88EC93006E019D /* CircleButton.swift */; };
 		CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4110491A84529500A78347 /* ReflectHeaderView.swift */; };
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
@@ -42,6 +43,7 @@
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
+		CF189C891A88EC93006E019D /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		CF4110491A84529500A78347 /* ReflectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectHeaderView.swift; sourceTree = "<group>"; };
 		CF41104B1A84579400A78347 /* AddReflectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionViewController.swift; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		CFBA823D1A8704510030F13D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF189C891A88EC93006E019D /* CircleButton.swift */,
 				CFBB8DB41A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift */,
 				CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */,
 				CF4110491A84529500A78347 /* ReflectHeaderView.swift */,
@@ -333,6 +336,7 @@
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
+				CF189C8A1A88EC93006E019D /* CircleButton.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
 				CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */,
 				CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */,
