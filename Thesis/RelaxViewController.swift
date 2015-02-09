@@ -50,27 +50,48 @@ class RelaxViewController: UIViewController {
     }()
     
     private(set) lazy var 😊Button: UIButton = {
-        let button = CircleButton()
+        let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
-        button.setTitle("☺️", forState: .Normal)
+        button.setTitle("😊", forState: .Normal)
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.cornerRadius = 35
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOpacity = 0.1
+        
         button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
         
         return button
     }()
     
     private(set) lazy var 😐Button: UIButton = {
-        let button = CircleButton()
+        let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😐", forState: .Normal)
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.cornerRadius = 35
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOpacity = 0.1
+
         button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
         
         return button
     }()
     
     private(set) lazy var 😖Button: UIButton = {
-        let button = CircleButton()
+        let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😖", forState: .Normal)
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.cornerRadius = 35
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOpacity = 0.1
+
         button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
         
         return button
@@ -132,12 +153,13 @@ class RelaxViewController: UIViewController {
                 "spacer2": spacerViews[1]
             ]
             let metrics = [
+                "headerSpacing": 52,
                 "margin": 26
             ]
             
             view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
             view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(4)-[subheaderLabel]-(margin)-[happyButton(70)]-(12)-[neutralButton(==happyButton)]-(12)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(4)-[subheaderLabel]-(headerSpacing)-[happyButton(70)]-(margin)-[neutralButton(==happyButton)]-(margin)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[subheaderLabel]-(margin)-|", options: nil, metrics: metrics, views: views))

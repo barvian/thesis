@@ -12,6 +12,14 @@ extension UIColor {
     
     // MARK: Color schemes
     
+    class func applicationLightColor() -> UIColor {
+        return UIColor(r: 240, g: 245, b: 247)
+    }
+    
+    class func applicationBaseColor() -> UIColor {
+        return UIColor(r: 69, g: 79, b: 94)
+    }
+    
     class func applicationBlueColor() -> UIColor {
         return UIColor(r: 82, g: 173, b: 204)
     }

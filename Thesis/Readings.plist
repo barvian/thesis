@@ -5,12 +5,8 @@
 	<dict>
 		<key>Title</key>
 		<string>What is anxiety?</string>
-		<key>File</key>
-		<string>gad</string>
-	</dict>
-	<dict>
-		<key>Title</key>
-		<string>How to use this app</string>
+		<key>Description</key>
+		<string>That&apos;s a pretty good question.</string>
 		<key>File</key>
 		<string>gad</string>
 	</dict>

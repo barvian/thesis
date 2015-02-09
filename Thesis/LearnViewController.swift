@@ -8,13 +8,20 @@
 
 import UIKit
 
-class LearnViewController: UITableViewController {
+class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
     
     private(set) lazy var 📖: NSArray = {
         let path = NSBundle.mainBundle().pathForResource("Readings", ofType: "plist")!
         let data = NSArray(contentsOfFile: path)!
         
         return data
+    }()
+    
+    private(set) lazy var headerView: LearnHeaderView = {
+        let header = LearnHeaderView()
+        header.delegate = self
+        
+        return header
     }()
     
     convenience override init() {
@@ -26,12 +33,13 @@ class LearnViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        configureTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBaseColor()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -41,6 +49,28 @@ class LearnViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    func configureTableView() {
+        tableView.backgroundColor = UIColor.applicationLightColor()
+        
+        tableView.tableHeaderView = headerView
+        headerView.setNeedsLayout()
+        headerView.layoutIfNeeded()
+        let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        
+        // Update the header's frame and add it again
+        var headerFrame = headerView.frame
+        headerFrame.size.height = height
+        headerView.frame = headerFrame
+        tableView.tableHeaderView = headerView
+        
+        tableView.allowsSelection = true
+        tableView.registerClass(ReadingTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .None
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
+        
+    }
+    
     // MARK: UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,10 +78,10 @@ class LearnViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as ReadingTableViewCell
         let reading = 📖[indexPath.row] as NSDictionary
         
-        cell.textLabel.text = reading["Title"] as? String
+        cell.configureForDictionary(reading)
         
         return cell
     }

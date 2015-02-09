@@ -11,7 +11,6 @@
 		CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */; };
 		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
-		CF189C8A1A88EC93006E019D /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF189C891A88EC93006E019D /* CircleButton.swift */; };
 		CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4110491A84529500A78347 /* ReflectHeaderView.swift */; };
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
@@ -30,6 +29,9 @@
 		CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */; };
 		CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */; };
 		CFF8D7161A7ECA54003CF3DD /* Readings in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D7151A7ECA54003CF3DD /* Readings */; };
+		EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */; };
+		EC063E2F1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E2E1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift */; };
+		EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E301A892433008FDA6C /* LearnHeaderView.swift */; };
 		EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3317A21A64378D00DD6604 /* RelaxViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +45,6 @@
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
-		CF189C891A88EC93006E019D /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		CF4110491A84529500A78347 /* ReflectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectHeaderView.swift; sourceTree = "<group>"; };
 		CF41104B1A84579400A78347 /* AddReflectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionViewController.swift; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
@@ -63,6 +64,9 @@
 		CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		CFF8D7151A7ECA54003CF3DD /* Readings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Readings; sourceTree = "<group>"; };
 		E5C53AE276EA08AB906DFD73 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingTableViewCell.swift; sourceTree = "<group>"; };
+		EC063E2E1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReadingTableViewCell+ConfigureForReading.swift"; sourceTree = "<group>"; };
+		EC063E301A892433008FDA6C /* LearnHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnHeaderView.swift; sourceTree = "<group>"; };
 		EC3317A21A64378D00DD6604 /* RelaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,11 +168,11 @@
 			children = (
 				CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */,
 				CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */,
-				CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */,
-				CF41104B1A84579400A78347 /* AddReflectionViewController.swift */,
-				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
 				CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */,
 				CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */,
+				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
+				CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */,
+				CF41104B1A84579400A78347 /* AddReflectionViewController.swift */,
 				CF76D1CD1A7EF67000A32859 /* Onboarding */,
 			);
 			name = Controllers;
@@ -185,10 +189,12 @@
 		CFBA823D1A8704510030F13D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF189C891A88EC93006E019D /* CircleButton.swift */,
+				EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */,
+				EC063E2E1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift */,
 				CFBB8DB41A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift */,
 				CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */,
 				CF4110491A84529500A78347 /* ReflectHeaderView.swift */,
+				EC063E301A892433008FDA6C /* LearnHeaderView.swift */,
 				CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */,
 			);
 			name = Views;
@@ -326,17 +332,19 @@
 				CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
+				EC063E2F1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
 				CFBB8DB51A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
 				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
 				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
+				EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
-				CF189C8A1A88EC93006E019D /* CircleButton.swift in Sources */,
+				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
 				CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */,
 				CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */,
