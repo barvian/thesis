@@ -12,13 +12,15 @@
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
 		CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4110491A84529500A78347 /* ReflectHeaderView.swift */; };
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
+		CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */; };
+		CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */; };
+		CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
 		CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */; };
 		CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */; };
 		CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF889CB51A89B3F0004D2206 /* Main.storyboard */; };
 		CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */; };
-		CF889CBB1A89C9DE004D2206 /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF889CBA1A89C9DE004D2206 /* UIImage+Tint.swift */; };
 		CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */; };
 		CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF889CC11A89D6D5004D2206 /* Images.xcassets */; };
 		CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */; };
@@ -50,13 +52,15 @@
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF4110491A84529500A78347 /* ReflectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectHeaderView.swift; sourceTree = "<group>"; };
 		CF41104B1A84579400A78347 /* AddReflectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionViewController.swift; sourceTree = "<group>"; };
+		CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+State.swift"; sourceTree = "<group>"; };
+		CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
+		CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWebView+ConfigureForReading.swift"; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeController.swift; sourceTree = "<group>"; };
 		CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteController.swift; sourceTree = "<group>"; };
 		CF889CB61A89B3F0004D2206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTabBar.swift; sourceTree = "<group>"; };
-		CF889CBA1A89C9DE004D2206 /* UIImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
 		CF889CBC1A89CDBF004D2206 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
 		CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		CF889CC11A89D6D5004D2206 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -129,13 +133,13 @@
 		CF0BE8061A61DA98007FCA8E /* Thesis */ = {
 			isa = PBXGroup;
 			children = (
-				CF889CC11A89D6D5004D2206 /* Images.xcassets */,
 				CFBA823A1A8704340030F13D /* Other */,
 				CFBA823B1A8704400030F13D /* Controllers */,
 				CFBA823D1A8704510030F13D /* Views */,
 				CFBA823C1A8704460030F13D /* Models */,
 				CF889CB51A89B3F0004D2206 /* Main.storyboard */,
 				CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */,
+				CF889CC11A89D6D5004D2206 /* Images.xcassets */,
 				CF0BE8071A61DA98007FCA8E /* Supporting Files */,
 				CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */,
 			);
@@ -165,13 +169,14 @@
 		CFBA823A1A8704340030F13D /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */,
 				CF889CBC1A89CDBF004D2206 /* UIAppearance+Swift.h */,
 				CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */,
 				CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */,
 				CFBA82701A870B120030F13D /* UIColor+Thesis.swift */,
 				CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */,
 				CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */,
-				CF889CBA1A89C9DE004D2206 /* UIImage+Tint.swift */,
+				CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		CFBA823D1A8704510030F13D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */,
 				CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */,
 				EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */,
 				EC063E2E1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift */,
@@ -344,10 +350,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */,
+				CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */,
 				CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
 				EC063E2F1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
+				CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */,
 				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CFBB8DB51A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
 				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
@@ -359,13 +367,13 @@
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
-				CF889CBB1A89C9DE004D2206 /* UIImage+Tint.swift in Sources */,
 				CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
 				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
 				CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */,
 				CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */,
+				CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */,
 				CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

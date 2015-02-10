@@ -28,6 +28,7 @@ class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
         self.init(style: .Plain)
         
         title = "Learn"
+        tabBarItem.image = UIImage(named: "Learn")
     }
     
     override func viewDidLoad() {
@@ -40,7 +41,10 @@ class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBaseColor()
-        tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBlur")?.imageTintedWithColor(UIColor.applicationLightColor())
+        tabBarController?.tabBar.unselectedColor = UIColor(r: 149, g: 160, b: 176)
+        tabBarController?.tabBar.selectedColor = UIColor.applicationBaseColor()
+        (tabBarController?.tabBar as? FloatingTabBar)?.color = UIColor.applicationLightColor()
+        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -52,6 +56,11 @@ class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
     
     func configureTableView() {
         tableView.backgroundColor = UIColor.applicationLightColor()
+        
+        if tabBarController != nil {
+            self.edgesForExtendedLayout = .All;
+            self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.height + 10, 0.0);
+        }
         
         tableView.tableHeaderView = headerView
         headerView.setNeedsLayout()
@@ -82,7 +91,7 @@ class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as ReadingTableViewCell
         let reading = 📖[indexPath.row] as NSDictionary
         
-        cell.configureForDictionary(reading)
+        cell.configureForReading(reading)
         
         return cell
     }

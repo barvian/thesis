@@ -32,6 +32,7 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
         self.init(style: .Plain)
         
         title = "Reflect"
+        tabBarItem.image = UIImage(named: "Reflect")
     }
     
     override func viewDidLoad() {
@@ -49,11 +50,18 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationGreenColor()
-        tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBlur")?.imageTintedWithColor(UIColor.applicationGreenColor())
+        tabBarController?.tabBar.unselectedColor = UIColor(r: 53, g: 120, b: 109)
+        tabBarController?.tabBar.selectedColor = UIColor.whiteColor()
+        (tabBarController?.tabBar as? FloatingTabBar)?.color = UIColor.applicationGreenColor()
     }
     
     func configureTableView() {
         tableView.backgroundColor = UIColor.applicationGreenColor()
+        
+        if tabBarController != nil {
+            self.edgesForExtendedLayout = .All;
+            self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.height + 10, 0.0);
+        }
         
         tableView.tableHeaderView = headerView
         headerView.setNeedsLayout()

@@ -25,7 +25,7 @@ class ReadingTableViewCell: UITableViewCell {
     private(set) lazy var descriptionLabel: UILabel = {
         let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 15.0)
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label.textColor = UIColor.applicationBaseColor().colorWithAlphaComponent(0.6)
+        label.textColor = UIColor(r: 149, g: 160, b: 176)
         label.lineBreakMode = .ByTruncatingTail
         label.numberOfLines = 0
         label.textAlignment = .Left

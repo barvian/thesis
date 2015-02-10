@@ -10,10 +10,9 @@ import UIKit
 
 extension ReadingTableViewCell {
     
-    func configureForDictionary(reading: NSDictionary) {
+    func configureForReading(reading: NSDictionary) {
         titleLabel.text = reading["Title"] as? String
         if let description = reading["Description"] as? String {
-            println(description)
             descriptionLabel.text = description
             descriptionLabel.hidden = false
         } else {

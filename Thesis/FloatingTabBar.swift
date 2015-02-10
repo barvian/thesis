@@ -9,6 +9,12 @@
 import UIKit
 
 class FloatingTabBar: UITabBar {
+    
+    var color: UIColor = UIColor.clearColor() {
+        willSet {
+            backgroundImage = UIImage(named: "TabBarBlur")?.add_tintedImageWithColor(newValue, style: ADDImageTintStyleKeepingAlpha)
+        }
+    }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -16,7 +22,16 @@ class FloatingTabBar: UITabBar {
         translucent = true
         shadowImage = UIImage()
         backgroundColor = UIColor.clearColor()
-        backgroundImage = UIImage()
+    }
+    
+    override func setItems(items: [AnyObject]?, animated: Bool) {
+        super.setItems(items, animated: animated)
+        
+        if let tabs = items as? [UITabBarItem] {
+            for tab in tabs {
+                tab.setTitlePositionAdjustment(UIOffsetMake(0, -5.0))
+            }
+        }
     }
     
     override func sizeThatFits(size: CGSize) -> CGSize {

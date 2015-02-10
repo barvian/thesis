@@ -9,31 +9,20 @@
 import UIKit
 import WebKit
 
-class ReadingViewController: UIViewController {
+class ReadingViewController: UIViewController, UIWebViewDelegate {
     
-    var reading: AnyObject? {
+    var reading: NSDictionary? {
         didSet {
-            configureView()
+            webView.configureForReading(reading)
         }
     }
     
-    private(set) lazy var webView: WKWebView = {
-        let webView = WKWebView()
+    private(set) lazy var webView: UIWebView = {
+        let webView = UIWebView()
+        webView.backgroundColor = UIColor.whiteColor()
         
         return webView
     }()
-    
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let reading: AnyObject = self.reading as? NSDictionary {
-            title = reading["Title"] as? String
-            
-            let file = reading["File"] as String
-            let path = NSBundle.mainBundle().pathForResource(file, ofType: "html", inDirectory: "Readings")!
-            let html = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!
-            webView.loadHTMLString(html, baseURL: nil)
-        }
-    }
     
     convenience override init() {
         self.init(nibName: nil, bundle: nil)
@@ -41,7 +30,7 @@ class ReadingViewController: UIViewController {
         hidesBottomBarWhenPushed = true
     }
 
-    override func loadView() {
+    override func viewDidLoad() {
         self.view = webView
         
         view.setNeedsUpdateConstraints()

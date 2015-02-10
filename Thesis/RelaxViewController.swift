@@ -115,6 +115,7 @@ class RelaxViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
         
         title = "Relax"
+        tabBarItem.image = UIImage(named: "Relax")
     }
     
     override func viewDidLoad() {
@@ -137,8 +138,9 @@ class RelaxViewController: UIViewController {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBlueColor()
-        tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBlur")?.imageTintedWithColor(UIColor.applicationBlueColor())
-        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBlueColor()
+        tabBarController?.tabBar.unselectedColor = UIColor(r: 57, g: 109, b: 128)
+        tabBarController?.tabBar.selectedColor = UIColor.whiteColor()
+        (tabBarController?.tabBar as? FloatingTabBar)?.color = UIColor.applicationBlueColor()
     }
     
     // MARK: Constraints
