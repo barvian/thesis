@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
+class LearnViewController: FullScreenTableViewController, LearnHeaderViewDelegate {
     
     private(set) lazy var 📖: NSArray = {
         let path = NSBundle.mainBundle().pathForResource("Readings", ofType: "plist")!
@@ -29,56 +29,22 @@ class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
         
         title = "Learn"
         tabBarItem.image = UIImage(named: "Learn")
+        tintColor = UIColor.applicationBaseColor()
+        backgroundColor = UIColor.applicationLightColor()
+        tabColor = UIColor(r: 178, g: 186, b: 196)
+        selectedTabColor = UIColor.applicationBaseColor()
     }
     
     override func viewDidLoad() {
+        tableView.tableHeaderView = headerView
+        
         super.viewDidLoad()
-        
-        configureTableView()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBaseColor()
-        tabBarController?.tabBar.unselectedColor = UIColor(r: 149, g: 160, b: 176)
-        tabBarController?.tabBar.selectedColor = UIColor.applicationBaseColor()
-        (tabBarController?.tabBar as? FloatingTabBar)?.color = UIColor.applicationLightColor()
-        
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    func configureTableView() {
-        tableView.backgroundColor = UIColor.applicationLightColor()
-        
-        if tabBarController != nil {
-            self.edgesForExtendedLayout = .All;
-            self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.height + 10, 0.0);
-        }
-        
-        tableView.tableHeaderView = headerView
-        headerView.setNeedsLayout()
-        headerView.layoutIfNeeded()
-        let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-        
-        // Update the header's frame and add it again
-        var headerFrame = headerView.frame
-        headerFrame.size.height = height
-        headerView.frame = headerFrame
-        tableView.tableHeaderView = headerView
         
         tableView.allowsSelection = true
         tableView.registerClass(ReadingTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorStyle = .None
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
-        
     }
     
     // MARK: UITableViewDataSource

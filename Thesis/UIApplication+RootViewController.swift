@@ -14,8 +14,16 @@ extension UIApplication {
         return UIApplication.sharedApplication().delegate as AppDelegate
     }
     
+    class var window: UIWindow {
+        return appDelegate.window!
+    }
+    
     class var rootViewController: RootViewController {
-        return appDelegate.window!.rootViewController as RootViewController
+        return window.rootViewController as RootViewController
+    }
+    
+    class var statusBarCover: UIImageView {
+        return appDelegate.statusBarCover
     }
     
 }

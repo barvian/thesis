@@ -93,7 +93,6 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
         
         if let delta = keyboardDelta {
             bottomLayoutConstraint.constant = delta
-            println(delta)
         }
         
         super.updateViewConstraints()

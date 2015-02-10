@@ -36,6 +36,12 @@ class ReadingViewController: UIViewController, UIWebViewDelegate {
         view.setNeedsUpdateConstraints()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.statusBarCover.hidden = true
+    }
+    
     // MARK: Constraints
     
     private var didSetupConstraints = false

@@ -29,14 +29,6 @@ class RootViewController: UITabBarController {
         
         return reflectController
     }()
-    
-    private(set) lazy var statusBarBlur: UIImageView = {
-        let blur = UIImageView(image: UIImage(named: "StatusBarBlur")?.imageWithRenderingMode(.AlwaysTemplate))
-        blur.userInteractionEnabled = false
-        blur.contentMode = .ScaleToFill
-        
-        return blur
-    }()
 
 
     required init(coder aDecoder: NSCoder) {
@@ -52,17 +44,6 @@ class RootViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if !SDCloudUserDefaults.hasSeenWelcome {
-            let welcomeController = OnboardingViewController()
-            presentViewController(welcomeController, animated: true, completion: {
-                SDCloudUserDefaults.hasSeenWelcome = true
-            })
-        }
     }
     
     // MARK: Constraints

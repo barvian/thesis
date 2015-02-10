@@ -9,13 +9,13 @@
 import UIKit
 import SSDynamicText
 
-class RelaxViewController: UIViewController {
+class RelaxViewController: FullScreenViewController {
     
     private(set) lazy var headlineLabel: UILabel = {
         let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
         label.text = "How are you feeling right now?"
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label.textColor = UIColor(r: 169, g: 231, b: 252)
+        label.textColor = UIColor(r: 191, g: 234, b: 248)
         label.lineBreakMode = .ByTruncatingTail
         label.numberOfLines = 0
         label.textAlignment = .Center
@@ -34,7 +34,7 @@ class RelaxViewController: UIViewController {
         let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
         label.text = "Subheader reminder thing text."
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label.textColor = UIColor(r: 169, g: 231, b: 252, a: 0.8)
+        label.textColor = UIColor(r: 191, g: 234, b: 248, a: 0.8)
         label.lineBreakMode = .ByTruncatingTail
         label.numberOfLines = 0
         label.textAlignment = .Center
@@ -116,12 +116,14 @@ class RelaxViewController: UIViewController {
         
         title = "Relax"
         tabBarItem.image = UIImage(named: "Relax")
+        tintColor = UIColor.applicationBlueColor()
+        backgroundColor = UIColor.applicationBlueColor()
+        tabColor = UIColor(r: 57, g: 109, b: 128)
+        selectedTabColor = UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.applicationBlueColor()
         
         view.addSubview(spacerViews[0])
         view.addSubview(headlineLabel)
@@ -132,15 +134,6 @@ class RelaxViewController: UIViewController {
         view.addSubview(spacerViews[1])
         
         view.setNeedsUpdateConstraints() // bootstrap AutoLayout
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBlueColor()
-        tabBarController?.tabBar.unselectedColor = UIColor(r: 57, g: 109, b: 128)
-        tabBarController?.tabBar.selectedColor = UIColor.whiteColor()
-        (tabBarController?.tabBar as? FloatingTabBar)?.color = UIColor.applicationBlueColor()
     }
     
     // MARK: Constraints
@@ -165,7 +158,7 @@ class RelaxViewController: UIViewController {
             
             view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
             view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(4)-[subheaderLabel]-(headerSpacing)-[happyButton(70)]-(margin)-[neutralButton(==happyButton)]-(margin)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
+            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-[subheaderLabel]-(headerSpacing)-[happyButton(70)]-(margin)-[neutralButton(==happyButton)]-(margin)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
             view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[subheaderLabel]-(margin)-|", options: nil, metrics: metrics, views: views))

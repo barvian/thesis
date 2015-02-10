@@ -13,16 +13,31 @@ import SDCloudUserDefaults
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow!
+    
+    private(set) lazy var statusBarCover: UIImageView = {
+        let image = UIImage(named: "StatusBarBlur")?.imageWithRenderingMode(.AlwaysTemplate)
+        let cover = UIImageView(image: image)
+        let statusBarFrame = UIApplication.sharedApplication().statusBarFrame
+        cover.frame = CGRectMake(0, 0, statusBarFrame.width, statusBarFrame.height * 2)
+        cover.contentMode = .ScaleToFill
+        cover.userInteractionEnabled = false
+        
+        return cover
+    }()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         SDCloudUserDefaults.registerForNotifications()
         
-        applyStylesheet()
+        window.rootViewController?.view.addSubview(statusBarCover)
+        
+        if !SDCloudUserDefaults.hasSeenWelcome {
+            let welcomeController = OnboardingViewController()
+            window.rootViewController?.presentViewController(welcomeController, animated: true, completion: {
+                SDCloudUserDefaults.hasSeenWelcome = true
+            })
+        }
         
         return true
-    }
-    
-    func applyStylesheet() {
-        
     }
     
 }

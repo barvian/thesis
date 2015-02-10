@@ -25,8 +25,10 @@ class LearnHeaderView: UIView {
         button.contentHorizontalAlignment = .Left
         button.backgroundColor = UIColor.whiteColor()
         button.layer.cornerRadius = 5
+        button.layer.borderColor = UIColor(r: 0, g: 0, b: 0, a: 0.1).CGColor
+        button.layer.borderWidth = 0.5
         button.layer.shadowOffset = CGSize(width: 0, height: 1)
-        button.layer.shadowRadius = 2
+        button.layer.shadowRadius = 1.5
         button.layer.shadowColor = UIColor.blackColor().CGColor
         button.layer.shadowOpacity = 0.075
 

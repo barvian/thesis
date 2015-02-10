@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
     
     var 📅: RLMResults {
         return Reflection.allObjects().sortedResultsUsingProperty("date", ascending: false)
@@ -33,53 +33,27 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
         
         title = "Reflect"
         tabBarItem.image = UIImage(named: "Reflect")
+        tintColor = UIColor.applicationGreenColor()
+        backgroundColor = UIColor.applicationGreenColor()
+        tabColor = UIColor(r: 53, g: 120, b: 109)
+        selectedTabColor = UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
+        tableView.tableHeaderView = headerView
+        
         super.viewDidLoad()
-        
-        configureTableView()
-        
-        // Set realm notification block
-        notificationToken = RLMRealm.defaultRealm().addNotificationBlock { note, realm in
-            self.tableView.reloadData()
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationGreenColor()
-        tabBarController?.tabBar.unselectedColor = UIColor(r: 53, g: 120, b: 109)
-        tabBarController?.tabBar.selectedColor = UIColor.whiteColor()
-        (tabBarController?.tabBar as? FloatingTabBar)?.color = UIColor.applicationGreenColor()
-    }
-    
-    func configureTableView() {
-        tableView.backgroundColor = UIColor.applicationGreenColor()
-        
-        if tabBarController != nil {
-            self.edgesForExtendedLayout = .All;
-            self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, self.tabBarController!.tabBar.frame.height + 10, 0.0);
-        }
-        
-        tableView.tableHeaderView = headerView
-        headerView.setNeedsLayout()
-        headerView.layoutIfNeeded()
-        let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-        
-        // Update the header's frame and add it again
-        var headerFrame = headerView.frame
-        headerFrame.size.height = height
-        headerView.frame = headerFrame
-        tableView.tableHeaderView = headerView
         
         tableView.allowsSelection = false
         tableView.registerClass(ReflectTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.separatorStyle = .None
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 64.0
-
+        
+        // Set realm notification block
+        notificationToken = RLMRealm.defaultRealm().addNotificationBlock { note, realm in
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: UITableViewDataSource

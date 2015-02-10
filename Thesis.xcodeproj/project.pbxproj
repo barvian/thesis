@@ -15,6 +15,9 @@
 		CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */; };
 		CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */; };
 		CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */; };
+		CF6FA8E91A8AA2E800856C8C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E81A8AA2E800856C8C /* RootViewController.swift */; };
+		CF6FA8ED1A8AAB3200856C8C /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8EC1A8AAB3200856C8C /* FullScreenViewController.swift */; };
+		CF6FA8EF1A8AAD0200856C8C /* FullScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8EE1A8AAD0200856C8C /* FullScreenTableViewController.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
 		CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */; };
@@ -25,7 +28,6 @@
 		CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF889CC11A89D6D5004D2206 /* Images.xcassets */; };
 		CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */; };
 		CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA82701A870B120030F13D /* UIColor+Thesis.swift */; };
-		CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */; };
 		CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */; };
 		CFBB8DB51A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB41A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift */; };
 		CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */; };
@@ -55,6 +57,9 @@
 		CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+State.swift"; sourceTree = "<group>"; };
 		CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
 		CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWebView+ConfigureForReading.swift"; sourceTree = "<group>"; };
+		CF6FA8E81A8AA2E800856C8C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		CF6FA8EC1A8AAB3200856C8C /* FullScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
+		CF6FA8EE1A8AAD0200856C8C /* FullScreenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenTableViewController.swift; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeController.swift; sourceTree = "<group>"; };
@@ -66,7 +71,6 @@
 		CF889CC11A89D6D5004D2206 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectViewController.swift; sourceTree = "<group>"; };
 		CFBA82701A870B120030F13D /* UIColor+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Thesis.swift"; sourceTree = "<group>"; };
-		CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectTableViewCell.swift; sourceTree = "<group>"; };
 		CFBB8DB41A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReflectTableViewCell+ConfigureForReflection.swift"; sourceTree = "<group>"; };
 		CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDCloudUserDefaults+Thesis.swift"; sourceTree = "<group>"; };
@@ -184,12 +188,14 @@
 		CFBA823B1A8704400030F13D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF6FA8EC1A8AAB3200856C8C /* FullScreenViewController.swift */,
+				CF6FA8EE1A8AAD0200856C8C /* FullScreenTableViewController.swift */,
 				CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */,
-				CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */,
 				CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */,
 				CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
 				CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */,
+				CF6FA8E81A8AA2E800856C8C /* RootViewController.swift */,
 				CF41104B1A84579400A78347 /* AddReflectionViewController.swift */,
 				CF76D1CD1A7EF67000A32859 /* Onboarding */,
 			);
@@ -353,12 +359,12 @@
 				CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */,
 				CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
+				CF6FA8E91A8AA2E800856C8C /* RootViewController.swift in Sources */,
 				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
 				EC063E2F1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
 				CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */,
 				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CFBB8DB51A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
-				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
@@ -367,11 +373,13 @@
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
+				CF6FA8ED1A8AAB3200856C8C /* FullScreenViewController.swift in Sources */,
 				CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
 				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
 				CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */,
+				CF6FA8EF1A8AAD0200856C8C /* FullScreenTableViewController.swift in Sources */,
 				CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */,
 				CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */,
 				CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */,
