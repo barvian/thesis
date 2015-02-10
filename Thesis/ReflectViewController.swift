@@ -49,13 +49,7 @@ class ReflectViewController: UITableViewController, ReflectHeaderViewDelegate, A
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationGreenColor()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBlur")?.imageTintedWithColor(UIColor.applicationGreenColor())
     }
     
     func configureTableView() {

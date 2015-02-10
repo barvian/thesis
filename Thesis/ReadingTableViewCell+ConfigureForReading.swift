@@ -12,7 +12,13 @@ extension ReadingTableViewCell {
     
     func configureForDictionary(reading: NSDictionary) {
         titleLabel.text = reading["Title"] as? String
-        descriptionLabel.text = reading["Description"] as? String
+        if let description = reading["Description"] as? String {
+            println(description)
+            descriptionLabel.text = description
+            descriptionLabel.hidden = false
+        } else {
+            descriptionLabel.hidden = true
+        }
     }
     
 }

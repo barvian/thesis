@@ -40,6 +40,7 @@ class LearnViewController: UITableViewController, LearnHeaderViewDelegate {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBaseColor()
+        tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBlur")?.imageTintedWithColor(UIColor.applicationLightColor())
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     

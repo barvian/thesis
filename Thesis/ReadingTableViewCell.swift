@@ -66,6 +66,7 @@ class ReadingTableViewCell: UITableViewCell {
     }
     
     private var didSetupConstraints = false
+    private var descriptionLabelTopConstraint: NSLayoutConstraint!
     
     override func updateConstraints() {
         if !didSetupConstraints {
@@ -82,13 +83,18 @@ class ReadingTableViewCell: UITableViewCell {
             
             titleLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
             descriptionLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(padding)-[titleLabel]-[descriptionLabel]-(padding)-[borderView(0.5)]|", options: nil, metrics: metrics, views: views))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(padding)-[titleLabel]", options: nil, metrics: metrics, views: views))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[descriptionLabel]-(padding)-[borderView(0.5)]|", options: nil, metrics: metrics, views: views))
+            descriptionLabelTopConstraint = NSLayoutConstraint(item: descriptionLabel, attribute: .Top, relatedBy: .Equal, toItem: titleLabel, attribute: .Bottom, multiplier: 1, constant: 0)
+            contentView.addConstraint(descriptionLabelTopConstraint)
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(padding)-[titleLabel]-(padding)-|", options: nil, metrics: metrics, views: views))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(padding)-[descriptionLabel]-(padding)-|", options: nil, metrics: metrics, views: views))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[borderView]|", options: nil, metrics: metrics, views: views))
             
             didSetupConstraints = true
         }
+        
+        descriptionLabelTopConstraint.constant = descriptionLabel.hidden ? 0 : 8
         
         super.updateConstraints()
     }

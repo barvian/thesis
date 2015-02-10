@@ -28,26 +28,23 @@ class RootViewController: UITabBarController {
         
         return reflectController
     }()
-    
-    convenience override init() {
-        self.init(nibName: nil, bundle: nil)
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
         viewControllers = [
             UINavigationController(rootViewController: learnController),
             relaxController,
-            UINavigationController(rootViewController: reflectController)
+            reflectController
         ]
         selectedIndex = 1
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tabBar.backgroundColor = UIColor.applicationGreenColor()
-        tabBar.translucent = false
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         if !SDCloudUserDefaults.hasSeenWelcome {
@@ -64,7 +61,6 @@ class RootViewController: UITabBarController {
     
     override func updateViewConstraints() {
         if !didSetupConstraints {
-            
             didSetupConstraints = true
         }
         

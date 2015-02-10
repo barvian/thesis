@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		25A911E3DD109BA9B5A30F65 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C53AE276EA08AB906DFD73 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */; };
-		CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8141A61DA98007FCA8E /* Images.xcassets */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
 		CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4110491A84529500A78347 /* ReflectHeaderView.swift */; };
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
@@ -17,6 +16,11 @@
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
 		CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */; };
 		CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */; };
+		CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF889CB51A89B3F0004D2206 /* Main.storyboard */; };
+		CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */; };
+		CF889CBB1A89C9DE004D2206 /* UIImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF889CBA1A89C9DE004D2206 /* UIImage+Tint.swift */; };
+		CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */; };
+		CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF889CC11A89D6D5004D2206 /* Images.xcassets */; };
 		CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */; };
 		CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA82701A870B120030F13D /* UIColor+Thesis.swift */; };
 		CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */; };
@@ -41,7 +45,6 @@
 		CF0BE8041A61DA98007FCA8E /* Thesis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thesis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0BE8081A61DA98007FCA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF0BE8141A61DA98007FCA8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -51,6 +54,12 @@
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeController.swift; sourceTree = "<group>"; };
 		CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteController.swift; sourceTree = "<group>"; };
+		CF889CB61A89B3F0004D2206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTabBar.swift; sourceTree = "<group>"; };
+		CF889CBA1A89C9DE004D2206 /* UIImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Tint.swift"; sourceTree = "<group>"; };
+		CF889CBC1A89CDBF004D2206 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
+		CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
+		CF889CC11A89D6D5004D2206 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectViewController.swift; sourceTree = "<group>"; };
 		CFBA82701A870B120030F13D /* UIColor+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Thesis.swift"; sourceTree = "<group>"; };
 		CFBB2BE61A75E8F0002AF6E4 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -120,11 +129,12 @@
 		CF0BE8061A61DA98007FCA8E /* Thesis */ = {
 			isa = PBXGroup;
 			children = (
+				CF889CC11A89D6D5004D2206 /* Images.xcassets */,
 				CFBA823A1A8704340030F13D /* Other */,
 				CFBA823B1A8704400030F13D /* Controllers */,
 				CFBA823D1A8704510030F13D /* Views */,
 				CFBA823C1A8704460030F13D /* Models */,
-				CF0BE8141A61DA98007FCA8E /* Images.xcassets */,
+				CF889CB51A89B3F0004D2206 /* Main.storyboard */,
 				CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */,
 				CF0BE8071A61DA98007FCA8E /* Supporting Files */,
 				CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */,
@@ -155,10 +165,13 @@
 		CFBA823A1A8704340030F13D /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				CF889CBC1A89CDBF004D2206 /* UIAppearance+Swift.h */,
+				CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */,
 				CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */,
 				CFBA82701A870B120030F13D /* UIColor+Thesis.swift */,
 				CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */,
 				CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */,
+				CF889CBA1A89C9DE004D2206 /* UIImage+Tint.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -189,6 +202,7 @@
 		CFBA823D1A8704510030F13D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */,
 				EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */,
 				EC063E2E1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift */,
 				CFBB8DB41A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift */,
@@ -267,7 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */,
-				CF0BE8151A61DA98007FCA8E /* Images.xcassets in Resources */,
+				CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */,
+				CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */,
 				CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */,
 				CFF8D7161A7ECA54003CF3DD /* Readings in Resources */,
 			);
@@ -333,6 +348,7 @@
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
 				EC063E2F1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
+				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CFBB8DB51A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
 				CFBB2BE71A75E8F0002AF6E4 /* RootViewController.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
@@ -343,6 +359,8 @@
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
+				CF889CBB1A89C9DE004D2206 /* UIImage+Tint.swift in Sources */,
+				CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
 				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
@@ -361,6 +379,14 @@
 				CF0BE8171A61DA98007FCA8E /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		CF889CB51A89B3F0004D2206 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF889CB61A89B3F0004D2206 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -19,7 +19,6 @@ class ReadingViewController: UIViewController {
     
     private(set) lazy var webView: WKWebView = {
         let webView = WKWebView()
-//         webView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         return webView
     }()
@@ -45,7 +44,7 @@ class ReadingViewController: UIViewController {
     override func loadView() {
         self.view = webView
         
-//        view.setNeedsUpdateConstraints()
+        view.setNeedsUpdateConstraints()
     }
     
     // MARK: Constraints

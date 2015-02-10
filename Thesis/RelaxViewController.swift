@@ -134,6 +134,10 @@ class RelaxViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBlueColor()
+        tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBlur")?.imageTintedWithColor(UIColor.applicationBlueColor())
         UIApplication.sharedApplication().keyWindow?.tintColor = UIColor.applicationBlueColor()
     }
     
