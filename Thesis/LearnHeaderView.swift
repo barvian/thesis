@@ -67,7 +67,7 @@ class LearnHeaderView: UIView {
                 "howToUseButton": ℹ️Button
             ]
             let metrics = [
-                "margin": 18
+                "margin": 14
             ]
             
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[howToUseButton]-(margin)-|", options: nil, metrics: metrics, views: views))

@@ -13,7 +13,7 @@ import UIKit
     optional func addReflectionViewControllerShouldCancel(addReflectionViewController: AddReflectionViewController)
 }
 
-class AddReflectionViewController: UIViewController, UITextViewDelegate {
+class AddReflectionViewController: FullScreenViewController, UITextViewDelegate {
     
     weak var delegate: AddReflectionViewControllerDelegate?
     
@@ -39,6 +39,11 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
     
     convenience override init() {
         self.init(nibName: nil, bundle: nil)
+        
+        backgroundColor = UIColor.whiteColor()
+        tintColor = UIColor.applicationGreenColor()
+        navigationBarHidden = false
+        navigationBarTranslucent = true
     }
     
     override func viewDidLoad() {
@@ -46,13 +51,7 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "didTapCancel")
-        
-        view.backgroundColor = UIColor.whiteColor()
         
         view.addSubview(eventPage)
         view.addSubview(reasonPage)
@@ -146,7 +145,7 @@ class AddReflectionViewController: UIViewController, UITextViewDelegate {
     // MARK: Deinitializer
     
     deinit {
-        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
 }

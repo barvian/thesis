@@ -6,4 +6,3 @@ pod 'SDCloudUserDefaults'
 pod 'Realm'
 pod 'SSDynamicText', :head 
 pod 'UIImage+Additions'
-pod 'AGWindowView'

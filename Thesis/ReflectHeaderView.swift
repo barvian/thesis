@@ -58,7 +58,8 @@ class ReflectHeaderView: UIView {
     private(set) lazy var addButton: UIButton = {
         let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
-        button.setTitle("Add", forState: .Normal)
+        button.setImage(UIImage(named: "Compose")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: -3, left: 0, bottom: 0, right: -4)
         button.backgroundColor = UIColor.whiteColor()
         button.layer.cornerRadius = 35
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -71,14 +72,6 @@ class ReflectHeaderView: UIView {
         return button
     }()
     
-    private(set) lazy var lineView: UIView = {
-        let line = UIView()
-        line.setTranslatesAutoresizingMaskIntoConstraints(false)
-        line.backgroundColor = UIColor(r: 132, g: 224, b: 201)
-        
-        return line
-    }()
-    
     // MARK: Initializers
     
     convenience override init() {
@@ -88,7 +81,6 @@ class ReflectHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(lineView)
         addSubview(headlineLabel)
         addSubview(subheaderLabel)
         addSubview(addButton)
@@ -111,8 +103,7 @@ class ReflectHeaderView: UIView {
             let views = [
                 "headlineLabel": headlineLabel,
                 "subheaderLabel": subheaderLabel,
-                "addButton": addButton,
-                "lineView": lineView
+                "addButton": addButton
             ]
             let metrics = [
                 "hMargin": 26,
@@ -120,12 +111,10 @@ class ReflectHeaderView: UIView {
             ]
             
             addConstraint(NSLayoutConstraint(item: addButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-            addConstraint(NSLayoutConstraint(item: lineView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)][lineView(64)]|", options: nil, metrics: metrics, views: views))
+            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)]|", options: nil, metrics: metrics, views: views))
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[headlineLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
             addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton(70)]", options: nil, metrics: metrics, views: views))
-            addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[lineView(2)]", options: nil, metrics: metrics, views: views))
             
             didSetupConstraints = true
         }

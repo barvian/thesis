@@ -11,9 +11,19 @@ import Realm
 
 class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
     
-    var 📅: RLMResults {
-        return Reflection.allObjects().sortedResultsUsingProperty("date", ascending: false)
+    let daysToShow = 30
+    
+    private(set) var 📅 = [NSDate: [Reflection]]()
+    var sortedDays: [NSDate] {
+        return 📅.keys.array.sorted() { return $0 > $1 }
     }
+    private(set) lazy var sectionDateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .NoStyle
+        
+        return dateFormatter
+    }()
     
     private(set) lazy var headerView: ReflectHeaderView = {
         let header = ReflectHeaderView()
@@ -50,22 +60,55 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 64.0
         
-        // Set realm notification block
-        notificationToken = RLMRealm.defaultRealm().addNotificationBlock { note, realm in
-            self.tableView.reloadData()
+        let startDate = NSDate()
+        let endDate = startDate.addDays(-daysToShow).beginningOfDay()
+        let predicate = NSPredicate(format: "date <= %@ AND date >= %@", startDate, endDate)
+        let sortedReflections = Reflection.objectsWithPredicate(predicate).sortedResultsUsingProperty("date", ascending: true) // reverse for API's sake
+        for var i: UInt = 0; i < sortedReflections.count; i++  {
+            addReflection(sortedReflections.objectAtIndex(i) as Reflection)
+        }
+    }
+    
+    // MARK: API
+    
+    func addReflection(reflection: Reflection) {
+        let date = reflection.date.beginningOfDay()
+        
+        // If we don't yet have an array to hold the reflections for this day, add one
+        if 📅[date] == nil {
+            📅[date] = [reflection]
+        } else {
+            📅[date]!.insert(reflection, atIndex: 0)
         }
     }
     
     // MARK: UITableViewDataSource
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return Int(📅.count)
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let date = sortedDays[section]
+        return 📅[date]!.count
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = ReflectSectionHeaderView()
+        view.configureForDate(sortedDays[section])
+        
+        return view
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 74
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as ReflectTableViewCell
-        let index = UInt(indexPath.row)
-        let reflection = 📅.objectAtIndex(index) as Reflection
+        let date = sortedDays[indexPath.section]
+        let reflection = 📅[date]![indexPath.row]
+        
         cell.configureForReflection(reflection)
         
         cell.setNeedsUpdateConstraints()
@@ -73,9 +116,6 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
         
         return cell
     }
-    
-    // MARK: UITableViewDelegate
-    
     
     // MARK: ReflectHeaderViewDelegate
     
@@ -99,6 +139,8 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
             realm.transactionWithBlock() {
                 realm.addObject(reflection)
             }
+            addReflection(reflection)
+            tableView.reloadData()
             
             addReflectionViewController.view.endEditing(true)
             dismissViewControllerAnimated(true, completion: nil)

@@ -53,6 +53,7 @@ class RelaxViewController: FullScreenViewController {
         let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😊", forState: .Normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
         button.backgroundColor = UIColor.whiteColor()
         button.layer.cornerRadius = 35
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -69,6 +70,7 @@ class RelaxViewController: FullScreenViewController {
         let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😐", forState: .Normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
         button.backgroundColor = UIColor.whiteColor()
         button.layer.cornerRadius = 35
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -85,6 +87,7 @@ class RelaxViewController: FullScreenViewController {
         let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("😖", forState: .Normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
         button.backgroundColor = UIColor.whiteColor()
         button.layer.cornerRadius = 35
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -176,7 +179,10 @@ class RelaxViewController: FullScreenViewController {
     // MARK: Handlers
     
     func didTapMoodButton(button: UIButton!) {
-        println(button.titleForState(.Normal))
+        let relaxationLaunchController = CalmingSceneViewController()
+//        relaxationLaunchController.mood = Mood(rawValue: Character(button.titleForState(.Normal)!))
+        
+        presentViewController(relaxationLaunchController, animated: true, completion: nil)
     }
     
 }

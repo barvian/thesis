@@ -96,7 +96,7 @@ class ReflectTableViewCell: UITableViewCell {
             
             eventLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
             reasonLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(4)-[eventLabel]-(4)-[reasonLabel]-[lineView(16)]|", options: nil, metrics: metrics, views: views))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[lineView(16)]-[eventLabel]-(4)-[reasonLabel]-|", options: nil, metrics: metrics, views: views))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[eventLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[reasonLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[lineView(2)]", options: nil, metrics: metrics, views: views))

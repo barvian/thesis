@@ -8,6 +8,7 @@
 
 import UIKit
 import SDCloudUserDefaults
+import Realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
