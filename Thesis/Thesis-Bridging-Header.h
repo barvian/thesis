@@ -5,6 +5,5 @@
 #import "SDCloudUserDefaults/SDCloudUserDefaults.h"
 #import "SSDynamicText/SSDynamicText.h"
 #import "UIImage+Additions/UIImage+Additions.h"
-#import "AGWindowView/AGWindowView.h"
 
 #import "UIAppearance+Swift.h"

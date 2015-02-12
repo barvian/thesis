@@ -179,7 +179,7 @@ class RelaxViewController: FullScreenViewController {
     // MARK: Handlers
     
     func didTapMoodButton(button: UIButton!) {
-        let relaxationLaunchController = CalmingSceneViewController()
+        let relaxationLaunchController = CalmingScenesViewController()
 //        relaxationLaunchController.mood = Mood(rawValue: Character(button.titleForState(.Normal)!))
         
         presentViewController(relaxationLaunchController, animated: true, completion: nil)

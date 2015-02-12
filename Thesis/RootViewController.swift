@@ -8,7 +8,6 @@
 
 import UIKit
 import SDCloudUserDefaults
-import AGWindowView
 
 class RootViewController: UITabBarController {
     
@@ -30,7 +29,6 @@ class RootViewController: UITabBarController {
         return reflectController
     }()
 
-
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -44,6 +42,17 @@ class RootViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !SDCloudUserDefaults.hasSeenWelcome {
+            let welcomeController = OnboardingViewController()
+            presentViewController(welcomeController, animated: true, completion: {
+                SDCloudUserDefaults.hasSeenWelcome = true
+            })
+        }
     }
     
     // MARK: Constraints

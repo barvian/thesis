@@ -31,13 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window.rootViewController?.view.addSubview(statusBarCover)
         
-        if !SDCloudUserDefaults.hasSeenWelcome {
-            let welcomeController = OnboardingViewController()
-            window.rootViewController?.presentViewController(welcomeController, animated: true, completion: {
-                SDCloudUserDefaults.hasSeenWelcome = true
-            })
-        }
-        
         return true
     }
     
