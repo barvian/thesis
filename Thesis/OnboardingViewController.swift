@@ -10,8 +10,8 @@ import UIKit
 
 class OnboardingViewController: SlidingViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate {
     
-    convenience override init() {
-        self.init(nibName: nil, bundle: nil)
+    init() {
+        super.init()
         
         title = "Welcome"
         viewControllers = [
@@ -20,6 +20,10 @@ class OnboardingViewController: SlidingViewController, UIPageViewControllerDeleg
         ]
         selectedIndex = 0
         paginated = true
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

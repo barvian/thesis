@@ -9,7 +9,7 @@
 import UIKit
 import SSDynamicText
 
-class RelaxViewController: FullScreenViewController {
+class RelaxViewController: FullScreenViewController, RelaxationControllerDelegate {
     
     private(set) lazy var headlineLabel: UILabel = {
         let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
@@ -179,10 +179,18 @@ class RelaxViewController: FullScreenViewController {
     // MARK: Handlers
     
     func didTapMoodButton(button: UIButton!) {
-        let relaxationLaunchController = CalmingScenesViewController()
-//        relaxationLaunchController.mood = Mood(rawValue: Character(button.titleForState(.Normal)!))
+        let mood = Character(button.titleForState(.Normal)!)
+        let relaxationLaunchController = RelaxationLaunchController(mood: Mood(rawValue: mood)!)
+        relaxationLaunchController.delegate = self
+        let navigationController = UINavigationController(rootViewController: relaxationLaunchController)
         
-        presentViewController(relaxationLaunchController, animated: true, completion: nil)
+        presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    // MARK: RelaxationControllerDelegate
+    
+    func relaxationControllerShouldDismiss(relaxationController: UIViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

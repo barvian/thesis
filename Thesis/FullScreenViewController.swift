@@ -41,6 +41,8 @@ class FullScreenViewController: UIViewController {
             (self.tabBarController?.tabBar as? FloatingTabBar)?.color = self.backgroundColor
         }
         
+        navigationController?.navigationBarHidden = navigationBarHidden
+        
         if (navigationBarTranslucent) {
             _prevNavigationBarImage = navigationController?.navigationBar.backgroundImageForBarMetrics(.Default)
             _prevNavigationBarShadowImage = navigationController?.navigationBar.shadowImage
@@ -50,23 +52,21 @@ class FullScreenViewController: UIViewController {
             navigationController?.navigationBar.shadowImage = UIImage()
             navigationController?.navigationBar.translucent = true
         }
-        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
         if navigationBarHidden {
-            navigationController?.setNavigationBarHidden(true, animated: animated)
+            navigationController?.setNavigationBarHidden(false, animated: true)
         }
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
-        if (navigationBarTranslucent) {
+        if navigationBarTranslucent && !navigationBarHidden {
             navigationController?.navigationBar.setBackgroundImage(_prevNavigationBarImage, forBarMetrics: .Default)
             navigationController?.navigationBar.shadowImage = _prevNavigationBarShadowImage
             navigationController?.navigationBar.translucent = _prevNavigationBarTranslucent!
-        }
-        
-        if navigationBarHidden {
-            navigationController?.setNavigationBarHidden(false, animated: animated)
         }
     }
     

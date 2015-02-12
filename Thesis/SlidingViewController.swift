@@ -64,8 +64,10 @@ class SlidingViewController: UIViewController, UIPageViewControllerDelegate, UIP
     
     var paginated: Bool = false
     
+    let spacing: CGFloat
+    
     private(set) lazy var pageViewController: UIPageViewController! = {
-        let controller = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+        let controller = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: [UIPageViewControllerOptionInterPageSpacingKey: self.spacing])
         controller.dataSource = self
         controller.delegate = self
         controller.view.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -79,6 +81,16 @@ class SlidingViewController: UIViewController, UIPageViewControllerDelegate, UIP
         
         return controller
     }()
+    
+    init(spacing: CGFloat = 0.0) {
+        self.spacing = spacing
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

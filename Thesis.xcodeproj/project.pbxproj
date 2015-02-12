@@ -40,6 +40,8 @@
 		CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */; };
 		CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */; };
 		CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */; };
+		CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */; };
+		CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */; };
 		CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */; };
 		CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */; };
 		CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */; };
@@ -91,6 +93,8 @@
 		CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDCloudUserDefaults+Thesis.swift"; sourceTree = "<group>"; };
 		CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionPageView.swift; sourceTree = "<group>"; };
+		CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationController.swift; sourceTree = "<group>"; };
+		CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Positioning.swift"; sourceTree = "<group>"; };
 		CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Readings.plist; sourceTree = "<group>"; };
 		CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			children = (
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
 				CF6FA8F61A8AF28000856C8C /* RelaxationLauncherController.swift */,
+				CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */,
 				CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */,
 			);
 			name = Relax;
@@ -197,6 +202,7 @@
 				EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */,
 				EC063E2E1A891103008FDA6C /* ReadingTableViewCell+ConfigureForReading.swift */,
 				CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */,
+				CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */,
 			);
 			name = Learn;
 			sourceTree = "<group>";
@@ -208,6 +214,9 @@
 				CF4110491A84529500A78347 /* ReflectHeaderView.swift */,
 				CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */,
 				CFBB8DB41A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift */,
+				CF6FA8F41A8ADCF500856C8C /* ReflectSectionHeaderView+ConfigureForDate.swift */,
+				CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */,
+				CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */,
 				CF41104B1A84579400A78347 /* AddReflectionViewController.swift */,
 			);
 			name = Reflect;
@@ -226,6 +235,7 @@
 		CFBA823A1A8704340030F13D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */,
 				CF6FA8F01A8ABBEC00856C8C /* NSDate+Additions.swift */,
 				CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */,
 				CF889CBC1A89CDBF004D2206 /* UIAppearance+Swift.h */,
@@ -265,11 +275,7 @@
 		CFBA823D1A8704510030F13D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF6FA8F41A8ADCF500856C8C /* ReflectSectionHeaderView+ConfigureForDate.swift */,
-				CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */,
-				CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */,
 				CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */,
-				CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */,
 				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CFBB8DB51A87CAAE0087AA3A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
+				CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
@@ -428,6 +435,7 @@
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
+				CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */,
 				CF6FA8ED1A8AAB3200856C8C /* FullScreenViewController.swift in Sources */,
 				CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,

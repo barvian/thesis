@@ -14,6 +14,7 @@ class OnboardingCompleteController: UIViewController {
         let button = UIButton.buttonWithType(.System) as UIButton
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.setTitle("Get Started", forState: .Normal)
+        button.addTarget(self, action: "didTapDoneButton:", forControlEvents: .TouchUpInside)
         
         return button
     }()
@@ -66,6 +67,12 @@ class OnboardingCompleteController: UIViewController {
         }
         
         super.updateViewConstraints()
+    }
+    
+    // MARK: Handlers
+    
+    func didTapDoneButton(button: UIButton!) {
+        UIApplication.rootViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

@@ -72,4 +72,11 @@ class LearnViewController: FullScreenTableViewController, LearnHeaderViewDelegat
         navigationController?.pushViewController(readingController, animated: true)
     }
     
+    // MARK: LearnHeaderViewDelegate
+    
+    func learnHeaderView(learnHeaderView: LearnHeaderView, didTapHowToUseButton howToUseButton: UIButton!) {
+        let welcomeController = OnboardingViewController()
+        UIApplication.rootViewController.presentViewController(welcomeController, animated: true, completion: nil)
+    }
+    
 }
