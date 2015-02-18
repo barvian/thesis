@@ -50,14 +50,6 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 	}
 	
 	override func viewDidLoad() {
-		let startDate = NSDate().beginningOfDay()
-		let endDate = startDate.addDays(-daysToShow)
-		let predicate = NSPredicate(format: "date <= %@ AND date >= %@", startDate, endDate)
-		let sortedReflections = Reflection.objectsWithPredicate(predicate).sortedResultsUsingProperty("date", ascending: true) // reverse for API's sake
-		for var i: UInt = 0; i < sortedReflections.count; i++  {
-			addReflection(sortedReflections.objectAtIndex(i) as! Reflection)
-		}
-		headerView.configureForTodaySection(📅[startDate])
 		tableView.tableHeaderView = headerView
 		
 		super.viewDidLoad()
@@ -68,7 +60,16 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 64.0
 		
-		
+		let startDate = NSDate().beginningOfDay()
+		let endDate = startDate.addDays(-daysToShow)
+		let predicate = NSPredicate(format: "date <= %@ AND date >= %@", startDate, endDate)
+		let sortedReflections = Reflection.objectsWithPredicate(predicate).sortedResultsUsingProperty("date", ascending: true) // reverse for API's sake
+		for var i: UInt = 0; i < sortedReflections.count; i++  {
+			addReflection(sortedReflections.objectAtIndex(i) as! Reflection)
+		}
+		if 📅[startDate] == nil {
+			📅[startDate] = [Reflection]()
+		}
 	}
 	
 	// MARK: API
@@ -96,9 +97,16 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 	}
 	
 	override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		switch (section, sortedDays[section]) {
-		case (0, NSDate().beginningOfDay()):
-			return nil
+		let date = sortedDays[section]
+		switch date {
+		case NSDate().beginningOfDay():
+			let header = ReflectReminderView()
+			header.configureForTodaySection(📅[date])
+			if header.hidden {
+				fallthrough
+			} else {
+				return header
+			}
 		default:
 			let header = ReflectSectionHeaderView()
 			header.configureForDate(sortedDays[section])
@@ -109,7 +117,7 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 	override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		switch (section, sortedDays[section]) {
 		case (0, NSDate().beginningOfDay()):
-			return 0
+			return 80
 		default:
 			return 74
 		}
@@ -151,7 +159,6 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 				realm.addObject(reflection)
 			}
 			addReflection(reflection)
-			headerView.configureForTodaySection(📅[NSDate().beginningOfDay()])
 			tableView.reloadData()
 			
 			addReflectionViewController.view.endEditing(true)

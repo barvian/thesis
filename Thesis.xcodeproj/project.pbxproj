@@ -12,6 +12,7 @@
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
 		CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4110491A84529500A78347 /* ReflectHeaderView.swift */; };
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
+		CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */; };
 		CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */; };
 		CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */; };
 		CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */; };
@@ -63,6 +64,7 @@
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF4110491A84529500A78347 /* ReflectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectHeaderView.swift; sourceTree = "<group>"; };
 		CF41104B1A84579400A78347 /* AddReflectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionViewController.swift; sourceTree = "<group>"; };
+		CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectReminderView.swift; sourceTree = "<group>"; };
 		CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+State.swift"; sourceTree = "<group>"; };
 		CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
 		CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWebView+ConfigureForReading.swift"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				CF4110491A84529500A78347 /* ReflectHeaderView.swift */,
 				CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */,
 				CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */,
+				CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */,
 				CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */,
 				CF41104B1A84579400A78347 /* AddReflectionViewController.swift */,
 			);
@@ -431,6 +434,7 @@
 				CF6FA8F71A8AF28000856C8C /* RelaxationLauncherController.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */,
+				CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
 				CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */,

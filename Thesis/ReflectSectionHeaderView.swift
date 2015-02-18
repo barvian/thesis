@@ -90,7 +90,7 @@ class ReflectSectionHeaderView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		pillView.layer.cornerRadius = pillView.frame.height / 2
+		pillView.layer.cornerRadius = pillView.bounds.height / 2
 	}
 	
 }

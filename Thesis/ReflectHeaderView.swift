@@ -74,44 +74,6 @@ class ReflectHeaderView: UIView {
 		return button
 	}()
 	
-	private(set) lazy var lineView: UIView = {
-		let line = UIView()
-		line.setTranslatesAutoresizingMaskIntoConstraints(false)
-		line.backgroundColor = UIColor(r: 132, g: 224, b: 201)
-		
-		return line
-	}()
-	
-	private(set) lazy var pillView: LBorderView = {
-		let pill = LBorderView()
-		pill.setTranslatesAutoresizingMaskIntoConstraints(false)
-		pill.borderType = BorderTypeDashed
-		pill.dashPattern = 5
-		pill.spacePattern = 3
-		pill.borderWidth = 1.5
-		pill.borderColor = UIColor(r: 132, g: 224, b: 201)
-		
-		return pill
-	}()
-	
-	private(set) lazy var reminderLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 15.0)
-		label.setTranslatesAutoresizingMaskIntoConstraints(false)
-		label.textColor = UIColor(r: 165, g: 242, b: 223)
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 1)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.1
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
-		
-		return label
-	}()
-	
 	// MARK: Initializers
 	
 	convenience override init() {
@@ -123,9 +85,6 @@ class ReflectHeaderView: UIView {
 		
 		addSubview(headlineLabel)
 		addSubview(subheaderLabel)
-		pillView.addSubview(reminderLabel)
-		addSubview(lineView)
-		addSubview(pillView)
 		addSubview(addButton)
 	}
 	
@@ -146,10 +105,7 @@ class ReflectHeaderView: UIView {
 			let views = [
 				"headlineLabel": headlineLabel,
 				"subheaderLabel": subheaderLabel,
-				"addButton": addButton,
-				"lineView": lineView,
-				"pillView": pillView,
-				"reminderLabel": reminderLabel
+				"addButton": addButton
 			]
 			let metrics = [
 				"hMargin": 26,
@@ -157,16 +113,10 @@ class ReflectHeaderView: UIView {
 			]
 			
 			addConstraint(NSLayoutConstraint(item: addButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)][lineView(vMargin)][pillView]|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)]|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[headlineLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton(70)]", options: nil, metrics: metrics, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(9)-[reminderLabel]-(10)-|", options: nil, metrics: nil, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(17)-[reminderLabel]-(17)-|", options: nil, metrics: nil, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[lineView(2)]", options: nil, metrics: nil, views: views))
-			for (_, subview) in views {
-				addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-			}
 			
 			didSetupConstraints = true
 		}
@@ -174,35 +124,10 @@ class ReflectHeaderView: UIView {
 		super.updateConstraints()
 	}
 	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		
-		pillView.cornerRadius = pillView.bounds.height / 2
-	}
-	
 	// MARK: Handlers
 	
 	func didTapAddButton(button: UIButton!) {
 		delegate?.reflectHeaderView?(self, didTapAddButton: button)
-	}
-	
-}
-
-extension ReflectHeaderView {
-	
-	func configureForTodaySection(section: [Reflection]?) {
-		let count = (section == nil ? 0 : section!.count), remaining = reflectionsPerDay - count
-		switch remaining {
-		case reflectionsPerDay:
-			reminderLabel.text = "What \(remaining) things were you grateful for today?"
-		case 1:
-			reminderLabel.text = "What else are you grateful for today?"
-		default:
-			reminderLabel.text = "What other \(remaining) things went well today?"
-		}
-		
-		pillView.hidden = remaining == 0
-		lineView.hidden = remaining == 0
 	}
 	
 }
