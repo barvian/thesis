@@ -9,11 +9,11 @@
 import UIKit
 
 @objc protocol RelaxationControllerDelegate {
-    optional func relaxationControllerShouldDismiss(relaxationController: UIViewController)
+	optional func relaxationControllerShouldDismiss(relaxationController: UIViewController)
 }
 
 protocol RelaxationController {
-    
-//    var relaxationDelegate: RelaxationControllerDelegate?
-    
+	
+	// var relaxationDelegate: RelaxationControllerDelegate?
+	
 }

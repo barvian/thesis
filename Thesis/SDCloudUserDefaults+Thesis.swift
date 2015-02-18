@@ -9,10 +9,10 @@
 import SDCloudUserDefaults
 
 extension SDCloudUserDefaults {
-    
-    class var hasSeenWelcome: Bool {
-        get { return SDCloudUserDefaults.boolForKey("hasSeenWelcome") }
-        set { SDCloudUserDefaults.setBool(newValue, forKey: "hasSeenWelcome") }
-    }
-    
+	
+	class var hasSeenWelcome: Bool {
+		get { return SDCloudUserDefaults.boolForKey("hasSeenWelcome") }
+		set { SDCloudUserDefaults.setBool(newValue, forKey: "hasSeenWelcome") }
+	}
+	
 }

@@ -12,9 +12,9 @@ import Realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow!
-    
+	
+	var window: UIWindow!
+	
     private(set) lazy var statusBarCover: UIImageView = {
         let image = UIImage(named: "StatusBarBlur")?.imageWithRenderingMode(.AlwaysTemplate)
         let cover = UIImageView(image: image)
@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         SDCloudUserDefaults.registerForNotifications()
-        SDCloudUserDefaults.hasSeenWelcome = false
         
         window.rootViewController?.view.addSubview(statusBarCover)
         

@@ -10,25 +10,25 @@ import UIKit
 import SDCloudUserDefaults
 
 class RootViewController: UITabBarController {
-    
-    private(set) lazy var learnController: LearnViewController = {
-        let learnController = LearnViewController()
-        
-        return learnController
-    }()
-    
-    private(set) lazy var relaxController: RelaxViewController = {
-        let relaxController = RelaxViewController()
-        
-        return relaxController
-    }()
-    
-    private(set) lazy var reflectController: ReflectViewController = {
-        let reflectController = ReflectViewController()
-        
-        return reflectController
-    }()
-
+	
+	private(set) lazy var learnController: LearnViewController = {
+		let learnController = LearnViewController()
+		
+		return learnController
+	}()
+	
+	private(set) lazy var relaxController: RelaxViewController = {
+		let relaxController = RelaxViewController()
+		
+		return relaxController
+	}()
+	
+	private(set) lazy var reflectController: ReflectViewController = {
+		let reflectController = ReflectViewController()
+		
+		return reflectController
+	}()
+	
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         

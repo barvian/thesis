@@ -9,15 +9,13 @@
 import UIKit
 
 extension UIWebView {
-    
-    func configureForReading(reading: NSDictionary?) {
-        if let file = reading?["File"] as? String {
-            if let path = NSBundle.mainBundle().pathForResource(file, ofType: "html", inDirectory: "Readings") {
-                if let url = NSURL(fileURLWithPath: path) {
-                    loadRequest(NSURLRequest(URL: url))
-                }
-            }
-        }
-    }
-    
+	
+	func configureForReading(reading: NSDictionary?) {
+		if let file = reading?["File"] as? String,
+				path = NSBundle.mainBundle().pathForResource(file, ofType: "html", inDirectory: "Readings"),
+				url = NSURL(fileURLWithPath: path) {
+			loadRequest(NSURLRequest(URL: url))
+		}
+	}
+	
 }

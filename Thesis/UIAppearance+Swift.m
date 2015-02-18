@@ -10,6 +10,6 @@
 
 @implementation UIView (UIViewAppearance_Swift)
 + (instancetype)bridge_appearanceWhenContainedIn:(Class<UIAppearanceContainer>)containerClass {
-    return [self appearanceWhenContainedIn:containerClass, nil];
+	return [self appearanceWhenContainedIn:containerClass, nil];
 }
 @end
