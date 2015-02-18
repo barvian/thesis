@@ -22,6 +22,7 @@ class ReflectReminderView: UIView {
 	private(set) lazy var pillView: LBorderView = {
 		let pill = LBorderView()
 		pill.setTranslatesAutoresizingMaskIntoConstraints(false)
+		pill.backgroundColor = UIColor.applicationGreenColor()
 		pill.borderType = BorderTypeDashed
 		pill.dashPattern = 5
 		pill.spacePattern = 3
