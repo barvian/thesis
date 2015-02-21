@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LearnViewController: UITableViewController, FullScreenViewController {
+class LearnViewController: UITableViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
 	
 	let tintColor = UIColor.applicationBaseColor()
 	let backgroundColor = UIColor.applicationLightColor()
@@ -66,9 +66,7 @@ class LearnViewController: UITableViewController, FullScreenViewController {
 		unhideFullScreenNavigationBar(self, animated: animated)
 	}
 	
-}
-
-extension LearnViewController: UITableViewDataSource {
+	// MARK: UITableViewDataSource
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 📖.count
@@ -83,9 +81,7 @@ extension LearnViewController: UITableViewDataSource {
 		return cell
 	}
 	
-}
-
-extension LearnViewController: UITableViewDelegate {
+	// MARK: UITableViewDelegate
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		let reading = 📖[indexPath.row] as! NSDictionary
@@ -95,9 +91,7 @@ extension LearnViewController: UITableViewDelegate {
 		navigationController?.pushViewController(readingController, animated: true)
 	}
 	
-}
-
-extension LearnViewController: LearnHeaderViewDelegate {
+	// MARK: LearnHeaderViewDelegate {
 	
 	func learnHeaderView(learnHeaderView: LearnHeaderView, didTapHowToUseButton howToUseButton: UIButton!) {
 		let welcomeController = OnboardingViewController()

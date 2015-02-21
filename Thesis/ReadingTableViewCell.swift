@@ -119,17 +119,3 @@ class ReadingTableViewCell: UITableViewCell {
 	}
 	
 }
-
-extension ReadingTableViewCell {
-	
-	func configureForReading(reading: NSDictionary) {
-		titleLabel.text = reading["Title"] as? String
-		if let description = reading["Description"] as? String {
-			descriptionLabel.text = description
-			descriptionLabel.hidden = false
-		} else {
-			descriptionLabel.hidden = true
-		}
-	}
-	
-}

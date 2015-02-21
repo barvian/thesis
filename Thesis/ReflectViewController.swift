@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class ReflectViewController: UITableViewController, FullScreenViewController, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: UITableViewController, FullScreenViewController, UITableViewDataSource, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
 	
 	let daysToShow = 30
 	

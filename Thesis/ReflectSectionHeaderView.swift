@@ -94,20 +94,3 @@ class ReflectSectionHeaderView: UIView {
 	}
 	
 }
-
-extension ReflectSectionHeaderView {
-	
-	func configureForDate(date: NSDate) {
-		let dateFormatter = NSDateFormatter()
-		dateFormatter.timeStyle = .NoStyle
-		dateFormatter.dateStyle = .MediumStyle
-		
-		let locale = NSLocale.currentLocale()
-		dateFormatter.locale = locale
-		
-		dateFormatter.doesRelativeDateFormatting = true
-		
-		dateLabel.text = dateFormatter.stringFromDate(date)
-	}
-	
-}

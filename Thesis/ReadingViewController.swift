@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ReadingViewController: UIViewController, UIWebViewDelegate {
+class ReadingViewController: UIViewController {
 	
 	var reading: NSDictionary? {
 		didSet {

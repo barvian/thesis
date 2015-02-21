@@ -33,6 +33,10 @@
 		CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF889CC11A89D6D5004D2206 /* Images.xcassets */; };
 		CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */; };
 		CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA82701A870B120030F13D /* UIColor+Thesis.swift */; };
+		CFBB40681A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */; };
+		CFBB406A1A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB40691A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift */; };
+		CFBB406C1A9935170036065A /* ReflectSectionHeaderView+ConfigureForDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB406B1A9935170036065A /* ReflectSectionHeaderView+ConfigureForDate.swift */; };
+		CFBB406E1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB406D1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift */; };
 		CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */; };
 		CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */; };
 		CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCA71881A942CE500D0B896 /* LBorderView.m */; };
@@ -86,6 +90,10 @@
 		CF889CC11A89D6D5004D2206 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectViewController.swift; sourceTree = "<group>"; };
 		CFBA82701A870B120030F13D /* UIColor+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Thesis.swift"; sourceTree = "<group>"; };
+		CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReadingTableViewCell+ConfigureForReading.swift"; sourceTree = "<group>"; };
+		CFBB40691A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReflectTableViewCell+ConfigureForReflection.swift"; sourceTree = "<group>"; };
+		CFBB406B1A9935170036065A /* ReflectSectionHeaderView+ConfigureForDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReflectSectionHeaderView+ConfigureForDate.swift"; sourceTree = "<group>"; };
+		CFBB406D1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReflectReminderView+ConfigureForSection.swift"; sourceTree = "<group>"; };
 		CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectTableViewCell.swift; sourceTree = "<group>"; };
 		CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDCloudUserDefaults+Thesis.swift"; sourceTree = "<group>"; };
 		CFCA71871A942CCA00D0B896 /* LBorderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBorderView.h; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 				CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */,
 				EC063E301A892433008FDA6C /* LearnHeaderView.swift */,
 				EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */,
+				CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */,
 				CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */,
 				CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */,
 			);
@@ -217,8 +226,11 @@
 				CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */,
 				CF4110491A84529500A78347 /* ReflectHeaderView.swift */,
 				CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */,
+				CFBB40691A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift */,
 				CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */,
+				CFBB406B1A9935170036065A /* ReflectSectionHeaderView+ConfigureForDate.swift */,
 				CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */,
+				CFBB406D1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift */,
 				CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */,
 				CF41104B1A84579400A78347 /* AddReflectionViewController.swift */,
 			);
@@ -430,6 +442,7 @@
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
 				ECBE8D991A8BA1E7000AC325 /* SlidingViewController.swift in Sources */,
+				CFBB406C1A9935170036065A /* ReflectSectionHeaderView+ConfigureForDate.swift in Sources */,
 				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
 				CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */,
 				EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */,
@@ -444,10 +457,13 @@
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
 				CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */,
 				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
+				CFBB40681A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
+				CFBB406A1A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
 				CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */,
 				CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */,
 				CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */,
+				CFBB406E1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift in Sources */,
 				CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

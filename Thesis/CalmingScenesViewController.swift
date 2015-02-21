@@ -131,7 +131,7 @@ class CalmingSceneViewController: UIViewController {
 	
 }
 
-class CalmingScenesViewController: SlidingViewController, CalmingSceneViewControllerDelegate, RelaxationController {
+class CalmingScenesViewController: SlidingViewController, RelaxationController, CalmingSceneViewControllerDelegate {
 	
 	weak var relaxationDelegate: RelaxationControllerDelegate?
 	
@@ -316,7 +316,7 @@ class CalmingScenesViewController: SlidingViewController, CalmingSceneViewContro
 		
 		super.updateViewConstraints()
 	}
-	
+ 
 	// MARK: CalmingSceneViewControllerDelegate
 	
 	func calmingSceneViewController(calmingSceneViewController: CalmingSceneViewController, didEndTouches touches: Set<NSObject>, withEvent event: UIEvent) {

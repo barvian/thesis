@@ -110,12 +110,3 @@ class ReflectTableViewCell: UITableViewCell {
 	}
 	
 }
-
-extension ReflectTableViewCell {
-	
-	func configureForReflection(reflection: Reflection) {
-		eventLabel.text = reflection.event
-		reasonLabel.text = reflection.reason
-	}
-	
-}
