@@ -135,6 +135,14 @@ class CalmingScenesViewController: SlidingViewController, CalmingSceneViewContro
 	
 	weak var relaxationDelegate: RelaxationControllerDelegate?
 	
+	let tintColor = UIColor.whiteColor()
+	let backgroundColor = UIColor.blackColor()
+	let tabColor = UIColor.clearColor()
+	let selectedTabColor = UIColor.clearColor()
+	
+	let navigationBarHidden = true
+	let navigationBarTranslucent = true
+	
 	private(set) var showingInstructions = true
 	
 	private(set) lazy var vignetteView: UIImageView = {
@@ -221,7 +229,8 @@ class CalmingScenesViewController: SlidingViewController, CalmingSceneViewContro
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = UIColor.blackColor()
+		setupFullScreenView(self)
+		
 		view.addSubview(vignetteView)
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
@@ -233,11 +242,20 @@ class CalmingScenesViewController: SlidingViewController, CalmingSceneViewContro
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		navigationController?.navigationBarHidden = true
+		updateFullScreenColors(self, animated: false)
+		hideFullScreenNavigationBar(self, animated: false)
 	}
 	
 	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
 		self.toggleInstructions(true, timer: 3.5)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: false)
 	}
 	
 	// MARK: API
@@ -276,16 +294,19 @@ class CalmingScenesViewController: SlidingViewController, CalmingSceneViewContro
 				"instructionsLabel": instructionsLabel,
 				"doneButton": doneButton
 			]
+			
+			let vMargin: CGFloat = 34, hMargin: CGFloat = 26
 			let metrics = [
-				"margin": 26
+				"vMargin": vMargin,
+				"hMargin": hMargin
 			]
 			
-			view.addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -34))
+			view.addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[vignetteView]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vignetteView]|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(42)-[titleLabel]-[instructionsLabel]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[titleLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[instructionsLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[titleLabel]-[instructionsLabel]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			for (_, subview) in views {
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}

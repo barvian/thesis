@@ -8,7 +8,15 @@
 
 import UIKit
 
-class LearnViewController: FullScreenTableViewController {
+class LearnViewController: UITableViewController, FullScreenViewController {
+	
+	let tintColor = UIColor.applicationBaseColor()
+	let backgroundColor = UIColor.applicationLightColor()
+	let tabColor = UIColor(r: 178, g: 186, b: 196)
+	let selectedTabColor = UIColor.applicationBaseColor()
+	
+	let navigationBarHidden = true
+	let navigationBarTranslucent = false
 	
 	private(set) lazy var 📖: NSArray = {
 		let path = NSBundle.mainBundle().pathForResource("Readings", ofType: "plist")!
@@ -29,22 +37,33 @@ class LearnViewController: FullScreenTableViewController {
 		
 		title = "Learn"
 		tabBarItem.image = UIImage(named: "Learn")
-		tintColor = UIColor.applicationBaseColor()
-		backgroundColor = UIColor.applicationLightColor()
-		tabColor = UIColor(r: 178, g: 186, b: 196)
-		selectedTabColor = UIColor.applicationBaseColor()
 	}
 	
 	override func viewDidLoad() {
-		tableView.tableHeaderView = headerView
-		
 		super.viewDidLoad()
+		
+		setupFullScreenView(self)
 		
 		tableView.allowsSelection = true
 		tableView.registerClass(ReadingTableViewCell.self, forCellReuseIdentifier: "cell")
 		tableView.separatorStyle = .None
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 44.0
+		tableView.tableHeaderView = headerView
+		constrainHeaderView()
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateFullScreenColors(self, animated: animated)
+		hideFullScreenNavigationBar(self, animated: animated)
+	}
+	
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: animated)
 	}
 	
 }

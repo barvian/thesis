@@ -13,9 +13,17 @@ import UIKit
 	optional func addReflectionViewControllerShouldCancel(addReflectionViewController: AddReflectionViewController)
 }
 
-class AddReflectionViewController: FullScreenViewController, UITextViewDelegate {
+class AddReflectionViewController: UIViewController, FullScreenViewController, UITextViewDelegate {
 	
 	weak var delegate: AddReflectionViewControllerDelegate?
+	
+	let backgroundColor = UIColor.whiteColor()
+	let tintColor = UIColor.applicationGreenColor()
+	let tabColor = UIColor(r: 178, g: 186, b: 196)
+	let selectedTabColor = UIColor.applicationBaseColor()
+	
+	let navigationBarHidden = false
+	let navigationBarTranslucent = true
 	
 	private(set) lazy var eventPage: AddReflectionPageView = {
 		let eventPage = AddReflectionPageView()
@@ -39,15 +47,12 @@ class AddReflectionViewController: FullScreenViewController, UITextViewDelegate 
 	
 	convenience override init() {
 		self.init(nibName: nil, bundle: nil)
-		
-		backgroundColor = UIColor.whiteColor()
-		tintColor = UIColor.applicationGreenColor()
-		navigationBarHidden = false
-		navigationBarTranslucent = true
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		setupFullScreenView(self)
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 		
@@ -62,7 +67,21 @@ class AddReflectionViewController: FullScreenViewController, UITextViewDelegate 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
+		updateFullScreenColors(self, animated: false)
+		
 		eventPage.textView.becomeFirstResponder()
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		hideFullScreenNavigationBar(self, animated: false)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: false)
 	}
 	
 	// MARK: Constraints

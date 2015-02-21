@@ -9,10 +9,18 @@
 import UIKit
 import SSDynamicText
 
-class RelaxationLaunchController: FullScreenViewController {
+class RelaxationLaunchController: UIViewController, FullScreenViewController {
 	
 	let mood: Mood
 	weak var delegate: RelaxationControllerDelegate?
+	
+	let tintColor = UIColor.applicationBlueColor()
+	let backgroundColor = UIColor.whiteColor()
+	let tabColor = UIColor(r: 178, g: 186, b: 196)
+	let selectedTabColor = UIColor.applicationBaseColor()
+	
+	let navigationBarHidden = false
+	let navigationBarTranslucent = true
 	
 	private(set) lazy var moodLabel: UILabel = {
 		let label = UILabel()
@@ -101,16 +109,19 @@ class RelaxationLaunchController: FullScreenViewController {
 		self.mood = mood
 		
 		super.init(nibName: nil, bundle: nil)
-		
-		tintColor = UIColor.applicationBlueColor()
-		backgroundColor = UIColor.whiteColor()
-		navigationBarHidden = true
+	}
+
+	required init(coder aDecoder: NSCoder) {
+	    fatalError("init(coder:) has not been implemented")
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setupFullScreenView(self)
+		
 		navigationController?.interactivePopGestureRecognizer.enabled = false
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "didTapCancel")
 		
 		view.addSubview(moodLabel)
 		view.addSubview(subheaderLabel)
@@ -125,6 +136,24 @@ class RelaxationLaunchController: FullScreenViewController {
 		timerButtons[1].selected = true
 		
 		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		updateFullScreenColors(self, animated: false)
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		hideFullScreenNavigationBar(self, animated: false)
+	}
+	
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: animated)
 	}
 	
 	// MARK: Constraints
@@ -144,21 +173,25 @@ class RelaxationLaunchController: FullScreenViewController {
 				"spacer2": spacerViews[1],
 				"beginButton": beginButton
 			]
+			
+			let vMargin: CGFloat = 34, hMargin: CGFloat = 26
 			let metrics = [
-				"vMargin": 34,
-				"hMargin": 26
+				"vMargin": vMargin,
+				"hMargin": hMargin
 			]
 			
 			for button in timerButtons {
 				button.centerVertically(padding: 10)
 			}
 			
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[moodLabel]-[subheaderLabel][spacer1(>=0)][timeLabel]-(vMargin)-[timer2(100,==timer1,==timer3)][spacer2(==spacer1)]-[beginButton]-(vMargin)-|", options: nil, metrics: metrics, views: views))
+			view.addConstraint(NSLayoutConstraint(item: moodLabel, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 12))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[moodLabel]-[subheaderLabel][spacer1(>=0)][timeLabel]-(vMargin)-[timer2(100,==timer1,==timer3)][spacer2(==spacer1)]-[beginButton]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[moodLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[timeLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[timer1(==timer2)]-[timer2(100)]-[timer3(==timer2)]", options: nil, metrics: metrics, views: views))
+			view.addConstraint(NSLayoutConstraint(item: beginButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
 			for (name, subview) in views {
 				if name.rangeOfString("timer") == nil {
 					view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
@@ -174,13 +207,11 @@ class RelaxationLaunchController: FullScreenViewController {
 		super.updateViewConstraints()
 	}
 	
-	override func viewWillLayoutSubviews() {
-		super.viewWillLayoutSubviews()
-		
-		
-	}
-	
 	// MARK: Handlers
+	
+	func didTapCancel() {
+		delegate?.relaxationControllerShouldDismiss?(self)
+	}
 	
 	func didTapTimerOption(button: UIButton!) {
 		for timer in timerButtons {

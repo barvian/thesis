@@ -9,9 +9,17 @@
 import UIKit
 import Realm
 
-class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: UITableViewController, FullScreenViewController, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
 	
 	let daysToShow = 30
+	
+	let tintColor = UIColor.applicationGreenColor()
+	let backgroundColor = UIColor.applicationGreenColor()
+	let tabColor = UIColor(r: 53, g: 120, b: 109)
+	let selectedTabColor = UIColor.whiteColor()
+	
+	let navigationBarHidden = true
+	let navigationBarTranslucent = true
 	
 	private(set) var 📅 = [NSDate: [Reflection]]()
 	var sortedDays: [NSDate] {
@@ -43,22 +51,20 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 		
 		title = "Reflect"
 		tabBarItem.image = UIImage(named: "Reflect")
-		tintColor = UIColor.applicationGreenColor()
-		backgroundColor = UIColor.applicationGreenColor()
-		tabColor = UIColor(r: 53, g: 120, b: 109)
-		selectedTabColor = UIColor.whiteColor()
 	}
 	
 	override func viewDidLoad() {
-		tableView.tableHeaderView = headerView
-		
 		super.viewDidLoad()
+		
+		setupFullScreenView(self)
 		
 		tableView.allowsSelection = false
 		tableView.registerClass(ReflectTableViewCell.self, forCellReuseIdentifier: "cell")
 		tableView.separatorStyle = .None
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 64.0
+		tableView.tableHeaderView = headerView
+		constrainHeaderView()
 		
 		let startDate = NSDate().beginningOfDay()
 		let endDate = startDate.addDays(-daysToShow)
@@ -70,6 +76,19 @@ class ReflectViewController: FullScreenTableViewController, ReflectHeaderViewDel
 		if 📅[startDate] == nil {
 			📅[startDate] = [Reflection]()
 		}
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateFullScreenColors(self, animated: false)
+		hideFullScreenNavigationBar(self, animated: false)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: false)
 	}
 	
 	// MARK: API

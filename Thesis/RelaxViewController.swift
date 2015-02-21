@@ -9,7 +9,15 @@
 import UIKit
 import SSDynamicText
 
-class RelaxViewController: FullScreenViewController, RelaxationControllerDelegate {
+class RelaxViewController: UIViewController, FullScreenViewController, RelaxationControllerDelegate {
+	
+	let tintColor = UIColor.applicationBlueColor()
+	let backgroundColor = UIColor.applicationBlueColor()
+	let tabColor = UIColor(r: 57, g: 109, b: 128)
+	let selectedTabColor = UIColor.whiteColor()
+	
+	let navigationBarHidden = true
+	let navigationBarTranslucent = true
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
@@ -119,14 +127,12 @@ class RelaxViewController: FullScreenViewController, RelaxationControllerDelegat
 		
 		title = "Relax"
 		tabBarItem.image = UIImage(named: "Relax")
-		tintColor = UIColor.applicationBlueColor()
-		backgroundColor = UIColor.applicationBlueColor()
-		tabColor = UIColor(r: 57, g: 109, b: 128)
-		selectedTabColor = UIColor.whiteColor()
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		setupFullScreenView(self)
 		
 		view.addSubview(spacerViews[0])
 		view.addSubview(headlineLabel)
@@ -137,6 +143,12 @@ class RelaxViewController: FullScreenViewController, RelaxationControllerDelegat
 		view.addSubview(spacerViews[1])
 		
 		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateFullScreenColors(self, animated: false)
 	}
 	
 	// MARK: Constraints
@@ -154,9 +166,11 @@ class RelaxViewController: FullScreenViewController, RelaxationControllerDelegat
 				"flusteredButton": 😖Button,
 				"spacer2": spacerViews[1]
 			]
+			
+			let headerSpacing: CGFloat = 52, margin: CGFloat = 26
 			let metrics = [
-				"headerSpacing": 52,
-				"margin": 26
+				"headerSpacing": headerSpacing,
+				"margin": margin
 			]
 			
 			view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
