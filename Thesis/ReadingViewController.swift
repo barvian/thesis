@@ -31,6 +31,10 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 		return webView
 	}()
 	
+	override func prefersStatusBarHidden() -> Bool {
+		return UIApplication.statusBarCover.hidden
+	}
+	
 	convenience override init() {
 		self.init(nibName: nil, bundle: nil)
 		hidesBottomBarWhenPushed = true
@@ -50,12 +54,14 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 		updateFullScreenColors(self, animated: animated)
 		hideFullScreenNavigationBar(self, animated: animated)
 		navigationController?.hidesBarsOnSwipe = true
+		navigationController?.barHideOnSwipeGestureRecognizer.addTarget(self, action: "didSwipe:")
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		
 		navigationController?.hidesBarsOnSwipe = false
+		navigationController?.barHideOnSwipeGestureRecognizer.removeTarget(self, action: "didSwipe:")
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
@@ -74,6 +80,16 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 		}
 		
 		super.updateViewConstraints()
+	}
+	
+	// MARK: Handlers
+	
+	func didSwipe(recognizer: UISwipeGestureRecognizer) {
+		var _shouldHideStatusBar = navigationController?.navigationBar.frame.origin.y < 0
+		UIView.animateWithDuration(0.2) {
+			UIApplication.statusBarCover.hidden = _shouldHideStatusBar
+			self.setNeedsStatusBarAppearanceUpdate()
+		}
 	}
 	
 }
