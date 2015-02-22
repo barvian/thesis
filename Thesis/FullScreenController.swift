@@ -59,7 +59,7 @@ func hideFullScreenNavigationBar(controller: FullScreenViewController, animated:
 		objc_setAssociatedObject(vc, &_prevNavigationBarShadowImageAssociationKey, vc.navigationController?.navigationBar.shadowImage, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
 		objc_setAssociatedObject(vc, &_prevNavigationBarTranslucentAssociationKey, vc.navigationController?.navigationBar.translucent, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
 		
-		vc.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+		vc.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "NavigationBarBlur")?.add_tintedImageWithColor(controller.backgroundColor, style: ADDImageTintStyleKeepingAlpha), forBarMetrics: .Default)
 		vc.navigationController?.navigationBar.shadowImage = UIImage()
 		vc.navigationController?.navigationBar.translucent = true
 	}
