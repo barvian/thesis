@@ -27,10 +27,7 @@ class ChunkyButton: UIButton {
 	
 	override var highlighted: Bool {
 		didSet {
-			UIView.animateWithDuration(0.1) {
-				[unowned self] in
-				self.drawBackground()
-			}
+			self.drawBackground()
 		}
 	}
 	
@@ -55,8 +52,8 @@ class ChunkyButton: UIButton {
 	}
 	
 	func drawBackground() {
-		backgroundColor = highlighted ? UIColor(r: 240, g: 240, b: 240) : UIColor.whiteColor()
-		transform = highlighted ? CGAffineTransformMakeScale(0.975, 0.975) : CGAffineTransformMakeScale(1, 1)
+		backgroundColor = highlighted ? UIColor.whiteColor().colorWithAlphaComponent(0.9) : UIColor.whiteColor()
+		transform = highlighted && round ? CGAffineTransformMakeScale(0.975, 0.975) : CGAffineTransformMakeScale(1, 1)
 		layer.shadowOffset = CGSize(width: 0, height: highlighted ? CGFloat(zIndex) * 0.5 : CGFloat(zIndex) * 1.5)
 		layer.shadowRadius = highlighted ? CGFloat(zIndex) * 0.5 : CGFloat(zIndex) * 2
 	}
