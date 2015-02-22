@@ -28,7 +28,7 @@ func setupFullScreenView(controller: FullScreenViewController) {
 	let vc = controller as! UIViewController
 
 	vc.view.backgroundColor = controller.backgroundColor
-	if let tabBarController = vc.tabBarController {
+	if let tabBarController = vc.tabBarController where !vc.hidesBottomBarWhenPushed {
 		vc.edgesForExtendedLayout = .All;
 		(vc.view as? UIScrollView)?.contentInset = UIEdgeInsetsMake(0.0, 0.0, tabBarController.tabBar.frame.height + 20, 0.0);
 	}
@@ -41,9 +41,12 @@ func updateFullScreenColors(controller: FullScreenViewController, animated: Bool
 		UIApplication.window.tintColor = controller.tintColor
 		UIApplication.statusBarCover.hidden = false
 		UIApplication.statusBarCover.tintColor = controller.backgroundColor
-		vc.tabBarController?.tabBar.unselectedColor = controller.tabColor
-		vc.tabBarController?.tabBar.selectedColor = controller.selectedTabColor
-		(vc.tabBarController?.tabBar as? FloatingTabBar)?.color = controller.backgroundColor
+		
+		if !vc.hidesBottomBarWhenPushed {
+			vc.tabBarController?.tabBar.unselectedColor = controller.tabColor
+			vc.tabBarController?.tabBar.selectedColor = controller.selectedTabColor
+			(vc.tabBarController?.tabBar as? FloatingTabBar)?.color = controller.backgroundColor
+		}
 	}
 }
 

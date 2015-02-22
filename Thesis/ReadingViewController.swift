@@ -9,7 +9,15 @@
 import UIKit
 import WebKit
 
-class ReadingViewController: UIViewController {
+class ReadingViewController: UIViewController, FullScreenViewController {
+	
+	let tintColor = UIColor.applicationBaseColor()
+	let backgroundColor = UIColor.whiteColor()
+	let tabColor = UIColor(r: 178, g: 186, b: 196)
+	let selectedTabColor = UIColor.applicationBaseColor()
+	
+	let navigationBarHidden = false
+	let navigationBarTranslucent = true
 	
 	var reading: NSDictionary? {
 		didSet {
@@ -19,19 +27,19 @@ class ReadingViewController: UIViewController {
 	
 	private(set) lazy var webView: UIWebView = {
 		let webView = UIWebView()
-		webView.backgroundColor = UIColor.whiteColor()
 		
 		return webView
 	}()
 	
 	convenience override init() {
 		self.init(nibName: nil, bundle: nil)
-		
 		hidesBottomBarWhenPushed = true
 	}
 	
 	override func viewDidLoad() {
 		self.view = webView
+		
+		setupFullScreenView(self)
 		
 		view.setNeedsUpdateConstraints()
 	}
@@ -39,7 +47,21 @@ class ReadingViewController: UIViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		UIApplication.statusBarCover.hidden = true
+		updateFullScreenColors(self, animated: animated)
+		hideFullScreenNavigationBar(self, animated: animated)
+		navigationController?.hidesBarsOnSwipe = true
+	}
+	
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		navigationController?.hidesBarsOnSwipe = false
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: animated)
 	}
 	
 	// MARK: Constraints

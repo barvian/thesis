@@ -17,7 +17,7 @@ extension UITabBarItem {
 		}
 		set(newValue) {
 			setTitleTextAttributes([NSForegroundColorAttributeName: newValue], forState: .Normal)
-			image = image?.add_tintedImageWithColor(newValue, style: ADDImageTintStyleKeepingAlpha).imageWithRenderingMode(.AlwaysOriginal)
+			image = image?.add_tintedImageWithColor(newValue.colorWithAlphaComponent(1.0), style: ADDImageTintStyleKeepingAlpha).imageWithRenderingMode(.AlwaysOriginal)
 		}
 	}
 	
@@ -28,7 +28,7 @@ extension UITabBarItem {
 		}
 		set(newValue) {
 			setTitleTextAttributes([NSForegroundColorAttributeName: newValue], forState: .Selected)
-			selectedImage = image?.add_tintedImageWithColor(newValue, style: ADDImageTintStyleKeepingAlpha).imageWithRenderingMode(.AlwaysOriginal)
+			selectedImage = image?.add_tintedImageWithColor(newValue.colorWithAlphaComponent(1.0), style: ADDImageTintStyleKeepingAlpha).imageWithRenderingMode(.AlwaysOriginal)
 		}
 	}
 	
