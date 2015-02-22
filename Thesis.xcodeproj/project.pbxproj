@@ -288,8 +288,8 @@
 			children = (
 				CFCA71871A942CCA00D0B896 /* LBorderView.h */,
 				CFCA71881A942CE500D0B896 /* LBorderView.m */,
-				CFE5F58B1A93862A0011008A /* ChunkyButton.swift */,
 				CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */,
+				CFE5F58B1A93862A0011008A /* ChunkyButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -576,6 +576,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thesis/Thesis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = Thesis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -595,6 +596,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thesis/Thesis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = Thesis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

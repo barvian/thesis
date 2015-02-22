@@ -58,16 +58,10 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}()
 	
 	private(set) lazy var 😊Button: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
+		let button = ChunkyButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setTitle("😊", forState: .Normal)
 		button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
-		button.backgroundColor = UIColor.whiteColor()
-		button.layer.cornerRadius = 35
-		button.layer.shadowOffset = CGSize(width: 0, height: 3)
-		button.layer.shadowRadius = 4
-		button.layer.shadowColor = UIColor.blackColor().CGColor
-		button.layer.shadowOpacity = 0.1
 		
 		button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
 		
@@ -75,16 +69,10 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}()
 	
 	private(set) lazy var 😐Button: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
+		let button = ChunkyButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setTitle("😐", forState: .Normal)
 		button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
-		button.backgroundColor = UIColor.whiteColor()
-		button.layer.cornerRadius = 35
-		button.layer.shadowOffset = CGSize(width: 0, height: 3)
-		button.layer.shadowRadius = 4
-		button.layer.shadowColor = UIColor.blackColor().CGColor
-		button.layer.shadowOpacity = 0.1
 		
 		button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
 		
@@ -92,16 +80,10 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}()
 	
 	private(set) lazy var 😖Button: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
+		let button = ChunkyButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setTitle("😖", forState: .Normal)
 		button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
-		button.backgroundColor = UIColor.whiteColor()
-		button.layer.cornerRadius = 35
-		button.layer.shadowOffset = CGSize(width: 0, height: 3)
-		button.layer.shadowRadius = 4
-		button.layer.shadowColor = UIColor.blackColor().CGColor
-		button.layer.shadowOpacity = 0.1
 		
 		button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
 		

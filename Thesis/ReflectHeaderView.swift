@@ -58,16 +58,10 @@ class ReflectHeaderView: UIView {
 	}()
 	
 	private(set) lazy var addButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
+		let button = ChunkyButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setImage(UIImage(named: "Compose")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
 		button.imageEdgeInsets = UIEdgeInsets(top: -3, left: 0, bottom: 0, right: -4)
-		button.backgroundColor = UIColor.whiteColor()
-		button.layer.cornerRadius = 35
-		button.layer.shadowOffset = CGSize(width: 0, height: 3)
-		button.layer.shadowRadius = 4
-		button.layer.shadowColor = UIColor.blackColor().CGColor
-		button.layer.shadowOpacity = 0.1
 		
 		button.addTarget(self, action: "didTapAddButton:", forControlEvents: .TouchUpInside)
 		
