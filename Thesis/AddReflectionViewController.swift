@@ -67,14 +67,13 @@ class AddReflectionViewController: UIViewController, FullScreenViewController, U
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		updateFullScreenColors(self, animated: false)
-		
 		eventPage.textView.becomeFirstResponder()
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		updateFullScreenColors(self, animated: animated)
 		hideFullScreenNavigationBar(self, animated: false)
 	}
 	

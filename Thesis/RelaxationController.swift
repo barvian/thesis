@@ -12,8 +12,8 @@ import UIKit
 	optional func relaxationControllerShouldDismiss(relaxationController: UIViewController)
 }
 
-protocol RelaxationController: FullScreenViewController {
+protocol RelaxationController {
 	
-	// var relaxationDelegate: RelaxationControllerDelegate?
+	var relaxationDelegate: RelaxationControllerDelegate? { get }
 	
 }

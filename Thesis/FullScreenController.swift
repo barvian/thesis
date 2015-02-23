@@ -54,7 +54,7 @@ func hideFullScreenNavigationBar(controller: FullScreenViewController, animated:
 	let vc = controller as! UIViewController
 	vc.navigationController?.setNavigationBarHidden(controller.navigationBarHidden, animated: animated)
 	
-	if controller.navigationBarTranslucent {
+	if !controller.navigationBarHidden && controller.navigationBarTranslucent {
 		objc_setAssociatedObject(vc, &_prevNavigationBarImageAssociationKey, vc.navigationController?.navigationBar.backgroundImageForBarMetrics(.Default), objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
 		objc_setAssociatedObject(vc, &_prevNavigationBarShadowImageAssociationKey, vc.navigationController?.navigationBar.shadowImage, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN))
 		objc_setAssociatedObject(vc, &_prevNavigationBarTranslucentAssociationKey, vc.navigationController?.navigationBar.translucent, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
@@ -69,7 +69,7 @@ func unhideFullScreenNavigationBar(controller: FullScreenViewController, animate
 	let vc = controller as! UIViewController
 	vc.navigationController?.setNavigationBarHidden(false, animated: animated)
 	
-	if controller.navigationBarTranslucent && !controller.navigationBarHidden {
+	if !controller.navigationBarHidden && controller.navigationBarTranslucent {
 		vc.navigationController?.navigationBar.setBackgroundImage(objc_getAssociatedObject(vc, &_prevNavigationBarImageAssociationKey) as? UIImage, forBarMetrics: .Default)
 		vc.navigationController?.navigationBar.shadowImage = objc_getAssociatedObject(vc, &_prevNavigationBarShadowImageAssociationKey) as? UIImage
 		vc.navigationController?.navigationBar.translucent = objc_getAssociatedObject(vc, &_prevNavigationBarTranslucentAssociationKey) as! Bool

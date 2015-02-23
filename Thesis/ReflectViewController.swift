@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class ReflectViewController: UITableViewController, FullScreenViewController, UITableViewDataSource, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: ConstrainedTableViewController, FullScreenViewController, UITableViewDataSource, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
 	
 	let daysToShow = 30
 	
@@ -25,6 +25,7 @@ class ReflectViewController: UITableViewController, FullScreenViewController, UI
 	var sortedDays: [NSDate] {
 		return 📅.keys.array.sorted() { return $0 > $1 }
 	}
+	
 	private(set) lazy var sectionDateFormatter: NSDateFormatter = {
 		let dateFormatter = NSDateFormatter()
 		dateFormatter.dateStyle = .ShortStyle
@@ -64,17 +65,17 @@ class ReflectViewController: UITableViewController, FullScreenViewController, UI
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 64.0
 		tableView.tableHeaderView = headerView
-		constrainHeaderView()
 		
-		let startDate = NSDate().beginningOfDay()
-		let endDate = startDate.addDays(-daysToShow)
+		let startDate = NSDate()
+		let today = startDate.beginningOfDay()
+		let endDate = today.addDays(-daysToShow)
 		let predicate = NSPredicate(format: "date <= %@ AND date >= %@", startDate, endDate)
 		let sortedReflections = Reflection.objectsWithPredicate(predicate).sortedResultsUsingProperty("date", ascending: true) // reverse for API's sake
 		for var i: UInt = 0; i < sortedReflections.count; i++  {
 			addReflection(sortedReflections.objectAtIndex(i) as! Reflection)
 		}
-		if 📅[startDate] == nil {
-			📅[startDate] = [Reflection]()
+		if 📅[today] == nil {
+			📅[today] = [Reflection]()
 		}
 	}
 	

@@ -4,9 +4,9 @@
 	overflow: hidden;
 }
 
-* + * {
-	margin-top: 1.55556em;
-}
+	* + * {
+		margin-top: 1.55556rem;
+	}
 
 html {
 	font: -apple-system-body;
@@ -17,6 +17,20 @@ body {
 	font-family: "Georgia";
 	font-size: 1em;
 	line-height: 1.55556;
-	padding: 24px 24px 48px;
+	padding: 26px 26px 52px;
 	margin: 0;
+}
+
+h1 {
+	border-bottom: 1px solid #000;
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 1.25;
+	padding-bottom: 0.65em;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 1.5rem;
+	line-height: 1.25;
 }

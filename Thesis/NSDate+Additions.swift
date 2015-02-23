@@ -18,13 +18,22 @@ extension NSDate: Comparable {
 		
 		// Selectively convert the date components (year, month, day) of the input date
 		let dateComps = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: self)
-		
-		// Set the time components manually
 		dateComps.hour = 0
 		dateComps.minute = 0
 		dateComps.second = 0
 		
-		// Convert back
+		return calendar.dateFromComponents(dateComps)!
+	}
+	
+	func beginningOfMinute() -> NSDate {
+		// Use the user's current calendar and time zone
+		let calendar = NSCalendar.currentCalendar()
+		let timeZone = NSTimeZone.systemTimeZone()
+		calendar.timeZone = timeZone
+		
+		let dateComps = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit, fromDate: self)
+		dateComps.second = 0
+		
 		return calendar.dateFromComponents(dateComps)!
 	}
 	

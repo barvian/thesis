@@ -17,7 +17,7 @@ class ReflectReminderView: UIView {
 		line.backgroundColor = UIColor(r: 132, g: 224, b: 201)
 		
 		return line
-		}()
+	}()
 	
 	private(set) lazy var pillView: LBorderView = {
 		let pill = LBorderView()

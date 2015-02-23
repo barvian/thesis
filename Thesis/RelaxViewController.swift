@@ -40,7 +40,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	
 	private(set) lazy var subheaderLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
-		label.text = "Subheader reminder thing text."
+		label.text = ""
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 191, g: 234, b: 248, a: 0.8)
 		label.lineBreakMode = .ByTruncatingTail
@@ -118,7 +118,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		
 		view.addSubview(spacerViews[0])
 		view.addSubview(headlineLabel)
-		view.addSubview(subheaderLabel)
+		// view.addSubview(subheaderLabel)
 		view.addSubview(😊Button)
 		view.addSubview(😐Button)
 		view.addSubview(😖Button)
@@ -142,7 +142,6 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 			let views = [
 				"spacer1": spacerViews[0],
 				"headlineLabel": headlineLabel,
-				"subheaderLabel": subheaderLabel,
 				"happyButton": 😊Button,
 				"neutralButton": 😐Button,
 				"flusteredButton": 😖Button,
@@ -157,10 +156,10 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 			
 			view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
 			view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-[subheaderLabel]-(headerSpacing)-[happyButton(70)]-(margin)-[neutralButton(==happyButton)]-(margin)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(headerSpacing)-[happyButton(70)]-(margin)-[neutralButton(==happyButton)]-(margin)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[subheaderLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
+			// view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[subheaderLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[happyButton(70,==neutralButton,==flusteredButton)]", options: nil, metrics: metrics, views: views))
 			for (_, subview) in views {
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))

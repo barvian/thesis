@@ -1,30 +1,21 @@
 //
-//  AddReflectionView.swift
+//  StatementsHeaderView.swift
 //  Thesis
 //
-//  Created by Maxwell Barvian on 2/5/15.
+//  Created by Maxwell Barvian on 2/23/15.
 //  Copyright (c) 2015 Maxwell Barvian. All rights reserved.
 //
 
 import UIKit
 import SSDynamicText
 
-@objc protocol ReflectHeaderViewDelegate {
-	optional func reflectHeaderView(reflectHeaderView: ReflectHeaderView, didTapAddButton addButton: UIButton!)
-}
-
-public let reflectionsPerDay = 3
-
-class ReflectHeaderView: UIView {
-	
-	weak var delegate: ReflectHeaderViewDelegate?
+class StatementsHeaderView: UIView {
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "What went well today?"
+		label.text = "Coping Statements"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
-		label.textColor = UIColor(r: 184, g: 248, b: 232)
-		label.lineBreakMode = .ByTruncatingTail
+		label.textColor = UIColor(r: 255, g: 255, b: 255, a: 0.85)
 		label.numberOfLines = 0
 		label.textAlignment = .Center
 		
@@ -40,10 +31,9 @@ class ReflectHeaderView: UIView {
 	
 	private(set) lazy var subheaderLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
-		label.text = "(And yes, tacos for dinner totally counts.)"
+		label.text = "Allow time to pass while you remind yourself of the following statements.  Breathe deeply and repeat one internally; feel free to try another if one gets tiresome."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
-		label.textColor = UIColor(r: 184, g: 248, b: 232, a: 0.8)
-		label.lineBreakMode = .ByTruncatingTail
+		label.textColor = UIColor(r: 255, g: 255, b: 255, a: 0.55)
 		label.numberOfLines = 0
 		label.textAlignment = .Center
 		
@@ -57,17 +47,6 @@ class ReflectHeaderView: UIView {
 		return label
 	}()
 	
-	private(set) lazy var addButton: UIButton = {
-		let button = ChunkyButton()
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setImage(UIImage(named: "Compose")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-		button.imageEdgeInsets = UIEdgeInsets(top: -3, left: 0, bottom: 0, right: -4)
-		
-		button.addTarget(self, action: "didTapAddButton:", forControlEvents: .TouchUpInside)
-		
-		return button
-	}()
-	
 	// MARK: Initializers
 	
 	convenience override init() {
@@ -79,7 +58,6 @@ class ReflectHeaderView: UIView {
 		
 		addSubview(headlineLabel)
 		addSubview(subheaderLabel)
-		addSubview(addButton)
 	}
 	
 	required init(coder aDecoder: NSCoder) {
@@ -98,19 +76,16 @@ class ReflectHeaderView: UIView {
 		if !didSetupConstraints {
 			let views = [
 				"headlineLabel": headlineLabel,
-				"subheaderLabel": subheaderLabel,
-				"addButton": addButton
+				"subheaderLabel": subheaderLabel
 			]
 			let metrics = [
 				"hMargin": 26,
-				"vMargin": 52
+				"vMargin": 34
 			]
 			
-			addConstraint(NSLayoutConstraint(item: addButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)]|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[headlineLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton(70)]", options: nil, metrics: metrics, views: views))
 			
 			didSetupConstraints = true
 		}
@@ -123,12 +98,6 @@ class ReflectHeaderView: UIView {
 		
 		headlineLabel.preferredMaxLayoutWidth = headlineLabel.frame.width
 		subheaderLabel.preferredMaxLayoutWidth = subheaderLabel.frame.width
-	}
-	
-	// MARK: Handlers
-	
-	func didTapAddButton(button: UIButton!) {
-		delegate?.reflectHeaderView?(self, didTapAddButton: button)
 	}
 	
 }

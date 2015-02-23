@@ -8,7 +8,15 @@
 
 import UIKit
 
-class OnboardingViewController: SlidingViewController {
+class OnboardingViewController: SlidingViewController, FullScreenViewController {
+	
+	let backgroundColor = UIColor.whiteColor()
+	let tintColor = UIColor.applicationBlueColor()
+	let tabColor = UIColor.clearColor()
+	let selectedTabColor = UIColor.clearColor()
+	
+	let navigationBarHidden = true
+	let navigationBarTranslucent = true
 	
 	convenience init() {
 		self.init(spacing: 0)
@@ -16,6 +24,9 @@ class OnboardingViewController: SlidingViewController {
 		title = "Welcome"
 		viewControllers = [
 			OnboardingWelcomeController(),
+			OnboardingGADController(),
+			OnboardingTutorialController(),
+			OnboardingReminderController(),
 			OnboardingCompleteController()
 		]
 		selectedIndex = 0
@@ -25,7 +36,20 @@ class OnboardingViewController: SlidingViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = UIColor.whiteColor()
+		setupFullScreenView(self)
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateFullScreenColors(self, animated: animated)
+		hideFullScreenNavigationBar(self, animated: false)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		unhideFullScreenNavigationBar(self, animated: false)
 	}
 	
 }

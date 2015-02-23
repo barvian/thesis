@@ -67,7 +67,7 @@ class RelaxationLaunchController: UIViewController, FullScreenViewController {
 			button.setTitleColor(UIColor.applicationBaseColor(), forState: .Highlighted)
 			button.setTitleColor(UIColor.whiteColor(), forState: .Selected)
 			
-			let image = UIImage(named: "Timer")
+			let image = UIImage(named: "\($0)Timer")
 			button.setImage(image?.add_tintedImageWithColor(UIColor(r: 149, g: 160, b: 176), style: ADDImageTintStyleKeepingAlpha), forState: .Normal)
 			button.setImage(image?.add_tintedImageWithColor(UIColor.applicationBaseColor(), style: ADDImageTintStyleKeepingAlpha), forState: .Highlighted)
 			button.setImage(image?.add_tintedImageWithColor(UIColor.whiteColor(), style: ADDImageTintStyleKeepingAlpha), forState: .Selected)
@@ -85,6 +85,7 @@ class RelaxationLaunchController: UIViewController, FullScreenViewController {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setTitle("Begin", forState: .Normal)
+		button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
 		
 		button.addTarget(self, action: "didTapBeginButton:", forControlEvents: .TouchUpInside)
 		
@@ -138,15 +139,10 @@ class RelaxationLaunchController: UIViewController, FullScreenViewController {
 		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
 	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		
-		updateFullScreenColors(self, animated: false)
-	}
-	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		updateFullScreenColors(self, animated: animated)
 		hideFullScreenNavigationBar(self, animated: false)
 	}
 	
@@ -220,7 +216,7 @@ class RelaxationLaunchController: UIViewController, FullScreenViewController {
 	}
 	
 	func didTapBeginButton(button: UIButton!) {
-		let relaxationController = CalmingScenesViewController()
+		let relaxationController = StatementsViewController()
 		relaxationController.relaxationDelegate = delegate
 		relaxationController.navigationItem.hidesBackButton = true
 		

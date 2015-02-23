@@ -1,19 +1,19 @@
 //
-//  OnboardingWelcomeController.swift
+//  OnboardingTutorialController.swift
 //  Thesis
 //
-//  Created by WSOL Intern on 1/12/15.
+//  Created by Maxwell Barvian on 2/22/15.
 //  Copyright (c) 2015 Maxwell Barvian. All rights reserved.
 //
 
 import UIKit
 import SSDynamicText
 
-class OnboardingWelcomeController: UIViewController {
+class OnboardingTutorialController: UIViewController {
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "Welcome"
+		label.text = "How to Use This App"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.blackColor()
 		label.lineBreakMode = .ByTruncatingTail
@@ -33,7 +33,7 @@ class OnboardingWelcomeController: UIViewController {
 		var paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.lineSpacing = 5
 		paragraphStyle.alignment = .Center
-		let text = NSAttributedString(string: "Thank you for downloading this application.  Swipe through this quick tutorial to get started.", attributes: [NSParagraphStyleAttributeName: paragraphStyle])
+		let text = NSAttributedString(string: "Downloading this application was a great step in the right direction.  This app will help you deal with immediate symptoms like anxious episodes while creating a long-term focus on the positive aspects of your life.  These techniques are backed by the latest psychology research; if you're interested you can find more readings in the Learn section.", attributes: [NSParagraphStyleAttributeName: paragraphStyle])
 		label.attributedText = text
 		
 		return label
@@ -47,7 +47,7 @@ class OnboardingWelcomeController: UIViewController {
 		}
 		
 		return spacers
-	}()
+		}()
 	
 	convenience override init() {
 		self.init(nibName: nil, bundle: nil)

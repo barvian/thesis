@@ -29,7 +29,8 @@ class FloatingTabBar: UITabBar {
 		
 		if let items = items as? [UITabBarItem] {
 			for tab in items {
-                tab.setTitlePositionAdjustment(UIOffsetMake(0, -5.0))
+				tab.imageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 5, right: 0)
+                tab.setTitlePositionAdjustment(UIOffsetMake(0, -8.0))
             }
         }
     }

@@ -1,19 +1,19 @@
 //
-//  OnboardingWelcomeController.swift
+//  OnboardingGADController.swift
 //  Thesis
 //
-//  Created by WSOL Intern on 1/12/15.
+//  Created by Maxwell Barvian on 2/22/15.
 //  Copyright (c) 2015 Maxwell Barvian. All rights reserved.
 //
 
 import UIKit
 import SSDynamicText
 
-class OnboardingWelcomeController: UIViewController {
+class OnboardingGADController: UIViewController {
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "Welcome"
+		label.text = "Generalized Anxiety Disorder"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.blackColor()
 		label.lineBreakMode = .ByTruncatingTail
@@ -33,7 +33,7 @@ class OnboardingWelcomeController: UIViewController {
 		var paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.lineSpacing = 5
 		paragraphStyle.alignment = .Center
-		let text = NSAttributedString(string: "Thank you for downloading this application.  Swipe through this quick tutorial to get started.", attributes: [NSParagraphStyleAttributeName: paragraphStyle])
+		let text = NSAttributedString(string: "All of us worry about things like health, money, or family problems. But people with generalized anxiety disorder (GAD) are extremely worried about these and many other things, even when there is little or no reason to worry about them. They are very anxious about just getting through the day. They think things will always go badly. At times, worrying keeps people with GAD from doing everyday tasks.", attributes: [NSParagraphStyleAttributeName: paragraphStyle])
 		label.attributedText = text
 		
 		return label

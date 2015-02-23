@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LearnViewController: UITableViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
+class LearnViewController: ConstrainedTableViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
 	
 	let tintColor = UIColor.applicationBaseColor()
 	let backgroundColor = UIColor.applicationLightColor()
@@ -50,7 +50,6 @@ class LearnViewController: UITableViewController, FullScreenViewController, UITa
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 44.0
 		tableView.tableHeaderView = headerView
-		constrainHeaderView()
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -77,6 +76,9 @@ class LearnViewController: UITableViewController, FullScreenViewController, UITa
 		let reading = 📖[indexPath.row] as! NSDictionary
 		
 		cell.configureForReading(reading)
+		
+		cell.setNeedsUpdateConstraints()
+		cell.updateConstraintsIfNeeded()
 		
 		return cell
 	}
