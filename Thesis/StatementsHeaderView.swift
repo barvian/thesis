@@ -11,7 +11,7 @@ import SSDynamicText
 
 class StatementsHeaderView: UIView {
 	
-	private(set) lazy var headlineLabel: UILabel = {
+	private(set) lazy var titleLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
 		label.text = "Coping Statements"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -29,7 +29,7 @@ class StatementsHeaderView: UIView {
 		return label
 	}()
 	
-	private(set) lazy var subheaderLabel: UILabel = {
+	private(set) lazy var instructionsLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
 		label.text = "Allow time to pass while you remind yourself of the following statements.  Breathe deeply and repeat one internally; feel free to try another if one gets tiresome."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -56,8 +56,8 @@ class StatementsHeaderView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		addSubview(headlineLabel)
-		addSubview(subheaderLabel)
+		addSubview(titleLabel)
+		addSubview(instructionsLabel)
 	}
 	
 	required init(coder aDecoder: NSCoder) {
@@ -75,17 +75,17 @@ class StatementsHeaderView: UIView {
 	override func updateConstraints() {
 		if !didSetupConstraints {
 			let views = [
-				"headlineLabel": headlineLabel,
-				"subheaderLabel": subheaderLabel
+				"titleLabel": titleLabel,
+				"instructionsLabel": instructionsLabel
 			]
 			let metrics = [
 				"hMargin": 26,
 				"vMargin": 34
 			]
 			
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-|", options: nil, metrics: metrics, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[headlineLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[titleLabel]-[instructionsLabel]-(vMargin)-|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			
 			didSetupConstraints = true
 		}
@@ -96,8 +96,8 @@ class StatementsHeaderView: UIView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		headlineLabel.preferredMaxLayoutWidth = headlineLabel.frame.width
-		subheaderLabel.preferredMaxLayoutWidth = subheaderLabel.frame.width
+		titleLabel.preferredMaxLayoutWidth = titleLabel.frame.width
+		instructionsLabel.preferredMaxLayoutWidth = instructionsLabel.frame.width
 	}
 	
 }

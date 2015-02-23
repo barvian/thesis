@@ -216,7 +216,7 @@ class RelaxationLaunchController: UIViewController, FullScreenViewController {
 	}
 	
 	func didTapBeginButton(button: UIButton!) {
-		let relaxationController = StatementsViewController()
+		let relaxationController = DeepBreathingViewController()
 		relaxationController.relaxationDelegate = delegate
 		relaxationController.navigationItem.hidesBackButton = true
 		

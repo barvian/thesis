@@ -31,7 +31,7 @@ class CalmingSceneViewController: UIViewController {
 		layer.videoGravity = AVLayerVideoGravityResize
 		
 		return layer
-		}()
+	}()
 	
 	let movementSmoothing = 0.3
 	let animationDuration = 0.3

@@ -1,30 +1,21 @@
 //
-//  CalmingScenesViewController.swift
+//  DeepBreathingViewController.swift
 //  Thesis
 //
-//  Created by Maxwell Barvian on 2/11/15.
+//  Created by Maxwell Barvian on 2/23/15.
 //  Copyright (c) 2015 Maxwell Barvian. All rights reserved.
 //
 
 import UIKit
-import CoreMotion
 import SSDynamicText
 import Async
 
-public let scenesPath = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("Scenes")
-public let scenes: [String]? = {
-	var error: NSError? = nil
-	let files = NSFileManager.defaultManager().contentsOfDirectoryAtPath(scenesPath, error: &error) as? [String]
-	
-	return files
-}()
-
-class CalmingScenesViewController: SlidingViewController, FullScreenViewController, RelaxationController, CalmingSceneViewControllerDelegate {
+class DeepBreathingViewController: UIViewController, FullScreenViewController, RelaxationController {
 	
 	weak var relaxationDelegate: RelaxationControllerDelegate?
 	
 	let tintColor = UIColor.whiteColor()
-	let backgroundColor = UIColor.blackColor()
+	let backgroundColor = UIColor.applicationBaseColor()
 	let tabColor = UIColor.clearColor()
 	let selectedTabColor = UIColor.clearColor()
 	
@@ -33,17 +24,9 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	private(set) var showingInstructions = true
 	
-	private(set) lazy var vignetteView: UIImageView = {
-		let vignette = UIImageView(image: UIImage(named: "Vignette"))
-		vignette.contentMode = .ScaleToFill
-		vignette.setTranslatesAutoresizingMaskIntoConstraints(false)
-		
-		return vignette
-	}()
-	
 	private(set) lazy var titleLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "Calming Scene Meditation"
+		label.text = "Deep Breathing"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.whiteColor()
 		label.numberOfLines = 0
@@ -61,7 +44,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	private(set) lazy var instructionsLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
-		label.text = "Gently place your attention in the scene, allowing other thoughts to come and go with little effort."
+		label.text = "Match your breath with the circle below, letting thoughts and feelings come and go with little effort. Try to breathe as deeply into your abdomen as you can."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.85)
 		label.numberOfLines = 0
@@ -77,6 +60,38 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		return label
 	}()
 	
+	private(set) lazy var breather: UIView = {
+		let breather = UIView()
+		breather.setTranslatesAutoresizingMaskIntoConstraints(false)
+		breather.transform = CGAffineTransformMakeScale(0.75, 0.75)
+		
+		return breather
+	}()
+	
+	private(set) lazy var breatherButton: ChunkyButton = {
+		let button = ChunkyButton()
+		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		button.setTitle(nil, forState: .Normal)
+		button.zIndex = 2
+		
+		button.addTarget(self, action: "didTapBreatherButton:", forControlEvents: .TouchUpInside)
+		
+		return button
+	}()
+	
+	private(set) lazy var actionLabel: UILabel = {
+		let label = UILabel()
+		label.setTranslatesAutoresizingMaskIntoConstraints(false)
+		label.text = "Begin"
+		label.font = UIFont(name: "HelveticaNeue", size: 15)
+		label.textColor = UIColor.applicationBaseColor()
+		label.numberOfLines = 2
+		label.textAlignment = .Center
+		label.userInteractionEnabled = false
+		
+		return label
+	}()
+	
 	private(set) lazy var doneButton: UIButton = {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -88,6 +103,16 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		return button
 	}()
 	
+	private(set) lazy var spacerViews: [UIView] = {
+		let spacers = [UIView(), UIView()]
+		for spacer in spacers {
+			spacer.setTranslatesAutoresizingMaskIntoConstraints(false)
+			spacer.hidden = true
+		}
+		
+		return spacers
+	}()
+	
 	override func prefersStatusBarHidden() -> Bool {
 		return !showingInstructions
 	}
@@ -96,22 +121,10 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		return .LightContent
 	}
 	
-	init() {
-		super.init(spacing: 46.0)
+	convenience override init() {
+		self.init(nibName: nil, bundle: nil)
 		
-		title = "Calming Scenes"
-		let motionManager = CMMotionManager()
-		viewControllers = scenes?.map {
-			let sceneController = CalmingSceneViewController(scene: $0, motionManager: motionManager)
-			sceneController.delegate = self
-			
-			return sceneController
-		}
-		selectedIndex = 0
-	}
-	
-	required init(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		title = "Deep Breathing"
 	}
 	
 	override func viewDidLoad() {
@@ -119,12 +132,14 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		
 		setupFullScreenView(self)
 		
-		view.addSubview(vignetteView)
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
+		view.addSubview(spacerViews[0])
+		breather.addSubview(breatherButton)
+		view.addSubview(breather)
+		view.addSubview(actionLabel)
+		view.addSubview(spacerViews[1])
 		view.addSubview(doneButton)
-		
-		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -132,12 +147,6 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		
 		updateFullScreenColors(self, animated: false)
 		hideFullScreenNavigationBar(self, animated: false)
-	}
-	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		
-		self.toggleInstructions(true, timer: 3.5)
 	}
 	
 	// MARK: API
@@ -149,7 +158,6 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		let alpha: CGFloat = showingInstructions ? 1.0 : 0.0
 		
 		UIView.animateWithDuration(0.33) {
-			self.vignetteView.alpha = alpha
 			self.titleLabel.alpha = alpha
 			self.instructionsLabel.alpha = alpha
 			self.doneButton.alpha = alpha
@@ -164,6 +172,42 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		}
 	}
 	
+	func breathe(completion: (() -> Void)? = nil) {
+		self.actionLabel.text = "Inhale"
+		UIView.animateWithDuration(5, delay: 0.0, options: .CurveEaseOut | .AllowUserInteraction, animations: {
+			[unowned self] in
+			self.breather.transform = CGAffineTransformMakeScale(1.0, 1.0)
+			self.breatherButton.zIndex = 3
+		}) {
+			[unowned self] (completed: Bool) in
+			self.actionLabel.text = "Hold"
+			Async.main(after: 5) {
+				[unowned self] in
+				self.actionLabel.text = "Exhale"
+				UIView.animateWithDuration(5, delay: 0.0, options: .CurveEaseOut | .AllowUserInteraction, animations: {
+					[unowned self] in
+					self.breather.transform = CGAffineTransformMakeScale(0.85, 0.85)
+					self.breatherButton.zIndex = 2
+				}) {
+					[unowned self] (completed: Bool) in
+					self.actionLabel.text = "Breathe\nnormally"
+					Async.main(after: 8) {
+						[unowned self] in
+						self.breathe()
+					}
+				}
+			}
+		}
+	}
+	
+	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+		super.touchesEnded(touches, withEvent: event)
+		
+		if started {
+			toggleInstructions(timer: 5)
+		}
+	}
+	
 	// MARK: Constraints
 	
 	private var didSetupConstraints = false
@@ -171,9 +215,13 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	override func updateViewConstraints() {
 		if !didSetupConstraints {
 			let views = [
-				"vignetteView": vignetteView,
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel,
+				"spacer1": spacerViews[0],
+				"breather": breather,
+				"breatherButton": breatherButton,
+				"actionLabel": actionLabel,
+				"spacer2": spacerViews[1],
 				"doneButton": doneButton
 			]
 			
@@ -184,11 +232,14 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 			]
 			
 			view.addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[vignetteView]|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vignetteView]|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][breather(140)][spacer2(==spacer1)][doneButton]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[breather(140)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[breatherButton]|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[breatherButton]|", options: nil, metrics: metrics, views: views))
+			view.addConstraint(NSLayoutConstraint(item: actionLabel, attribute: .CenterY, relatedBy: .Equal, toItem: breather, attribute: .CenterY, multiplier: 1, constant: 0))
 			for (_, subview) in views {
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
@@ -201,14 +252,19 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	// MARK: Handlers
 	
+	private var started = false
+	func didTapBreatherButton(button: UIButton!) {
+		toggleInstructions()
+		
+		if !started {
+			breathe()
+		}
+		
+		started = true
+	}
+	
 	func didTapDoneButton(button: UIButton!) {
 		relaxationDelegate?.relaxationControllerShouldDismiss?(self)
 	}
- 
-	// MARK: CalmingSceneViewControllerDelegate
-	
-	func calmingSceneViewController(calmingSceneViewController: CalmingSceneViewController, didEndTouches touches: Set<NSObject>, withEvent event: UIEvent) {
-		toggleInstructions(timer: 5)
-	}	
 	
 }

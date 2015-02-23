@@ -50,6 +50,7 @@
 		CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */; };
 		CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */; };
 		CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCA71881A942CE500D0B896 /* LBorderView.m */; };
+		CFD38CC11A9BA82E00176F9E /* DeepBreathingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */; };
 		CFE5F58C1A93862A0011008A /* ChunkyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE5F58B1A93862A0011008A /* ChunkyButton.swift */; };
 		CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */; };
 		CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */; };
@@ -118,6 +119,7 @@
 		CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDCloudUserDefaults+Thesis.swift"; sourceTree = "<group>"; };
 		CFCA71871A942CCA00D0B896 /* LBorderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBorderView.h; sourceTree = "<group>"; };
 		CFCA71881A942CE500D0B896 /* LBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBorderView.m; sourceTree = "<group>"; };
+		CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepBreathingViewController.swift; sourceTree = "<group>"; };
 		CFE5F58B1A93862A0011008A /* ChunkyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChunkyButton.swift; sourceTree = "<group>"; };
 		CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionPageView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		CF6FA8FA1A8AFFDD00856C8C /* Relax */ = {
 			isa = PBXGroup;
 			children = (
+				CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */,
 				CFA5D2C81A9B624400CFFADF /* Calming Scenes */,
 				CFA5D2C51A9B620200CFFADF /* Statements */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
@@ -502,6 +505,7 @@
 				CF6FA8F71A8AF28000856C8C /* RelaxationLauncherController.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderController.swift in Sources */,
+				CFD38CC11A9BA82E00176F9E /* DeepBreathingViewController.swift in Sources */,
 				CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */,
 				CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,

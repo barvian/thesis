@@ -37,6 +37,7 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	
 	convenience override init() {
 		self.init(nibName: nil, bundle: nil)
+		
 		hidesBottomBarWhenPushed = true
 	}
 	

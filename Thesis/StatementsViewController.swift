@@ -16,7 +16,7 @@
 
 import UIKit
 
-class StatementsViewController: ConstrainedTableViewController, FullScreenViewController, RelaxationController, StatementsFooterViewDelegate, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
+class StatementsViewController: ConstrainedTableViewController, FullScreenViewController, RelaxationController, StatementsFooterViewDelegate, UITableViewDataSource, UITableViewDelegate {
 	
 	weak var relaxationDelegate: RelaxationControllerDelegate?
 	

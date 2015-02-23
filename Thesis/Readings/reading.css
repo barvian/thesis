@@ -22,15 +22,15 @@ body {
 }
 
 h1 {
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 	font-weight: 600;
-	font-size: 2rem;
+	font-size: 1.618rem;
 	line-height: 1.25;
 	padding-bottom: 0.65em;
 }
 
 h2 {
 	font-weight: 600;
-	font-size: 1.5rem;
+	font-size: 1.236rem;
 	line-height: 1.25;
 }
