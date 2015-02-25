@@ -38,8 +38,10 @@ func updateFullScreenColors(controller: FullScreenViewController, animated: Bool
 	let vc = controller as! UIViewController
 	
 	UIView.animateWithDuration(animated ? 0.3 : 0) {
-		UIApplication.window.tintColor = controller.tintColor
-		UIApplication.statusBarCover.hidden = false
+		vc.view.tintColor = controller.tintColor
+		if let navigationController = vc.navigationController {
+			navigationController.navigationBar.tintColor = controller.tintColor
+		}
 		UIApplication.statusBarCover.tintColor = controller.backgroundColor
 		
 		if !vc.hidesBottomBarWhenPushed {

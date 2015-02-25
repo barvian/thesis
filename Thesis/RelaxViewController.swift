@@ -19,6 +19,8 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	let navigationBarHidden = true
 	let navigationBarTranslucent = true
 	
+	let transitionManager = FadeTransitionManager()
+	
 	private(set) lazy var moodPicker: MoodPickerView = {
 		let picker = MoodPickerView()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -156,7 +158,8 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		relaxationController.relaxationDelegate = self
 		relaxationController.navigationItem.hidesBackButton = true
 		let navigationController = UINavigationController(rootViewController: relaxationController)
-		navigationController.modalTransitionStyle = .CrossDissolve
+		navigationController.transitioningDelegate = transitionManager
+		navigationController.modalPresentationStyle = .Custom
 		
 		presentViewController(navigationController, animated: true, completion: nil)
 	}

@@ -44,6 +44,7 @@
 		CFA5D2C71A9B621B00CFFADF /* CalmingSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2C61A9B621B00CFFADF /* CalmingSceneViewController.swift */; };
 		CFA5D2CA1A9B628600CFFADF /* StatementsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2C91A9B628600CFFADF /* StatementsHeaderView.swift */; };
 		CFA5D2CC1A9B63FE00CFFADF /* StatementsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2CB1A9B63FE00CFFADF /* StatementsFooterView.swift */; };
+		CFB3B0C61A9D4B700036984A /* FadeTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3B0C51A9D4B700036984A /* FadeTransitionManager.swift */; };
 		CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA82701A870B120030F13D /* UIColor+Thesis.swift */; };
 		CFBB40681A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */; };
 		CFBB406A1A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB40691A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift */; };
@@ -114,6 +115,7 @@
 		CFA5D2C61A9B621B00CFFADF /* CalmingSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalmingSceneViewController.swift; sourceTree = "<group>"; };
 		CFA5D2C91A9B628600CFFADF /* StatementsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementsHeaderView.swift; sourceTree = "<group>"; };
 		CFA5D2CB1A9B63FE00CFFADF /* StatementsFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementsFooterView.swift; sourceTree = "<group>"; };
+		CFB3B0C51A9D4B700036984A /* FadeTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransitionManager.swift; sourceTree = "<group>"; };
 		CFBA82701A870B120030F13D /* UIColor+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Thesis.swift"; sourceTree = "<group>"; };
 		CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReadingTableViewCell+ConfigureForReading.swift"; sourceTree = "<group>"; };
 		CFBB40691A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReflectTableViewCell+ConfigureForReflection.swift"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				ECBE8D981A8BA1E7000AC325 /* SlidingViewController.swift */,
 				CFF74A3D1A9914130081DF9F /* FullScreenController.swift */,
 				CF6FA8E81A8AA2E800856C8C /* RootViewController.swift */,
+				CFB3B0C51A9D4B700036984A /* FadeTransitionManager.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
 				CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */,
 				EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */,
+				CFB3B0C61A9D4B700036984A /* FadeTransitionManager.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderController.swift in Sources */,
 				CFD38CC11A9BA82E00176F9E /* DeepBreathingViewController.swift in Sources */,
