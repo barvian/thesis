@@ -35,7 +35,7 @@ func setupFullScreenControllerView(controller: FullScreenViewController) {
 	vc.view.addSubview(cover)
 	objc_setAssociatedObject(vc, &_statusBarCoverAssociationKey, cover, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
 	
-	if let tabBarController = vc.tabBarController where !vc.hidesBottomBarWhenPushed {
+	if let tabBarController = vc.tabBarController where !vc.hidesBottomBarWhenPushed && tabBarController.tabBar is FloatingTabBar {
 		vc.edgesForExtendedLayout = .All;
 		(vc.view as? UIScrollView)?.contentInset = UIEdgeInsetsMake(0.0, 0.0, tabBarController.tabBar.frame.height + 20, 0.0);
 	}

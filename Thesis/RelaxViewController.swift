@@ -66,6 +66,8 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		view.addSubview(durationPicker)
 		view.addSubview(spacerViews[1])
 		
+		toggleDurationPicker(false)
+		
 		setupFullScreenControllerView(self)
 	}
 	
@@ -73,6 +75,11 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		super.viewWillAppear(animated)
 		
 		updateFullScreenControllerColors(self, animated: false)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
 		toggleDurationPicker(false)
 		for (m, button) in self.moodPicker.moodButtons {
 			button.alpha = 1
