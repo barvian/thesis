@@ -12,6 +12,8 @@ private var _prevNavigationBarImageAssociationKey: UInt8 = 0
 private var _prevNavigationBarShadowImageAssociationKey: UInt8 = 1
 private var _prevNavigationBarTranslucentAssociationKey: UInt8 = 2
 
+private var _statusBarCoverAssociationKey: UInt8 = 3
+
 protocol FullScreenViewController {
 	
 	var tintColor: UIColor { get }
@@ -24,17 +26,28 @@ protocol FullScreenViewController {
 	
 }
 
-func setupFullScreenView(controller: FullScreenViewController) {
+func setupFullScreenControllerView(controller: FullScreenViewController) {
 	let vc = controller as! UIViewController
 
 	vc.view.backgroundColor = controller.backgroundColor
+	let cover = UIImageView.applicationStatusBarCover()
+	cover.tintColor = controller.backgroundColor
+	vc.view.addSubview(cover)
+	objc_setAssociatedObject(vc, &_statusBarCoverAssociationKey, cover, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
+	
 	if let tabBarController = vc.tabBarController where !vc.hidesBottomBarWhenPushed {
 		vc.edgesForExtendedLayout = .All;
 		(vc.view as? UIScrollView)?.contentInset = UIEdgeInsetsMake(0.0, 0.0, tabBarController.tabBar.frame.height + 20, 0.0);
 	}
 }
 
-func updateFullScreenColors(controller: FullScreenViewController, animated: Bool = true) {
+func fullScreenControllerStatusBarCover(controller: FullScreenViewController) -> UIImageView? {
+	let vc = controller as! UIViewController
+	
+	return objc_getAssociatedObject(vc, &_statusBarCoverAssociationKey) as? UIImageView
+}
+
+func updateFullScreenControllerColors(controller: FullScreenViewController, animated: Bool = true) {
 	let vc = controller as! UIViewController
 	
 	UIView.animateWithDuration(animated ? 0.3 : 0) {
@@ -42,7 +55,6 @@ func updateFullScreenColors(controller: FullScreenViewController, animated: Bool
 		if let navigationController = vc.navigationController {
 			navigationController.navigationBar.tintColor = controller.tintColor
 		}
-		UIApplication.statusBarCover.tintColor = controller.backgroundColor
 		
 		if !vc.hidesBottomBarWhenPushed {
 			vc.tabBarController?.tabBar.unselectedColor = controller.tabColor
@@ -52,7 +64,7 @@ func updateFullScreenColors(controller: FullScreenViewController, animated: Bool
 	}
 }
 
-func hideFullScreenNavigationBar(controller: FullScreenViewController, animated: Bool = false) {
+func hideFullScreenControllerNavigationBar(controller: FullScreenViewController, animated: Bool = false) {
 	let vc = controller as! UIViewController
 	vc.navigationController?.setNavigationBarHidden(controller.navigationBarHidden, animated: animated)
 	
@@ -67,7 +79,7 @@ func hideFullScreenNavigationBar(controller: FullScreenViewController, animated:
 	}
 }
 
-func unhideFullScreenNavigationBar(controller: FullScreenViewController, animated: Bool = false) {
+func unhideFullScreenControllerNavigationBar(controller: FullScreenViewController, animated: Bool = false) {
 	let vc = controller as! UIViewController
 	vc.navigationController?.setNavigationBarHidden(false, animated: animated)
 	

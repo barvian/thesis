@@ -57,11 +57,11 @@ class RootViewController: UITabBarController {
     
     // MARK: Constraints
     
-    private var didSetupConstraints = false
+    private var _didSetupConstraints = false
     
     override func updateViewConstraints() {
-        if !didSetupConstraints {
-            didSetupConstraints = true
+        if !_didSetupConstraints {
+            _didSetupConstraints = true
         }
         
         super.updateViewConstraints()

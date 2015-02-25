@@ -60,10 +60,10 @@ class StatementTableViewCell: UITableViewCell {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"statementLabel": statementLabel,
 				"lineView": lineView
@@ -81,7 +81,7 @@ class StatementTableViewCell: UITableViewCell {
 			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[lineView(8)]", options: nil, metrics: metrics, views: views))
 			contentView.addConstraint(NSLayoutConstraint(item: lineView, attribute: .CenterX, relatedBy: .Equal, toItem: contentView, attribute: .CenterX, multiplier: 1, constant: 0))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

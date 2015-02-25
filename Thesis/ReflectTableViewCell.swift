@@ -79,10 +79,10 @@ class ReflectTableViewCell: UITableViewCell {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"eventLabel": eventLabel,
 				"reasonLabel": reasonLabel,
@@ -103,7 +103,7 @@ class ReflectTableViewCell: UITableViewCell {
 			contentView.addConstraint(NSLayoutConstraint(item: reasonLabel, attribute: .Top, relatedBy: .GreaterThanOrEqual, toItem: eventLabel, attribute: .Bottom, multiplier: 1, constant: 0))
 			contentView.addConstraint(NSLayoutConstraint(item: lineView, attribute: .CenterX, relatedBy: .Equal, toItem: contentView, attribute: .CenterX, multiplier: 1, constant: 0))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

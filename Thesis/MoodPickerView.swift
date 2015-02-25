@@ -79,10 +79,10 @@ class MoodPickerView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"headlineLabel": headlineLabel,
 				"happyButton": moodButtons[.😊]!,
@@ -107,7 +107,7 @@ class MoodPickerView: UIView {
 				addConstraint(NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: moodButtons[.😐]!, attribute: .CenterY, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

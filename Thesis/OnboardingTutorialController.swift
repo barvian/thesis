@@ -68,10 +68,10 @@ class OnboardingTutorialController: UIViewController {
 	
 	// MARK: Constraints
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateViewConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"spacer1": spacerViews[0],
 				"headlineLabel": headlineLabel,
@@ -90,7 +90,7 @@ class OnboardingTutorialController: UIViewController {
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateViewConstraints()

@@ -16,7 +16,7 @@
 
 import UIKit
 
-class StatementsViewController: ConstrainedTableViewController, FullScreenViewController, RelaxationController, StatementsFooterViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class StatementsViewController: UIViewController, FullScreenViewController, RelaxationController, StatementsFooterViewDelegate, UITableViewDataSource, UITableViewDelegate {
 	
 	weak var relaxationDelegate: RelaxationControllerDelegate?
 	
@@ -33,6 +33,20 @@ class StatementsViewController: ConstrainedTableViewController, FullScreenViewCo
 		let data = NSArray(contentsOfFile: path)!
 		
 		return data
+	}()
+	
+	private(set) lazy var tableView: ConstrainedTableView = {
+		let tableView = ConstrainedTableView()
+		tableView.dataSource = self
+		tableView.allowsSelection = true
+		tableView.registerClass(StatementTableViewCell.self, forCellReuseIdentifier: "cell")
+		tableView.separatorStyle = .None
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 44.0
+		tableView.tableHeaderView = self.headerView
+		tableView.tableFooterView = self.footerView
+		
+		return tableView
 	}()
 	
 	private(set) lazy var headerView: StatementsHeaderView = {
@@ -52,8 +66,8 @@ class StatementsViewController: ConstrainedTableViewController, FullScreenViewCo
 		return .LightContent
 	}
 	
-	convenience init() {
-		self.init(style: .Plain)
+	convenience override init() {
+		self.init(nibName: nil, bundle: nil)
 		
 		title = "Statements"
 	}
@@ -61,31 +75,25 @@ class StatementsViewController: ConstrainedTableViewController, FullScreenViewCo
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
+		view.addSubview(tableView)
 		
-		tableView.allowsSelection = true
-		tableView.registerClass(StatementTableViewCell.self, forCellReuseIdentifier: "cell")
-		tableView.separatorStyle = .None
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 44.0
-		tableView.tableHeaderView = headerView
-		tableView.tableFooterView = footerView
+		setupFullScreenControllerView(self)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: false)
-		hideFullScreenNavigationBar(self, animated: false)
+		updateFullScreenControllerColors(self, animated: false)
+		hideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 	// MARK: UITableViewDataSource
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 🌞.count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StatementTableViewCell
 		let statement = 🌞[indexPath.row] as! String
 		

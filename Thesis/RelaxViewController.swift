@@ -61,18 +61,18 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
-		
 		view.addSubview(spacerViews[0])
 		view.addSubview(moodPicker)
 		view.addSubview(durationPicker)
 		view.addSubview(spacerViews[1])
+		
+		setupFullScreenControllerView(self)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: false)
+		updateFullScreenControllerColors(self, animated: false)
 		toggleDurationPicker(false)
 		for (m, button) in self.moodPicker.moodButtons {
 			button.alpha = 1
@@ -93,10 +93,10 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	
 	// MARK: Constraints
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateViewConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"spacer1": spacerViews[0],
 				"moodPicker": moodPicker,
@@ -120,7 +120,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 				view.addConstraint(NSLayoutConstraint(item: spacer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateViewConstraints()
@@ -128,17 +128,17 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	
 	// MARK: API
 	
-	private var showingDurationPicker = false
+	private var _showingDurationPicker = false
 	
 	func toggleDurationPicker(_ state: Bool? = nil) {
-		showingDurationPicker = state != nil ? state! : !showingDurationPicker
+		_showingDurationPicker = state != nil ? state! : !_showingDurationPicker
 		
-		moodPicker.alpha = showingDurationPicker ? 0.15 : 1
-		moodPicker.transform = CGAffineTransformMakeTranslation(0, showingDurationPicker ? -50 : 0)
+		moodPicker.alpha = _showingDurationPicker ? 0.15 : 1
+		moodPicker.transform = CGAffineTransformMakeTranslation(0, _showingDurationPicker ? -50 : 0)
 		
-		durationPicker.alpha = showingDurationPicker ? 1 : 0
-		durationPicker.userInteractionEnabled = showingDurationPicker
-		durationPicker.transform = CGAffineTransformMakeTranslation(0, showingDurationPicker ? 35 : 70)
+		durationPicker.alpha = _showingDurationPicker ? 1 : 0
+		durationPicker.userInteractionEnabled = _showingDurationPicker
+		durationPicker.transform = CGAffineTransformMakeTranslation(0, _showingDurationPicker ? 35 : 70)
 	}
 	
 	// MARK: Handlers

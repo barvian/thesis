@@ -60,10 +60,10 @@ class ReflectSectionHeaderView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"pillView": pillView,
 				"dateLabel": dateLabel,
@@ -81,7 +81,7 @@ class ReflectSectionHeaderView: UIView {
 				addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

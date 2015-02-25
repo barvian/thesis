@@ -84,10 +84,10 @@ class DurationPickerView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"headlineLabel": headlineLabel,
 				"shortButton": durationButtons[.Short]!,
@@ -118,7 +118,7 @@ class DurationPickerView: UIView {
 				addConstraint(NSLayoutConstraint(item: button, attribute: .CenterY, relatedBy: .Equal, toItem: durationButtons[.Moderate]!, attribute: .CenterY, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

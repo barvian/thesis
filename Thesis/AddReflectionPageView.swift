@@ -55,10 +55,10 @@ class AddReflectionPageView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"headlineLabel": headlineLabel,
 				"textView": textView
@@ -71,7 +71,7 @@ class AddReflectionPageView: UIView {
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[textView]-(margin)-|", options: nil, metrics: metrics, views: views))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

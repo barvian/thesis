@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class ReflectViewController: ConstrainedTableViewController, FullScreenViewController, UITableViewDataSource, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: UIViewController, FullScreenViewController, UITableViewDataSource, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
 	
 	let daysToShow = 30
 	
@@ -34,6 +34,21 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 		return dateFormatter
 	}()
 	
+	private(set) lazy var tableView: ConstrainedTableView = {
+		let tableView = ConstrainedTableView()
+		tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+		tableView.backgroundColor = self.backgroundColor
+		tableView.dataSource = self
+		tableView.allowsSelection = false
+		tableView.registerClass(ReflectTableViewCell.self, forCellReuseIdentifier: "cell")
+		tableView.separatorStyle = .None
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 64.0
+		tableView.tableHeaderView = self.headerView
+		
+		return tableView
+	}()
+	
 	private(set) lazy var headerView: ReflectHeaderView = {
 		let header = ReflectHeaderView()
 		header.delegate = self
@@ -47,8 +62,8 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 		return .LightContent
 	}
 	
-	convenience init() {
-		self.init(style: .Plain)
+	convenience override init() {
+		self.init(nibName: nil, bundle: nil)
 		
 		title = "Reflect"
 		tabBarItem.image = UIImage(named: "Reflect")
@@ -57,14 +72,9 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
+		view.addSubview(tableView)
 		
-		tableView.allowsSelection = false
-		tableView.registerClass(ReflectTableViewCell.self, forCellReuseIdentifier: "cell")
-		tableView.separatorStyle = .None
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 64.0
-		tableView.tableHeaderView = headerView
+		setupFullScreenControllerView(self)
 		
 		let startDate = NSDate()
 		let today = startDate.beginningOfDay()
@@ -77,19 +87,21 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 		if 📅[today] == nil {
 			📅[today] = [Reflection]()
 		}
+		
+		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: false)
-		hideFullScreenNavigationBar(self, animated: false)
+		updateFullScreenControllerColors(self, animated: false)
+		hideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
 		super.viewDidDisappear(animated)
 		
-		unhideFullScreenNavigationBar(self, animated: false)
+		unhideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 	// MARK: API
@@ -105,18 +117,37 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 		}
 	}
 	
+	// MARK: Constraints
+	
+	private var _didSetupConstraints = false
+	
+	override func updateViewConstraints() {
+		if !_didSetupConstraints {
+			let views = [
+				"tableView": tableView,
+			]
+			
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: nil, metrics: nil, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: nil, views: views))
+			
+			_didSetupConstraints = true
+		}
+		
+		super.updateViewConstraints()
+	}
+	
 	// MARK: UITableViewDataSource
 	
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return Int(📅.count)
 	}
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let date = sortedDays[section]
 		return 📅[date]!.count
 	}
 	
-	override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let date = sortedDays[section]
 		switch date {
 		case NSDate().beginningOfDay():
@@ -134,7 +165,7 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 		}
 	}
 	
-	override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		switch (section, sortedDays[section]) {
 		case (0, NSDate().beginningOfDay()):
 			return 80
@@ -143,7 +174,7 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 		}
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReflectTableViewCell
 		let date = sortedDays[indexPath.section]
 		let reflection = 📅[date]![indexPath.row]

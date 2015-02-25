@@ -22,8 +22,4 @@ extension UIApplication {
 		return window.rootViewController as! RootViewController
 	}
 	
-	class var statusBarCover: UIImageView {
-		return appDelegate.statusBarCover
-	}
-	
 }

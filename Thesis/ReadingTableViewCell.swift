@@ -65,11 +65,11 @@ class ReadingTableViewCell: UITableViewCell {
 		return true
 	}
 	
-	private var didSetupConstraints = false
-	private var descriptionLabelTopConstraint: NSLayoutConstraint!
+	private var _didSetupConstraints = false
+	private var _descriptionLabelTopConstraint: NSLayoutConstraint!
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"titleLabel": titleLabel,
 				"descriptionLabel": descriptionLabel,
@@ -85,16 +85,16 @@ class ReadingTableViewCell: UITableViewCell {
 			descriptionLabel.setContentCompressionResistancePriority(1000, forAxis: .Vertical)
 			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(padding)-[titleLabel]", options: nil, metrics: metrics, views: views))
 			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[descriptionLabel]-(padding)-[borderView(0.5)]|", options: nil, metrics: metrics, views: views))
-			descriptionLabelTopConstraint = NSLayoutConstraint(item: descriptionLabel, attribute: .Top, relatedBy: .Equal, toItem: titleLabel, attribute: .Bottom, multiplier: 1, constant: 0)
-			contentView.addConstraint(descriptionLabelTopConstraint)
+			_descriptionLabelTopConstraint = NSLayoutConstraint(item: descriptionLabel, attribute: .Top, relatedBy: .Equal, toItem: titleLabel, attribute: .Bottom, multiplier: 1, constant: 0)
+			contentView.addConstraint(_descriptionLabelTopConstraint)
 			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(padding)-[titleLabel]-(padding)-|", options: nil, metrics: metrics, views: views))
 			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(padding)-[descriptionLabel]-(padding)-|", options: nil, metrics: metrics, views: views))
 			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[borderView]|", options: nil, metrics: metrics, views: views))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
-		descriptionLabelTopConstraint.constant = descriptionLabel.hidden ? 0 : 8
+		_descriptionLabelTopConstraint.constant = descriptionLabel.hidden ? 0 : 8
 		
 		super.updateConstraints()
 	}

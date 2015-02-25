@@ -130,8 +130,6 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
-		
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
 		view.addSubview(spacerViews[0])
@@ -140,18 +138,20 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		view.addSubview(actionLabel)
 		view.addSubview(spacerViews[1])
 		view.addSubview(doneButton)
+		
+		setupFullScreenControllerView(self)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: false)
-		hideFullScreenNavigationBar(self, animated: false)
+		updateFullScreenControllerColors(self, animated: false)
+		hideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 	// MARK: API
 	
-	var hideBlock: Async?
+	private var _hideBlock: Async?
 	
 	func toggleInstructions(_ state: Bool? = nil, timer: Double? = nil) {
 		showingInstructions = state != nil ? state! : !showingInstructions
@@ -164,9 +164,9 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 			self.setNeedsStatusBarAppearanceUpdate()
 		}
 		
-		hideBlock?.cancel()
+		_hideBlock?.cancel()
 		if showingInstructions && timer != nil {
-			hideBlock = Async.main(after: timer!) {
+			_hideBlock = Async.main(after: timer!) {
 				self.toggleInstructions(false)
 			}
 		}
@@ -203,17 +203,17 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 		super.touchesEnded(touches, withEvent: event)
 		
-		if started {
+		if _started {
 			toggleInstructions(timer: 5)
 		}
 	}
 	
 	// MARK: Constraints
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateViewConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel,
@@ -244,7 +244,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateViewConstraints()
@@ -252,15 +252,15 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	
 	// MARK: Handlers
 	
-	private var started = false
+	private var _started = false
 	func didTapBreatherButton(button: UIButton!) {
 		toggleInstructions()
 		
-		if !started {
+		if !_started {
 			breathe()
 		}
 		
-		started = true
+		_started = true
 	}
 	
 	func didTapDoneButton(button: UIButton!) {

@@ -48,10 +48,10 @@ class StatementsFooterView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"doneButton": doneButton
 			]
@@ -63,7 +63,7 @@ class StatementsFooterView: UIView {
 			addConstraint(NSLayoutConstraint(item: doneButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[doneButton]-(vMargin)-|", options: nil, metrics: metrics, views: views))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

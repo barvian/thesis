@@ -117,12 +117,12 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
-		
 		view.addSubview(vignetteView)
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
 		view.addSubview(doneButton)
+		
+		setupFullScreenControllerView(self)
 		
 		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
@@ -130,8 +130,8 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: false)
-		hideFullScreenNavigationBar(self, animated: false)
+		updateFullScreenControllerColors(self, animated: false)
+		hideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -166,10 +166,10 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	// MARK: Constraints
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateViewConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"vignetteView": vignetteView,
 				"titleLabel": titleLabel,
@@ -193,7 +193,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateViewConstraints()

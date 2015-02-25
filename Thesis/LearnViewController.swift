@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LearnViewController: ConstrainedTableViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
+class LearnViewController: UIViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
 	
 	let tintColor = UIColor.applicationBaseColor()
 	let backgroundColor = UIColor.applicationLightColor()
@@ -25,6 +25,22 @@ class LearnViewController: ConstrainedTableViewController, FullScreenViewControl
 		return data
 	}()
 	
+	private(set) lazy var tableView: ConstrainedTableView = {
+		let tableView = ConstrainedTableView()
+		tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+		tableView.backgroundColor = self.backgroundColor
+		tableView.dataSource = self
+		tableView.delegate = self
+		tableView.allowsSelection = true
+		tableView.registerClass(ReadingTableViewCell.self, forCellReuseIdentifier: "cell")
+		tableView.separatorStyle = .None
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 44.0
+		tableView.tableHeaderView = self.headerView
+		
+		return tableView
+	}()
+	
 	private(set) lazy var headerView: LearnHeaderView = {
 		let header = LearnHeaderView()
 		header.delegate = self
@@ -32,8 +48,8 @@ class LearnViewController: ConstrainedTableViewController, FullScreenViewControl
 		return header
 	}()
 	
-	convenience init() {
-		self.init(style: .Plain)
+	convenience override init() {
+		self.init(nibName: nil, bundle: nil)
 		
 		title = "Learn"
 		tabBarItem.image = UIImage(named: "Learn")
@@ -42,36 +58,52 @@ class LearnViewController: ConstrainedTableViewController, FullScreenViewControl
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
+		view.addSubview(tableView)
 		
-		tableView.allowsSelection = true
-		tableView.registerClass(ReadingTableViewCell.self, forCellReuseIdentifier: "cell")
-		tableView.separatorStyle = .None
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 44.0
-		tableView.tableHeaderView = headerView
+		setupFullScreenControllerView(self)
+		
+		view.setNeedsUpdateConstraints() // bootstrap AutoLayot
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: animated)
-		hideFullScreenNavigationBar(self, animated: animated)
+		updateFullScreenControllerColors(self, animated: animated)
+		hideFullScreenControllerNavigationBar(self, animated: animated)
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		
-		unhideFullScreenNavigationBar(self, animated: animated)
+		unhideFullScreenControllerNavigationBar(self, animated: animated)
+	}
+	
+	// MARK: Constraints
+	
+	private var _didSetupConstraints = false
+	
+	override func updateViewConstraints() {
+		if !_didSetupConstraints {
+			let views = [
+				"tableView": tableView,
+			]
+			
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: nil, metrics: nil, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: nil, views: views))
+			
+			_didSetupConstraints = true
+		}
+		
+		super.updateViewConstraints()
 	}
 	
 	// MARK: UITableViewDataSource
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 📖.count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReadingTableViewCell
 		let reading = 📖[indexPath.row] as! NSDictionary
 		
@@ -85,7 +117,7 @@ class LearnViewController: ConstrainedTableViewController, FullScreenViewControl
 	
 	// MARK: UITableViewDelegate
 	
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		let reading = 📖[indexPath.row] as! NSDictionary
 		let readingController = ReadingViewController()
 		readingController.reading = reading

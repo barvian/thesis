@@ -32,7 +32,7 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	}()
 	
 	override func prefersStatusBarHidden() -> Bool {
-		return UIApplication.statusBarCover.hidden
+		return _shouldHideStatusBar
 	}
 	
 	convenience override init() {
@@ -44,7 +44,7 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	override func viewDidLoad() {
 		self.view = webView
 		
-		setupFullScreenView(self)
+		setupFullScreenControllerView(self)
 		
 		view.setNeedsUpdateConstraints()
 	}
@@ -52,8 +52,8 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: animated)
-		hideFullScreenNavigationBar(self, animated: animated)
+		updateFullScreenControllerColors(self, animated: animated)
+		hideFullScreenControllerNavigationBar(self, animated: animated)
 		navigationController?.hidesBarsOnSwipe = true
 		navigationController?.barHideOnSwipeGestureRecognizer.addTarget(self, action: "didSwipe:")
 	}
@@ -68,7 +68,7 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	override func viewDidDisappear(animated: Bool) {
 		super.viewDidDisappear(animated)
 		
-		unhideFullScreenNavigationBar(self, animated: animated)
+		unhideFullScreenControllerNavigationBar(self, animated: animated)
 	}
 	
 	// MARK: Constraints
@@ -85,10 +85,12 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	
 	// MARK: Handlers
 	
+	private var _shouldHideStatusBar = false
+	
 	func didSwipe(recognizer: UISwipeGestureRecognizer) {
-		var _shouldHideStatusBar = navigationController?.navigationBar.frame.origin.y < 0
+		_shouldHideStatusBar = navigationController?.navigationBar.frame.origin.y < 0
 		UIView.animateWithDuration(0.2) {
-			UIApplication.statusBarCover.hidden = _shouldHideStatusBar
+			fullScreenControllerStatusBarCover(self)?.hidden = self._shouldHideStatusBar
 			self.setNeedsStatusBarAppearanceUpdate()
 		}
 	}

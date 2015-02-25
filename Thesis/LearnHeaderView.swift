@@ -54,10 +54,10 @@ class LearnHeaderView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"howToUseButton": ℹ️Button
 			]
@@ -68,7 +68,7 @@ class LearnHeaderView: UIView {
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[howToUseButton]-(margin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[howToUseButton]-(margin)-|", options: nil, metrics: metrics, views: views))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()

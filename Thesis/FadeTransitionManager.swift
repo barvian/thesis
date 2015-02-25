@@ -10,7 +10,7 @@ import UIKit
 
 class FadeTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
 	
-	private var presenting = false
+	private var _presenting = false
 	
 	// MARK: UIViewControllerAnimatedTransitioning
 	
@@ -27,7 +27,6 @@ class FadeTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
 		// Fade
 		fromView.alpha = 1
 		toView.alpha = 0
-		UIApplication.statusBarCover.hidden = true
 		UIView.animateKeyframesWithDuration(transitionDuration(transitionContext), delay: 0, options: nil, animations: {
 			UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.33) {
 				fromView.alpha = 0
@@ -40,7 +39,6 @@ class FadeTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
 			
 			transitionContext.completeTransition(true)
 			
-			UIApplication.statusBarCover.hidden = false
 			// bug: we have to manually add our 'to view' back http://openradar.appspot.com/radar?id=5320103646199808
 			UIApplication.window.addSubview(toView)
 		}
@@ -53,12 +51,12 @@ class FadeTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
 	// MARK: UIViewControllerTransitioningDelegate
 	
 	func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		self.presenting = true
+		_presenting = true
 		return self
 	}
 	
 	func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		self.presenting = false
+		_presenting = false
 		return self
 	}
 	

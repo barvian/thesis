@@ -92,10 +92,10 @@ class ReflectHeaderView: UIView {
 		return true
 	}
 	
-	private var didSetupConstraints = false
+	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		if !didSetupConstraints {
+		if !_didSetupConstraints {
 			let views = [
 				"headlineLabel": headlineLabel,
 				"subheaderLabel": subheaderLabel,
@@ -112,17 +112,10 @@ class ReflectHeaderView: UIView {
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton(70)]", options: nil, metrics: metrics, views: views))
 			
-			didSetupConstraints = true
+			_didSetupConstraints = true
 		}
 		
 		super.updateConstraints()
-	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		
-		headlineLabel.preferredMaxLayoutWidth = headlineLabel.frame.width
-		subheaderLabel.preferredMaxLayoutWidth = subheaderLabel.frame.width
 	}
 	
 	// MARK: Handlers

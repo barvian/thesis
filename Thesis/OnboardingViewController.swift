@@ -36,20 +36,20 @@ class OnboardingViewController: SlidingViewController, FullScreenViewController 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		setupFullScreenView(self)
+		setupFullScreenControllerView(self)
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenColors(self, animated: animated)
-		hideFullScreenNavigationBar(self, animated: false)
+		updateFullScreenControllerColors(self, animated: animated)
+		hideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
 		super.viewDidDisappear(animated)
 		
-		unhideFullScreenNavigationBar(self, animated: false)
+		unhideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
 }
