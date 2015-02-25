@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class ReflectViewController: UIViewController, FullScreenViewController, UITableViewDataSource, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: UIViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
 	
 	let daysToShow = 30
 	
@@ -39,6 +39,7 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 		tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
 		tableView.backgroundColor = self.backgroundColor
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.allowsSelection = false
 		tableView.registerClass(ReflectTableViewCell.self, forCellReuseIdentifier: "cell")
 		tableView.separatorStyle = .None
@@ -147,24 +148,6 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 		return 📅[date]!.count
 	}
 	
-	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let date = sortedDays[section]
-		switch date {
-		case NSDate().beginningOfDay():
-			let header = ReflectReminderView()
-			header.configureForTodaySection(📅[date])
-			if header.hidden {
-				fallthrough
-			} else {
-				return header
-			}
-		default:
-			let header = ReflectSectionHeaderView()
-			header.configureForDate(sortedDays[section])
-			return header
-		}
-	}
-	
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		switch (section, sortedDays[section]) {
 		case (0, NSDate().beginningOfDay()):
@@ -185,6 +168,26 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 		cell.updateConstraintsIfNeeded()
 		
 		return cell
+	}
+	
+	// MARK: UITableViewDelegate
+	
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let date = sortedDays[section]
+		switch date {
+		case NSDate().beginningOfDay():
+			let header = ReflectReminderView()
+			header.configureForTodaySection(📅[date])
+			if header.hidden {
+				fallthrough
+			} else {
+				return header
+			}
+		default:
+			let header = ReflectSectionHeaderView()
+			header.configureForDate(sortedDays[section])
+			return header
+		}
 	}
 	
 	// MARK: ReflectHeaderViewDelegate
