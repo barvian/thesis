@@ -9,7 +9,7 @@
 import UIKit
 import SSDynamicText
 
-class RelaxViewController: UIViewController, FullScreenViewController, RelaxationControllerDelegate {
+class RelaxViewController: UIViewController, FullScreenViewController, RelaxationControllerDelegate, MoodPickerViewDelegate, DurationPickerViewDelegate {
 	
 	let tintColor = UIColor.applicationBlueColor()
 	let backgroundColor = UIColor.applicationBlueColor()
@@ -19,75 +19,20 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	let navigationBarHidden = true
 	let navigationBarTranslucent = true
 	
-	private(set) lazy var headlineLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "How are you feeling right now?"
-		label.setTranslatesAutoresizingMaskIntoConstraints(false)
-		label.textColor = UIColor(r: 191, g: 234, b: 248)
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
+	private(set) lazy var moodPicker: MoodPickerView = {
+		let picker = MoodPickerView()
+		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
+		picker.delegate = self
 		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
-		
-		return label
+		return picker
 	}()
 	
-	private(set) lazy var subheaderLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
-		label.text = ""
-		label.setTranslatesAutoresizingMaskIntoConstraints(false)
-		label.textColor = UIColor(r: 191, g: 234, b: 248, a: 0.8)
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
+	private(set) lazy var durationPicker: DurationPickerView = {
+		let picker = DurationPickerView()
+		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
+		picker.delegate = self
 		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
-		
-		return label
-	}()
-	
-	private(set) lazy var 😊Button: UIButton = {
-		let button = ChunkyButton()
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle("😊", forState: .Normal)
-		button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
-		
-		button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
-		
-		return button
-	}()
-	
-	private(set) lazy var 😐Button: UIButton = {
-		let button = ChunkyButton()
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle("😐", forState: .Normal)
-		button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
-		
-		button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
-		
-		return button
-	}()
-	
-	private(set) lazy var 😖Button: UIButton = {
-		let button = ChunkyButton()
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle("😖", forState: .Normal)
-		button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 26)
-		
-		button.addTarget(self, action: "didTapMoodButton:", forControlEvents: .TouchUpInside)
-		
-		return button
+		return picker
 	}()
 	
 	private(set) lazy var spacerViews: [UIView] = {
@@ -117,20 +62,31 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		setupFullScreenView(self)
 		
 		view.addSubview(spacerViews[0])
-		view.addSubview(headlineLabel)
-		// view.addSubview(subheaderLabel)
-		view.addSubview(😊Button)
-		view.addSubview(😐Button)
-		view.addSubview(😖Button)
+		view.addSubview(moodPicker)
+		view.addSubview(durationPicker)
 		view.addSubview(spacerViews[1])
-		
-		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		updateFullScreenColors(self, animated: false)
+		toggleDurationPicker(false)
+		for (m, button) in self.moodPicker.moodButtons {
+			button.alpha = 1
+		}
+	}
+	
+	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+		super.touchesEnded(touches, withEvent: event)
+		
+		UIView.animateWithDuration(0.25) {
+			for (m, button) in self.moodPicker.moodButtons {
+				button.alpha = 1
+			}
+			
+			self.toggleDurationPicker(false)
+		}
 	}
 	
 	// MARK: Constraints
@@ -141,27 +97,25 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		if !didSetupConstraints {
 			let views = [
 				"spacer1": spacerViews[0],
-				"headlineLabel": headlineLabel,
-				"happyButton": 😊Button,
-				"neutralButton": 😐Button,
-				"flusteredButton": 😖Button,
+				"moodPicker": moodPicker,
+				"durationPicker": durationPicker,
 				"spacer2": spacerViews[1]
 			]
 			
-			let headerSpacing: CGFloat = 52, margin: CGFloat = 26
+			let margin: CGFloat = 26
 			let metrics = [
-				"headerSpacing": headerSpacing,
 				"margin": margin
 			]
 			
 			view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
 			view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0)]-[headlineLabel]-(headerSpacing)-[happyButton(70)]-(margin)-[neutralButton(==happyButton)]-(margin)-[flusteredButton(==happyButton)]-[spacer2(==spacer1)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0,==spacer2)][moodPicker][spacer2]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headlineLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[happyButton(70,==neutralButton,==flusteredButton)]", options: nil, metrics: metrics, views: views))
-			for (_, subview) in views {
-				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[moodPicker]|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[durationPicker]|", options: nil, metrics: metrics, views: views))
+			view.addConstraint(NSLayoutConstraint(item: durationPicker, attribute: .CenterY, relatedBy: .Equal, toItem: moodPicker, attribute: .CenterY, multiplier: 1, constant: 0))
+			for spacer in spacerViews {
+				view.addConstraint(NSLayoutConstraint(item: spacer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
 			didSetupConstraints = true
@@ -170,13 +124,39 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		super.updateViewConstraints()
 	}
 	
+	// MARK: API
+	
+	private var showingDurationPicker = false
+	
+	func toggleDurationPicker(_ state: Bool? = nil) {
+		showingDurationPicker = state != nil ? state! : !showingDurationPicker
+		
+		moodPicker.alpha = showingDurationPicker ? 0.15 : 1
+		moodPicker.transform = CGAffineTransformMakeTranslation(0, showingDurationPicker ? -50 : 0)
+		
+		durationPicker.alpha = showingDurationPicker ? 1 : 0
+		durationPicker.userInteractionEnabled = showingDurationPicker
+		durationPicker.transform = CGAffineTransformMakeTranslation(0, showingDurationPicker ? 35 : 70)
+	}
+	
 	// MARK: Handlers
 	
-	func didTapMoodButton(button: UIButton!) {
-		let mood = Character(button.titleForState(.Normal)!)
-		let relaxationLaunchController = RelaxationLaunchController(mood: Mood(rawValue: mood)!)
-		relaxationLaunchController.delegate = self
-		let navigationController = UINavigationController(rootViewController: relaxationLaunchController)
+	func moodPickerView(moodPickerView: MoodPickerView, didPickMood mood: Mood) {
+		UIView.animateWithDuration(0.3) {
+			for (m, button) in self.moodPicker.moodButtons {
+				button.alpha = (m == mood ? 1 : 0)
+			}
+			
+			self.toggleDurationPicker(true)
+		}
+	}
+	
+	func durationPickerView(durationPickerView: DurationPickerView, didPickDuration duration: Duration) {
+		let relaxationController = DeepBreathingViewController()
+		relaxationController.relaxationDelegate = self
+		relaxationController.navigationItem.hidesBackButton = true
+		let navigationController = UINavigationController(rootViewController: relaxationController)
+		navigationController.modalTransitionStyle = .CrossDissolve
 		
 		presentViewController(navigationController, animated: true, completion: nil)
 	}

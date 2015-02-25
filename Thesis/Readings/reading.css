@@ -1,7 +1,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 }
 
 	* + * {
@@ -33,4 +32,14 @@ h2 {
 	font-weight: 600;
 	font-size: 1.236rem;
 	line-height: 1.25;
+}
+
+h3 {
+	font-weight: 600;
+	font-size: 0.801rem;
+	line-height: 1.25;
+}
+
+ol, ul, dl {
+	padding-left: 1.5556rem;
 }

@@ -11,6 +11,10 @@ import UIKit
 class ChunkyButton: UIButton {
 	
 	var round = true
+	var backgroundColors = [
+		UIControlState.Normal.rawValue: UIColor.whiteColor(),
+		UIControlState.Highlighted.rawValue: UIColor(r: 255, g: 255, b: 255, a: 0.9)
+	]
 	
 	var zIndex: Int = 2 {
 		didSet {
@@ -26,6 +30,12 @@ class ChunkyButton: UIButton {
 	}
 	
 	override var highlighted: Bool {
+		didSet {
+			self.drawBackground()
+		}
+	}
+	
+	override var selected: Bool {
 		didSet {
 			self.drawBackground()
 		}
@@ -52,7 +62,7 @@ class ChunkyButton: UIButton {
 	}
 	
 	func drawBackground() {
-		backgroundColor = highlighted ? UIColor.whiteColor().colorWithAlphaComponent(0.9) : UIColor.whiteColor()
+		backgroundColor = backgroundColors[state.rawValue]
 		transform = highlighted && round ? CGAffineTransformMakeScale(0.975, 0.975) : CGAffineTransformMakeScale(1, 1)
 		layer.shadowOffset = CGSize(width: 0, height: highlighted ? CGFloat(zIndex) * 0.5 : CGFloat(zIndex) * 1.5)
 		layer.shadowRadius = highlighted ? CGFloat(zIndex) * 0.5 : CGFloat(zIndex) * 2

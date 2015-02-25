@@ -6,7 +6,7 @@
 		<key>Title</key>
 		<string>What is anxiety?</string>
 		<key>Description</key>
-		<string>That&apos;s a pretty good question.</string>
+		<string>Causes, symptoms, diagnosis, treatments, etc.</string>
 		<key>File</key>
 		<string>gad</string>
 	</dict>
@@ -24,15 +24,21 @@
 	</dict>
 	<dict>
 		<key>Title</key>
-		<string>Self-talk cycles</string>
+		<string>Self-talk</string>
 		<key>File</key>
-		<string>gad</string>
+		<string>self-talk</string>
 	</dict>
 	<dict>
 		<key>Title</key>
-		<string>FAQs</string>
+		<string>Mistaken beliefs</string>
 		<key>File</key>
-		<string>gad</string>
+		<string>mistaken-beliefs</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Dealing with feelings</string>
+		<key>File</key>
+		<string>dealing-with-feelings</string>
 	</dict>
 </array>
 </plist>

@@ -169,7 +169,7 @@ class ReflectViewController: ConstrainedTableViewController, FullScreenViewContr
 	// MARK: AddReflectionViewControllerDelegate
 	
 	func addReflectionViewController(addReflectionViewController: AddReflectionViewController, didFinishTypingEvent eventText: String!, reason reasonText: String!) {
-		if eventText?.utf16Count > 0 && reasonText?.utf16Count > 0 {
+		if count(eventText) > 0 && count(reasonText) > 0 {
 			let reflection = Reflection()
 			reflection.event = eventText!
 			reflection.reason = reasonText!

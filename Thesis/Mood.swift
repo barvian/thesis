@@ -6,8 +6,18 @@
 //  Copyright (c) 2015 Maxwell Barvian. All rights reserved.
 //
 
-enum Mood: Character {
-    case 😊 = "😊"
-    case 😐 = "😐"
-    case 😖 = "😖"
+@objc enum Mood: Int {
+    case 😊 = 1
+    case 😐 = 2
+    case 😖 = 3
+	
+	static let allValues = [😊, 😐, 😖]
+	
+	var description: String {
+		switch self {
+		case .😊: return "😊"
+		case .😐: return "😐"
+		case .😖: return "😖"
+		}
+	}
 }

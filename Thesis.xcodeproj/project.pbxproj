@@ -10,16 +10,18 @@
 		25A911E3DD109BA9B5A30F65 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C53AE276EA08AB906DFD73 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0BE8091A61DA98007FCA8E /* AppDelegate.swift */; };
 		CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF0BE8161A61DA98007FCA8E /* LaunchScreen.xib */; };
+		CF260EF91A9D19B300E1C053 /* MoodPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF260EF81A9D19B300E1C053 /* MoodPickerView.swift */; };
+		CF260EFD1A9D377B00E1C053 /* DurationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF260EFC1A9D377B00E1C053 /* DurationPickerView.swift */; };
 		CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4110491A84529500A78347 /* ReflectHeaderView.swift */; };
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
 		CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */; };
+		CF60AD1C1A9BEA2300D57453 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60AD1B1A9BEA2300D57453 /* Duration.swift */; };
 		CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */; };
 		CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */; };
 		CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */; };
 		CF6FA8E91A8AA2E800856C8C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E81A8AA2E800856C8C /* RootViewController.swift */; };
 		CF6FA8F11A8ABBEC00856C8C /* NSDate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F01A8ABBEC00856C8C /* NSDate+Additions.swift */; };
 		CF6FA8F31A8AD11E00856C8C /* ReflectSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */; };
-		CF6FA8F71A8AF28000856C8C /* RelaxationLauncherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F61A8AF28000856C8C /* RelaxationLauncherController.swift */; };
 		CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F81A8AF5F600856C8C /* Mood.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
@@ -77,16 +79,18 @@
 		CF0BE8171A61DA98007FCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thesis.entitlements; sourceTree = "<group>"; };
 		CF0BE8601A64501D007FCA8E /* Thesis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thesis-Bridging-Header.h"; sourceTree = "<group>"; };
+		CF260EF81A9D19B300E1C053 /* MoodPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodPickerView.swift; sourceTree = "<group>"; };
+		CF260EFC1A9D377B00E1C053 /* DurationPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPickerView.swift; sourceTree = "<group>"; };
 		CF4110491A84529500A78347 /* ReflectHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectHeaderView.swift; sourceTree = "<group>"; };
 		CF41104B1A84579400A78347 /* AddReflectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionViewController.swift; sourceTree = "<group>"; };
 		CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectReminderView.swift; sourceTree = "<group>"; };
+		CF60AD1B1A9BEA2300D57453 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+State.swift"; sourceTree = "<group>"; };
 		CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
 		CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWebView+ConfigureForReading.swift"; sourceTree = "<group>"; };
 		CF6FA8E81A8AA2E800856C8C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CF6FA8F01A8ABBEC00856C8C /* NSDate+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Additions.swift"; sourceTree = "<group>"; };
 		CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectSectionHeaderView.swift; sourceTree = "<group>"; };
-		CF6FA8F61A8AF28000856C8C /* RelaxationLauncherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationLauncherController.swift; sourceTree = "<group>"; };
 		CF6FA8F81A8AF5F600856C8C /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +230,8 @@
 				CFA5D2C81A9B624400CFFADF /* Calming Scenes */,
 				CFA5D2C51A9B620200CFFADF /* Statements */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
-				CF6FA8F61A8AF28000856C8C /* RelaxationLauncherController.swift */,
+				CF260EF81A9D19B300E1C053 /* MoodPickerView.swift */,
+				CF260EFC1A9D377B00E1C053 /* DurationPickerView.swift */,
 				CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */,
 			);
 			name = Relax;
@@ -327,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6FA8F81A8AF5F600856C8C /* Mood.swift */,
+				CF60AD1B1A9BEA2300D57453 /* Duration.swift */,
 				CF725FCE1A82D09300B6EE2B /* Reflection.swift */,
 			);
 			name = Models;
@@ -474,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF260EFD1A9D377B00E1C053 /* DurationPickerView.swift in Sources */,
 				CF7E4FE81A8B84FA00E131C5 /* CalmingScenesViewController.swift in Sources */,
 				CF6FA8F11A8ABBEC00856C8C /* NSDate+Additions.swift in Sources */,
 				CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */,
@@ -492,6 +499,7 @@
 				CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */,
 				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */,
+				CF260EF91A9D19B300E1C053 /* MoodPickerView.swift in Sources */,
 				CFA5D2BA1A9AD59C00CFFADF /* OnboardingTutorialController.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
@@ -502,7 +510,6 @@
 				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
 				CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */,
 				EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */,
-				CF6FA8F71A8AF28000856C8C /* RelaxationLauncherController.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
 				CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderController.swift in Sources */,
 				CFD38CC11A9BA82E00176F9E /* DeepBreathingViewController.swift in Sources */,
@@ -517,6 +524,7 @@
 				CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */,
 				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
 				CFA5D2C21A9B60C300CFFADF /* StatementTableViewCell.swift in Sources */,
+				CF60AD1C1A9BEA2300D57453 /* Duration.swift in Sources */,
 				CFBB40681A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,
 				CFBB406A1A9934FC0036065A /* ReflectTableViewCell+ConfigureForReflection.swift in Sources */,
