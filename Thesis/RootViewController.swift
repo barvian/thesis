@@ -9,6 +9,8 @@
 import UIKit
 import SDCloudUserDefaults
 
+public let RootViewControllerLearnTabIndex = 0, RootViewControllerRelaxTabIndex = 1, RootViewControllerReflectTabIndex = 2
+
 class RootViewController: UITabBarController {
 	
 	private(set) lazy var learnController: LearnViewController = {
@@ -31,13 +33,13 @@ class RootViewController: UITabBarController {
 	
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        viewControllers = [
-            UINavigationController(rootViewController: learnController),
-			relaxController,
-            reflectController
-        ]
-        selectedIndex = 1
+		
+		var viewControllers = [UIViewController]()
+		viewControllers.insert(UINavigationController(rootViewController: learnController), atIndex: RootViewControllerLearnTabIndex)
+		viewControllers.insert(relaxController, atIndex: RootViewControllerRelaxTabIndex)
+		viewControllers.insert(reflectController, atIndex: RootViewControllerReflectTabIndex)
+		self.viewControllers = viewControllers
+        selectedIndex = RootViewControllerRelaxTabIndex
     }
     
     override func viewDidLoad() {

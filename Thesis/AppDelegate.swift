@@ -17,9 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         SDCloudUserDefaults.registerForNotifications()
-		
 		applyStylesheet()
-        
+		
+		if let launchOptions = launchOptions {
+			if let localNotification = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+				if localNotification == UIApplication.relaxationReminder {
+					UIApplication.rootViewController.selectedIndex = RootViewControllerRelaxTabIndex
+				}
+			}
+		}
+		
         return true
     }
 	

@@ -204,9 +204,9 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		switch (section, sortedDays[section]) {
 		case (0, NSDate().beginningOfDay()):
-			return 80
-		default:
 			return 74
+		default:
+			return 64
 		}
 	}
 	
