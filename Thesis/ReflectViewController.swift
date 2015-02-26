@@ -209,12 +209,7 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 	}
 	
 	func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		switch (section, sortedDays[section]) {
-		case (0, NSDate().beginningOfDay()):
-			return 74
-		default:
-			return 64
-		}
+		return 64
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -248,16 +243,6 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 			header.configureForDate(sortedDays[section])
 			return header
 		}
-	}
-	
-	// MARK: DailyReminderViewDelegate
-	
-	func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool) {
-		UIApplication.reflectionReminder = reminder ? UILocalNotification.applicationReflectionReminder(reminderView.timePicker.date) : nil
-	}
-	
-	func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate) {
-		UIApplication.reflectionReminder = UILocalNotification.applicationReflectionReminder(time)
 	}
 	
 	// MARK: ReflectHeaderViewDelegate
