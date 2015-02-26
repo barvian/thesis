@@ -117,6 +117,16 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		unhideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
+	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+		super.touchesEnded(touches, withEvent: event)
+		
+		if (_showingReminderView) {
+			UIView.animateWithDuration(0.4) {
+				self.toggleReminderView(false)
+			}
+		}
+	}
+	
 	// MARK: API
 	
 	private var _showingReminderView = false
@@ -127,6 +137,8 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		let transform = CGAffineTransformMakeTranslation(0, _showingReminderView ? reminderView.bounds.height : 0)
 		reminderView.transform = transform
 		tableView.transform = transform
+		tableView.alpha = _showingReminderView ? 0.5 : 1
+		tabBarController?.tabBar.alpha = _showingReminderView ? 0.5 : 1
 		tabBarController?.tabBar.transform = transform
 		
 		tableView.userInteractionEnabled = !_showingReminderView

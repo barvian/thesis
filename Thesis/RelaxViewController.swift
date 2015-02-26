@@ -141,7 +141,6 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 				self.toggleDurationPicker(false)
 			}
 		}
-		
 	}
 	
 	// MARK: Constraints
@@ -203,6 +202,8 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		let transform = CGAffineTransformMakeTranslation(0, _showingReminderView ? reminderView.bounds.height : 0)
 		reminderView.transform = transform
 		contentView.transform = transform
+		contentView.alpha = _showingReminderView ? 0.5 : 1
+		tabBarController?.tabBar.alpha = _showingReminderView ? 0.5 : 1
 		tabBarController?.tabBar.transform = transform
 		
 		contentView.userInteractionEnabled = !_showingReminderView
