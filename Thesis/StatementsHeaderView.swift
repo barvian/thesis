@@ -74,7 +74,7 @@ class StatementsHeaderView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel
 			]

@@ -88,7 +88,7 @@ class DurationPickerView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"headlineLabel": headlineLabel,
 				"shortButton": durationButtons[.Short]!,
 				"moderateButton": durationButtons[.Moderate]!,

@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class ReflectViewController: UIViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
+class ReflectViewController: UIViewController, FullScreenViewController, DailyReminderViewDelegate, UITableViewDataSource, UITableViewDelegate, ReflectHeaderViewDelegate, AddReflectionViewControllerDelegate {
 	
 	let daysToShow = 30
 	
@@ -32,6 +32,15 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 		dateFormatter.timeStyle = .NoStyle
 		
 		return dateFormatter
+	}()
+	
+	private(set) lazy var reminderView: DailyReminderView = {
+		let picker = DailyReminderView()
+		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
+		picker.reminderLabel.text = "Daily reflection reminder"
+		picker.delegate = self
+		
+		return picker
 	}()
 	
 	private(set) lazy var tableView: ConstrainedTableView = {
@@ -77,6 +86,9 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 		
 		setupFullScreenControllerView(self)
 		
+		view.addSubview(reminderView)
+		toggleReminderView(false)
+		
 		let startDate = NSDate()
 		let today = startDate.beginningOfDay()
 		let endDate = today.addDays(-daysToShow)
@@ -95,8 +107,8 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenControllerColors(self, animated: false)
-		hideFullScreenControllerNavigationBar(self, animated: false)
+		updateFullScreenControllerColors(self, animated: animated)
+		hideFullScreenControllerNavigationBar(self, animated: animated)
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
@@ -106,6 +118,19 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 	}
 	
 	// MARK: API
+	
+	private var _showingReminderView = false
+	
+	func toggleReminderView(_ state: Bool? = nil) {
+		_showingReminderView = state != nil ? state! : !_showingReminderView
+		
+		let transform = CGAffineTransformMakeTranslation(0, _showingReminderView ? reminderView.bounds.height : 0)
+		reminderView.transform = transform
+		tableView.transform = transform
+		tabBarController?.tabBar.transform = transform
+		
+		tableView.userInteractionEnabled = !_showingReminderView
+	}
 	
 	func addReflection(reflection: Reflection) {
 		let date = reflection.date.beginningOfDay()
@@ -124,11 +149,27 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			setupFullScreenControllerViewConstraints(self)
+			
+			let views: [NSObject: AnyObject] = [
+				"topLayoutGuide": topLayoutGuide,
+				"reminderView": reminderView,
 				"tableView": tableView,
+				"bottomLayoutGuide": bottomLayoutGuide
 			]
 			
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: nil, metrics: nil, views: views))
+			let margin: CGFloat = 14
+			let metrics = [
+				"margin": margin
+			]
+			
+			reminderView.layoutMargins = UIEdgeInsets(top: topLayoutGuide.length + margin, left: margin, bottom: margin, right: margin)
+			
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[reminderView][topLayoutGuide]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[reminderView]|", options: nil, metrics: metrics, views: views))
+			
+			view.addConstraint(NSLayoutConstraint(item: tableView, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
+			view.addConstraint(NSLayoutConstraint(item: tableView, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: nil, views: views))
 			
 			_didSetupConstraints = true
@@ -191,6 +232,13 @@ class ReflectViewController: UIViewController, FullScreenViewController, UITable
 	}
 	
 	// MARK: ReflectHeaderViewDelegate
+	
+	func reflectHeaderView(reflectHeaderView: ReflectHeaderView, didTapReminderButton reminderButton: UIButton!) {
+		UIView.animateWithDuration(0.3) {
+			self.tableView.contentOffset = CGPoint(x: 0, y: -self.tableView.contentInset.top)
+			self.toggleReminderView(true)
+		}
+	}
 	
 	func reflectHeaderView(reflectHeaderView: ReflectHeaderView, didTapAddButton addButton: UIButton!) {
 		let addController = AddReflectionViewController()

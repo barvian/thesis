@@ -9,17 +9,51 @@
 import UIKit
 import SSDynamicText
 
-class RelaxViewController: UIViewController, FullScreenViewController, RelaxationControllerDelegate, MoodPickerViewDelegate, DurationPickerViewDelegate {
+class RelaxViewController: UIViewController, FullScreenViewController, RelaxationControllerDelegate, DailyReminderViewDelegate, MoodPickerViewDelegate, DurationPickerViewDelegate {
 	
 	let tintColor = UIColor.applicationBlueColor()
 	let backgroundColor = UIColor.applicationBlueColor()
 	let tabColor = UIColor(r: 57, g: 109, b: 128)
 	let selectedTabColor = UIColor.whiteColor()
 	
-	let navigationBarHidden = true
+	let navigationBarHidden = false
 	let navigationBarTranslucent = true
 	
 	let transitionManager = FadeTransitionManager()
+	
+	private(set) lazy var reminderView: DailyReminderView = {
+		let picker = DailyReminderView()
+		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
+		picker.reminderLabel.text = "Daily relaxation reminder"
+		picker.delegate = self
+		
+		return picker
+	}()
+	
+	private(set) lazy var contentView: UIView = {
+		let content = UIView()
+		content.setTranslatesAutoresizingMaskIntoConstraints(false)
+		
+		return content
+	}()
+	
+	private(set) lazy var reminderButton: UIButton = {
+		let button = UIButton.buttonWithType(.System) as! UIButton
+		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)
+		button.setImage(bell, forState: .Normal)
+		button.tintColor = UIColor.whiteColor()
+		button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+		
+		button.layer.shadowOffset = CGSize(width: 0, height: 2)
+		button.layer.shadowRadius = 3
+		button.layer.shadowColor = UIColor.blackColor().CGColor
+		button.layer.shadowOpacity = 0.075
+		
+		button.addTarget(self, action: "didTapReminderButton:", forControlEvents: .TouchUpInside)
+		
+		return button
+	}()
 	
 	private(set) lazy var moodPicker: MoodPickerView = {
 		let picker = MoodPickerView()
@@ -61,20 +95,25 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.addSubview(spacerViews[0])
-		view.addSubview(moodPicker)
-		view.addSubview(durationPicker)
-		view.addSubview(spacerViews[1])
-		
+		contentView.addSubview(reminderButton)
+		contentView.addSubview(spacerViews[0])
+		contentView.addSubview(moodPicker)
+		contentView.addSubview(durationPicker)
+		contentView.addSubview(spacerViews[1])
 		toggleDurationPicker(false)
+		view.addSubview(contentView)
 		
 		setupFullScreenControllerView(self)
+		
+		view.addSubview(reminderView)
+		toggleReminderView(false)
+		
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		updateFullScreenControllerColors(self, animated: false)
+		updateFullScreenControllerColors(self, animated: animated)
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
@@ -89,13 +128,20 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 		super.touchesEnded(touches, withEvent: event)
 		
-		UIView.animateWithDuration(0.25) {
-			for (m, button) in self.moodPicker.moodButtons {
-				button.alpha = 1
+		if (_showingReminderView) {
+			UIView.animateWithDuration(0.4) {
+				self.toggleReminderView(false)
 			}
-			
-			self.toggleDurationPicker(false)
+		} else if _showingDurationPicker {
+			UIView.animateWithDuration(0.25) {
+				for (m, button) in self.moodPicker.moodButtons {
+					button.alpha = 1
+				}
+				
+				self.toggleDurationPicker(false)
+			}
 		}
+		
 	}
 	
 	// MARK: Constraints
@@ -104,27 +150,41 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			setupFullScreenControllerViewConstraints(self)
+			
+			let views: [NSObject: AnyObject] = [
+				"reminderView": reminderView,
+				"topLayoutGuide": topLayoutGuide,
+				"contentView": contentView,
+				"reminderButton": reminderButton,
 				"spacer1": spacerViews[0],
 				"moodPicker": moodPicker,
 				"durationPicker": durationPicker,
-				"spacer2": spacerViews[1]
+				"spacer2": spacerViews[1],
+				"bottomLayoutGuide": bottomLayoutGuide
 			]
 			
-			let margin: CGFloat = 26
+			let margin: CGFloat = 14
 			let metrics = [
 				"margin": margin
 			]
 			
-			view.addConstraint(NSLayoutConstraint(item: spacerViews[0], attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
-			view.addConstraint(NSLayoutConstraint(item: spacerViews[1], attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[spacer1(>=0,==spacer2)][moodPicker][spacer2]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[moodPicker]|", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[durationPicker]|", options: nil, metrics: metrics, views: views))
-			view.addConstraint(NSLayoutConstraint(item: durationPicker, attribute: .CenterY, relatedBy: .Equal, toItem: moodPicker, attribute: .CenterY, multiplier: 1, constant: 0))
-			for spacer in spacerViews {
-				view.addConstraint(NSLayoutConstraint(item: spacer, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
+			reminderView.layoutMargins = UIEdgeInsets(top: topLayoutGuide.length + margin, left: margin, bottom: margin, right: margin)
+			
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[reminderView][topLayoutGuide]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[reminderView]|", options: nil, metrics: metrics, views: views))
+			
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[topLayoutGuide][contentView][bottomLayoutGuide]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: nil, metrics: metrics, views: views))
+			
+			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[reminderButton]", options: nil, metrics: metrics, views: views))
+			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[spacer1(>=0,==spacer2)][moodPicker][spacer2]|", options: nil, metrics: metrics, views: views))
+			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
+			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[moodPicker]|", options: nil, metrics: metrics, views: views))
+			contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[durationPicker]|", options: nil, metrics: metrics, views: views))
+			contentView.addConstraint(NSLayoutConstraint(item: durationPicker, attribute: .CenterY, relatedBy: .Equal, toItem: moodPicker, attribute: .CenterY, multiplier: 1, constant: 0))
+			for subview in contentView.subviews {
+				contentView.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: contentView, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
 			
 			_didSetupConstraints = true
@@ -134,6 +194,19 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}
 	
 	// MARK: API
+	
+	private var _showingReminderView = false
+	
+	func toggleReminderView(_ state: Bool? = nil) {
+		_showingReminderView = state != nil ? state! : !_showingReminderView
+		
+		let transform = CGAffineTransformMakeTranslation(0, _showingReminderView ? reminderView.bounds.height : 0)
+		reminderView.transform = transform
+		contentView.transform = transform
+		tabBarController?.tabBar.transform = transform
+		
+		contentView.userInteractionEnabled = !_showingReminderView
+	}
 	
 	private var _showingDurationPicker = false
 	
@@ -149,6 +222,12 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}
 	
 	// MARK: Handlers
+	
+	func didTapReminderButton(button: UIButton!) {
+		UIView.animateWithDuration(0.3) {
+			self.toggleReminderView(true)
+		}
+	}
 	
 	func moodPickerView(moodPickerView: MoodPickerView, didPickMood mood: Mood) {
 		UIView.animateWithDuration(0.3) {

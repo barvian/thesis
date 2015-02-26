@@ -70,7 +70,7 @@ class ReadingTableViewCell: UITableViewCell {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"titleLabel": titleLabel,
 				"descriptionLabel": descriptionLabel,
 				"borderView": borderView

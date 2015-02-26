@@ -214,7 +214,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel,
 				"spacer1": spacerViews[0],

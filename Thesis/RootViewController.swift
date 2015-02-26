@@ -34,7 +34,7 @@ class RootViewController: UITabBarController {
         
         viewControllers = [
             UINavigationController(rootViewController: learnController),
-            relaxController,
+			relaxController,
             reflectController
         ]
         selectedIndex = 1

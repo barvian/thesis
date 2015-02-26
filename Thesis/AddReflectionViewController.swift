@@ -93,13 +93,15 @@ class AddReflectionViewController: UIViewController, FullScreenViewController, U
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			setupFullScreenControllerViewConstraints(self)
+			
+			let views: [NSObject: AnyObject] = [
+				"topLayoutGuide": topLayoutGuide,
 				"eventPage": eventPage,
 				"reasonPage": reasonPage
 			]
 			
-			view.addConstraint(NSLayoutConstraint(item: eventPage, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[eventPage][reasonPage(==eventPage)]", options: nil, metrics: nil, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[topLayoutGuide][eventPage][reasonPage(==eventPage)]", options: nil, metrics: nil, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[eventPage]|", options: nil, metrics: nil, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[reasonPage]|", options: nil, metrics: nil, views: views))
 			_bottomLayoutConstraint = NSLayoutConstraint(item: reasonPage, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: 0)

@@ -170,7 +170,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"vignetteView": vignetteView,
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel,

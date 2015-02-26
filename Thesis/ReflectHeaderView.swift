@@ -10,6 +10,7 @@ import UIKit
 import SSDynamicText
 
 @objc protocol ReflectHeaderViewDelegate {
+	optional func reflectHeaderView(reflectHeaderView: ReflectHeaderView, didTapReminderButton reminderButton: UIButton!)
 	optional func reflectHeaderView(reflectHeaderView: ReflectHeaderView, didTapAddButton addButton: UIButton!)
 }
 
@@ -18,6 +19,24 @@ public let reflectionsPerDay = 3
 class ReflectHeaderView: UIView {
 	
 	weak var delegate: ReflectHeaderViewDelegate?
+	
+	private(set) lazy var reminderButton: UIButton = {
+		let button = UIButton.buttonWithType(.System) as! UIButton
+		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)
+		button.setImage(bell, forState: .Normal)
+		button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+		button.tintColor = UIColor.whiteColor()
+		
+		button.layer.shadowOffset = CGSize(width: 0, height: 2)
+		button.layer.shadowRadius = 3
+		button.layer.shadowColor = UIColor.blackColor().CGColor
+		button.layer.shadowOpacity = 0.075
+		
+		button.addTarget(self, action: "didTapReminderButton:", forControlEvents: .TouchUpInside)
+		
+		return button
+	}()
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
@@ -77,6 +96,7 @@ class ReflectHeaderView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
+		addSubview(reminderButton)
 		addSubview(headlineLabel)
 		addSubview(subheaderLabel)
 		addSubview(addButton)
@@ -96,18 +116,21 @@ class ReflectHeaderView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
+				"reminderButton": reminderButton,
 				"headlineLabel": headlineLabel,
 				"subheaderLabel": subheaderLabel,
 				"addButton": addButton
 			]
 			let metrics = [
+				"margin": 14,
 				"hMargin": 26,
 				"vMargin": 52
 			]
 			
+			addConstraint(NSLayoutConstraint(item: reminderButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			addConstraint(NSLayoutConstraint(item: addButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)]|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(margin)-[reminderButton]-(hMargin)-[headlineLabel]-[subheaderLabel]-(vMargin)-[addButton(70)]|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[headlineLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[subheaderLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[addButton(70)]", options: nil, metrics: metrics, views: views))
@@ -119,6 +142,10 @@ class ReflectHeaderView: UIView {
 	}
 	
 	// MARK: Handlers
+	
+	func didTapReminderButton(button: UIButton!) {
+		delegate?.reflectHeaderView?(self, didTapReminderButton: button)
+	}
 	
 	func didTapAddButton(button: UIButton!) {
 		delegate?.reflectHeaderView?(self, didTapAddButton: button)

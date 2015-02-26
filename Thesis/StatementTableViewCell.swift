@@ -64,7 +64,7 @@ class StatementTableViewCell: UITableViewCell {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"statementLabel": statementLabel,
 				"lineView": lineView
 			]

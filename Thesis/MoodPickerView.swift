@@ -83,7 +83,7 @@ class MoodPickerView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"headlineLabel": headlineLabel,
 				"happyButton": moodButtons[.😊]!,
 				"neutralButton": moodButtons[.😐]!,

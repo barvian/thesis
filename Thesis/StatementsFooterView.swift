@@ -52,7 +52,7 @@ class StatementsFooterView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"doneButton": doneButton
 			]
 			let metrics = [

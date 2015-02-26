@@ -16,6 +16,7 @@
 		CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF41104B1A84579400A78347 /* AddReflectionViewController.swift */; };
 		CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */; };
 		CF60AD1C1A9BEA2300D57453 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60AD1B1A9BEA2300D57453 /* Duration.swift */; };
+		CF65D9401A9F50CF006F7D42 /* DailyReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF65D93F1A9F50CF006F7D42 /* DailyReminderView.swift */; };
 		CF6FA8E11A8A3EF300856C8C /* UITabBar+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */; };
 		CF6FA8E51A8A55CD00856C8C /* UIApplication+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */; };
 		CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */; };
@@ -52,6 +53,7 @@
 		CFBB406E1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB406D1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift */; };
 		CFBB8DB11A87C4A20087AA3A /* ReflectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */; };
 		CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */; };
+		CFC201111A9F47F700B61D66 /* UINavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC201101A9F47F700B61D66 /* UINavigationController+StatusBar.swift */; };
 		CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFCA71881A942CE500D0B896 /* LBorderView.m */; };
 		CFD38CC11A9BA82E00176F9E /* DeepBreathingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */; };
 		CFE5F58C1A93862A0011008A /* ChunkyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE5F58B1A93862A0011008A /* ChunkyButton.swift */; };
@@ -68,7 +70,7 @@
 		EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */; };
 		EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E301A892433008FDA6C /* LearnHeaderView.swift */; };
 		EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3317A21A64378D00DD6604 /* RelaxViewController.swift */; };
-		EC6FB7141A9E28640091199F /* UIImage+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6FB7131A9E28640091199F /* UIImage+Thesis.swift */; };
+		EC6FB7141A9E28640091199F /* UIImageView+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6FB7131A9E28640091199F /* UIImageView+Thesis.swift */; };
 		ECBE8D991A8BA1E7000AC325 /* SlidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE8D981A8BA1E7000AC325 /* SlidingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,7 @@
 		CF41104B1A84579400A78347 /* AddReflectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionViewController.swift; sourceTree = "<group>"; };
 		CF4737EB1A943EC600F6D6D0 /* ReflectReminderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectReminderView.swift; sourceTree = "<group>"; };
 		CF60AD1B1A9BEA2300D57453 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		CF65D93F1A9F50CF006F7D42 /* DailyReminderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReminderView.swift; sourceTree = "<group>"; };
 		CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+State.swift"; sourceTree = "<group>"; };
 		CF6FA8E41A8A55CD00856C8C /* UIApplication+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+RootViewController.swift"; sourceTree = "<group>"; };
 		CF6FA8E61A8A714D00856C8C /* UIWebView+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWebView+ConfigureForReading.swift"; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		CFBB406D1A99352B0036065A /* ReflectReminderView+ConfigureForSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReflectReminderView+ConfigureForSection.swift"; sourceTree = "<group>"; };
 		CFBB8DB01A87C4A20087AA3A /* ReflectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectTableViewCell.swift; sourceTree = "<group>"; };
 		CFBB8DB61A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SDCloudUserDefaults+Thesis.swift"; sourceTree = "<group>"; };
+		CFC201101A9F47F700B61D66 /* UINavigationController+StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+StatusBar.swift"; sourceTree = "<group>"; };
 		CFCA71871A942CCA00D0B896 /* LBorderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBorderView.h; sourceTree = "<group>"; };
 		CFCA71881A942CE500D0B896 /* LBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBorderView.m; sourceTree = "<group>"; };
 		CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepBreathingViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +146,7 @@
 		EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingTableViewCell.swift; sourceTree = "<group>"; };
 		EC063E301A892433008FDA6C /* LearnHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnHeaderView.swift; sourceTree = "<group>"; };
 		EC3317A21A64378D00DD6604 /* RelaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxViewController.swift; sourceTree = "<group>"; };
-		EC6FB7131A9E28640091199F /* UIImage+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Thesis.swift"; sourceTree = "<group>"; };
+		EC6FB7131A9E28640091199F /* UIImageView+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Thesis.swift"; sourceTree = "<group>"; };
 		ECBE8D981A8BA1E7000AC325 /* SlidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,7 +321,8 @@
 				CFBA82701A870B120030F13D /* UIColor+Thesis.swift */,
 				CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */,
 				CF6FA8E01A8A3EF300856C8C /* UITabBar+State.swift */,
-				EC6FB7131A9E28640091199F /* UIImage+Thesis.swift */,
+				EC6FB7131A9E28640091199F /* UIImageView+Thesis.swift */,
+				CFC201101A9F47F700B61D66 /* UINavigationController+StatusBar.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 		CFBA823D1A8704510030F13D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF65D93F1A9F50CF006F7D42 /* DailyReminderView.swift */,
 				CFCA71871A942CCA00D0B896 /* LBorderView.h */,
 				CFCA71881A942CE500D0B896 /* LBorderView.m */,
 				CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */,
@@ -506,7 +512,7 @@
 				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */,
 				CF260EF91A9D19B300E1C053 /* MoodPickerView.swift in Sources */,
-				EC6FB7141A9E28640091199F /* UIImage+Thesis.swift in Sources */,
+				EC6FB7141A9E28640091199F /* UIImageView+Thesis.swift in Sources */,
 				CFA5D2BA1A9AD59C00CFFADF /* OnboardingTutorialController.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
@@ -516,6 +522,7 @@
 				CFA5D2B81A9AD35C00CFFADF /* OnboardingGADController.swift in Sources */,
 				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
 				CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */,
+				CF65D9401A9F50CF006F7D42 /* DailyReminderView.swift in Sources */,
 				EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */,
 				CFB3B0C61A9D4B700036984A /* FadeTransitionManager.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
@@ -532,6 +539,7 @@
 				CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */,
 				EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */,
 				CFA5D2C21A9B60C300CFFADF /* StatementTableViewCell.swift in Sources */,
+				CFC201111A9F47F700B61D66 /* UINavigationController+StatusBar.swift in Sources */,
 				CF60AD1C1A9BEA2300D57453 /* Duration.swift in Sources */,
 				CFBB40681A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift in Sources */,
 				CFBB8DB71A87CF300087AA3A /* SDCloudUserDefaults+Thesis.swift in Sources */,

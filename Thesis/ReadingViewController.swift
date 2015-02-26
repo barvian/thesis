@@ -77,6 +77,8 @@ class ReadingViewController: UIViewController, FullScreenViewController {
 	
 	override func updateViewConstraints() {
 		if !didSetupConstraints {
+			setupFullScreenControllerViewConstraints(self)
+			
 			didSetupConstraints = true
 		}
 		

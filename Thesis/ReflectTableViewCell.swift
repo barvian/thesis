@@ -83,7 +83,7 @@ class ReflectTableViewCell: UITableViewCell {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"eventLabel": eventLabel,
 				"reasonLabel": reasonLabel,
 				"lineView": lineView

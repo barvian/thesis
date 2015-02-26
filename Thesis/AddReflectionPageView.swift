@@ -59,7 +59,7 @@ class AddReflectionPageView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"headlineLabel": headlineLabel,
 				"textView": textView
 			]

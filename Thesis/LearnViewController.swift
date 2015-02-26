@@ -84,7 +84,9 @@ class LearnViewController: UIViewController, FullScreenViewController, UITableVi
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			setupFullScreenControllerViewConstraints(self)
+			
+			let views: [NSObject: AnyObject] = [
 				"tableView": tableView,
 			]
 			

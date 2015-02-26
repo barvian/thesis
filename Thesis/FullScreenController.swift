@@ -14,7 +14,7 @@ private var _prevNavigationBarTranslucentAssociationKey: UInt8 = 2
 
 private var _statusBarCoverAssociationKey: UInt8 = 3
 
-protocol FullScreenViewController {
+@objc protocol FullScreenViewController {
 	
 	var tintColor: UIColor { get }
 	var backgroundColor: UIColor { get }
@@ -34,10 +34,19 @@ func setupFullScreenControllerView(controller: FullScreenViewController) {
 	cover.tintColor = controller.backgroundColor
 	vc.view.addSubview(cover)
 	objc_setAssociatedObject(vc, &_statusBarCoverAssociationKey, cover, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
+}
+
+func setupFullScreenControllerViewConstraints(controller: FullScreenViewController) {
+	let vc = controller as! UIViewController
 	
 	if let tabBarController = vc.tabBarController where !vc.hidesBottomBarWhenPushed && tabBarController.tabBar is FloatingTabBar {
-		vc.edgesForExtendedLayout = .All;
-		(vc.view as? UIScrollView)?.contentInset = UIEdgeInsetsMake(0.0, 0.0, tabBarController.tabBar.frame.height + 20, 0.0);
+		vc.edgesForExtendedLayout = .All
+		for view in ([vc.view] + vc.view.subviews) {
+			if let view = view as? UIScrollView {
+				view.contentInset = UIEdgeInsets(top: vc.topLayoutGuide.length, left: 0, bottom: vc.bottomLayoutGuide.length + 20, right: 0)
+				view.contentOffset = CGPoint(x: 0, y: -view.contentInset.top)
+			}
+		}
 	}
 }
 

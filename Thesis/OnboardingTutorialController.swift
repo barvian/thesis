@@ -72,7 +72,7 @@ class OnboardingTutorialController: UIViewController {
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"spacer1": spacerViews[0],
 				"headlineLabel": headlineLabel,
 				"subheaderLabel": subheaderLabel,

@@ -58,7 +58,7 @@ class LearnHeaderView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"howToUseButton": ℹ️Button
 			]
 			let metrics = [

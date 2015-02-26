@@ -64,7 +64,7 @@ class ReflectSectionHeaderView: UIView {
 	
 	override func updateConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"pillView": pillView,
 				"dateLabel": dateLabel,
 				"lineView": lineView,

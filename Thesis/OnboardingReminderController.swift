@@ -43,6 +43,7 @@ class OnboardingReminderController: UIViewController {
 		let picker = UIDatePicker()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.datePickerMode = .Time
+		picker.setValue(UIColor.redColor(), forKeyPath: "textColor")
 		
 		return picker
 	}()
@@ -92,7 +93,7 @@ class OnboardingReminderController: UIViewController {
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
-			let views = [
+			let views: [NSObject: AnyObject] = [
 				"spacer1": spacerViews[0],
 				"headlineLabel": headlineLabel,
 				"subheaderLabel": subheaderLabel,
