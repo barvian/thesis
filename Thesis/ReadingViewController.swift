@@ -11,7 +11,7 @@ import WebKit
 
 class ReadingViewController: UIViewController, FullScreenViewController {
 	
-	let tintColor = UIColor.applicationBaseColor()
+	let tintColor = UIColor.blackColor()
 	let backgroundColor = UIColor.whiteColor()
 	let tabColor = UIColor(r: 178, g: 186, b: 196)
 	let selectedTabColor = UIColor.applicationBaseColor()

@@ -12,7 +12,7 @@ html {
 }
 
 body {
-	color: #000;
+	color: rgb(35, 35, 35);
 	font-family: "Georgia";
 	font-size: 1em;
 	line-height: 1.55556;
@@ -20,26 +20,72 @@ body {
 	margin: 0;
 }
 
-h1 {
+header {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.75);
-	font-weight: 600;
-	font-size: 1.618rem;
-	line-height: 1.25;
 	padding-bottom: 0.65em;
 }
 
-h2 {
+h1, h2, h3 {
+	color: rgb(0, 0, 0);
 	font-weight: 600;
-	font-size: 1.236rem;
 	line-height: 1.25;
 }
 
+h1 {
+	font-size: 1.618rem;
+}
+
+h2 {
+	font-size: 1.236rem;
+}
+
 h3 {
-	font-weight: 600;
 	font-size: 0.801rem;
-	line-height: 1.25;
 }
 
 ol, ul, dl {
 	padding-left: 1.5556rem;
+}
+
+/**
+ * Animations
+ */
+
+@-webkit-keyframes push {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(200px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+
+header, article > * {
+	-webkit-animation: "push" 0.65s ease 0 backwards;
+}
+
+.animate-in header {
+	-webkit-animation-delay: 0s;
+}
+
+.animate-in article > * {
+	-webkit-animation-delay: 0.5s;
+}
+
+.animate-in article > :nth-child(1) {
+	-webkit-animation-delay: 0.1s;
+}
+
+.animate-in article > :nth-child(2) {
+	-webkit-animation-delay: 0.2s;
+}
+
+.animate-in article > :nth-child(3) {
+	-webkit-animation-delay: 0.3s;
+}
+
+.animate-in article > :nth-child(4) {
+	-webkit-animation-delay: 0.4s;
 }
