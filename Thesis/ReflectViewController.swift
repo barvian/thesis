@@ -38,6 +38,13 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		let picker = DailyReminderView()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.reminderLabel.text = "Daily reflection reminder"
+		if let reflectionReminder = UIApplication.reflectionReminder {
+			picker.timePicker.date = reflectionReminder.fireDate!
+			picker.toggleReminder(true)
+		} else {
+			picker.timePicker.date = NSDate.applicationDefaultReflectionReminderTime()
+			picker.toggleReminder(false)
+		}
 		picker.delegate = self
 		
 		return picker
@@ -241,6 +248,16 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 			header.configureForDate(sortedDays[section])
 			return header
 		}
+	}
+	
+	// MARK: DailyReminderViewDelegate
+	
+	func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool) {
+		UIApplication.reflectionReminder = reminder ? UILocalNotification.applicationReflectionReminder(reminderView.timePicker.date) : nil
+	}
+	
+	func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate) {
+		UIApplication.reflectionReminder = UILocalNotification.applicationReflectionReminder(time)
 	}
 	
 	// MARK: ReflectHeaderViewDelegate

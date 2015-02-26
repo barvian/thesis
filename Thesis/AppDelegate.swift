@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			if let localNotification = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
 				if localNotification == UIApplication.relaxationReminder {
 					UIApplication.rootViewController.selectedIndex = RootViewControllerRelaxTabIndex
+				} else if localNotification == UIApplication.reflectionReminder {
+					UIApplication.rootViewController.selectedIndex = RootViewControllerReflectTabIndex
 				}
 			}
 		}

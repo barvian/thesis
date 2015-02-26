@@ -34,4 +34,21 @@ extension UILocalNotification {
 		return notif
 	}
 	
+	class func applicationReflectionReminder(time: NSDate) -> UILocalNotification {
+		let notif = UILocalNotification()
+		let userInfo: [NSObject: AnyObject] = [
+			UILocalNotificationUserInfoNameKey: UILocalNotificationReflectionReminderName
+		]
+		notif.userInfo = userInfo
+		notif.fireDate = time.beginningOfMinute()
+		notif.timeZone = NSTimeZone.defaultTimeZone()
+		
+		notif.alertBody = "Have you reflected on what went well today?"
+		notif.alertAction = "Reflect"
+		notif.soundName = UILocalNotificationDefaultSoundName
+		notif.repeatInterval = .DayCalendarUnit
+		
+		return notif
+	}
+	
 }

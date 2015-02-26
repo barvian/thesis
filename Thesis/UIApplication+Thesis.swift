@@ -43,7 +43,7 @@ extension UIApplication {
 		get {
 			for notification in sharedApplication().scheduledLocalNotifications {
 				if let notification = notification as? UILocalNotification, userInfo = notification.userInfo, name = userInfo[UILocalNotificationUserInfoNameKey] as? String
-					where name == UILocalNotificationRelaxationReminderName {
+						where name == UILocalNotificationRelaxationReminderName {
 					return notification
 				}
 			}
@@ -53,6 +53,27 @@ extension UIApplication {
 		set(newValue) {
 			if let relaxationReminder = relaxationReminder {
 				sharedApplication().cancelLocalNotification(relaxationReminder)
+			}
+			if let newValue = newValue {
+				sharedApplication().scheduleLocalNotification(newValue)
+			}
+		}
+	}
+	
+	class var reflectionReminder: UILocalNotification? {
+		get {
+			for notification in sharedApplication().scheduledLocalNotifications {
+				if let notification = notification as? UILocalNotification, userInfo = notification.userInfo, name = userInfo[UILocalNotificationUserInfoNameKey] as? String
+						where name == UILocalNotificationReflectionReminderName {
+					return notification
+				}
+			}
+			
+			return nil
+		}
+		set(newValue) {
+			if let reflectionReminder = reflectionReminder {
+				sharedApplication().cancelLocalNotification(reflectionReminder)
 			}
 			if let newValue = newValue {
 				sharedApplication().scheduleLocalNotification(newValue)
