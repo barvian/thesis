@@ -47,6 +47,16 @@ extension NSDate: Comparable {
 		return calendar.dateByAddingComponents(dateComps, toDate: self, options: nil)!
 	}
 	
+	func addHours(hours: Int) -> NSDate {
+		// Use the user's current calendar and time zone
+		let calendar = NSCalendar.currentCalendar()
+		
+		let dateComps = NSDateComponents()
+		dateComps.hour = hours
+		
+		return calendar.dateByAddingComponents(dateComps, toDate: self, options: nil)!
+	}
+	
 }
 
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {

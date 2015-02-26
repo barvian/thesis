@@ -14,28 +14,17 @@ import Realm
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow!
-	
-	private var _notificationCompletionBlock: ((UIUserNotificationSettings) -> ())?
-	
-	func registerForNotifications(completion: (UIUserNotificationSettings) -> ()) {
-		let settings = UIUserNotificationSettings(forTypes:
-			UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert,
-			categories: nil)
-		UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-		
-		_notificationCompletionBlock = completion
-	}
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         SDCloudUserDefaults.registerForNotifications()
-				
+		
 		applyStylesheet()
         
         return true
     }
 	
 	func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-		_notificationCompletionBlock?(notificationSettings)
+		UIApplication.didRegisterForNotifications(notificationSettings)
 	}
 	
 	func applyStylesheet() {

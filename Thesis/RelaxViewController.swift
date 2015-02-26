@@ -25,6 +25,13 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		let picker = DailyReminderView()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.reminderLabel.text = "Daily relaxation reminder"
+		if let relaxationReminder = UIApplication.relaxationReminder {
+			picker.timePicker.date = relaxationReminder.fireDate!
+			picker.toggleReminder(true)
+		} else {
+			picker.timePicker.date = NSDate.applicationDefaultRelaxationReminderTime()
+			picker.toggleReminder(false)
+		}
 		picker.delegate = self
 		
 		return picker
@@ -43,7 +50,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)
 		button.setImage(bell, forState: .Normal)
 		button.tintColor = UIColor.whiteColor()
-		button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+		button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 		
 		button.layer.shadowOffset = CGSize(width: 0, height: 2)
 		button.layer.shadowRadius = 3
@@ -128,7 +135,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 		super.touchesEnded(touches, withEvent: event)
 		
-		if (_showingReminderView) {
+		if _showingReminderView {
 			UIView.animateWithDuration(0.4) {
 				self.toggleReminderView(false)
 			}
@@ -249,6 +256,16 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		navigationController.modalPresentationStyle = .Custom
 		
 		presentViewController(navigationController, animated: true, completion: nil)
+	}
+	
+	// MARK: DailyReminderViewDelegate
+	
+	func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool) {
+		UIApplication.relaxationReminder = reminder ? UILocalNotification.applicationRelaxationReminder(reminderView.timePicker.date) : nil
+	}
+	
+	func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate) {
+		UIApplication.relaxationReminder = UILocalNotification.applicationRelaxationReminder(time)
 	}
 	
 	// MARK: RelaxationControllerDelegate

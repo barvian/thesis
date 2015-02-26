@@ -25,7 +25,7 @@ class ReflectHeaderView: UIView {
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)
 		button.setImage(bell, forState: .Normal)
-		button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+		button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 		button.tintColor = UIColor.whiteColor()
 		
 		button.layer.shadowOffset = CGSize(width: 0, height: 2)

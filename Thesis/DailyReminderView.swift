@@ -10,6 +10,7 @@ import UIKit
 import SSDynamicText
 
 @objc protocol DailyReminderViewDelegate {
+	optional func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool)
 	optional func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate)
 }
 
@@ -37,11 +38,12 @@ class DailyReminderView: UIVisualEffectView {
 		return label
 	}()
 	
-	private(set) lazy var toggleSwitch: UISwitch = {
-		let picker = UISwitch()
-		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
+	private(set) lazy var reminderToggle: UISwitch = {
+		let toggle = UISwitch()
+		toggle.setTranslatesAutoresizingMaskIntoConstraints(false)
+		toggle.addTarget(self, action: "didChangeReminderToggle:", forControlEvents: .ValueChanged)
 		
-		return picker
+		return toggle
 	}()
 	
 	private(set) lazy var borderView: UIView = {
@@ -57,6 +59,7 @@ class DailyReminderView: UIVisualEffectView {
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.datePickerMode = .Time
 		picker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+		picker.addTarget(self, action: "didChangeTimePicker:", forControlEvents: .ValueChanged)
 		
 		return picker
 	}()
@@ -80,7 +83,9 @@ class DailyReminderView: UIVisualEffectView {
 		vibrancyView.contentView.addSubview(timePicker)
 		contentView.addSubview(vibrancyView)
 		
-		contentView.addSubview(toggleSwitch)
+		contentView.addSubview(reminderToggle)
+		
+		toggleReminder(false)
 	}
 	
 	required init(coder aDecoder: NSCoder) {
@@ -100,7 +105,7 @@ class DailyReminderView: UIVisualEffectView {
 			let views: [NSObject: AnyObject] = [
 				"vibrancyView": vibrancyView,
 				"reminderLabel": reminderLabel,
-				"toggleSwitch": toggleSwitch,
+				"reminderToggle": reminderToggle,
 				"borderView": borderView,
 				"timePicker": timePicker,
 			]
@@ -113,9 +118,9 @@ class DailyReminderView: UIVisualEffectView {
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[vibrancyView]|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vibrancyView]|", options: nil, metrics: metrics, views: views))
 			
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[reminderLabel(==toggleSwitch)]", options: nil, metrics: metrics, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[toggleSwitch]-(margin)-[borderView(0.5)][timePicker(175)]|", options: nil, metrics: metrics, views: views))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[reminderLabel]-[toggleSwitch]-|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[reminderLabel(==reminderToggle)]", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[reminderToggle]-(margin)-[borderView(0.5)][timePicker(175)]|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[reminderLabel]-[reminderToggle]-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[borderView]|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[timePicker]|", options: nil, metrics: metrics, views: views))
 			
@@ -125,8 +130,29 @@ class DailyReminderView: UIVisualEffectView {
 		super.updateConstraints()
 	}
 	
+	// MARK: API
+	
+	private var _reminderEnabled = false
+	
+	func toggleReminder(_ state: Bool? = nil) {
+		_reminderEnabled = state != nil ? state! : !_reminderEnabled
+		reminderToggle.on = _reminderEnabled
+		
+		timePicker.userInteractionEnabled = _reminderEnabled
+		timePicker.enabled = _reminderEnabled
+		timePicker.alpha = _reminderEnabled ? 1 : 0.5
+	}
+	
 	// MARK: Handlers
 	
+	func didChangeReminderToggle(toggle: UISwitch!) {
+		toggleReminder(toggle.on)
+		
+		delegate?.dailyReminderView?(self, didToggleReminder: toggle.on)
+	}
 	
+	func didChangeTimePicker(picker: UIDatePicker!) {
+		delegate?.dailyReminderView?(self, didChangeTime: picker.date)
+	}
 	
 }

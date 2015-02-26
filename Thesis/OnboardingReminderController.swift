@@ -43,7 +43,6 @@ class OnboardingReminderController: UIViewController {
 		let picker = UIDatePicker()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.datePickerMode = .Time
-		picker.setValue(UIColor.redColor(), forKeyPath: "textColor")
 		
 		return picker
 	}()
@@ -123,21 +122,10 @@ class OnboardingReminderController: UIViewController {
 	// MARK: Handlers
 	
 	func didTapSetReminder(button: UIButton!) {
-		UIApplication.appDelegate.registerForNotifications() {
+		UIApplication.registerForNotifications() {
 			[unowned self] (settings: UIUserNotificationSettings) in
-			UIApplication.sharedApplication().cancelAllLocalNotifications()
 			
-			let notif = UILocalNotification()
-			notif.fireDate = self.timePicker.date.beginningOfMinute()
-			println(self.timePicker.date.beginningOfMinute())
-			notif.timeZone = NSTimeZone.defaultTimeZone()
-			
-			notif.alertBody = "Have some time to relax?"
-			notif.alertAction = "Relax"
-			notif.soundName = UILocalNotificationDefaultSoundName
-			notif.repeatInterval = .DayCalendarUnit
-			
-			UIApplication.sharedApplication().scheduleLocalNotification(notif)
+			UIApplication.relaxationReminder = UILocalNotification.applicationRelaxationReminder(self.timePicker.date)
 		}
 	}
 	
