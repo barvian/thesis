@@ -13,7 +13,7 @@ class OnboardingGADController: UIViewController {
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "Generalized Anxiety Disorder"
+		label.text = "Anxiety Disorder"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.blackColor()
 		label.lineBreakMode = .ByTruncatingTail

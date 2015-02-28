@@ -13,7 +13,7 @@ class OnboardingTutorialController: UIViewController {
 	
 	private(set) lazy var headlineLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
-		label.text = "How to Use This App"
+		label.text = "Using this App"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.blackColor()
 		label.lineBreakMode = .ByTruncatingTail

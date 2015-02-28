@@ -43,6 +43,8 @@ class OnboardingReminderController: UIViewController {
 		let picker = UIDatePicker()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.datePickerMode = .Time
+		picker.date = NSDate.applicationDefaultRelaxationReminderTime()
+		picker.addTarget(self, action: "didChangeTimePicker:", forControlEvents: .ValueChanged)
 		
 		return picker
 	}()
@@ -51,6 +53,8 @@ class OnboardingReminderController: UIViewController {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setTitle("Set Reminder", forState: .Normal)
+		button.setTitle("Reminder set!", forState: .Disabled)
+		button.setTitleColor(UIColor.applicationBaseColor(), forState: .Disabled)
 		
 		button.addTarget(self, action: "didTapSetReminder:", forControlEvents: .TouchUpInside)
 		
@@ -126,7 +130,12 @@ class OnboardingReminderController: UIViewController {
 			[unowned self] (settings: UIUserNotificationSettings) in
 			
 			UIApplication.relaxationReminder = UILocalNotification.applicationRelaxationReminder(self.timePicker.date)
+			self.setReminderButton.enabled = false
 		}
+	}
+	
+	func didChangeTimePicker(picker: UIDatePicker!) {
+		setReminderButton.enabled = true
 	}
 	
 }
