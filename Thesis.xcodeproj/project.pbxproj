@@ -27,6 +27,7 @@
 		CF6FA8F31A8AD11E00856C8C /* ReflectSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */; };
 		CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F81A8AF5F600856C8C /* Mood.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
+		CF7383B21AA1FBC6009A3428 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7383B11AA1FBC6009A3428 /* UIView+Animations.swift */; };
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
 		CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */; };
 		CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */; };
@@ -102,6 +103,7 @@
 		CF6FA8F21A8AD11E00856C8C /* ReflectSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectSectionHeaderView.swift; sourceTree = "<group>"; };
 		CF6FA8F81A8AF5F600856C8C /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
+		CF7383B11AA1FBC6009A3428 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeController.swift; sourceTree = "<group>"; };
 		CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		CFBA823A1A8704340030F13D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CF7383B11AA1FBC6009A3428 /* UIView+Animations.swift */,
 				CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */,
 				CF6FA8F01A8ABBEC00856C8C /* NSDate+Additions.swift */,
 				CF65D9431A9FCB85006F7D42 /* NSDate+Thesis.swift */,
@@ -515,6 +518,7 @@
 				CFA5D2C41A9B60CD00CFFADF /* StatementTableViewCell+ConfigureForStatement.swift in Sources */,
 				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
 				CF6FA8F31A8AD11E00856C8C /* ReflectSectionHeaderView.swift in Sources */,
+				CF7383B21AA1FBC6009A3428 /* UIView+Animations.swift in Sources */,
 				CF6FA8E51A8A55CD00856C8C /* UIApplication+Thesis.swift in Sources */,
 				CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */,
 				CF65D9421A9FB5E8006F7D42 /* UILocalNotification+Thesis.swift in Sources */,

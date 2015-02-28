@@ -32,6 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 	
+	func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+		if notification == UIApplication.relaxationReminder {
+			UIApplication.rootViewController.relaxController.remind()
+		} else if notification == UIApplication.reflectionReminder {
+			UIApplication.rootViewController.reflectController.remind()
+		}
+	}
+	
 	func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
 		UIApplication.didRegisterForNotifications(notificationSettings)
 	}

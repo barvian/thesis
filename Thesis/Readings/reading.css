@@ -63,29 +63,29 @@ ol, ul, dl {
 }
 
 header, article > * {
-	-webkit-animation: "push" 0.65s ease 0 backwards;
+	-webkit-animation: "push" 0.85s ease 0 backwards;
 }
 
 .animate-in header {
-	-webkit-animation-delay: 0s;
+	-webkit-animation-delay: 50ms;
 }
 
 .animate-in article > * {
-	-webkit-animation-delay: 0.5s;
+	-webkit-animation-delay: 675ms;
 }
 
 .animate-in article > :nth-child(1) {
-	-webkit-animation-delay: 0.1s;
+	-webkit-animation-delay: 175ms;
 }
 
 .animate-in article > :nth-child(2) {
-	-webkit-animation-delay: 0.2s;
+	-webkit-animation-delay: 300ms;
 }
 
 .animate-in article > :nth-child(3) {
-	-webkit-animation-delay: 0.3s;
+	-webkit-animation-delay: 425ms;
 }
 
 .animate-in article > :nth-child(4) {
-	-webkit-animation-delay: 0.4s;
+	-webkit-animation-delay: 550ms;
 }

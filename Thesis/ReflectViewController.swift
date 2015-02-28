@@ -151,6 +151,16 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		tableView.userInteractionEnabled = !_showingReminderView
 	}
 	
+	func remind() {
+		headerView.reminderButton.animateWithApplicationShake(0.55, delay: 0, options: nil) {
+			(completed) in
+			self.headerView.reminderButton.animateWithApplicationShake(0.55, delay: 0.35, options: nil) {
+				(completed) in
+				self.headerView.reminderButton.animateWithApplicationShake(0.55, delay: 0.35, options: nil, completion: nil)
+			}
+		}
+	}
+	
 	func addReflection(reflection: Reflection) {
 		let date = reflection.date.beginningOfDay()
 		
@@ -260,6 +270,16 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		let navController = UINavigationController(rootViewController: addController)
 		
 		presentViewController(navController, animated: true, completion: nil)
+	}
+	
+	// MARK: DailyReminderViewDelegate
+	
+	func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool) {
+		UIApplication.reflectionReminder = reminder ? UILocalNotification.applicationReflectionReminder(reminderView.timePicker.date) : nil
+	}
+	
+	func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate) {
+		UIApplication.reflectionReminder = UILocalNotification.applicationReflectionReminder(time)
 	}
 	
 	// MARK: AddReflectionViewControllerDelegate

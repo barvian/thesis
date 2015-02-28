@@ -229,6 +229,16 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		durationPicker.transform = CGAffineTransformMakeTranslation(0, _showingDurationPicker ? 35 : 70)
 	}
 	
+	func remind() {
+		reminderButton.animateWithApplicationShake(0.55, delay: 0, options: nil) {
+			(completed) in
+			self.reminderButton.animateWithApplicationShake(0.55, delay: 0.35, options: nil) {
+				(completed) in
+				self.reminderButton.animateWithApplicationShake(0.55, delay: 0.35, options: nil, completion: nil)
+			}
+		}
+	}
+	
 	// MARK: Handlers
 	
 	func didTapReminderButton(button: UIButton!) {
