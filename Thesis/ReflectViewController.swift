@@ -38,13 +38,6 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		let picker = DailyReminderView()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.reminderLabel.text = "Daily reflection reminder"
-		if let reflectionReminder = UIApplication.reflectionReminder {
-			picker.timePicker.date = reflectionReminder.fireDate!
-			picker.toggleReminder(true)
-		} else {
-			picker.timePicker.date = NSDate.applicationDefaultReflectionReminderTime()
-			picker.toggleReminder(false)
-		}
 		picker.delegate = self
 		
 		return picker
@@ -113,6 +106,14 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		if let reflectionReminder = UIApplication.reflectionReminder {
+			reminderView.timePicker.date = reflectionReminder.fireDate!
+			reminderView.toggleReminder(true)
+		} else {
+			reminderView.timePicker.date = NSDate.applicationDefaultReflectionReminderTime()
+			reminderView.toggleReminder(false)
+		}
 		
 		updateFullScreenControllerColors(self, animated: animated)
 		hideFullScreenControllerNavigationBar(self, animated: animated)

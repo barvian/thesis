@@ -11,7 +11,7 @@ import SDCloudUserDefaults
 
 public let RootViewControllerLearnTabIndex = 0, RootViewControllerRelaxTabIndex = 1, RootViewControllerReflectTabIndex = 2
 
-class RootViewController: UITabBarController {
+class RootViewController: UITabBarController, OnboardingViewControllerDelegate {
 	
 	private(set) lazy var learnController: LearnViewController = {
 		let learnController = LearnViewController()
@@ -50,10 +50,9 @@ class RootViewController: UITabBarController {
         super.viewDidAppear(animated)
         
         if !SDCloudUserDefaults.hasSeenWelcome {
-            let welcomeController = OnboardingViewController()
-            presentViewController(welcomeController, animated: true, completion: {
-                SDCloudUserDefaults.hasSeenWelcome = true
-            })
+            let onboardingController = OnboardingViewController()
+			onboardingController.delegate = self
+            presentViewController(onboardingController, animated: true, completion: nil)
         }
     }
     
@@ -68,6 +67,13 @@ class RootViewController: UITabBarController {
         
         super.updateViewConstraints()
     }
+	
+	// MARK: OnboardingViewControllerDelegate
+	
+	func onboardingViewControllerShouldDismiss(onboardingViewController: OnboardingViewController) {
+		dismissViewControllerAnimated(true, completion: nil)
+		SDCloudUserDefaults.hasSeenWelcome = true
+	}
     
 }
 

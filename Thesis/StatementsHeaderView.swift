@@ -31,7 +31,7 @@ class StatementsHeaderView: UIView {
 	
 	private(set) lazy var instructionsLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
-		label.text = "Allow time to pass while you remind yourself of the following statements.  Breathe deeply and repeat one internally; feel free to try another if one gets tiresome."
+		label.text = "Allow time to pass while you remind yourself of the following statements. Breathe deeply and repeat one internally; feel free to try another if one gets tiresome."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 255, g: 255, b: 255, a: 0.55)
 		label.numberOfLines = 0

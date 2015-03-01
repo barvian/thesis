@@ -28,9 +28,11 @@
 		CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6FA8F81A8AF5F600856C8C /* Mood.swift */; };
 		CF725FCF1A82D09300B6EE2B /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF725FCE1A82D09300B6EE2B /* Reflection.swift */; };
 		CF7383B21AA1FBC6009A3428 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7383B11AA1FBC6009A3428 /* UIView+Animations.swift */; };
+		CF7383B41AA3A684009A3428 /* OnboardingSlideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7383B31AA3A684009A3428 /* OnboardingSlideController.swift */; };
+		CF7383B81AA3A801009A3428 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7383B71AA3A801009A3428 /* OnboardingSlide.swift */; };
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
-		CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */; };
-		CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */; };
+		CF78514B1AA3B5BA00DE4503 /* Readings in Resources */ = {isa = PBXBuildFile; fileRef = CF7851491AA3B5BA00DE4503 /* Readings */; };
+		CF78514C1AA3B5BA00DE4503 /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF78514A1AA3B5BA00DE4503 /* Readings.plist */; };
 		CF7E4FE81A8B84FA00E131C5 /* CalmingScenesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */; };
 		CF7E4FEA1A8B859E00E131C5 /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CF7E4FE91A8B859E00E131C5 /* Scenes */; };
 		CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF889CB51A89B3F0004D2206 /* Main.storyboard */; };
@@ -38,9 +40,8 @@
 		CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */; };
 		CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF889CC11A89D6D5004D2206 /* Images.xcassets */; };
 		CF9D9C561A84478B002DAB17 /* ReflectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */; };
-		CFA5D2B81A9AD35C00CFFADF /* OnboardingGADController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2B71A9AD35C00CFFADF /* OnboardingGADController.swift */; };
-		CFA5D2BA1A9AD59C00CFFADF /* OnboardingTutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2B91A9AD59C00CFFADF /* OnboardingTutorialController.swift */; };
-		CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2BB1A9B3A7400CFFADF /* OnboardingReminderController.swift */; };
+		CFA5D2BA1A9AD59C00CFFADF /* OnboardingTutorialSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2B91A9AD59C00CFFADF /* OnboardingTutorialSlide.swift */; };
+		CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2BB1A9B3A7400CFFADF /* OnboardingReminderSlide.swift */; };
 		CFA5D2BE1A9B5F1300CFFADF /* Statements.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFA5D2BD1A9B5F1300CFFADF /* Statements.plist */; };
 		CFA5D2C01A9B5F7A00CFFADF /* StatementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2BF1A9B5F7A00CFFADF /* StatementsViewController.swift */; };
 		CFA5D2C21A9B60C300CFFADF /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2C11A9B60C300CFFADF /* StatementTableViewCell.swift */; };
@@ -48,6 +49,7 @@
 		CFA5D2C71A9B621B00CFFADF /* CalmingSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2C61A9B621B00CFFADF /* CalmingSceneViewController.swift */; };
 		CFA5D2CA1A9B628600CFFADF /* StatementsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2C91A9B628600CFFADF /* StatementsHeaderView.swift */; };
 		CFA5D2CC1A9B63FE00CFFADF /* StatementsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA5D2CB1A9B63FE00CFFADF /* StatementsFooterView.swift */; };
+		CFA914D41AA3B28400B451B2 /* OnboardingCompleteSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA914D31AA3B28400B451B2 /* OnboardingCompleteSlide.swift */; };
 		CFB3B0C61A9D4B700036984A /* FadeTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3B0C51A9D4B700036984A /* FadeTransitionManager.swift */; };
 		CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA82701A870B120030F13D /* UIColor+Thesis.swift */; };
 		CFBB40681A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */; };
@@ -67,9 +69,7 @@
 		CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF74A3D1A9914130081DF9F /* FullScreenController.swift */; };
 		CFF74A401A9916B70081DF9F /* ConstrainedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF74A3F1A9916B70081DF9F /* ConstrainedTableView.swift */; };
 		CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */; };
-		CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */; };
 		CFF8D70D1A7EC722003CF3DD /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */; };
-		CFF8D7161A7ECA54003CF3DD /* Readings in Resources */ = {isa = PBXBuildFile; fileRef = CFF8D7151A7ECA54003CF3DD /* Readings */; };
 		EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */; };
 		EC063E311A892433008FDA6C /* LearnHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC063E301A892433008FDA6C /* LearnHeaderView.swift */; };
 		EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3317A21A64378D00DD6604 /* RelaxViewController.swift */; };
@@ -104,9 +104,11 @@
 		CF6FA8F81A8AF5F600856C8C /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		CF725FCE1A82D09300B6EE2B /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		CF7383B11AA1FBC6009A3428 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		CF7383B31AA3A684009A3428 /* OnboardingSlideController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlideController.swift; sourceTree = "<group>"; };
+		CF7383B71AA3A801009A3428 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeController.swift; sourceTree = "<group>"; };
-		CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteController.swift; sourceTree = "<group>"; };
+		CF7851491AA3B5BA00DE4503 /* Readings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Readings; sourceTree = "<group>"; };
+		CF78514A1AA3B5BA00DE4503 /* Readings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Readings.plist; sourceTree = "<group>"; };
 		CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalmingScenesViewController.swift; sourceTree = "<group>"; };
 		CF7E4FE91A8B859E00E131C5 /* Scenes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scenes; sourceTree = "<group>"; };
 		CF889CB61A89B3F0004D2206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,9 +117,8 @@
 		CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		CF889CC11A89D6D5004D2206 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF9D9C551A84478B002DAB17 /* ReflectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectViewController.swift; sourceTree = "<group>"; };
-		CFA5D2B71A9AD35C00CFFADF /* OnboardingGADController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGADController.swift; sourceTree = "<group>"; };
-		CFA5D2B91A9AD59C00CFFADF /* OnboardingTutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialController.swift; sourceTree = "<group>"; };
-		CFA5D2BB1A9B3A7400CFFADF /* OnboardingReminderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingReminderController.swift; sourceTree = "<group>"; };
+		CFA5D2B91A9AD59C00CFFADF /* OnboardingTutorialSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTutorialSlide.swift; sourceTree = "<group>"; };
+		CFA5D2BB1A9B3A7400CFFADF /* OnboardingReminderSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingReminderSlide.swift; sourceTree = "<group>"; };
 		CFA5D2BD1A9B5F1300CFFADF /* Statements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Statements.plist; sourceTree = "<group>"; };
 		CFA5D2BF1A9B5F7A00CFFADF /* StatementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementsViewController.swift; sourceTree = "<group>"; };
 		CFA5D2C11A9B60C300CFFADF /* StatementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		CFA5D2C61A9B621B00CFFADF /* CalmingSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalmingSceneViewController.swift; sourceTree = "<group>"; };
 		CFA5D2C91A9B628600CFFADF /* StatementsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementsHeaderView.swift; sourceTree = "<group>"; };
 		CFA5D2CB1A9B63FE00CFFADF /* StatementsFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementsFooterView.swift; sourceTree = "<group>"; };
+		CFA914D31AA3B28400B451B2 /* OnboardingCompleteSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompleteSlide.swift; sourceTree = "<group>"; };
 		CFB3B0C51A9D4B700036984A /* FadeTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransitionManager.swift; sourceTree = "<group>"; };
 		CFBA82701A870B120030F13D /* UIColor+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Thesis.swift"; sourceTree = "<group>"; };
 		CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReadingTableViewCell+ConfigureForReading.swift"; sourceTree = "<group>"; };
@@ -145,9 +147,7 @@
 		CFF74A3D1A9914130081DF9F /* FullScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenController.swift; sourceTree = "<group>"; };
 		CFF74A3F1A9916B70081DF9F /* ConstrainedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstrainedTableView.swift; sourceTree = "<group>"; };
 		CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
-		CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Readings.plist; sourceTree = "<group>"; };
 		CFF8D70C1A7EC722003CF3DD /* ReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
-		CFF8D7151A7ECA54003CF3DD /* Readings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Readings; sourceTree = "<group>"; };
 		E5C53AE276EA08AB906DFD73 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingTableViewCell.swift; sourceTree = "<group>"; };
 		EC063E301A892433008FDA6C /* LearnHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnHeaderView.swift; sourceTree = "<group>"; };
@@ -228,10 +228,10 @@
 			isa = PBXGroup;
 			children = (
 				CF7E4FE91A8B859E00E131C5 /* Scenes */,
-				CFF8D7151A7ECA54003CF3DD /* Readings */,
 				CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */,
 				CF0BE8081A61DA98007FCA8E /* Info.plist */,
-				CFF8D6D81A7EBAC2003CF3DD /* Readings.plist */,
+				CF7851491AA3B5BA00DE4503 /* Readings */,
+				CF78514A1AA3B5BA00DE4503 /* Readings.plist */,
 				CFA5D2BD1A9B5F1300CFFADF /* Statements.plist */,
 			);
 			name = "Supporting Files";
@@ -285,11 +285,11 @@
 			isa = PBXGroup;
 			children = (
 				CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */,
-				CF76D1CB1A7EF64700A32859 /* OnboardingWelcomeController.swift */,
-				CFA5D2B71A9AD35C00CFFADF /* OnboardingGADController.swift */,
-				CFA5D2B91A9AD59C00CFFADF /* OnboardingTutorialController.swift */,
-				CFA5D2BB1A9B3A7400CFFADF /* OnboardingReminderController.swift */,
-				CF76D1CE1A7EF76900A32859 /* OnboardingCompleteController.swift */,
+				CF7383B31AA3A684009A3428 /* OnboardingSlideController.swift */,
+				CF7383B71AA3A801009A3428 /* OnboardingSlide.swift */,
+				CFA5D2B91A9AD59C00CFFADF /* OnboardingTutorialSlide.swift */,
+				CFA5D2BB1A9B3A7400CFFADF /* OnboardingReminderSlide.swift */,
+				CFA914D31AA3B28400B451B2 /* OnboardingCompleteSlide.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -436,13 +436,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF78514C1AA3B5BA00DE4503 /* Readings.plist in Resources */,
 				CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */,
 				CFA5D2BE1A9B5F1300CFFADF /* Statements.plist in Resources */,
 				CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */,
+				CF78514B1AA3B5BA00DE4503 /* Readings in Resources */,
 				CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */,
 				CF7E4FEA1A8B859E00E131C5 /* Scenes in Resources */,
-				CFF8D6D91A7EBAC2003CF3DD /* Readings.plist in Resources */,
-				CFF8D7161A7ECA54003CF3DD /* Readings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,9 +514,9 @@
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				CF6FA8E91A8AA2E800856C8C /* RootViewController.swift in Sources */,
 				CFA5D2CA1A9B628600CFFADF /* StatementsHeaderView.swift in Sources */,
+				CFA914D41AA3B28400B451B2 /* OnboardingCompleteSlide.swift in Sources */,
 				CF65D9441A9FCB85006F7D42 /* NSDate+Thesis.swift in Sources */,
 				CFA5D2C41A9B60CD00CFFADF /* StatementTableViewCell+ConfigureForStatement.swift in Sources */,
-				CF76D1CF1A7EF76900A32859 /* OnboardingCompleteController.swift in Sources */,
 				CF6FA8F31A8AD11E00856C8C /* ReflectSectionHeaderView.swift in Sources */,
 				CF7383B21AA1FBC6009A3428 /* UIView+Animations.swift in Sources */,
 				CF6FA8E51A8A55CD00856C8C /* UIApplication+Thesis.swift in Sources */,
@@ -525,25 +525,25 @@
 				CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */,
 				CF260EF91A9D19B300E1C053 /* MoodPickerView.swift in Sources */,
 				EC6FB7141A9E28640091199F /* UIImageView+Thesis.swift in Sources */,
-				CFA5D2BA1A9AD59C00CFFADF /* OnboardingTutorialController.swift in Sources */,
+				CFA5D2BA1A9AD59C00CFFADF /* OnboardingTutorialSlide.swift in Sources */,
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
 				ECBE8D991A8BA1E7000AC325 /* SlidingViewController.swift in Sources */,
+				CF7383B41AA3A684009A3428 /* OnboardingSlideController.swift in Sources */,
 				CFBB406C1A9935170036065A /* ReflectSectionHeaderView+ConfigureForDate.swift in Sources */,
-				CFA5D2B81A9AD35C00CFFADF /* OnboardingGADController.swift in Sources */,
 				CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */,
 				CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */,
 				CF65D9401A9F50CF006F7D42 /* DailyReminderView.swift in Sources */,
 				EC063E2D1A890ECA008FDA6C /* ReadingTableViewCell.swift in Sources */,
 				CFB3B0C61A9D4B700036984A /* FadeTransitionManager.swift in Sources */,
 				CF0BE80A1A61DA98007FCA8E /* AppDelegate.swift in Sources */,
-				CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderController.swift in Sources */,
+				CFA5D2BC1A9B3A7400CFFADF /* OnboardingReminderSlide.swift in Sources */,
 				CFD38CC11A9BA82E00176F9E /* DeepBreathingViewController.swift in Sources */,
 				CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */,
 				CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */,
+				CF7383B81AA3A801009A3428 /* OnboardingSlide.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
-				CF76D1CC1A7EF64700A32859 /* OnboardingWelcomeController.swift in Sources */,
 				CFA5D2CC1A9B63FE00CFFADF /* StatementsFooterView.swift in Sources */,
 				CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */,
 				CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */,

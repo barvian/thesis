@@ -25,13 +25,6 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		let picker = DailyReminderView()
 		picker.setTranslatesAutoresizingMaskIntoConstraints(false)
 		picker.reminderLabel.text = "Daily relaxation reminder"
-		if let relaxationReminder = UIApplication.relaxationReminder {
-			picker.timePicker.date = relaxationReminder.fireDate!
-			picker.toggleReminder(true)
-		} else {
-			picker.timePicker.date = NSDate.applicationDefaultRelaxationReminderTime()
-			picker.toggleReminder(false)
-		}
 		picker.delegate = self
 		
 		return picker
@@ -119,6 +112,14 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		if let relaxationReminder = UIApplication.relaxationReminder {
+			reminderView.timePicker.date = relaxationReminder.fireDate!
+			reminderView.toggleReminder(true)
+		} else {
+			reminderView.timePicker.date = NSDate.applicationDefaultRelaxationReminderTime()
+			reminderView.toggleReminder(false)
+		}
 		
 		updateFullScreenControllerColors(self, animated: animated)
 	}

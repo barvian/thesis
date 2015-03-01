@@ -34,6 +34,10 @@ func setupFullScreenControllerView(controller: FullScreenViewController) {
 	cover.tintColor = controller.backgroundColor
 	vc.view.addSubview(cover)
 	objc_setAssociatedObject(vc, &_statusBarCoverAssociationKey, cover, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
+	
+	if let slidingViewController = vc as? SlidingViewController {
+		slidingViewController.pageControlCover.tintColor = controller.backgroundColor
+	}
 }
 
 func setupFullScreenControllerViewConstraints(controller: FullScreenViewController) {

@@ -12,11 +12,13 @@ class FadeTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
 	
 	private var _presenting = false
 	
+	var backgroundColor = UIColor.blackColor()
+	
 	// MARK: UIViewControllerAnimatedTransitioning
 	
 	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
 		let container = transitionContext.containerView()
-		container.backgroundColor = UIColor.blackColor()
+		container.backgroundColor = self.backgroundColor
 		
 		let screens = (from: transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!, to: transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!)
 		let fromView = screens.from.view, toView = screens.to.view

@@ -18,6 +18,13 @@ class LearnViewController: UIViewController, FullScreenViewController, UITableVi
 	let navigationBarHidden = true
 	let navigationBarTranslucent = false
 	
+	private(set) lazy var transitionManager: UIViewControllerTransitioningDelegate = {
+		let manager = FadeTransitionManager()
+		manager.backgroundColor = UIColor.whiteColor()
+		
+		return manager
+	}()
+	
 	private(set) lazy var 📖: NSArray = {
 		let path = NSBundle.mainBundle().pathForResource("Readings", ofType: "plist")!
 		let data = NSArray(contentsOfFile: path)!
@@ -130,8 +137,10 @@ class LearnViewController: UIViewController, FullScreenViewController, UITableVi
 	// MARK: LearnHeaderViewDelegate {
 	
 	func learnHeaderView(learnHeaderView: LearnHeaderView, didTapHowToUseButton howToUseButton: UIButton!) {
-		let welcomeController = OnboardingViewController()
-		UIApplication.rootViewController.presentViewController(welcomeController, animated: true, completion: nil)
+		let tutorialController = OnboardingSlideController(contentView: OnboardingTutorialSlide())
+		tutorialController.transitioningDelegate = transitionManager
+		tutorialController.modalPresentationStyle = .Custom
+		UIApplication.rootViewController.presentViewController(tutorialController, animated: true, completion: nil)
 	}
 	
 }
