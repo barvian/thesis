@@ -25,38 +25,20 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	private(set) var showingInstructions = true
 	
 	private(set) lazy var titleLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel()
 		label.text = "Deep Breathing"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.whiteColor()
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 3)
-		label.layer.shadowRadius = 4
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.1
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()
 	
 	private(set) lazy var instructionsLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
+		let label = UILabel.applicationSubheaderLabel()
 		label.text = "Match your breath with the circle below, letting thoughts and feelings come and go with little effort. Try to breathe as deeply into your abdomen as you can."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.85)
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.1
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
-		
+				
 		return label
 	}()
 	
@@ -186,7 +168,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 				self.actionLabel.text = "Exhale"
 				UIView.animateWithDuration(5, delay: 0.0, options: .CurveEaseOut | .AllowUserInteraction, animations: {
 					[unowned self] in
-					self.breather.transform = CGAffineTransformMakeScale(0.85, 0.85)
+					self.breather.transform = CGAffineTransformMakeScale(0.75, 0.75)
 					self.breatherButton.zIndex = 2
 				}) {
 					[unowned self] (completed: Bool) in

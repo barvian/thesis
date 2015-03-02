@@ -37,6 +37,7 @@
 		CF7851521AA40F4100DE4503 /* OnboardingSlide+ConfigureForDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7851511AA40F4100DE4503 /* OnboardingSlide+ConfigureForDictionary.swift */; };
 		CF7851541AA4111600DE4503 /* UILabel+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7851531AA4111600DE4503 /* UILabel+Thesis.swift */; };
 		CF7851561AA411AF00DE4503 /* UIButton+Thesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7851551AA411AF00DE4503 /* UIButton+Thesis.swift */; };
+		CF7851581AA4158F00DE4503 /* Meditation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF7851571AA4158F00DE4503 /* Meditation.mp3 */; };
 		CF7E4FE81A8B84FA00E131C5 /* CalmingScenesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */; };
 		CF7E4FEA1A8B859E00E131C5 /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CF7E4FE91A8B859E00E131C5 /* Scenes */; };
 		CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF889CB51A89B3F0004D2206 /* Main.storyboard */; };
@@ -117,6 +118,7 @@
 		CF7851511AA40F4100DE4503 /* OnboardingSlide+ConfigureForDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OnboardingSlide+ConfigureForDictionary.swift"; sourceTree = "<group>"; };
 		CF7851531AA4111600DE4503 /* UILabel+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Thesis.swift"; sourceTree = "<group>"; };
 		CF7851551AA411AF00DE4503 /* UIButton+Thesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Thesis.swift"; sourceTree = "<group>"; };
+		CF7851571AA4158F00DE4503 /* Meditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation.mp3; sourceTree = "<group>"; };
 		CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalmingScenesViewController.swift; sourceTree = "<group>"; };
 		CF7E4FE91A8B859E00E131C5 /* Scenes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scenes; sourceTree = "<group>"; };
 		CF889CB61A89B3F0004D2206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		CF0BE8071A61DA98007FCA8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF7851571AA4158F00DE4503 /* Meditation.mp3 */,
 				CF7E4FE91A8B859E00E131C5 /* Scenes */,
 				CF0BE82D1A636D06007FCA8E /* Thesis.entitlements */,
 				CF0BE8081A61DA98007FCA8E /* Info.plist */,
@@ -450,6 +453,7 @@
 			files = (
 				CF78514C1AA3B5BA00DE4503 /* Readings.plist in Resources */,
 				CF0BE8181A61DA98007FCA8E /* LaunchScreen.xib in Resources */,
+				CF7851581AA4158F00DE4503 /* Meditation.mp3 in Resources */,
 				CFA5D2BE1A9B5F1300CFFADF /* Statements.plist in Resources */,
 				CF889CC21A89D6D5004D2206 /* Images.xcassets in Resources */,
 				CF78514B1AA3B5BA00DE4503 /* Readings in Resources */,

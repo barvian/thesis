@@ -42,37 +42,19 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	}()
 	
 	private(set) lazy var titleLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel()
 		label.text = "Calming Scene Meditation"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.whiteColor()
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 3)
-		label.layer.shadowRadius = 4
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.1
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()
 	
 	private(set) lazy var instructionsLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
+		let label = UILabel.applicationSubheaderLabel()
 		label.text = "Gently place your attention in the scene, allowing other thoughts to come and go with little effort."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.85)
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.1
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()

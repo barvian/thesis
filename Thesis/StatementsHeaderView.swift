@@ -12,37 +12,19 @@ import SSDynamicText
 class StatementsHeaderView: UIView {
 	
 	private(set) lazy var titleLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel()
 		label.text = "Coping Statements"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 255, g: 255, b: 255, a: 0.85)
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()
 	
 	private(set) lazy var instructionsLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
+		let label = UILabel.applicationSubheaderLabel()
 		label.text = "Allow time to pass while you remind yourself of the following statements. Breathe deeply and repeat one internally; feel free to try another if one gets tiresome."
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 255, g: 255, b: 255, a: 0.55)
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()
