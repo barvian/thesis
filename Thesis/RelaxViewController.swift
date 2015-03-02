@@ -9,7 +9,7 @@
 import UIKit
 import SSDynamicText
 
-class RelaxViewController: UIViewController, FullScreenViewController, RelaxationControllerDelegate, DailyReminderViewDelegate, MoodPickerViewDelegate, DurationPickerViewDelegate {
+class RelaxViewController: UIViewController, FullScreenViewController, RelaxationNavigationControllerDelegate, DailyReminderViewDelegate, MoodPickerViewDelegate, DurationPickerViewDelegate {
 	
 	let tintColor = UIColor.applicationBlueColor()
 	let backgroundColor = UIColor.applicationBlueColor()
@@ -134,6 +134,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 			}
 		} else if _showingDurationPicker {
 			UIView.animateWithDuration(0.25) {
+				self._pickedMood = nil
 				for (m, button) in self.moodPicker.moodButtons {
 					button.alpha = 1
 				}
@@ -240,10 +241,13 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		}
 	}
 	
+	private var _pickedMood: Mood! = nil
+	
 	func moodPickerView(moodPickerView: MoodPickerView, didPickMood mood: Mood) {
+		_pickedMood = mood
 		UIView.animateWithDuration(0.3) {
 			for (m, button) in self.moodPicker.moodButtons {
-				button.alpha = (m == mood ? 1 : 0)
+				button.alpha = (m == self._pickedMood ? 1 : 0)
 			}
 			
 			self.toggleDurationPicker(true)
@@ -251,14 +255,12 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}
 	
 	func durationPickerView(durationPickerView: DurationPickerView, didPickDuration duration: Duration) {
-		let relaxationController = DeepBreathingViewController()
-		relaxationController.relaxationDelegate = self
-		relaxationController.navigationItem.hidesBackButton = true
-		let navigationController = UINavigationController(rootViewController: relaxationController)
-		navigationController.transitioningDelegate = transitionManager
-		navigationController.modalPresentationStyle = .Custom
+		let relaxationController = RelaxationNavigationController(mood: _pickedMood, duration: duration)
+		relaxationController.delegate = self
+		relaxationController.transitioningDelegate = transitionManager
+		relaxationController.modalPresentationStyle = .Custom
 		
-		presentViewController(navigationController, animated: true, completion: nil)
+		presentViewController(relaxationController, animated: true, completion: nil)
 	}
 	
 	// MARK: DailyReminderViewDelegate
@@ -271,9 +273,9 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		UIApplication.relaxationReminder = UILocalNotification.applicationRelaxationReminder(time)
 	}
 	
-	// MARK: RelaxationControllerDelegate
+	// MARK: RelaxationNavigationControllerDelegate
 	
-	func relaxationControllerShouldDismiss(relaxationController: UIViewController) {
+	func relaxationNavigationControllerShouldDismiss(relaxationNavigationController: RelaxationNavigationController) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 	

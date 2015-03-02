@@ -75,11 +75,4 @@ class StatementsHeaderView: UIView {
 		super.updateConstraints()
 	}
 	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		
-		titleLabel.preferredMaxLayoutWidth = titleLabel.frame.width
-		instructionsLabel.preferredMaxLayoutWidth = instructionsLabel.frame.width
-	}
-	
 }

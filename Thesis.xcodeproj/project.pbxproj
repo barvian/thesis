@@ -69,6 +69,9 @@
 		CFE5F58C1A93862A0011008A /* ChunkyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE5F58B1A93862A0011008A /* ChunkyButton.swift */; };
 		CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */; };
 		CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */; };
+		CFEF15691AA483E500EF2E58 /* RelaxationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF15681AA483E500EF2E58 /* RelaxationNavigationController.swift */; };
+		CFEF156B1AA4870400EF2E58 /* RelaxationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF156A1AA4870400EF2E58 /* RelaxationCoordinator.swift */; };
+		CFEF156E1AA4881C00EF2E58 /* Relaxation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF156D1AA4881C00EF2E58 /* Relaxation.swift */; };
 		CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */; };
 		CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */; };
 		CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF74A3D1A9914130081DF9F /* FullScreenController.swift */; };
@@ -152,6 +155,9 @@
 		CFE5F58B1A93862A0011008A /* ChunkyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChunkyButton.swift; sourceTree = "<group>"; };
 		CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionPageView.swift; sourceTree = "<group>"; };
+		CFEF15681AA483E500EF2E58 /* RelaxationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationNavigationController.swift; sourceTree = "<group>"; };
+		CFEF156A1AA4870400EF2E58 /* RelaxationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationCoordinator.swift; sourceTree = "<group>"; };
+		CFEF156D1AA4881C00EF2E58 /* Relaxation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relaxation.swift; sourceTree = "<group>"; };
 		CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationController.swift; sourceTree = "<group>"; };
 		CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Positioning.swift"; sourceTree = "<group>"; };
 		CFF74A3D1A9914130081DF9F /* FullScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenController.swift; sourceTree = "<group>"; };
@@ -251,13 +257,10 @@
 		CF6FA8FA1A8AFFDD00856C8C /* Relax */ = {
 			isa = PBXGroup;
 			children = (
-				CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */,
-				CFA5D2C81A9B624400CFFADF /* Calming Scenes */,
-				CFA5D2C51A9B620200CFFADF /* Statements */,
 				EC3317A21A64378D00DD6604 /* RelaxViewController.swift */,
 				CF260EF81A9D19B300E1C053 /* MoodPickerView.swift */,
 				CF260EFC1A9D377B00E1C053 /* DurationPickerView.swift */,
-				CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */,
+				CFEF156C1AA4880300EF2E58 /* Relaxations */,
 			);
 			name = Relax;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				CF6FA8F81A8AF5F600856C8C /* Mood.swift */,
 				CF60AD1B1A9BEA2300D57453 /* Duration.swift */,
 				CF725FCE1A82D09300B6EE2B /* Reflection.swift */,
+				CFEF156D1AA4881C00EF2E58 /* Relaxation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -383,6 +387,19 @@
 				CFF74A3F1A9916B70081DF9F /* ConstrainedTableView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		CFEF156C1AA4880300EF2E58 /* Relaxations */ = {
+			isa = PBXGroup;
+			children = (
+				CFEF15681AA483E500EF2E58 /* RelaxationNavigationController.swift */,
+				CFEF156A1AA4870400EF2E58 /* RelaxationCoordinator.swift */,
+				CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */,
+				CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */,
+				CFA5D2C81A9B624400CFFADF /* Calming Scenes */,
+				CFA5D2C51A9B620200CFFADF /* Statements */,
+			);
+			name = Relaxations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,6 +542,7 @@
 				CFA5D2C01A9B5F7A00CFFADF /* StatementsViewController.swift in Sources */,
 				CF6FA8E71A8A714D00856C8C /* UIWebView+ConfigureForReading.swift in Sources */,
 				CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */,
+				CFEF15691AA483E500EF2E58 /* RelaxationNavigationController.swift in Sources */,
 				CFA5D2C71A9B621B00CFFADF /* CalmingSceneViewController.swift in Sources */,
 				CFE5F58C1A93862A0011008A /* ChunkyButton.swift in Sources */,
 				CFF74A401A9916B70081DF9F /* ConstrainedTableView.swift in Sources */,
@@ -547,6 +565,7 @@
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF7851541AA4111600DE4503 /* UILabel+Thesis.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
+				CFEF156B1AA4870400EF2E58 /* RelaxationCoordinator.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
 				ECBE8D991A8BA1E7000AC325 /* SlidingViewController.swift in Sources */,
 				CF7383B41AA3A684009A3428 /* OnboardingSlideController.swift in Sources */,
@@ -563,6 +582,7 @@
 				CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */,
 				CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */,
 				CF7383B81AA3A801009A3428 /* OnboardingSlide.swift in Sources */,
+				CFEF156E1AA4881C00EF2E58 /* Relaxation.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CFA5D2CC1A9B63FE00CFFADF /* StatementsFooterView.swift in Sources */,
 				CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */,

@@ -19,9 +19,9 @@ public let scenes: [String]? = {
 	return files
 }()
 
-class CalmingScenesViewController: SlidingViewController, FullScreenViewController, RelaxationController, CalmingSceneViewControllerDelegate {
+class CalmingScenesViewController: SlidingViewController, FullScreenViewController, RelaxationViewController, CalmingSceneViewControllerDelegate {
 	
-	weak var relaxationDelegate: RelaxationControllerDelegate?
+	weak var relaxationDelegate: RelaxationViewControllerDelegate?
 	
 	let tintColor = UIColor.whiteColor()
 	let backgroundColor = UIColor.blackColor()
@@ -59,13 +59,12 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		return label
 	}()
 	
-	private(set) lazy var doneButton: UIButton = {
+	private(set) lazy var progressButton: UIButton = {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle("Done", forState: .Normal)
 		button.tintColor = UIColor.whiteColor()
 		
-		button.addTarget(self, action: "didTapDoneButton:", forControlEvents: .TouchUpInside)
+		button.addTarget(self, action: "didTapProgressButton:", forControlEvents: .TouchUpInside)
 		
 		return button
 	}()
@@ -102,7 +101,8 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		view.addSubview(vignetteView)
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
-		view.addSubview(doneButton)
+		view.addSubview(progressButton)
+		shouldUpdateProgressButton()
 		
 		setupFullScreenControllerView(self)
 		
@@ -134,7 +134,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 			self.vignetteView.alpha = alpha
 			self.titleLabel.alpha = alpha
 			self.instructionsLabel.alpha = alpha
-			self.doneButton.alpha = alpha
+			self.progressButton.alpha = alpha
 			self.setNeedsStatusBarAppearanceUpdate()
 		}
 		
@@ -156,7 +156,8 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 				"vignetteView": vignetteView,
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel,
-				"doneButton": doneButton
+				"progressButton": progressButton,
+				"bottomLayoutGuide": bottomLayoutGuide
 			]
 			
 			let vMargin: CGFloat = 34, hMargin: CGFloat = 26
@@ -165,10 +166,11 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 				"hMargin": hMargin
 			]
 			
-			view.addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
+			view.addConstraint(NSLayoutConstraint(item: progressButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[vignetteView]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vignetteView]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[progressButton][bottomLayoutGuide]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			for (_, subview) in views {
@@ -183,14 +185,20 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	// MARK: Handlers
 	
-	func didTapDoneButton(button: UIButton!) {
-		relaxationDelegate?.relaxationControllerShouldDismiss?(self)
+	func didTapProgressButton(button: UIButton!) {
+		relaxationDelegate?.relaxationControllerDidTapProgressButton?(self)
 	}
  
 	// MARK: CalmingSceneViewControllerDelegate
 	
 	func calmingSceneViewController(calmingSceneViewController: CalmingSceneViewController, didEndTouches touches: Set<NSObject>, withEvent event: UIEvent) {
 		toggleInstructions(timer: 5)
-	}	
+	}
+	
+	// MARK: RelaxationViewController
+	
+	func shouldUpdateProgressButton() {
+		relaxationViewController(self, shouldUpdateProgressButton: progressButton)
+	}
 	
 }

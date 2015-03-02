@@ -9,19 +9,19 @@
 import UIKit
 
 @objc protocol StatementsFooterViewDelegate {
-	optional func statementsFooterView(statementsFooterView: StatementsFooterView, didTapDoneButton doneButton: UIButton!)
+	optional func statementsFooterView(statementsFooterView: StatementsFooterView, didTapProgressButton progressButton: UIButton!)
 }
 
 class StatementsFooterView: UIView {
 	
 	weak var delegate: StatementsFooterViewDelegate?
 	
-	private(set) lazy var doneButton: UIButton = {
+	private(set) lazy var progressButton: UIButton = {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
 		button.setTitle("Done", forState: .Normal)
 		
-		button.addTarget(self, action: "didTapDoneButton:", forControlEvents: .TouchUpInside)
+		button.addTarget(self, action: "didTapProgressButton:", forControlEvents: .TouchUpInside)
 		
 		return button
 	}()
@@ -35,7 +35,7 @@ class StatementsFooterView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		addSubview(doneButton)
+		addSubview(progressButton)
 	}
 	
 	required init(coder aDecoder: NSCoder) {
@@ -53,15 +53,15 @@ class StatementsFooterView: UIView {
 	override func updateConstraints() {
 		if !_didSetupConstraints {
 			let views: [NSObject: AnyObject] = [
-				"doneButton": doneButton
+				"progressButton": progressButton
 			]
 			let metrics = [
 				"hMargin": 26,
 				"vMargin": 34
 			]
 			
-			addConstraint(NSLayoutConstraint(item: doneButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[doneButton]-(vMargin)-|", options: nil, metrics: metrics, views: views))
+			addConstraint(NSLayoutConstraint(item: progressButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[progressButton]-(vMargin)-|", options: nil, metrics: metrics, views: views))
 			
 			_didSetupConstraints = true
 		}
@@ -71,8 +71,8 @@ class StatementsFooterView: UIView {
 	
 	// MARK: Handlers
 	
-	func didTapDoneButton(button: UIButton!) {
-		delegate?.statementsFooterView?(self, didTapDoneButton: button)
+	func didTapProgressButton(button: UIButton!) {
+		delegate?.statementsFooterView?(self, didTapProgressButton: button)
 	}
 	
 }

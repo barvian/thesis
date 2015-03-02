@@ -16,12 +16,12 @@
 
 import UIKit
 
-class StatementsViewController: UIViewController, FullScreenViewController, RelaxationController, StatementsFooterViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class StatementsViewController: UIViewController, FullScreenViewController, RelaxationViewController, StatementsFooterViewDelegate, UITableViewDataSource, UITableViewDelegate {
 	
-	weak var relaxationDelegate: RelaxationControllerDelegate?
+	weak var relaxationDelegate: RelaxationViewControllerDelegate?
 	
 	let tintColor = UIColor.whiteColor()
-	let backgroundColor = UIColor.applicationBaseColor()
+	let backgroundColor = UIColor.applicationDarkColor()
 	let tabColor = UIColor.clearColor()
 	let selectedTabColor = UIColor.clearColor()
 	
@@ -76,6 +76,7 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 		super.viewDidLoad()
 		
 		view.addSubview(tableView)
+		shouldUpdateProgressButton()
 		
 		setupFullScreenControllerView(self)
 	}
@@ -105,10 +106,16 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 		return cell
 	}
 	
-	// MARK: StatementsFooterViewDelegate {
+	// MARK: StatementsFooterViewDelegate
 	
-	func statementsFooterView(statementsFooterView: StatementsFooterView, didTapDoneButton doneButton: UIButton!) {
-		relaxationDelegate?.relaxationControllerShouldDismiss?(self)
+	func statementsFooterView(statementsFooterView: StatementsFooterView, didTapProgressButton progressButton: UIButton!) {
+		relaxationDelegate?.relaxationControllerDidTapProgressButton?(self)
+	}
+	
+	// MARK: RelaxationViewController
+	
+	func shouldUpdateProgressButton() {
+		relaxationViewController(self, shouldUpdateProgressButton: footerView.progressButton)
 	}
 	
 }

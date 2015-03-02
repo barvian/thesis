@@ -10,9 +10,9 @@ import UIKit
 import SSDynamicText
 import Async
 
-class DeepBreathingViewController: UIViewController, FullScreenViewController, RelaxationController {
+class DeepBreathingViewController: UIViewController, FullScreenViewController, RelaxationViewController {
 	
-	weak var relaxationDelegate: RelaxationControllerDelegate?
+	weak var relaxationDelegate: RelaxationViewControllerDelegate?
 	
 	let tintColor = UIColor.whiteColor()
 	let backgroundColor = UIColor.applicationDarkColor()
@@ -74,13 +74,12 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		return label
 	}()
 	
-	private(set) lazy var doneButton: UIButton = {
+	private(set) lazy var progressButton: UIButton = {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle("Done", forState: .Normal)
 		button.tintColor = UIColor.whiteColor()
 		
-		button.addTarget(self, action: "didTapDoneButton:", forControlEvents: .TouchUpInside)
+		button.addTarget(self, action: "didTapProgressButton:", forControlEvents: .TouchUpInside)
 		
 		return button
 	}()
@@ -119,7 +118,8 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		view.addSubview(breather)
 		view.addSubview(actionLabel)
 		view.addSubview(spacerViews[1])
-		view.addSubview(doneButton)
+		view.addSubview(progressButton)
+		shouldUpdateProgressButton()
 		
 		setupFullScreenControllerView(self)
 	}
@@ -142,7 +142,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		UIView.animateWithDuration(0.33) {
 			self.titleLabel.alpha = alpha
 			self.instructionsLabel.alpha = alpha
-			self.doneButton.alpha = alpha
+			self.progressButton.alpha = alpha
 			self.setNeedsStatusBarAppearanceUpdate()
 		}
 		
@@ -154,6 +154,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		}
 	}
 	
+	// FIXME: crashes occassionally when dismissing VC
 	func breathe(completion: (() -> Void)? = nil) {
 		self.actionLabel.text = "Inhale"
 		UIView.animateWithDuration(5, delay: 0.0, options: .CurveEaseOut | .AllowUserInteraction, animations: {
@@ -204,7 +205,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 				"breatherButton": breatherButton,
 				"actionLabel": actionLabel,
 				"spacer2": spacerViews[1],
-				"doneButton": doneButton
+				"progressButton": progressButton
 			]
 			
 			let vMargin: CGFloat = 34, hMargin: CGFloat = 26
@@ -213,8 +214,8 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 				"hMargin": hMargin
 			]
 			
-			view.addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][breather(140)][spacer2(==spacer1)][doneButton]", options: nil, metrics: metrics, views: views))
+			view.addConstraint(NSLayoutConstraint(item: progressButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][breather(140)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
@@ -245,8 +246,14 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		_started = true
 	}
 	
-	func didTapDoneButton(button: UIButton!) {
-		relaxationDelegate?.relaxationControllerShouldDismiss?(self)
+	func didTapProgressButton(button: UIButton!) {
+		relaxationDelegate?.relaxationControllerDidTapProgressButton?(self)
+	}
+	
+	// MARK: RelaxationViewController
+	
+	func shouldUpdateProgressButton() {
+		relaxationViewController(self, shouldUpdateProgressButton: progressButton)
 	}
 	
 }
