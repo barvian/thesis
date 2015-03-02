@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Maxwell Barvian. All rights reserved.
 //
 
-import Foundation
-
 extension NSDate {
 	
 	class func applicationDefaultRelaxationReminderTime() -> NSDate {

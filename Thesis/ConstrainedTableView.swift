@@ -57,20 +57,6 @@ class ConstrainedTableView: UITableView {
 		return view
 	}
 	
-	func constrainFooterView() {
-		if let tableFooterView = tableFooterView {
-			tableFooterView.setNeedsLayout()
-			tableFooterView.layoutIfNeeded()
-			let height = tableFooterView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-			
-			// Update the footer's frame and add it again
-			var footerFrame = tableFooterView.frame
-			footerFrame.size.height = height
-			tableFooterView.frame = footerFrame
-			self.tableFooterView = tableFooterView
-		}
-	}
-	
 	private var _needsConstraints = true
 	
 	override func layoutSubviews() {

@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         SDCloudUserDefaults.registerForNotifications()
-		SDCloudUserDefaults.hasSeenWelcome = true
 		applyStylesheet()
 		
 		if let launchOptions = launchOptions {

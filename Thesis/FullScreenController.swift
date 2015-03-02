@@ -26,12 +26,13 @@ private var _statusBarCoverAssociationKey: UInt8 = 3
 	
 }
 
-func setupFullScreenControllerView(controller: FullScreenViewController) {
+func setupFullScreenControllerView(controller: FullScreenViewController, statusBarCover: Bool = true) {
 	let vc = controller as! UIViewController
 
 	vc.view.backgroundColor = controller.backgroundColor
 	let cover = UIImageView.applicationStatusBarCover()
 	cover.tintColor = controller.backgroundColor
+	cover.hidden = !statusBarCover
 	vc.view.addSubview(cover)
 	objc_setAssociatedObject(vc, &_statusBarCoverAssociationKey, cover, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
 	

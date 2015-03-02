@@ -77,8 +77,8 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		return .LightContent
 	}
 	
-	init() {
-		super.init(spacing: 46.0)
+	convenience init() {
+		self.init(spacing: 46.0)
 		
 		title = "Calming Scenes"
 		let motionManager = CMMotionManager()
@@ -91,10 +91,6 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		selectedIndex = 0
 	}
 	
-	required init(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -102,15 +98,16 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
 		view.addSubview(progressButton)
-		shouldUpdateProgressButton()
 		
-		setupFullScreenControllerView(self)
+		setupFullScreenControllerView(self, statusBarCover: false)
 		
 		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		shouldUpdateProgressButton()
 		
 		updateFullScreenControllerColors(self, animated: false)
 		hideFullScreenControllerNavigationBar(self, animated: false)
@@ -152,6 +149,8 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	override func updateViewConstraints() {
 		if !_didSetupConstraints {
+			setupFullScreenControllerViewConstraints(self)
+			
 			let views: [NSObject: AnyObject] = [
 				"vignetteView": vignetteView,
 				"titleLabel": titleLabel,
@@ -166,11 +165,10 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 				"hMargin": hMargin
 			]
 			
-			view.addConstraint(NSLayoutConstraint(item: progressButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[vignetteView]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[vignetteView]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[progressButton][bottomLayoutGuide]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[progressButton]-(vMargin)-[bottomLayoutGuide]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			for (_, subview) in views {
@@ -186,7 +184,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	// MARK: Handlers
 	
 	func didTapProgressButton(button: UIButton!) {
-		relaxationDelegate?.relaxationControllerDidTapProgressButton?(self)
+		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
  
 	// MARK: CalmingSceneViewControllerDelegate

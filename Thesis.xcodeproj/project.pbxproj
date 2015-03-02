@@ -40,6 +40,7 @@
 		CF7851581AA4158F00DE4503 /* Meditation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF7851571AA4158F00DE4503 /* Meditation.mp3 */; };
 		CF7E4FE81A8B84FA00E131C5 /* CalmingScenesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */; };
 		CF7E4FEA1A8B859E00E131C5 /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CF7E4FE91A8B859E00E131C5 /* Scenes */; };
+		CF81ADD71AA5242A00792B3B /* GuidedMeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81ADD61AA5242A00792B3B /* GuidedMeditationViewController.swift */; };
 		CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF889CB51A89B3F0004D2206 /* Main.storyboard */; };
 		CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */; };
 		CF889CBE1A89CDE2004D2206 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = CF889CBD1A89CDE2004D2206 /* UIAppearance+Swift.m */; };
@@ -70,9 +71,8 @@
 		CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */; };
 		CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */; };
 		CFEF15691AA483E500EF2E58 /* RelaxationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF15681AA483E500EF2E58 /* RelaxationNavigationController.swift */; };
-		CFEF156B1AA4870400EF2E58 /* RelaxationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF156A1AA4870400EF2E58 /* RelaxationCoordinator.swift */; };
-		CFEF156E1AA4881C00EF2E58 /* Relaxation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF156D1AA4881C00EF2E58 /* Relaxation.swift */; };
-		CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */; };
+		CFEF156B1AA4870400EF2E58 /* RelaxationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF156A1AA4870400EF2E58 /* RelaxationList.swift */; };
+		CFF6E2331A8CDAD100881B40 /* RelaxationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2321A8CDAD100881B40 /* RelaxationViewController.swift */; };
 		CFF6E2351A8CF4F000881B40 /* UIButton+Positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */; };
 		CFF74A3E1A9914130081DF9F /* FullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF74A3D1A9914130081DF9F /* FullScreenController.swift */; };
 		CFF74A401A9916B70081DF9F /* ConstrainedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF74A3F1A9916B70081DF9F /* ConstrainedTableView.swift */; };
@@ -124,6 +124,7 @@
 		CF7851571AA4158F00DE4503 /* Meditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation.mp3; sourceTree = "<group>"; };
 		CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalmingScenesViewController.swift; sourceTree = "<group>"; };
 		CF7E4FE91A8B859E00E131C5 /* Scenes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scenes; sourceTree = "<group>"; };
+		CF81ADD61AA5242A00792B3B /* GuidedMeditationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidedMeditationViewController.swift; sourceTree = "<group>"; };
 		CF889CB61A89B3F0004D2206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF889CB81A89B7C0004D2206 /* FloatingTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTabBar.swift; sourceTree = "<group>"; };
 		CF889CBC1A89CDBF004D2206 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAppearance+Swift.h"; sourceTree = "<group>"; };
@@ -156,9 +157,8 @@
 		CFEDD02E1A87F109000A1492 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		CFEDD0321A8853E2000A1492 /* AddReflectionPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReflectionPageView.swift; sourceTree = "<group>"; };
 		CFEF15681AA483E500EF2E58 /* RelaxationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationNavigationController.swift; sourceTree = "<group>"; };
-		CFEF156A1AA4870400EF2E58 /* RelaxationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationCoordinator.swift; sourceTree = "<group>"; };
-		CFEF156D1AA4881C00EF2E58 /* Relaxation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relaxation.swift; sourceTree = "<group>"; };
-		CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationController.swift; sourceTree = "<group>"; };
+		CFEF156A1AA4870400EF2E58 /* RelaxationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationList.swift; sourceTree = "<group>"; };
+		CFF6E2321A8CDAD100881B40 /* RelaxationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelaxationViewController.swift; sourceTree = "<group>"; };
 		CFF6E2341A8CF4F000881B40 /* UIButton+Positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Positioning.swift"; sourceTree = "<group>"; };
 		CFF74A3D1A9914130081DF9F /* FullScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenController.swift; sourceTree = "<group>"; };
 		CFF74A3F1A9916B70081DF9F /* ConstrainedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstrainedTableView.swift; sourceTree = "<group>"; };
@@ -371,7 +371,6 @@
 				CF6FA8F81A8AF5F600856C8C /* Mood.swift */,
 				CF60AD1B1A9BEA2300D57453 /* Duration.swift */,
 				CF725FCE1A82D09300B6EE2B /* Reflection.swift */,
-				CFEF156D1AA4881C00EF2E58 /* Relaxation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -393,9 +392,10 @@
 			isa = PBXGroup;
 			children = (
 				CFEF15681AA483E500EF2E58 /* RelaxationNavigationController.swift */,
-				CFEF156A1AA4870400EF2E58 /* RelaxationCoordinator.swift */,
-				CFF6E2321A8CDAD100881B40 /* RelaxationController.swift */,
+				CFEF156A1AA4870400EF2E58 /* RelaxationList.swift */,
+				CFF6E2321A8CDAD100881B40 /* RelaxationViewController.swift */,
 				CFD38CC01A9BA82E00176F9E /* DeepBreathingViewController.swift */,
+				CF81ADD61AA5242A00792B3B /* GuidedMeditationViewController.swift */,
 				CFA5D2C81A9B624400CFFADF /* Calming Scenes */,
 				CFA5D2C51A9B620200CFFADF /* Statements */,
 			);
@@ -544,6 +544,7 @@
 				CFBA82711A870B120030F13D /* UIColor+Thesis.swift in Sources */,
 				CFEF15691AA483E500EF2E58 /* RelaxationNavigationController.swift in Sources */,
 				CFA5D2C71A9B621B00CFFADF /* CalmingSceneViewController.swift in Sources */,
+				CF81ADD71AA5242A00792B3B /* GuidedMeditationViewController.swift in Sources */,
 				CFE5F58C1A93862A0011008A /* ChunkyButton.swift in Sources */,
 				CFF74A401A9916B70081DF9F /* ConstrainedTableView.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
@@ -565,7 +566,7 @@
 				CFEDD0331A8853E2000A1492 /* AddReflectionPageView.swift in Sources */,
 				CF7851541AA4111600DE4503 /* UILabel+Thesis.swift in Sources */,
 				CF41104A1A84529500A78347 /* ReflectHeaderView.swift in Sources */,
-				CFEF156B1AA4870400EF2E58 /* RelaxationCoordinator.swift in Sources */,
+				CFEF156B1AA4870400EF2E58 /* RelaxationList.swift in Sources */,
 				CF41104C1A84579400A78347 /* AddReflectionViewController.swift in Sources */,
 				ECBE8D991A8BA1E7000AC325 /* SlidingViewController.swift in Sources */,
 				CF7383B41AA3A684009A3428 /* OnboardingSlideController.swift in Sources */,
@@ -582,10 +583,9 @@
 				CFCA71891A942CE500D0B896 /* LBorderView.m in Sources */,
 				CF4737EC1A943EC600F6D6D0 /* ReflectReminderView.swift in Sources */,
 				CF7383B81AA3A801009A3428 /* OnboardingSlide.swift in Sources */,
-				CFEF156E1AA4881C00EF2E58 /* Relaxation.swift in Sources */,
 				CFF8D6D71A7EB853003CF3DD /* LearnViewController.swift in Sources */,
 				CFA5D2CC1A9B63FE00CFFADF /* StatementsFooterView.swift in Sources */,
-				CFF6E2331A8CDAD100881B40 /* RelaxationController.swift in Sources */,
+				CFF6E2331A8CDAD100881B40 /* RelaxationViewController.swift in Sources */,
 				CF889CB91A89B7C0004D2206 /* FloatingTabBar.swift in Sources */,
 				CFEDD02F1A87F109000A1492 /* UIColor+RGB.swift in Sources */,
 				CF6FA8F91A8AF5F600856C8C /* Mood.swift in Sources */,

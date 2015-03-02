@@ -97,6 +97,7 @@ class SlidingViewController: UIViewController, UIPageViewControllerDelegate, UIP
 		cover.setTranslatesAutoresizingMaskIntoConstraints(false)
 		cover.contentMode = .ScaleToFill
 		cover.userInteractionEnabled = false
+		cover.hidden = true
 		
 		return cover
 	}()
@@ -105,6 +106,7 @@ class SlidingViewController: UIViewController, UIPageViewControllerDelegate, UIP
 		let control = UIPageControl()
 		control.setTranslatesAutoresizingMaskIntoConstraints(false)
 		control.userInteractionEnabled = false
+		control.hidden = true
 		
 		return control
 	}()

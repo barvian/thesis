@@ -16,12 +16,19 @@ class RelaxationNavigationController: UIViewController, RelaxationViewController
 	
 	weak var delegate: RelaxationNavigationControllerDelegate?
 	
-	let coordinator: RelaxationCoordinator
+	let relaxations: RelaxationList
+	var currentRelaxation: Int {
+		didSet {
+			var controller = (self.relaxations[self.currentRelaxation] as! NSObject.Type)() as! RelaxationViewController
+			controller.relaxationDelegate = self
+			self.navigationController.pushViewController(controller as! UIViewController, animated: true)
+		}
+	}
 	
 	private lazy var _navigationController: UINavigationController = {
-		let statements = DeepBreathingViewController()
-		statements.relaxationDelegate = self
-		let controller = UINavigationController(rootViewController: statements)
+		var root = (self.relaxations[self.currentRelaxation] as! NSObject.Type)() as! RelaxationViewController
+		root.relaxationDelegate = self
+		let controller = UINavigationController(rootViewController: root as! UIViewController)
 		
 		return controller
 	}()
@@ -38,7 +45,8 @@ class RelaxationNavigationController: UIViewController, RelaxationViewController
 	}
 	
 	init(mood: Mood, duration: Duration) {
-		self.coordinator = RelaxationCoordinator(mood: mood, duration: duration)
+		self.relaxations = RelaxationList(mood: mood, duration: duration)
+		self.currentRelaxation = relaxations.startIndex
 		
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -57,12 +65,16 @@ class RelaxationNavigationController: UIViewController, RelaxationViewController
 	
 	// MARK: RelaxationViewControllerDelegate
 	
-	func relaxationControllerDidTapProgressButton(relaxationController: UIViewController) {
-		
+	func relaxationViewControllerDidTapProgressButton(relaxationController: UIViewController) {
+		if currentRelaxation < relaxations.endIndex {
+			currentRelaxation++
+		} else {
+			delegate?.relaxationNavigationControllerShouldDismiss?(self)
+		}
 	}
 	
 	func relaxationViewControllerNeedsTextForProgressButton(relaxationController: UIViewController) -> String {
-		return "Next"
+		return currentRelaxation < relaxations.endIndex ? "Next" : "Done"
 	}
 	
 }

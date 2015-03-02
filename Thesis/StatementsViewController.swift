@@ -37,12 +37,15 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 	
 	private(set) lazy var tableView: ConstrainedTableView = {
 		let tableView = ConstrainedTableView()
+		tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+		tableView.backgroundColor = self.backgroundColor
 		tableView.dataSource = self
-		tableView.allowsSelection = true
+		tableView.delegate = self
+		tableView.allowsSelection = false
 		tableView.registerClass(StatementTableViewCell.self, forCellReuseIdentifier: "cell")
 		tableView.separatorStyle = .None
 		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 44.0
+		tableView.estimatedRowHeight = 64.0
 		tableView.tableHeaderView = self.headerView
 		tableView.tableFooterView = self.footerView
 		
@@ -66,7 +69,7 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 		return .LightContent
 	}
 	
-	convenience override init() {
+	override convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Statements"
@@ -76,16 +79,42 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 		super.viewDidLoad()
 		
 		view.addSubview(tableView)
-		shouldUpdateProgressButton()
 		
 		setupFullScreenControllerView(self)
+		
+		view.setNeedsUpdateConstraints() // bootstrap AutoLayout
 	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		shouldUpdateProgressButton()
+		
 		updateFullScreenControllerColors(self, animated: false)
 		hideFullScreenControllerNavigationBar(self, animated: false)
+	}
+	
+	// MARK: Constraints
+	
+	private var _didSetupConstraints = false
+	
+	override func updateViewConstraints() {
+		if !_didSetupConstraints {
+			setupFullScreenControllerViewConstraints(self)
+			
+			let views: [NSObject: AnyObject] = [
+				"topLayoutGuide": topLayoutGuide,
+				"tableView": tableView,
+				"bottomLayoutGuide": bottomLayoutGuide
+			]
+			
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[topLayoutGuide][tableView][bottomLayoutGuide]", options: nil, metrics: nil, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: nil, views: views))
+			
+			_didSetupConstraints = true
+		}
+		
+		super.updateViewConstraints()
 	}
 	
 	// MARK: UITableViewDataSource
@@ -109,7 +138,7 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 	// MARK: StatementsFooterViewDelegate
 	
 	func statementsFooterView(statementsFooterView: StatementsFooterView, didTapProgressButton progressButton: UIButton!) {
-		relaxationDelegate?.relaxationControllerDidTapProgressButton?(self)
+		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
 	
 	// MARK: RelaxationViewController

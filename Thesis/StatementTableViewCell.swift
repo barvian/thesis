@@ -44,7 +44,7 @@ class StatementTableViewCell: UITableViewCell {
 		
 		selectionStyle = .None
 		
-		backgroundColor = UIColor.applicationBaseColor()
+		backgroundColor = UIColor.applicationDarkColor()
 		
 		contentView.addSubview(statementLabel)
 		contentView.addSubview(lineView)
