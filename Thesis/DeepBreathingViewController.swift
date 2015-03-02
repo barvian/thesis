@@ -15,7 +15,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	weak var relaxationDelegate: RelaxationControllerDelegate?
 	
 	let tintColor = UIColor.whiteColor()
-	let backgroundColor = UIColor.applicationBaseColor()
+	let backgroundColor = UIColor.applicationDarkColor()
 	let tabColor = UIColor.clearColor()
 	let selectedTabColor = UIColor.clearColor()
 	

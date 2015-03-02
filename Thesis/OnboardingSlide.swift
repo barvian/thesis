@@ -78,7 +78,9 @@ class OnboardingSlide: UIView {
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[headerLabel]-[subheaderLabel]", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[headerLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[subheaderLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
-			subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
+			if subheaderBottomConstraint == nil {
+				subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0)
+			}
 			addConstraint(subheaderBottomConstraint)
 			
 			_didSetupConstraints = true

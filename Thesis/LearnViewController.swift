@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LearnViewController: UIViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate {
+class LearnViewController: UIViewController, FullScreenViewController, UITableViewDataSource, UITableViewDelegate, LearnHeaderViewDelegate, TutorialViewControllerDelegate {
 	
 	let tintColor = UIColor.applicationBaseColor()
 	let backgroundColor = UIColor.applicationLightColor()
@@ -134,13 +134,20 @@ class LearnViewController: UIViewController, FullScreenViewController, UITableVi
 		navigationController?.pushViewController(readingController, animated: true)
 	}
 	
-	// MARK: LearnHeaderViewDelegate {
+	// MARK: LearnHeaderViewDelegate
 	
 	func learnHeaderView(learnHeaderView: LearnHeaderView, didTapHowToUseButton howToUseButton: UIButton!) {
-		let tutorialController = OnboardingSlideController(contentView: OnboardingTutorialSlide())
+		let tutorialController = TutorialViewController()
+		tutorialController.delegate = self
 		tutorialController.transitioningDelegate = transitionManager
 		tutorialController.modalPresentationStyle = .Custom
-		UIApplication.rootViewController.presentViewController(tutorialController, animated: true, completion: nil)
+		presentViewController(tutorialController, animated: true, completion: nil)
+	}
+	
+	// MARK: TutorialViewControllerDelegate
+	
+	func tutorialViewControllerShouldDismiss(tutorialViewController: TutorialViewController) {
+		dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 }

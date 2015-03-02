@@ -101,8 +101,6 @@ class OnboardingTutorialSlide: OnboardingSlide {
 	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		super.updateConstraints()
-		
 		if !_didSetupConstraints {
 			let views: [NSObject: AnyObject] = [
 				"learnTab": learnTab,
@@ -118,9 +116,7 @@ class OnboardingTutorialSlide: OnboardingSlide {
 				"margin": margin
 			]
 			
-			removeConstraint(subheaderBottomConstraint)
 			subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: learnTabLabel, attribute: .Top, multiplier: 1, constant: -margin)
-			addConstraint(subheaderBottomConstraint)
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[learnTabLabel]-(margin)-[relaxTabLabel]-(margin)-[reflectTabLabel]|", options: nil, metrics: metrics, views: views))
 			
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(margin)-[learnTab]-(12)-[learnTabLabel]-(margin)-|", options: nil, metrics: metrics, views: views))
@@ -143,6 +139,8 @@ class OnboardingTutorialSlide: OnboardingSlide {
 			
 			_didSetupConstraints = true
 		}
+		
+		super.updateConstraints()
 	}
 	
 }

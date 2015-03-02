@@ -33,6 +33,7 @@
 		CF76D1CA1A7EF5FA00A32859 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */; };
 		CF78514B1AA3B5BA00DE4503 /* Readings in Resources */ = {isa = PBXBuildFile; fileRef = CF7851491AA3B5BA00DE4503 /* Readings */; };
 		CF78514C1AA3B5BA00DE4503 /* Readings.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF78514A1AA3B5BA00DE4503 /* Readings.plist */; };
+		CF78514E1AA3EE4000DE4503 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78514D1AA3EE4000DE4503 /* TutorialViewController.swift */; };
 		CF7E4FE81A8B84FA00E131C5 /* CalmingScenesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */; };
 		CF7E4FEA1A8B859E00E131C5 /* Scenes in Resources */ = {isa = PBXBuildFile; fileRef = CF7E4FE91A8B859E00E131C5 /* Scenes */; };
 		CF889CB71A89B3F0004D2206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF889CB51A89B3F0004D2206 /* Main.storyboard */; };
@@ -109,6 +110,7 @@
 		CF76D1C91A7EF5FA00A32859 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CF7851491AA3B5BA00DE4503 /* Readings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Readings; sourceTree = "<group>"; };
 		CF78514A1AA3B5BA00DE4503 /* Readings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Readings.plist; sourceTree = "<group>"; };
+		CF78514D1AA3EE4000DE4503 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		CF7E4FE71A8B84FA00E131C5 /* CalmingScenesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalmingScenesViewController.swift; sourceTree = "<group>"; };
 		CF7E4FE91A8B859E00E131C5 /* Scenes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scenes; sourceTree = "<group>"; };
 		CF889CB61A89B3F0004D2206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				CFF8D6D61A7EB853003CF3DD /* LearnViewController.swift */,
+				CF78514D1AA3EE4000DE4503 /* TutorialViewController.swift */,
 				EC063E301A892433008FDA6C /* LearnHeaderView.swift */,
 				EC063E2C1A890ECA008FDA6C /* ReadingTableViewCell.swift */,
 				CFBB40671A9934730036065A /* ReadingTableViewCell+ConfigureForReading.swift */,
@@ -513,6 +516,7 @@
 				CFF74A401A9916B70081DF9F /* ConstrainedTableView.swift in Sources */,
 				EC3317A31A64378D00DD6604 /* RelaxViewController.swift in Sources */,
 				CF6FA8E91A8AA2E800856C8C /* RootViewController.swift in Sources */,
+				CF78514E1AA3EE4000DE4503 /* TutorialViewController.swift in Sources */,
 				CFA5D2CA1A9B628600CFFADF /* StatementsHeaderView.swift in Sources */,
 				CFA914D41AA3B28400B451B2 /* OnboardingCompleteSlide.swift in Sources */,
 				CF65D9441A9FCB85006F7D42 /* NSDate+Thesis.swift in Sources */,

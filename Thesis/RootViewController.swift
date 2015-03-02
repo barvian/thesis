@@ -48,24 +48,12 @@ class RootViewController: UITabBarController, OnboardingViewControllerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+		
         if !SDCloudUserDefaults.hasSeenWelcome {
             let onboardingController = OnboardingViewController()
 			onboardingController.delegate = self
             presentViewController(onboardingController, animated: true, completion: nil)
         }
-    }
-    
-    // MARK: Constraints
-    
-    private var _didSetupConstraints = false
-    
-    override func updateViewConstraints() {
-        if !_didSetupConstraints {
-            _didSetupConstraints = true
-        }
-        
-        super.updateViewConstraints()
     }
 	
 	// MARK: OnboardingViewControllerDelegate

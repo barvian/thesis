@@ -45,8 +45,6 @@ class OnboardingCompleteSlide: OnboardingSlide {
 	private var _didSetupConstraints = false
 	
 	override func updateConstraints() {
-		super.updateConstraints()
-		
 		if !_didSetupConstraints {
 			let views: [NSObject: AnyObject] = [
 				"doneButton": doneButton
@@ -57,14 +55,14 @@ class OnboardingCompleteSlide: OnboardingSlide {
 				"margin": margin
 			]
 			
-			removeConstraint(subheaderBottomConstraint)
 			subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: doneButton, attribute: .Top, multiplier: 1, constant: -margin)
-			addConstraint(subheaderBottomConstraint)
 			addConstraint(NSLayoutConstraint(item: doneButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0))
 			
 			_didSetupConstraints = true
 		}
+		
+		super.updateConstraints()
 	}
 	
 	// MARK: Handlers

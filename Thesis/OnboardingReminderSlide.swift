@@ -58,10 +58,7 @@ class OnboardingReminderSlide: OnboardingSlide {
 	
 	private var _didSetupConstraints = false
 	
-	override func updateConstraints() {
-		super.updateConstraints()
-		
-		if !_didSetupConstraints {
+	override func updateConstraints() {if !_didSetupConstraints {
 			let views: [NSObject: AnyObject] = [
 				"timePicker": timePicker,
 				"setReminderButton": setReminderButton
@@ -72,15 +69,15 @@ class OnboardingReminderSlide: OnboardingSlide {
 				"margin": margin
 			]
 			
-			removeConstraint(subheaderBottomConstraint)
 			subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: timePicker, attribute: .Top, multiplier: 1, constant: -margin)
-			addConstraint(subheaderBottomConstraint)
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[timePicker]-[setReminderButton]|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[timePicker]|", options: nil, metrics: metrics, views: views))
 			addConstraint(NSLayoutConstraint(item: setReminderButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			
 			_didSetupConstraints = true
 		}
+		
+		super.updateConstraints()
 	}
 	
 	// MARK: Handlers
