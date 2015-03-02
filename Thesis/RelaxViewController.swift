@@ -38,17 +38,9 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	}()
 	
 	private(set) lazy var reminderButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
+		let button = UIButton.applicationBellButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)
-		button.setImage(bell, forState: .Normal)
 		button.tintColor = UIColor.whiteColor()
-		button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
-		
-		button.layer.shadowOffset = CGSize(width: 0, height: 2)
-		button.layer.shadowRadius = 3
-		button.layer.shadowColor = UIColor.blackColor().CGColor
-		button.layer.shadowOpacity = 0.075
 		
 		button.addTarget(self, action: "didTapReminderButton:", forControlEvents: .TouchUpInside)
 		

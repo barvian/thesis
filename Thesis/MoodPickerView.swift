@@ -18,20 +18,10 @@ class MoodPickerView: UIView {
 	weak var delegate: MoodPickerViewDelegate?
 	
 	private(set) lazy var headlineLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel()
 		label.text = "How are you feeling right now?"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 191, g: 234, b: 248)
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()

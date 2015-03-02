@@ -14,21 +14,18 @@ class OnboardingSlide: UIView {
 	let header: String, subheader: String
 	
 	private(set) lazy var headerLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel(shadow: false)
 		label.text = self.header
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.blackColor()
-		label.numberOfLines = 0
-		label.textAlignment = .Center
 		
 		return label
 	}()
 	
 	private(set) lazy var subheaderLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
+		let label = UILabel.applicationSubheaderLabel(shadow: false)
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.applicationBaseColor()
-		label.numberOfLines = 0
 		
 		var paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.lineSpacing = 3.5

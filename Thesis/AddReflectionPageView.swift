@@ -14,12 +14,9 @@ class AddReflectionPageView: UIView {
 	weak var delegate: ReflectHeaderViewDelegate?
 	
 	private(set) lazy var headlineLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue-Light", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel(shadow: false, thin: true)
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor.grayColor()
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
 		
 		return label
 	}()

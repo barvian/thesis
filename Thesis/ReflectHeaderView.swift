@@ -21,17 +21,9 @@ class ReflectHeaderView: UIView {
 	weak var delegate: ReflectHeaderViewDelegate?
 	
 	private(set) lazy var reminderButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
+		let button = UIButton.applicationBellButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)
-		button.setImage(bell, forState: .Normal)
-		button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 		button.tintColor = UIColor.whiteColor()
-		
-		button.layer.shadowOffset = CGSize(width: 0, height: 2)
-		button.layer.shadowRadius = 3
-		button.layer.shadowColor = UIColor.blackColor().CGColor
-		button.layer.shadowOpacity = 0.075
 		
 		button.addTarget(self, action: "didTapReminderButton:", forControlEvents: .TouchUpInside)
 		
@@ -39,40 +31,20 @@ class ReflectHeaderView: UIView {
 	}()
 	
 	private(set) lazy var headlineLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 23.0)
+		let label = UILabel.applicationHeaderLabel()
 		label.text = "What went well today?"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 184, g: 248, b: 232)
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
 		
 		return label
 	}()
 	
 	private(set) lazy var subheaderLabel: UILabel = {
-		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 17.0)
+		let label = UILabel.applicationSubheaderLabel()
 		label.text = "(And yes, tacos for dinner totally counts.)"
 		label.setTranslatesAutoresizingMaskIntoConstraints(false)
 		label.textColor = UIColor(r: 184, g: 248, b: 232, a: 0.8)
-		label.lineBreakMode = .ByTruncatingTail
-		label.numberOfLines = 0
-		label.textAlignment = .Center
-		
-		label.layer.shadowOffset = CGSize(width: 0, height: 2)
-		label.layer.shadowRadius = 3
-		label.layer.shadowColor = UIColor.blackColor().CGColor
-		label.layer.shadowOpacity = 0.075
-		label.layer.shouldRasterize = true
-		label.layer.rasterizationScale = UIScreen.mainScreen().scale
-		
+				
 		return label
 	}()
 	
