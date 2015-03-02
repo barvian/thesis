@@ -9,7 +9,7 @@
 import Realm
 
 class Reflection: RLMObject {
-    dynamic var event = ""
-    dynamic var reason = ""
-    dynamic var date = NSDate()
+	dynamic var event = ""
+	dynamic var reason = ""
+	dynamic var date = NSDate()
 }

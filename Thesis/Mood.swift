@@ -7,9 +7,9 @@
 //
 
 @objc enum Mood: Int {
-    case 😊 = 1
-    case 😐 = 2
-    case 😖 = 3
+	case 😊 = 1
+	case 😐 = 2
+	case 😖 = 3
 	
 	static let allValues = [😊, 😐, 😖]
 	

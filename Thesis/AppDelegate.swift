@@ -14,9 +14,9 @@ import Realm
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow!
-    
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        SDCloudUserDefaults.registerForNotifications()
+	
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+		SDCloudUserDefaults.registerForNotifications()
 		applyStylesheet()
 		
 		if let launchOptions = launchOptions {
@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 		
-        return true
-    }
+		return true
+	}
 	
 	func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
 		if notification == UIApplication.relaxationReminder {
@@ -51,6 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		pageView.pageIndicatorTintColor = UIColor(r: 200, g: 200, b: 200)
 		pageView.currentPageIndicatorTintColor = UIColor.blackColor()
 	}
-    
+	
 }
 

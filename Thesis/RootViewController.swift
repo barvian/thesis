@@ -31,30 +31,30 @@ class RootViewController: UITabBarController, OnboardingViewControllerDelegate {
 		return reflectController
 	}()
 	
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+	required init(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
 		
 		var viewControllers = [UIViewController]()
 		viewControllers.insert(UINavigationController(rootViewController: learnController), atIndex: RootViewControllerLearnTabIndex)
 		viewControllers.insert(relaxController, atIndex: RootViewControllerRelaxTabIndex)
 		viewControllers.insert(reflectController, atIndex: RootViewControllerReflectTabIndex)
 		self.viewControllers = viewControllers
-        selectedIndex = RootViewControllerRelaxTabIndex
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+		selectedIndex = RootViewControllerRelaxTabIndex
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
 		
-        if !SDCloudUserDefaults.hasSeenWelcome {
-            let onboardingController = OnboardingViewController()
+		if !SDCloudUserDefaults.hasSeenWelcome {
+			let onboardingController = OnboardingViewController()
 			onboardingController.delegate = self
-            presentViewController(onboardingController, animated: true, completion: nil)
-        }
-    }
+			presentViewController(onboardingController, animated: true, completion: nil)
+		}
+	}
 	
 	// MARK: OnboardingViewControllerDelegate
 	
@@ -62,6 +62,6 @@ class RootViewController: UITabBarController, OnboardingViewControllerDelegate {
 		dismissViewControllerAnimated(true, completion: nil)
 		SDCloudUserDefaults.hasSeenWelcome = true
 	}
-    
+	
 }
 
