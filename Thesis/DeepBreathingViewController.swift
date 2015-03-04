@@ -30,7 +30,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		label.textColor = UIColor.whiteColor()
 		
 		return label
-		}()
+	}()
 	
 	private(set) lazy var instructionsLabel: UILabel = {
 		let label = UILabel.applicationSubheaderLabel()
@@ -39,7 +39,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		label.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.85)
 		
 		return label
-		}()
+	}()
 	
 	private(set) lazy var breather: UIView = {
 		let breather = UIView()
@@ -47,7 +47,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		breather.transform = CGAffineTransformMakeScale(0.75, 0.75)
 		
 		return breather
-		}()
+	}()
 	
 	private(set) lazy var breatherButton: ChunkyButton = {
 		let button = ChunkyButton()
@@ -58,7 +58,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		button.addTarget(self, action: "didTapBreatherButton:", forControlEvents: .TouchUpInside)
 		
 		return button
-		}()
+	}()
 	
 	private(set) lazy var actionLabel: UILabel = {
 		let label = UILabel()
@@ -71,7 +71,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		label.userInteractionEnabled = false
 		
 		return label
-		}()
+	}()
 	
 	private(set) lazy var progressButton: UIButton = {
 		let button = UIButton.buttonWithType(.System) as! UIButton
@@ -81,7 +81,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		button.addTarget(self, action: "didTapProgressButton:", forControlEvents: .TouchUpInside)
 		
 		return button
-		}()
+	}()
 	
 	private(set) lazy var spacerViews: [UIView] = {
 		let spacers = [UIView(), UIView()]
@@ -91,7 +91,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		}
 		
 		return spacers
-		}()
+	}()
 	
 	override func prefersStatusBarHidden() -> Bool {
 		return !showingInstructions
@@ -217,11 +217,11 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 			]
 			
 			view.addConstraint(NSLayoutConstraint(item: progressButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][breather(140)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][breather(156)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[breather(140)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[breather(156)]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[breatherButton]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[breatherButton]|", options: nil, metrics: metrics, views: views))
 			view.addConstraint(NSLayoutConstraint(item: actionLabel, attribute: .CenterY, relatedBy: .Equal, toItem: breather, attribute: .CenterY, multiplier: 1, constant: 0))

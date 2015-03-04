@@ -12,6 +12,13 @@ import UIKit
 	optional func relaxationNavigationControllerShouldDismiss(relaxationNavigationController: RelaxationNavigationController)
 }
 
+private func instantiateRelaxationController(controllerType: AnyClass, delegate: RelaxationViewControllerDelegate? = nil) -> UIViewController {
+	var controller = (controllerType as! NSObject.Type)() as! RelaxationViewController
+	controller.relaxationDelegate = delegate
+	
+	return controller as! UIViewController
+}
+
 class RelaxationNavigationController: UIViewController, RelaxationViewControllerDelegate {
 	
 	weak var delegate: RelaxationNavigationControllerDelegate?
@@ -19,16 +26,14 @@ class RelaxationNavigationController: UIViewController, RelaxationViewController
 	let relaxations: RelaxationList
 	var currentRelaxation: Int {
 		didSet {
-			var controller = (self.relaxations[self.currentRelaxation] as! NSObject.Type)() as! RelaxationViewController
-			controller.relaxationDelegate = self
-			self.navigationController.pushViewController(controller as! UIViewController, animated: true)
+			let controller = instantiateRelaxationController(self.relaxations[self.currentRelaxation], delegate: self)
+			self.navigationController.pushViewController(controller, animated: true)
 		}
 	}
 	
 	private lazy var _navigationController: UINavigationController = {
-		var root = (self.relaxations[self.currentRelaxation] as! NSObject.Type)() as! RelaxationViewController
-		root.relaxationDelegate = self
-		let controller = UINavigationController(rootViewController: root as! UIViewController)
+		let root = instantiateRelaxationController(self.relaxations[0], delegate: self)
+		let controller = UINavigationController(rootViewController: root)
 		
 		return controller
 	}()

@@ -108,7 +108,7 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 				"bottomLayoutGuide": bottomLayoutGuide
 			]
 			
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[topLayoutGuide][tableView][bottomLayoutGuide]", options: nil, metrics: nil, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: nil, metrics: nil, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: nil, views: views))
 			
 			_didSetupConstraints = true

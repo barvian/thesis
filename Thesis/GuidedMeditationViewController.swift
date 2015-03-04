@@ -163,11 +163,11 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 			]
 			
 			view.addConstraint(NSLayoutConstraint(item: progressButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][audioButton(100)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][audioButton(120)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[audioButton(100)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[audioButton(120)]", options: nil, metrics: metrics, views: views))
 			for (_, subview) in views {
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}

@@ -198,9 +198,8 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[reminderView][topLayoutGuide]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[reminderView]|", options: nil, metrics: metrics, views: views))
 			
-			view.addConstraint(NSLayoutConstraint(item: tableView, attribute: .Top, relatedBy: .Equal, toItem: topLayoutGuide, attribute: .Top, multiplier: 1, constant: 0))
-			view.addConstraint(NSLayoutConstraint(item: tableView, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Bottom, multiplier: 1, constant: 0))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: nil, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tableView]|", options: nil, metrics: metrics, views: views))
 			
 			_didSetupConstraints = true
 		}
