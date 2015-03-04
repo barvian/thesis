@@ -109,10 +109,10 @@ class OnboardingViewController: UIViewController, FullScreenViewController, Onbo
 	}
 	
 	func onboardingReminderSlide(onboardingReminderSlide: OnboardingReminderSlide, didTapSetReminderButton setReminderButton: UIButton!) {
-		UIApplication.registerForNotifications() {
+		UIApplication.sharedApplication().registerForNotifications() {
 			[unowned self] (settings: UIUserNotificationSettings) in
 			
-			UIApplication.relaxationReminder = UILocalNotification.applicationRelaxationReminder(onboardingReminderSlide.timePicker.date)
+			UIApplication.sharedApplication().relaxationReminder = UILocalNotification.applicationRelaxationReminder(onboardingReminderSlide.timePicker.date)
 			setReminderButton.enabled = false
 		}
 	}

@@ -12,36 +12,36 @@ private var _notificationCompletionBlock: ((UIUserNotificationSettings) -> ())?
 
 extension UIApplication {
 	
-	class var appDelegate: AppDelegate {
-		return sharedApplication().delegate as! AppDelegate
+	var appDelegate: AppDelegate {
+		return delegate as! AppDelegate
 	}
 	
-	class var window: UIWindow {
+	var window: UIWindow {
 		return appDelegate.window!
 	}
 	
-	class var rootViewController: RootViewController {
+	var rootViewController: RootViewController {
 		return window.rootViewController as! RootViewController
 	}
 	
 	// MARK: Local notifications
 	
-	class func registerForNotifications(completion: ((UIUserNotificationSettings) -> ())? = nil) {
+	func registerForNotifications(completion: ((UIUserNotificationSettings) -> ())? = nil) {
 		let settings = UIUserNotificationSettings(
 			forTypes: .Badge | .Sound | .Alert,
 			categories: nil)
-		UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+		registerUserNotificationSettings(settings)
 		
 		_notificationCompletionBlock = completion
 	}
 	
-	class func didRegisterForNotifications(notificationSettings: UIUserNotificationSettings) {
+	func didRegisterForNotifications(notificationSettings: UIUserNotificationSettings) {
 		_notificationCompletionBlock?(notificationSettings)
 	}
 	
-	class var relaxationReminder: UILocalNotification? {
+	var relaxationReminder: UILocalNotification? {
 		get {
-			for notification in sharedApplication().scheduledLocalNotifications {
+			for notification in scheduledLocalNotifications {
 				if let notification = notification as? UILocalNotification, userInfo = notification.userInfo, name = userInfo[UILocalNotificationUserInfoNameKey] as? String
 						where name == UILocalNotificationRelaxationReminderName {
 					return notification
@@ -52,17 +52,17 @@ extension UIApplication {
 		}
 		set(newValue) {
 			if let relaxationReminder = relaxationReminder {
-				sharedApplication().cancelLocalNotification(relaxationReminder)
+				cancelLocalNotification(relaxationReminder)
 			}
 			if let newValue = newValue {
-				sharedApplication().scheduleLocalNotification(newValue)
+				scheduleLocalNotification(newValue)
 			}
 		}
 	}
 	
-	class var reflectionReminder: UILocalNotification? {
+	var reflectionReminder: UILocalNotification? {
 		get {
-			for notification in sharedApplication().scheduledLocalNotifications {
+			for notification in scheduledLocalNotifications {
 				if let notification = notification as? UILocalNotification, userInfo = notification.userInfo, name = userInfo[UILocalNotificationUserInfoNameKey] as? String
 						where name == UILocalNotificationReflectionReminderName {
 					return notification
@@ -73,10 +73,10 @@ extension UIApplication {
 		}
 		set(newValue) {
 			if let reflectionReminder = reflectionReminder {
-				sharedApplication().cancelLocalNotification(reflectionReminder)
+				cancelLocalNotification(reflectionReminder)
 			}
 			if let newValue = newValue {
-				sharedApplication().scheduleLocalNotification(newValue)
+				scheduleLocalNotification(newValue)
 			}
 		}
 	}

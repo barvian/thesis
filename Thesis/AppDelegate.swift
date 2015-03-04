@@ -21,10 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		if let launchOptions = launchOptions {
 			if let localNotification = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
-				if localNotification == UIApplication.relaxationReminder {
-					UIApplication.rootViewController.selectedIndex = RootViewControllerRelaxTabIndex
-				} else if localNotification == UIApplication.reflectionReminder {
-					UIApplication.rootViewController.selectedIndex = RootViewControllerReflectTabIndex
+				if localNotification == UIApplication.sharedApplication().relaxationReminder {
+					UIApplication.sharedApplication().rootViewController.selectedIndex = RootViewControllerRelaxTabIndex
+				} else if localNotification == UIApplication.sharedApplication().reflectionReminder {
+					UIApplication.sharedApplication().rootViewController.selectedIndex = RootViewControllerReflectTabIndex
 				}
 			}
 		}
@@ -33,15 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-		if notification == UIApplication.relaxationReminder {
-			UIApplication.rootViewController.relaxController.remind()
-		} else if notification == UIApplication.reflectionReminder {
-			UIApplication.rootViewController.reflectController.remind()
+		if notification == UIApplication.sharedApplication().relaxationReminder {
+			UIApplication.sharedApplication().rootViewController.relaxController.remind()
+		} else if notification == UIApplication.sharedApplication().reflectionReminder {
+			UIApplication.sharedApplication().rootViewController.reflectController.remind()
 		}
 	}
 	
 	func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-		UIApplication.didRegisterForNotifications(notificationSettings)
+		UIApplication.sharedApplication().didRegisterForNotifications(notificationSettings)
 	}
 	
 	func applyStylesheet() {

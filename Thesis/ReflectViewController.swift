@@ -107,7 +107,7 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		if let reflectionReminder = UIApplication.reflectionReminder {
+		if let reflectionReminder = UIApplication.sharedApplication().reflectionReminder {
 			reminderView.timePicker.date = reflectionReminder.fireDate!
 			reminderView.toggleReminder(true)
 		} else {
@@ -275,11 +275,11 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 	// MARK: DailyReminderViewDelegate
 	
 	func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool) {
-		UIApplication.reflectionReminder = reminder ? UILocalNotification.applicationReflectionReminder(reminderView.timePicker.date) : nil
+		UIApplication.sharedApplication().reflectionReminder = reminder ? UILocalNotification.applicationReflectionReminder(reminderView.timePicker.date) : nil
 	}
 	
 	func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate) {
-		UIApplication.reflectionReminder = UILocalNotification.applicationReflectionReminder(time)
+		UIApplication.sharedApplication().reflectionReminder = UILocalNotification.applicationReflectionReminder(time)
 	}
 	
 	// MARK: AddReflectionViewControllerDelegate

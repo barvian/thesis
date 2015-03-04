@@ -42,7 +42,7 @@ class FadeTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
 			transitionContext.completeTransition(true)
 			
 			// bug: we have to manually add our 'to view' back http://openradar.appspot.com/radar?id=5320103646199808
-			UIApplication.window.addSubview(toView)
+			UIApplication.sharedApplication().window.addSubview(toView)
 		}
 	}
 	

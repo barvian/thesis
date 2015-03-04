@@ -105,7 +105,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		if let relaxationReminder = UIApplication.relaxationReminder {
+		if let relaxationReminder = UIApplication.sharedApplication().relaxationReminder {
 			reminderView.timePicker.date = relaxationReminder.fireDate!
 			reminderView.toggleReminder(true)
 		} else {
@@ -260,23 +260,27 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		relaxationController.transitioningDelegate = transitionManager
 		relaxationController.modalPresentationStyle = .Custom
 		
-		presentViewController(relaxationController, animated: true, completion: nil)
+		presentViewController(relaxationController, animated: true) {
+			UIApplication.sharedApplication().idleTimerDisabled = true
+		}
 	}
 	
 	// MARK: DailyReminderViewDelegate
 	
 	func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool) {
-		UIApplication.relaxationReminder = reminder ? UILocalNotification.applicationRelaxationReminder(reminderView.timePicker.date) : nil
+		UIApplication.sharedApplication().relaxationReminder = reminder ? UILocalNotification.applicationRelaxationReminder(reminderView.timePicker.date) : nil
 	}
 	
 	func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate) {
-		UIApplication.relaxationReminder = UILocalNotification.applicationRelaxationReminder(time)
+		UIApplication.sharedApplication().relaxationReminder = UILocalNotification.applicationRelaxationReminder(time)
 	}
 	
 	// MARK: RelaxationNavigationControllerDelegate
 	
 	func relaxationNavigationControllerShouldDismiss(relaxationNavigationController: RelaxationNavigationController) {
-		dismissViewControllerAnimated(true, completion: nil)
+		dismissViewControllerAnimated(true) {
+			UIApplication.sharedApplication().idleTimerDisabled = false
+		}
 	}
 	
 }
