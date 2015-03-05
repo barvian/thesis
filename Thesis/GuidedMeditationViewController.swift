@@ -9,12 +9,9 @@
 import UIKit
 import Async
 import AVFoundation
+import MediaPlayer
 
-public let 🎧: String = {
-	let path = NSBundle.mainBundle().pathForResource("Meditation", ofType: "mp3")
-	
-	return path!
-}()
+public let 🎧 = NSBundle.mainBundle().pathForResource("Meditation", ofType: "mp3")!
 
 class GuidedMeditationViewController: UIViewController, FullScreenViewController, RelaxationViewController, AVAudioPlayerDelegate {
 	
@@ -32,6 +29,7 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		let fileURL = NSURL(fileURLWithPath: 🎧)
 		let player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
 		player.delegate = self
+		player.numberOfLoops = -1
 		
 		return player
 	}()
@@ -113,6 +111,9 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		view.addSubview(spacerViews[1])
 		view.addSubview(progressButton)
 		
+		AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+		AVAudioSession.sharedInstance().setActive(true, error: nil)
+		
 		player.prepareToPlay()
 		
 		setupFullScreenControllerView(self)
@@ -123,17 +124,38 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		
 		shouldUpdateProgressButton()
 		
-		AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-		AVAudioSession.sharedInstance().setActive(true, error: nil)
-		
 		updateFullScreenControllerColors(self, animated: false)
 		hideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated)
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
 		
-		AVAudioSession.sharedInstance().setActive(false, error: nil)
+		becomeFirstResponder()
+		UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+	}
+	
+	override func remoteControlReceivedWithEvent(event: UIEvent) {
+		super.remoteControlReceivedWithEvent(event)
+		
+		switch event.subtype {
+		case .RemoteControlTogglePlayPause:
+			togglePlayback()
+		case .RemoteControlPlay:
+			togglePlayback(true)
+		case .RemoteControlPause:
+			togglePlayback(false)
+		default:
+			break
+		}
+	}
+	
+	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+		super.touchesEnded(touches, withEvent: event)
+		
+		if player.playing {
+			toggleInstructions(timer: 5)
+		}
 	}
 	
 	// MARK: API
@@ -159,12 +181,21 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		}
 	}
 	
-	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-		super.touchesEnded(touches, withEvent: event)
-		
-		if player.playing {
-			toggleInstructions(timer: 5)
+	func togglePlayback(_ state: Bool? = nil) {
+		if (state != nil && state! == false) || player.playing {
+			player.pause()
+			audioButton.setImage(UIImage(named: "Play")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+		} else {
+			player.play()
+			audioButton.setImage(UIImage(named: "Pause")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+			let mpic = MPNowPlayingInfoCenter.defaultCenter()
+			mpic.nowPlayingInfo = [
+				MPMediaItemPropertyTitle: "Guided Meditation",
+				MPMediaItemPropertyArtist: "Sam Harris"
+			]
 		}
+		
+		toggleInstructions(!player.playing)
 	}
 	
 	// MARK: Constraints
@@ -209,15 +240,7 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	// MARK: Handlers
 	
 	func didTapAudioButton(button: UIButton!) {
-		if player.playing {
-			player.pause()
-			audioButton.setImage(UIImage(named: "Play")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-		} else {
-			player.play()
-			audioButton.setImage(UIImage(named: "Pause")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-		}
-		
-		toggleInstructions(!player.playing)
+		togglePlayback()
 	}
 	
 	func didTapProgressButton(button: UIButton!) {
@@ -235,8 +258,17 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
 		if flag {
 			player.stop()
+			player.prepareToPlay()
 			player.currentTime = 0
 		}
+	}
+	
+	func audioPlayerBeginInterruption(player: AVAudioPlayer!) {
+		togglePlayback(false)
+	}
+	
+	func audioPlayerEndInterruption(player: AVAudioPlayer!) {
+		togglePlayback(true)
 	}
 	
 }
