@@ -252,7 +252,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
 	
-	// MARK: RelaxationViewController
+	// MARK: RelaxationViewControllerDelegate
 	
 	func shouldUpdateProgressButton() {
 		relaxationViewController(self, shouldUpdateProgressButton: progressButton)

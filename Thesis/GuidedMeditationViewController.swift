@@ -8,8 +8,15 @@
 
 import UIKit
 import Async
+import AVFoundation
 
-class GuidedMeditationViewController: UIViewController, FullScreenViewController, RelaxationViewController {
+public let 🎧: String = {
+	let path = NSBundle.mainBundle().pathForResource("Meditation", ofType: "mp3")
+	
+	return path!
+}()
+
+class GuidedMeditationViewController: UIViewController, FullScreenViewController, RelaxationViewController, AVAudioPlayerDelegate {
 	
 	weak var relaxationDelegate: RelaxationViewControllerDelegate?
 	
@@ -20,6 +27,14 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	
 	let navigationBarHidden = true
 	let navigationBarTranslucent = true
+	
+	private(set) lazy var player: AVAudioPlayer = {
+		let fileURL = NSURL(fileURLWithPath: 🎧)
+		let player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+		player.delegate = self
+		
+		return player
+	}()
 	
 	private(set) var showingInstructions = true
 	
@@ -44,7 +59,9 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	private(set) lazy var audioButton: ChunkyButton = {
 		let button = ChunkyButton()
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle(nil, forState: .Normal)
+		button.tintColor = UIColor.applicationBaseColor()
+		button.setImage(UIImage(named: "Play")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+		button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -6)
 		button.zIndex = 2
 		
 		button.addTarget(self, action: "didTapAudioButton:", forControlEvents: .TouchUpInside)
@@ -96,6 +113,8 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		view.addSubview(spacerViews[1])
 		view.addSubview(progressButton)
 		
+		player.prepareToPlay()
+		
 		setupFullScreenControllerView(self)
 	}
 	
@@ -104,8 +123,17 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		
 		shouldUpdateProgressButton()
 		
+		AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+		AVAudioSession.sharedInstance().setActive(true, error: nil)
+		
 		updateFullScreenControllerColors(self, animated: false)
 		hideFullScreenControllerNavigationBar(self, animated: false)
+	}
+	
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		AVAudioSession.sharedInstance().setActive(false, error: nil)
 	}
 	
 	// MARK: API
@@ -134,7 +162,7 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 		super.touchesEnded(touches, withEvent: event)
 		
-		if _started {
+		if player.playing {
 			toggleInstructions(timer: 5)
 		}
 	}
@@ -180,21 +208,35 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	
 	// MARK: Handlers
 	
-	private var _started = false
 	func didTapAudioButton(button: UIButton!) {
-		toggleInstructions()
+		if player.playing {
+			player.pause()
+			audioButton.setImage(UIImage(named: "Play")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+		} else {
+			player.play()
+			audioButton.setImage(UIImage(named: "Pause")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+		}
 		
-		_started = true
+		toggleInstructions(!player.playing)
 	}
 	
 	func didTapProgressButton(button: UIButton!) {
 		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
 	
-	// MARK: RelaxationViewController
+	// MARK: RelaxationViewControllerDelegate
 	
 	func shouldUpdateProgressButton() {
 		relaxationViewController(self, shouldUpdateProgressButton: progressButton)
+	}
+	
+	// MARK: AVAudioPlayerDelegate
+	
+	func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+		if flag {
+			player.stop()
+			player.currentTime = 0
+		}
 	}
 	
 }

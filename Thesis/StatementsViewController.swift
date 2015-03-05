@@ -141,7 +141,7 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
 	
-	// MARK: RelaxationViewController
+	// MARK: RelaxationViewControllerDelegate
 	
 	func shouldUpdateProgressButton() {
 		relaxationViewController(self, shouldUpdateProgressButton: footerView.progressButton)

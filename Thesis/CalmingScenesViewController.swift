@@ -194,7 +194,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 		toggleInstructions(timer: 5)
 	}
 	
-	// MARK: RelaxationViewController
+	// MARK: RelaxationViewControllerDelegate
 	
 	func shouldUpdateProgressButton() {
 		relaxationViewController(self, shouldUpdateProgressButton: progressButton)

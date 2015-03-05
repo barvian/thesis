@@ -68,7 +68,7 @@ class RelaxationNavigationController: UIViewController, RelaxationViewController
 		navigationController.didMoveToParentViewController(self)
 	}
 	
-	// MARK: RelaxationViewControllerDelegate
+	// MARK: RelaxationViewControllerDelegateDelegate
 	
 	func relaxationViewControllerDidTapProgressButton(relaxationController: UIViewController) {
 		if currentRelaxation < relaxations.endIndex {
