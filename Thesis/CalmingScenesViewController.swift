@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreMotion
-import SSDynamicText
+import SDCloudUserDefaults
 import Async
 
 public let scenesPath = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent("Scenes")
@@ -88,7 +88,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 			
 			return sceneController
 		}
-		selectedIndex = 0
+		selectedIndex = SDCloudUserDefaults.previousCalmingScene
 	}
 	
 	override func viewDidLoad() {
@@ -184,6 +184,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	// MARK: Handlers
 	
 	func didTapProgressButton(button: UIButton!) {
+		SDCloudUserDefaults.previousCalmingScene = selectedIndex
 		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
  

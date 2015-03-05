@@ -15,4 +15,9 @@ extension SDCloudUserDefaults {
 		set { SDCloudUserDefaults.setBool(newValue, forKey: "hasSeenWelcome") }
 	}
 	
+	class var previousCalmingScene: Int {
+		get { return SDCloudUserDefaults.integerForKey("previousCalmingScene") }
+		set { SDCloudUserDefaults.setInteger(newValue, forKey: "previousCalmingScene") }
+	}
+	
 }

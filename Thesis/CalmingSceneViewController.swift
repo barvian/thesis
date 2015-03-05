@@ -33,8 +33,7 @@ class CalmingSceneViewController: UIViewController {
 		return layer
 	}()
 	
-	let movementSmoothing = 0.3
-	let animationDuration = 0.3
+	let movementSmoothing = 1.0
 	let rotationMultiplier = 5.0
 	
 	init(scene: String, motionManager: CMMotionManager) {
@@ -102,7 +101,7 @@ class CalmingSceneViewController: UIViewController {
 				var frame = self.playerLayer.frame
 				let clampedX = max(self.view.frame.width - frame.width, min(0, frame.origin.x + contentOffset))
 				self.playerLayer.frame = CGRectMake(clampedX, frame.origin.y, frame.width, frame.height)
-				}, completion: nil)
+			}, completion: nil)
 		}
 	}
 	
