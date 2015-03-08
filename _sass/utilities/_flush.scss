@@ -1,0 +1,14 @@
+// Flush
+// =====
+
+/** 
+ * Designates objects whose children should be flush with its edges.
+ */
+.#{u-}flush,
+%#{u-}flush {
+  
+  > :first-child {
+    margin-top: 0 !important;
+  }
+
+}

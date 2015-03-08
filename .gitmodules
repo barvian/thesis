@@ -1,0 +1,6 @@
+[submodule "components/modular-scale"]
+	path = components/modular-scale
+	url = git://github.com/modularscale/modularscale-sass.git
+[submodule "components/normalize"]
+	path = components/normalize
+	url = git://github.com/necolas/normalize.css.git
