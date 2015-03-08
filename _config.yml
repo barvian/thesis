@@ -4,7 +4,7 @@ email: max@barvian.me
 description: > # ignore newlines until "baseurl:"
   A self-help iPhone application for patients with Generalized
   Anxiety Disorder (GAD).
-baseurl: "/thesis/" # the subpath of your site, e.g. /blog/
+baseurl: "/thesis" # the subpath of your site, e.g. /blog/
 url: "http://barvian.me" # the base hostname & protocol for your site
 twitter_username: mbarvian
 github_username:  mbarvian
