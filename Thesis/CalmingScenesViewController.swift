@@ -121,7 +121,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	// MARK: API
 	
-	var hideBlock: Async?
+	private var _hideBlock: Async?
 	
 	func toggleInstructions(_ state: Bool? = nil, timer: Double? = nil) {
 		showingInstructions = state != nil ? state! : !showingInstructions
@@ -135,9 +135,9 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 			self.setNeedsStatusBarAppearanceUpdate()
 		}
 		
-		hideBlock?.cancel()
+		_hideBlock?.cancel()
 		if showingInstructions && timer != nil {
-			hideBlock = Async.main(after: timer!) {
+			_hideBlock = Async.main(after: timer!) {
 				self.toggleInstructions(false)
 			}
 		}
@@ -198,6 +198,12 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	
 	func shouldUpdateProgressButton() {
 		relaxationViewController(self, shouldUpdateProgressButton: progressButton)
+	}
+	
+	// MARK: Deinitializers
+	
+	deinit {
+		_hideBlock?.cancel()
 	}
 	
 }

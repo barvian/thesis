@@ -154,7 +154,8 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		}
 	}
 	
-	// FIXME: crashes occassionally when dismissing VC
+	private var _breatheBlock: Async?
+	
 	func breathe(completion: (() -> Void)? = nil) {
 		self.actionLabel.text = "Inhale"
 		UIView.animateWithDuration(5, delay: 0.0, options: .CurveEaseOut | .AllowUserInteraction, animations: {
@@ -164,7 +165,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 			}) {
 				[unowned self] (completed: Bool) in
 				self.actionLabel.text = "Hold"
-				Async.main(after: 5) {
+				self._breatheBlock = Async.main(after: 5) {
 					[unowned self] in
 					self.actionLabel.text = "Exhale"
 					UIView.animateWithDuration(5, delay: 0.0, options: .CurveEaseOut | .AllowUserInteraction, animations: {
@@ -174,7 +175,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 						}) {
 							[unowned self] (completed: Bool) in
 							self.actionLabel.text = "Breathe\nnormally"
-							Async.main(after: 8) {
+							self._breatheBlock = Async.main(after: 8) {
 								[unowned self] in
 								self.breathe()
 							}
@@ -256,6 +257,13 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 	
 	func shouldUpdateProgressButton() {
 		relaxationViewController(self, shouldUpdateProgressButton: progressButton)
+	}
+	
+	// MARK: Deinitializers
+	
+	deinit {
+		_hideBlock?.cancel()
+		_breatheBlock?.cancel()
 	}
 	
 }

@@ -271,4 +271,10 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 		togglePlayback(true)
 	}
 	
+	// MARK: Deinitializers
+	
+	deinit {
+		_hideBlock?.cancel()
+	}
+	
 }
