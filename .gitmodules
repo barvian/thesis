@@ -4,3 +4,7 @@
 [submodule "components/normalize"]
 	path = components/normalize
 	url = https://github.com/necolas/normalize.css.git
+[submodule "components/bourbon"]
+	path = components/bourbon
+	url = https://github.com/Sujevo/lib-bourbon
+	branch = v4_1
