@@ -1,27 +1,27 @@
 {% capture c %}
-  {% assign citation = site.data.bibliography[include.r] %}
+  {% assign reference = site.data.bibliography[include.r] %}
 
   {% capture author %}
-    {% if citation.author %}
-      {% if citation.author.size == 1 %}
-        {{ citation.author[0] | split: ' ' | last | remove: '.' }}
-      {% elsif citation.author.size == 2 %}
-        {{ citation.author[0] | split: ' ' | last | remove: '.' }}
-        &nbsp;and&nbsp;
-        {{ citation.author[1] | split: ' ' | last | remove: '.' }}
-      {% elsif citation.author.size > 2 %}
-        {{ citation.author[0] | split: ' ' | last | remove: '.' }}
-        &nbsp;et&nbsp;al.
+    {% if reference.authors %}
+      {% if reference.authors.size == 1 %}
+        {{ reference.authors[0] | split: ' ' | last | remove: '.' }}
+      {% elsif reference.authors.size == 2 %}
+        {{ reference.authors[0] | split: ' ' | last | remove: '.' }}
+        &#32;and&#32;
+        {{ reference.authors[1] | split: ' ' | last | remove: '.' }}
+      {% elsif reference.authors.size > 2 %}
+        {{ reference.authors[0] | split: ' ' | last | remove: '.' }}
+        &#32;et&#32;al.
       {% endif %}
-    {% elsif citation.org %}
-      {{ citation.org }}
+    {% elsif reference.title %}
+      {{ reference.title }}
     {% endif %}
   {% endcapture %}
   {% capture year %}
-    {% if citation.year %}
-      {{ citation.year }}
-    {% elsif citation.type == 'web' and citation.accessed %}
-      {{ citation.accessed }}
+    {% if reference.year %}
+      {{ reference.year }}
+    {% elsif reference.type == 'web' and reference.accessed %}
+      {{ reference.accessed }}
     {% endif %}
   {% endcapture %}
 
@@ -30,7 +30,7 @@
       {% if include.a != false and author %}
         {{ author }}
       {% endif %}
-      {% if include.a != false and include.y != false %}&nbsp;{% endif %}
+      {% if include.a != false and include.y != false %}&#32;{% endif %}
       {% if include.y != false and year %}
         {{ year }}
       {% endif %}

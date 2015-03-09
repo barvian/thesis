@@ -1,0 +1,58 @@
+{% capture r %}
+  {% assign reference = site.data.bibliography[include.r] %}
+
+  <cite>
+    {% if reference.authors %}
+      {% if reference.authors.size == 1 %}
+        {% assign author = reference.authors[0] | split: ' ' %}
+        {{ author | last }}
+        ,&#32;
+        {% for name in author %}
+          {% if forloop.last != true %}{{ name | truncate: 1, '' | upcase }}{% endif %}
+        {% endfor %}
+      {% else %}
+        {% for a in reference.authors %}
+          {% assign author = a | split: ' ' %}
+          {{ author | last }}
+          &#32;
+          {% for name in author %}
+            {% if forloop.last != true %}{{ name | truncate: 1, '' | upcase }}{% endif %}
+          {% endfor %}
+          {% if forloop.last != true %},&#32;{% endif %}
+        {% endfor %}
+      {% endif %}
+      .&#32;
+    {% endif %}
+    {% if reference.title %}
+      {{ reference.title | replace: ' ', '&#32;' }}
+      {% if reference.type == 'web' %}&#32;[Internet]{% endif %}
+      .&#32;
+    {% endif %}
+
+    {% if reference.type == 'book' or reference.type == 'web' %}
+      {{ reference.place | replace: ' ', '&#32;' }}
+      :&#32;
+      {{ reference.publisher | replace: ' ', '&#32;' }}
+      ;&#32;
+    {% endif %}
+    {% if reference.type == 'book' %}
+      {{ reference.year }}.
+    {% elsif reference.type == 'journal' %}
+      {{ reference.journal | replace: ' ', '&#32;' }}
+      .&#32;
+      {{ reference.year }}
+      ;
+      {{ reference.volume }}{% if reference.issue %}({{ reference.issue }}){% endif %}
+      :
+      {{ reference.startPage }}-{{ reference.endPage }}
+      .
+    {% elsif reference.type == 'web' %}
+      c{{ reference.year }}
+      &#32;[cited&#32;{{ reference.accessed | date: '%Y&#32;%b&#32;%d' }}]
+      .&#32;
+      Available&#32;from:&#32;
+      {{ reference.url }}
+      .
+    {% endif %}
+  </cite>
+{% endcapture %}{{ r | strip_newlines | remove: ' ' }}

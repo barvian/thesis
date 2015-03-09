@@ -1,13 +1,66 @@
 - type: book
-  author:
+  title: The Anxiety & Phobia Workbook
+  authors:
   - Edmund J. Bourne
+  place: Oakland (CA)
+  publisher: New Harbinger Publications
   year: 2005
 
 - type: journal
-  volume: 22
-  issue: 3
-  startPage: 3
-  endPage: 5
+  title: Well-Being Therapy of Generalized Anxiety Disorder
+  authors:
+  - Giovanni A. Fava
+  - Chiara Ruini
+  - Chiara Rafanelli
+  - Livio Finos
+  - Luigi Salmaso
+  - Lara Mangelli
+  - Saulo Sirigatti
+  journal: Psychother Psychosom
+  volume: 74
+  issue: 1
+  startPage: 26
+  endPage: 30
+  year: 2005
+
+- type: journal
+  title: Use of written cognitive–behavioural therapy self-help materials to treat depression
+  authors:
+  - Chris Williams
+  journal: Advances in Psychiatric Treatment
+  volume: 7
+  startPage: 233
+  endPage: 240
+  year: 2001
 
 - type: web
-  accessed: 2013-11-29
+  title: Generalized Anxiety Disorder (GAD)
+  place: Bethesda (MD)
+  publisher: National Institutes of Health
+  year: 2014
+  accessed: 2014-12-18
+  url: http://www.nimh.nih.gov/health/topics/generalized-anxiety-disorder-gad/index.shtml
+
+- type: journal
+  title: Effects of four psychological primary colors on anxiety state
+  authors:
+  - Keith W. Jacobs
+  - James F. Seuss
+  journal: Perceptual and Motor Skills
+  volume: 41
+  issue: 1
+  startPage: 207
+  endPage: 210
+  year: 1975
+
+- type: journal
+  title: Cognitive-Behavioral Treatment of Generalized Anxiety Disorder
+  authors:
+  - Michelle G. Newman
+  - Thomas D. Borkovec
+  journal: The Clinical Psychologist
+  volume: 48
+  issue: 4
+  startPage: 5
+  endPage: 7
+  year: 1995

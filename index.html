@@ -1,9 +1,22 @@
 ---
 layout: default
 ---
-{% include c.html r=0 a=false %}
+
 {% assign sections = site.sections | sort: 'section' %}
 {% for section in sections %}
     <h3>{{ section.title }}</h3>
     {{ section.output }}
 {% endfor %}
+
+<ol>
+  {% capture references %}
+    {% for reference in site.data.bibliography %}
+      {% include r.html r=forloop.index %}
+      {% if forloop.last != true %}|{% endif %}
+    {% endfor %}
+  {% endcapture %}
+  {% assign sortedreferences = references | split: '|' | sort %}
+  {% for reference in sortedreferences %}
+    <li>{{ reference }}</li>
+  {% endfor %}
+</ol>
