@@ -14,7 +14,7 @@
         &#32;et&#32;al.
       {% endif %}
     {% elsif reference.title %}
-      {{ reference.title }}
+      {{ reference.title | truncate: 30, '...' | replace: ' ', '&#32;' }}
     {% endif %}
   {% endcapture %}
   {% capture year %}

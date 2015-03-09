@@ -4,7 +4,7 @@ layout: default
 
 {% assign sections = site.sections | sort: 'section' %}
 {% for section in sections %}
-    <h3>{{ section.title }}</h3>
+    <h2>{{ section.title }}</h2>
     {{ section.output }}
 {% endfor %}
 
