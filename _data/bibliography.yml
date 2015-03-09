@@ -1,9 +1,13 @@
 - type: book
   author:
   - Edmund J. Bourne
+  year: 2005
 
 - type: journal
   volume: 22
   issue: 3
   startPage: 3
   endPage: 5
+
+- type: web
+  accessed: 2013-11-29

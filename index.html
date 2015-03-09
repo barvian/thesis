@@ -1,10 +1,7 @@
 ---
 layout: default
 ---
-{% include c.html id=0 a=true %}
-{% for bib in site.data.bibliography %}
-{{ bib.type }}
-{% endfor %}
+{% include c.html r=0 a=false %}
 {% assign sections = site.sections | sort: 'section' %}
 {% for section in sections %}
     <h3>{{ section.title }}</h3>

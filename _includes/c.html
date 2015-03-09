@@ -1,9 +1,7 @@
 {% capture c %}
-{% assign citation = site.data.bibliography[include.id] %}
+  {% assign citation = site.data.bibliography[include.r] %}
 
-<cite>
-  (
-  {% if include.a != false %}
+  {% capture author %}
     {% if citation.author %}
       {% if citation.author.size == 1 %}
         {{ citation.author[0] | split: ' ' | last | remove: '.' }}
@@ -18,7 +16,24 @@
     {% elsif citation.org %}
       {{ citation.org }}
     {% endif %}
-  {% endif %}
-  )
-</cite>
+  {% endcapture %}
+  {% capture year %}
+    {% if citation.year %}
+      {{ citation.year }}
+    {% elsif citation.type == 'web' and citation.accessed %}
+      {{ citation.accessed }}
+    {% endif %}
+  {% endcapture %}
+
+  <cite>
+    (
+      {% if include.a != false and author %}
+        {{ author }}
+      {% endif %}
+      {% if include.a != false and include.y != false %}&nbsp;{% endif %}
+      {% if include.y != false and year %}
+        {{ year }}
+      {% endif %}
+    )
+  </cite>
 {% endcapture %}{{ c | strip_newlines | remove: ' ' }}
