@@ -1,0 +1,24 @@
+{% capture c %}
+{% assign citation = site.data.bibliography[include.id] %}
+
+<cite>
+  (
+  {% if include.a != false %}
+    {% if citation.author %}
+      {% if citation.author.size == 1 %}
+        {{ citation.author[0] | split: ' ' | last | remove: '.' }}
+      {% elsif citation.author.size == 2 %}
+        {{ citation.author[0] | split: ' ' | last | remove: '.' }}
+        &nbsp;and&nbsp;
+        {{ citation.author[1] | split: ' ' | last | remove: '.' }}
+      {% elsif citation.author.size > 2 %}
+        {{ citation.author[0] | split: ' ' | last | remove: '.' }}
+        &nbsp;et&nbsp;al.
+      {% endif %}
+    {% elsif citation.org %}
+      {{ citation.org }}
+    {% endif %}
+  {% endif %}
+  )
+</cite>
+{% endcapture %}{{ c | strip_newlines | remove: ' ' }}

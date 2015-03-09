@@ -1,3 +1,7 @@
+- type: book
+  author:
+  - Edmund J. Bourne
+
 - type: journal
   volume: 22
   issue: 3
