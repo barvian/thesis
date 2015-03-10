@@ -1,0 +1,8 @@
+<figure>
+  <a href="{{ include.src | prepend: site.baseurl }}">
+    <img src="{{ include.src | prepend: site.baseurl }}" alt="{{ include.caption | escape }}" />
+  </a>
+  <figcaption>
+    {{ include.caption }}
+  </figcaption>
+</figure>
