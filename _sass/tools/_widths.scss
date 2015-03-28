@@ -1,0 +1,17 @@
+// Widths
+// ======
+
+@mixin widths($max, $prefix: null) {
+  @for $denom from 1 through $max {
+    @for $num from 1 through $denom {
+      $gcd: gcd($num, $denom);
+      .#{$prefix}#{$num}\/#{$denom} {
+        @if $gcd > 1 {
+          @extend .#{$prefix}#{$num / $gcd}\/#{$denom / $gcd};
+        } @else {
+          width: percentage($num/$denom);
+        }
+      }
+    }
+  }
+}

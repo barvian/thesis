@@ -1,0 +1,16 @@
+// Numbers
+// =======
+
+@function strip-units($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function gcd($x, $y) {
+	@while ($y != 0) {
+		$z: $x % $y;
+		$x: $y;
+		$y: $z;
+	}
+ 
+	@return $x;
+}

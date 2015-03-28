@@ -3,10 +3,10 @@
 
 @import "../components/bourbon/bourbon";
 @import "../components/modular-scale/stylesheets/modular-scale";
-@import "../components/normalize/normalize.css";
 
+@import "tools";
 @import "settings";
+@import "utilities";
 @import "base";
 @import "objects";
 @import "components";
-@import "utilities";

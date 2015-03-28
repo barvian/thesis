@@ -1,0 +1,20 @@
+// Figures
+// =======
+
+figure {
+  @extend %tight;
+
+  > a {
+    @extend %#{$u-}invisible-link;
+
+    display: block;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+figcaption {
+  font-size: size(small);
+}

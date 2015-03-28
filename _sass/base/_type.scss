@@ -1,0 +1,59 @@
+// Type
+// ====
+
+// Headings
+// --------
+
+%heading {
+  line-height: strip-units(size(medium));
+}
+
+%h1, %h2, %h3, %h4 {
+  @extend %heading;
+}
+
+%h1 {
+
+}
+
+%h2 {
+
+}
+
+%h3 {
+
+}
+
+%h4 {
+
+}
+
+h1 { @extend %h1; }
+h2 { @extend %h2; }
+h3 { @extend %h3; }
+h4 { @extend %h4; }
+
+// Misc
+// ----
+
+.lead {
+  font-size: size(large);
+  padding-left: size(large);
+  padding-right: size(large);
+  text-align: center;
+
+  @include trailing(size(xlarge));
+}
+
+.columns {
+  line-height: strip-units(size(large));
+
+  @include column-count(2);
+  @include column-gap(size(xlarge));
+}
+
+// Helpers
+// -------
+
+%sans { @include font-family(sans); }
+%serif { @include font-family(serif); }

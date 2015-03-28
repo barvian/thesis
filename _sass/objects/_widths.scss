@@ -1,0 +1,12 @@
+// Widths
+// ======
+
+$columns: 6;
+
+@include widths($columns, $o-);
+
+@each $name, $query in $queries {
+  @include query($name) {
+    @include widths($columns, #{$name}-#{$o-});
+  }
+}

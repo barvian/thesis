@@ -1,0 +1,10 @@
+// Queries
+// =======
+
+$queries: () !default;
+
+@mixin query($query) {
+  @media #{map-get($queries, $query)} {
+    @content;
+  }
+}

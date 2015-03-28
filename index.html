@@ -1,22 +1,31 @@
 ---
-layout: default
 ---
 
-{% assign sections = site.sections | sort: 'section' %}
-{% for section in sections %}
-    <h2>{{ section.title }}</h2>
-    {{ section.output }}
-{% endfor %}
+<article class="o-wrapper">
+  <header>
+    <h1>Honors Thesis</h1>
+  </header>
 
-<ol>
-  {% capture references %}
-    {% for reference in site.data.bibliography %}
-      {% include r.html r=forloop.index %}
-      {% if forloop.last != true %}|{% endif %}
-    {% endfor %}
-  {% endcapture %}
-  {% assign sortedreferences = references | split: '|' | sort %}
-  {% for reference in sortedreferences %}
-    <li>{{ reference }}</li>
+  {% assign sections = site.sections | sort: 'section' %}
+  {% for section in sections %}
+    <section>
+      <h2>{{ section.title }}</h2>
+      {{ section.output }}
+    </section>
   {% endfor %}
-</ol>
+
+  <footer>
+    <ol>
+      {% capture references %}
+        {% for reference in site.data.bibliography %}
+          {% include r.html r=forloop.index %}
+          {% if forloop.last != true %}|{% endif %}
+        {% endfor %}
+      {% endcapture %}
+      {% assign sortedreferences = references | split: '|' | sort %}
+      {% for reference in sortedreferences %}
+        <li>{{ reference }}</li>
+      {% endfor %}
+    </ol>
+  </footer>
+</article>

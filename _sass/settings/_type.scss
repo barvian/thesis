@@ -1,5 +1,28 @@
 // Type
 // ====
 
-$ms-base: 1em;
+$ms-base: 1rem;
 $ms-ratio: $golden, 1.236;
+
+// Fonts
+// -----
+
+$fonts: (
+
+  sans: (
+    name: 'raleway',
+    type: sans-serif,
+    stack: (
+      'Helvetica Neue', Helvetica, Arial
+    )
+  ),
+
+  serif: (
+    name: 'ff-tisa-web-pro',
+    type: serif,
+    stack: (
+      Georgia
+    )
+  )
+
+)

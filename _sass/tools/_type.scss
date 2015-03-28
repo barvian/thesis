@@ -1,0 +1,14 @@
+// Type
+// ====
+
+$fonts: () !default;
+
+@mixin font-family($family) {
+  @if map-has-key($fonts, $family) {
+    $font: map-get($fonts, $family);
+
+    font-family: map-get($font, name), map-get($font, stack), map-get($font, type);
+  } @else {
+    @warn "Oops! Font-family `#{family}` does not exist."
+  }
+}

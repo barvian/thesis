@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="{{ "/css/thesis.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-  <script src="//use.typekit.net/mvf5aae.js"></script>
-  <script>try{Typekit.load();}catch(e){}</script>
-
-  {{ content }}
+  {% include typekit.html %}
+  
+  <main role="main">
+    {{ content }}
+  </main>
 
 </html>
