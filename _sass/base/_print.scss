@@ -15,23 +15,29 @@
     counter-reset: figure;
   }
 
-  h2::before {
+  h2 {
     counter-increment: section;
-    content: counter(section)". ";
+
+    &::before {
+      content: counter(section)". ";
+    }
   }
 
   h3 {
+    counter-increment: subsection;
     counter-reset: subsubsection;
     
     &::before {
-      counter-increment: subsection;
       content: counter(section)"."counter(subsection)" ";
     }
   }
 
-  h4::before {
+  h4 {
     counter-increment: subsubsection;
-    content: counter(section)"."counter(subsection)"."counter(subsubsection)" ";
+
+    &::before {
+      content: counter(section)"."counter(subsection)"."counter(subsubsection)" ";
+    }
   }
 
   figure {
