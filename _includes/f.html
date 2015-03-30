@@ -1,8 +1,10 @@
-<figure class="c-figure{% if include.type %} c-figure--{{ include.type }}{% endif %}">
-  <a href="{{ include.src | prepend: site.baseurl }}">
-    <img src="{{ include.src | prepend: site.baseurl }}" alt="{{ include.caption | escape }}" />
+{% assign figure = site.data.figures[include.f] %}
+
+<figure class="c-figure{% if figure.type %} c-figure--{{ figure.type }}{% endif %}" id="figure-{{ include.f }}">
+  <a href="{{ figure.src | prepend: site.baseurl }}">
+    <img src="{{ figure.src | prepend: site.baseurl }}" alt="{{ figure.caption | escape }}" />
   </a>
   <figcaption class="c-figure__caption">
-    {{ include.caption }}
+    {{ figure.caption }}
   </figcaption>
 </figure>

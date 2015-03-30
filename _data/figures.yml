@@ -1,0 +1,11 @@
+- src: /img/sam-home.png
+  caption: Sam's home screen
+  type: iPhone
+
+- src: /img/calm-home.png
+  caption: Calm's home screen
+  type: iPhone
+
+- src: /img/calm-program.png
+  caption: Calm's "7 Days of Calm" program
+  type: iPhone

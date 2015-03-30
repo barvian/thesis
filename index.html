@@ -8,7 +8,7 @@
 
   {% assign sections = site.sections | sort: 'section' %}
   {% for section in sections %}
-    <section>
+    <section data-section="{{ section.section }}">
       <h2>{{ section.title }}</h2>
       {{ section.output }}
     </section>
