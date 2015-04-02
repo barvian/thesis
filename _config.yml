@@ -9,20 +9,7 @@ url: "http://barvian.me" # the base hostname & protocol for your site
 twitter_username: mbarvian
 github_username:  mbarvian
 
-# Build settings
+# Conversion
 markdown: kramdown
-
-defaults:
-- scope:
-    path: "" # all files
-  values:
-    layout: "default"
-- scope:
-    path: "" # all files
-    type: "sections"
-  values:
-    layout: null
-
-# Collections
-collections:
-- sections
+kramdown:
+  auto_ids: false

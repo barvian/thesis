@@ -1,7 +1,8 @@
 ---
-section: 2
-title: Background
+layout: essay
 ---
+
+## Background
 
 ### Generalized Anxiety Disorder (GAD)
 
@@ -63,20 +64,121 @@ There are several iOS applications that already address anxiety or at least offe
 
 #### Self-help for Anxiety Management (SAM)
 
-This [free application](https://appsto.re/us/ljHVN.i) from the University of the West of England offers much of the same functionality as this thesis’ application.  Its default screen, shown below in Figure 3.1, highlights this fact: among the options listed are techniques for relieving anxiety symptoms immediately, a self-monitoring tool that allows users to log their level of anxiety at any time (with an accompanying tracker that shows a graph of these logs), and a “social cloud” that allows users to post comments about their anxiety and reply to other users’ concerns.
+This [free application](https://appsto.re/us/ljHVN.i) from the University of the West of England offers much of the same functionality as this thesis’ application.  Its default screen, shown below in {% include fr.html f=0 %}, highlights this fact: among the options listed are techniques for relieving anxiety symptoms immediately, a self-monitoring tool that allows users to log their level of anxiety at any time (with an accompanying tracker that shows a graph of these logs), and a “social cloud” that allows users to post comments about their anxiety and reply to other users’ concerns.
 
 {% include f.html f=0 %}
 
-SAM clearly hopes to offer a comprehensive treatment program for anxiety patients, and for the most part, it likely succeeds. The relaxation techniques are robust and easy to follow, and all of the application’s features work as advertised.  The app has also received numerous positive reviews on the App Store, which is excellent considering its noble intentions. That being said, one improvement that may help the application better service its users is an improved flow. The grid of options seen in Figure 2.1, for example, is certainly useful, but doesn’t seem to guide users through the anxiety recovery process. Of course, users can tap the first button, “Working with SAM”, to get more information, but it’d be more helpful to incorporate the recovery process into the interface design itself without hiding it behind a button.  The grid also makes all the options look equally as important, even though some, like “Help for Anxiety NOW”, may be far more relevant if the user is currently experiencing an anxious episode (which would be a reasonable explanation for launching SAM in the first place).  Overall, though, SAM likely gets more right than wrong, and it’s encouraging to see another anxiety application having a positive impact on user’s lives.
+SAM clearly hopes to offer a comprehensive treatment program for anxiety patients, and for the most part, it likely succeeds. The relaxation techniques are robust and easy to follow, and all of the application’s features work as advertised.  The app has also received numerous positive reviews on the App Store, which is excellent considering its noble intentions. That being said, one improvement that may help the application better service its users is an improved flow. The grid of options seen in {% include fr.html f=0 %}, for example, is certainly useful, but doesn’t seem to guide users through the anxiety recovery process. Of course, users can tap the first button, “Working with SAM”, to get more information, but it’d be more helpful to incorporate the recovery process into the interface design itself without hiding it behind a button.  The grid also makes all the options look equally as important, even though some, like “Help for Anxiety NOW”, may be far more relevant if the user is currently experiencing an anxious episode (which would be a reasonable explanation for launching SAM in the first place).  Overall, though, SAM likely gets more right than wrong, and it’s encouraging to see another anxiety application having a positive impact on user’s lives.
 
 #### Calm
 
-This [free application](https://appsto.re/us/QZpfI.i) by Calm.com, Inc. focuses exclusively on meditation and relaxation techniques. According to the application description5, it includes: 7 guided meditation sessions, 10 “immersive nature scenes”, 16 relaxing music tracks, and 50 additional, purchasable guided meditations.  Its user interface, shown in Figure 2.2, revolves around a user-customizable looping scene, which defaults to a video of rain on leaves.
+This [free application](https://appsto.re/us/QZpfI.i) by Calm.com, Inc. focuses exclusively on meditation and relaxation techniques. According to the application description5, it includes: 7 guided meditation sessions, 10 “immersive nature scenes”, 16 relaxing music tracks, and 50 additional, purchasable guided meditations.  Its user interface, shown in {% include fr.html f=1 %}, revolves around a user-customizable looping scene, which defaults to a video of rain on leaves.
 
 {% include f.html f=1 %}
 
-Like SAM, however, Calm’s main screen might benefit from an improved visual hierarchy.  The “Programs” button, which launches a full list of available meditation programs, certainly seems to be the most important tool available on this screen, though it’s given equal visual importance as the “Scenes” button which simply changes the background of the application. Calm’s meditation programs, on the other hand, are well-structured and provide clear starting points for relieving anxiety-related symptoms; the “7 Days of Calm” program shown in Figure 2.4 is exemplary.
+Like SAM, however, Calm’s main screen might benefit from an improved visual hierarchy.  The “Programs” button, which launches a full list of available meditation programs, certainly seems to be the most important tool available on this screen, though it’s given equal visual importance as the “Scenes” button which simply changes the background of the application. Calm’s meditation programs, on the other hand, are well-structured and provide clear starting points for relieving anxiety-related symptoms; the “7 Days of Calm” program shown in {% include fr.html f=2 %} is exemplary.
 
 {% include f.html f=2 %}
 
 Unfortunately, Calm also lacks any positive psychology/relapse prevention tools, though it doesn’t claim to target GAD patients in particular, so this choice may have been intentional.  In any case, the application’s limited scope and focused design is commendable and fully deserving of the many positive reviews it’s received on the App Store.
+
+## Methodology
+
+### Architecture
+
+This application was developed using the latest version of the standard iOS development toolkit provided by Apple, including Xcode 6.3 (with Swift 1.2) and iOS SDK 8.3.  The newer Swift language was preferred over its predecessor, Objective-C, for its modern features and familiar syntax.
+
+#### Dependencies
+
+All third-party dependencies were managed using the open-source [CocoaPods](http://cocoapods.org) dependency manager, version 0.36.1.  This seems to be the de facto standard for managing dependencies in Cocoa projects, besides [Git submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules) and plain copy-and-pasting.  The dependencies for this application are listed in a text file named `Podfile` in the project's root, which is analyzed by the CocoaPods command line tool:
+
+~~~ ruby
+pod 'Async', git: 'https://github.com/duemunk/Async.git', branch: 'feature/Swift_1.2'
+pod 'SDCloudUserDefaults'
+pod 'Realm'
+pod 'SSDynamicText', :head 
+pod 'UIImage+Additions'
+~~~
+
+These frameworks were already discussed in the background section. Without specifying a version number, CocoaPods uses the latest version of each pod when installing or updating dependencies.  This had the potential to quickly break the application if a pod released an update with API changes, but due to the short development cycle and continuous updates to the Swift language itself, I found it beneficial to stay on the latest version of each dependency.
+
+#### Extensions
+
+One of the most powerful features of the Swift programming language is the ability to extend types, including built-in classes, with new methods and computed properties.  I used this feature extensively throughout the project for two main purposes: to add functionality to core Cocoa abstractions like `NSDate` (for working with dates and times) and to create helper "factory" methods for application-specific constants.  The latter is a design pattern fully endorsed by Apple's official documentation; instead of specifying global `UIColor` constants for project-specific theme colors:
+
+~~~ swift
+public let blueColor = UIColor(r: 82, g: 173, b: 204)
+~~~
+
+the company recommends extending the UIColor class directly with factory methods:
+
+~~~ swift
+extension UIColor {
+	class func applicationBlueColor() -> UIColor {
+		return UIColor(r: 82, g: 173, b: 204)
+	}
+}
+~~~
+
+which can then be accessed through `UIColor.applicationBlueColor()`.  Though theme coloring is an admittedly simple example, it's easy to see how elegant this design pattern becomes when considering more complex objects such as reusable `UILabel` styles:
+
+~~~ swift
+extension UILabel {
+	class func applicationHeaderLabel(shadow: Bool = true, thin: Bool = false) -> UILabel {
+		let label = SSDynamicLabel(font: thin ? "HelveticaNeue-Light" : "HelveticaNeue", baseSize: 23.0)
+		label.numberOfLines = 0
+		label.textAlignment = .Center
+		
+		if (shadow) {
+			label.layer.shadowOffset = CGSize(width: 0, height: 3)
+			label.layer.shadowRadius = 4
+			label.layer.shadowColor = UIColor.blackColor().CGColor
+			label.layer.shadowOpacity = 0.1
+			label.layer.shouldRasterize = true
+			label.layer.rasterizationScale = UIScreen.mainScreen().scale
+		}
+	
+		return label
+	}
+}
+~~~
+
+I used this design pattern whenever possible, resorting to subclasses for only the most complex scenarios when method overrides were required.
+
+#### Models
+
+The only true database-backed model in this application was `Reflection`, a simple Realm-based class containing properties for a positive event, its reason, and the date it occurred (defaulting to the current time):
+
+~~~ swift
+class Reflection: RLMObject {
+	dynamic var event = ""
+	dynamic var reason = ""
+	dynamic var date = NSDate()
+}
+~~~
+
+This class was used exclusively in the Reflect tab; the scrolling timeline fetches all entries within the previous month and the new reflection screen creates a new `Reflection` object based the user's input.  Other sources of persistent data, like the readings in the Learn tab, are stored in files rather than the Realm database.
+
+#### Views
+
+In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  I'm not keen on this pattern; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  I found it more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %}, respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
+
+<div class="o-layout">
+	<div class="o-layout__item o-1/2">
+		{% include f.html f=3 %}
+	</div><!--
+	--><div class="o-layout__item o-1/2">
+		{% include f.html f=4 %}
+	</div>
+</div>
+
+This class uses a delegate, `DailyReminderViewDelegate`, with handlers for changes to the toggle switch in the top right and date picker below:
+
+~~~ swift
+@objc protocol DailyReminderViewDelegate {
+	optional func dailyReminderView(dailyReminderView: DailyReminderView, didToggleReminder reminder: Bool)
+	optional func dailyReminderView(dailyReminderView: DailyReminderView, didChangeTime time: NSDate)
+}
+~~~
+
+Each tab's view controller implements this protocol and creates or updates the global `UILocalNotification` object when either of these methods are invoked.

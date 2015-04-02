@@ -6,7 +6,7 @@
   }
 
   @include m(iPhone) {
-    max-width: 320px;
+    max-width: 375px;
     margin-left: auto;
     margin-right: auto;
 
@@ -14,4 +14,23 @@
       text-align: center;
     }
   }
+
+  .#{$c-}counter {
+    font-weight: 700;
+
+    &::before {
+      content: 'Figure ';
+    }
+
+    &::after {
+      content: ': ';
+    }
+  }
+}
+
+// References
+// ----------
+
+@include b(#{$c-}figure-reference) {
+  border-bottom-style: dashed;
 }

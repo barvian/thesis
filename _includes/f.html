@@ -5,6 +5,6 @@
     <img src="{{ figure.src | prepend: site.baseurl }}" alt="{{ figure.caption | escape }}" />
   </a>
   <figcaption class="c-figure__caption">
-    {{ figure.caption }}
+    <span class="c-counter">%SECTION%.%FIGURE%</span>{{ figure.caption }}
   </figcaption>
 </figure>

@@ -1,0 +1,15 @@
+{% capture l %}{% if include.level %}{{ include.level }}{% else %}1{% endif %}{% endcapture %}
+{% assign level = l | times: 1 %}
+{% capture c %}
+  {% if level == 1 %}
+    %SECTION%
+  {% elsif level == 2 %}
+    %SECTION%.%SUBSECTION%
+  {% elsif level == 3 %}
+    %SECTION%.%SUBSECTION%.%SUBSUBSECTION%
+  {% endif %}
+{% endcapture %}
+{% assign counter = c | strip_newlines | remove: ' ' %}
+<h{{ level | plus: 1 }} id="{{ include.title | handelize | downcase }}">
+  <span class="c-counter">{{ counter }}</span>{{ include.title }}
+</h{{ level | plus: 1 }}>

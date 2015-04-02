@@ -17,3 +17,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   padding-bottom: size(xxlarge);
 }
+
+@include query(print) {
+  @page {
+    margin: 1in;
+  }
+}

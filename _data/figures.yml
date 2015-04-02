@@ -9,3 +9,11 @@
 - src: /img/calm-program.png
   caption: Calm's "7 Days of Calm" program
   type: iPhone
+
+- src: /img/relaxation-reminder.png
+  caption: Relaxation Reminder Screen
+  type: iPhone
+
+- src: /img/reflection-reminder.png
+  caption: Reflection Reminder Screen
+  type: iPhone

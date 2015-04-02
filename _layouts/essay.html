@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="o-wrapper">
+  <header>
+    <h1>Honors Thesis</h1>
+  </header>
+  
+  {% assign counters = content | replace: '<h2>', '-SECTION-<h2><span class="c-counter">%SECTION%</span>' | replace: '<h3>', '-SUBSECTION-<h3><span class="c-counter">%SECTION%.%SUBSECTION%</span>' | replace: '<h4>', '-SUBSUBSECTION-<h4><span class="c-counter">%SECTION%.%SUBSECTION%.%SUBSUBSECTION%</span>' | replace: '<figure', '-FIGURE-<figure' %}
+  {% assign sections = counters | remove_first: '-SECTION-' | split: '-SECTION-' %}
+  {% for section in sections %}
+    {% capture s %}{{ forloop.index }}{% endcapture %}
+    <section data-section="{{ s }}">
+      {% assign figures = section | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
+      {% capture replaceFigures %}
+        {% for figure in figures %}
+          {{ figure | replace: '%FIGURE%', forloop.index + 1 }}
+        {% endfor %}
+      {% endcapture %}
+      {% assign subsections = replaceFigures | replace: '%SECTION%', s | split: '-SUBSECTION-' %}
+      {{ subsections | first }}
+      {% for subsection in subsections %}
+        {% if forloop.index > 1 %}
+          {% capture ss %}{{ forloop.index | minus: 1 }}{% endcapture %}
+          <section data-subsection="{{ ss }}">
+          {% assign subsubsections = subsection | replace: '%SUBSECTION%', ss | split: '-SUBSUBSECTION-' %}
+          {{ subsubsections | first }}
+          {% for subsubsection in subsubsections %}
+            {% if forloop.index > 1 %}
+              {% capture sss %}{{ forloop.index | minus: 1 }}{% endcapture %}
+              <section data-subsubsection="{{ sss }}">
+                {{ subsubsection | replace: '%SUBSUBSECTION%', sss }}
+              </section>
+            {% endif %}
+          {% endfor %}
+          </section>
+        {% endif %}
+      {% endfor %}
+    </section>
+  {% endfor %}
+
+  <footer>
+    <ol>
+      {% capture references %}
+        {% for reference in site.data.bibliography %}
+          {% include r.html r=forloop.index %}
+          {% if forloop.last != true %}|{% endif %}
+        {% endfor %}
+      {% endcapture %}
+      {% assign sortedreferences = references | split: '|' | sort %}
+      {% for reference in sortedreferences %}
+        <li>{{ reference }}</li>
+      {% endfor %}
+    </ol>
+  </footer>
+</article>
