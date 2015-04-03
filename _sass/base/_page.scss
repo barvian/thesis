@@ -4,6 +4,7 @@
 html {
   @extend %serif;
 
+  color: $dark;
   font-size: $ms-base;
   font-weight: 400;
   line-height: strip-units(size(spacing));

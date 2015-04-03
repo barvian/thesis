@@ -17,4 +17,9 @@ figure {
 
 figcaption {
   font-size: size(small);
+
+  .counter {
+    font-style: italic;
+    font-weight: 700;
+  }
 }

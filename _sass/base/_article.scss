@@ -1,0 +1,30 @@
+// Article
+// =======
+
+article {
+}
+
+[data-section] {
+  @include trailing(size(xxlarge));
+
+  border-bottom: 2px solid hsb(0, 0, 92.5);
+  padding-bottom: size(xxlarge);
+
+  > header {
+    @include trailing(size(xxlarge));
+  }
+}
+
+[data-subsection] {
+  @include leading(size(large));
+
+  > header {
+    @include trailing(size(large) + size(small) + 0.35em);
+  }
+}
+
+[data-subsubsection] {
+  > header {
+    @include trailing(size(base));
+  }
+}

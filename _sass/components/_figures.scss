@@ -15,9 +15,7 @@
     }
   }
 
-  .#{$c-}counter {
-    font-weight: 700;
-
+  .counter {
     &::before {
       content: 'Figure ';
     }
