@@ -5,6 +5,8 @@
 // --------
 
 %heading {
+  @extend %sans;
+
   color: hsb(0, 0, 0);
   line-height: strip-units(size(medium));
   position: relative;
@@ -43,50 +45,23 @@
   .counter {
     display: block;
     font-size: size(small);
+    line-height: 1.5;
+    margin-right: 0.5em;
+    position: absolute;
+    right: 100%;
   }
 }
 
 %h3 {
   font-size: size(spacing);
-  text-align: center;
 
   .counter {
-    line-height: 1;
-    left: 50%;
-    margin-top: 0.35em;
-    position: absolute;
-    top: 100%;
-
-    @include transform(translateX(-50%));
-
-    &::before, &::after {
-      background: currentColor;
-      content: '';
-      height: 2px;
-      position: absolute;
-      top: 50%;
-      width: 1em;
-
-    }
-
-    &::before {
-      right: 100%;
-      margin-right: 0.5em;
-    }
-
-    &::after {
-      left: 100%;
-      margin-left: 0.5em;
-    }
+    border-bottom: 2px solid currentColor;
   }
 }
 
 %h4 {
   font-size: size(base);
-
-  .counter {
-    line-height: strip-units(1/size(small) * size(base) * size(spacing));
-  } 
 }
 
 h1 { @extend %h1; }

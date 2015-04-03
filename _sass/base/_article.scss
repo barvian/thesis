@@ -16,10 +16,10 @@ article {
 }
 
 [data-subsection] {
-  @include leading(size(large));
+  @include leading(size(xlarge));
 
   > header {
-    @include trailing(size(large) + size(small) + 0.35em);
+    @include trailing(size(large));
   }
 }
 
