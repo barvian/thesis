@@ -30,7 +30,7 @@ class ReflectReminderView: UIView {
 		pill.borderColor = UIColor(r: 132, g: 224, b: 201)
 		
 		return pill
-		}()
+	}()
 	
 	private(set) lazy var reminderLabel: UILabel = {
 		let label = SSDynamicLabel(font: "HelveticaNeue", baseSize: 15.0)

@@ -8,16 +8,19 @@
 
 import SDCloudUserDefaults
 
+public let SDCloudUserDefaultsHasSeenWelcomeKey = "hasSeenWelcome",
+	SDCloudUserDefaultsPreviousCalmingSceneKey = "previousCalmingScene"
+
 extension SDCloudUserDefaults {
 	
 	class var hasSeenWelcome: Bool {
-		get { return SDCloudUserDefaults.boolForKey("hasSeenWelcome") }
-		set { SDCloudUserDefaults.setBool(newValue, forKey: "hasSeenWelcome") }
+		get { return SDCloudUserDefaults.boolForKey(SDCloudUserDefaultsHasSeenWelcomeKey) }
+		set { SDCloudUserDefaults.setBool(newValue, forKey: SDCloudUserDefaultsHasSeenWelcomeKey) }
 	}
 	
 	class var previousCalmingScene: Int {
-		get { return SDCloudUserDefaults.integerForKey("previousCalmingScene") }
-		set { SDCloudUserDefaults.setInteger(newValue, forKey: "previousCalmingScene") }
+		get { return SDCloudUserDefaults.integerForKey(SDCloudUserDefaultsPreviousCalmingSceneKey) }
+		set { SDCloudUserDefaults.setInteger(newValue, forKey: SDCloudUserDefaultsPreviousCalmingSceneKey) }
 	}
 	
 }

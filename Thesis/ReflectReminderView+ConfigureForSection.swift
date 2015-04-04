@@ -21,7 +21,7 @@ extension ReflectReminderView {
 			reminderLabel.text = "What other \(remaining) things went well today?"
 		}
 		
-		hidden = remaining == 0
+		hidden = remaining <= 0
 	}
 	
 }
