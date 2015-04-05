@@ -42,15 +42,12 @@ layout: default
 
   <footer>
     <ol>
-      {% capture references %}
-        {% for reference in site.data.bibliography %}
-          {% include r.html r=forloop.index %}
-          {% if forloop.last != true %}|{% endif %}
-        {% endfor %}
-      {% endcapture %}
+      {% capture references %}{% for reference in site.data.bibliography %}{% include r.html r=forloop.index %}{{ forloop.index | minus: 1 }}{% if forloop.last != true %}|{% endif %}{% endfor %}{% endcapture %}
       {% assign sortedreferences = references | split: '|' | sort %}
       {% for reference in sortedreferences %}
-        <li>{{ reference }}</li>
+        {% assign split = reference | split: '' %}
+        {% assign id = split | last %}
+        <li id="reference-{{ id }}">{% for char in split %}{% if forloop.last != true %}{{ char }}{% endif %}{% endfor %}</li>
       {% endfor %}
     </ol>
   </footer>

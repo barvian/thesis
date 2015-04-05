@@ -25,15 +25,11 @@
     {% endif %}
   {% endcapture %}
 
-  <cite>
-    (
-      {% if include.a != false and author %}
-        {{ author }}
-      {% endif %}
-      {% if include.a != false and include.y != false %}&#32;{% endif %}
-      {% if include.y != false and year %}
-        {{ year }}
-      {% endif %}
-    )
-  </cite>
-{% endcapture %}{{ c | strip_newlines | remove: ' ' }}
+  {% if include.a != false and author %}
+    {{ author }}
+  {% endif %}
+  {% if include.a != false and include.y != false %}&#32;{% endif %}
+  {% if include.y != false and year %}
+    {{ year }}
+  {% endif %}
+{% endcapture %}<cite>(<a href="#reference-{{ include.r }}">{{ c | strip_newlines | remove: ' ' }}</a>)</cite>

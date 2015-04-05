@@ -64,3 +64,9 @@
   startPage: 5
   endPage: 7
   year: 1995
+
+- type: book
+  title: iOS Human Interface Guidelines
+  place: Cupertino (CA)
+  publisher: Apple
+  year: 2014

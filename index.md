@@ -98,18 +98,18 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 ### Ideation
 
-The. 
+Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application. 
 
 #### Goals
 
 Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the ideation and design processes.
 
 1. ##### Be easy to use
-This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, an unfortunately likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
+This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
 1. ##### Cover the essential aspects of anxiety recovery
-Though I wanted to keep the feature set of this application to a bare minimum, I did feel it was important that I provided a complete (or as complete as possible) self-help anxiety recovery program with as few gaps as possible.  I thought it would be ideal if the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, but allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) for  a comprehensive meditation practice. 
+Though I wanted to keep the feature set of this application to a bare minimum, I did feel it was important that I provided as complete a self-help anxiety recovery program as possible within my time frame.  I thought it would be ideal if the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) or [Calm](http://calm.com) for a comprehensive meditation practice. 
 1. ##### Be unobtrusive yet involved
-I felt this was the most important balancing act I'd have to perform when designing the application.  On the one hand, I can speak anecdotally about the importance of consistency when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything seems to go smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, I didn't want users to start perceiving the application as an annoyance more than an aid, so I wanted to be mindful of this distinction as possible.
+I felt this was the most important balancing act I'd have to perform when designing the application.  On the one hand, I can speak anecdotally about the importance of consistency when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything feels like it's going smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, I didn't want users to start perceiving the application as an annoyance more than an aid, so I wanted to be mindful of this distinction as much as possible.
 
 After I wrote these down I felt I had a clear enough starting point to begin the design process.
 
@@ -292,4 +292,13 @@ Xcode includes some incredibly helpful tools to debug applications through the s
 
 By default, Xcode creates a Git repository for all new projects, so versioning this application was a straightforward process.  Before settling on a single direction I experimented with various approaches in separate Git branches, merging some as I went along until I arrived at a stable `master` branch.  I set up a remote [Github repository](http://github.com/mbarvian/thesis/) as well, which let me work with the same codebase on different computers.  I used the [Github for Mac app](https://mac.github.com) to make commits and keep the repository in sync.
 
-### Testing
+## Testing
+
+Thing
+
+## Conclusion
+
+and I'm extremely grateful to have found a topic that felt so meaningful to me.
+
+### Future work
+

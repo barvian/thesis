@@ -42,10 +42,3 @@
     margin: size(spacing) -20% size(spacing) size(spacing);
   }
 }
-
-// References
-// ----------
-
-@include b(#{$c-}figure-reference) {
-  border-bottom-style: dashed;
-}
