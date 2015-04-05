@@ -102,14 +102,16 @@ The.
 
 #### Goals
 
-Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the design/ideation process.
+Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the ideation and design processes.
 
 1. ##### Be easy to use
 This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, an unfortunately likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
-1. ##### Cover the essential parts of anxiety recovery
-I felt this was the most important balancing act I'd have to perform when designing the application.
+1. ##### Cover the essential aspects of anxiety recovery
+Though I wanted to keep the feature set of this application to a bare minimum, I did feel it was important that I provided a complete (or as complete as possible) self-help anxiety recovery program with as few gaps as possible.  I thought it would be ideal if the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, but allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) for  a comprehensive meditation practice. 
 1. ##### Be unobtrusive yet involved
-I felt this was the most important balancing act I'd have to perform when designing the application.
+I felt this was the most important balancing act I'd have to perform when designing the application.  On the one hand, I can speak anecdotally about the importance of consistency when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything seems to go smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, I didn't want users to start perceiving the application as an annoyance more than an aid, so I wanted to be mindful of this distinction as possible.
+
+After I wrote these down I felt I had a clear enough starting point to begin the design process.
 
 ### Design
 
