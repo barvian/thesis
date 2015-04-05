@@ -244,6 +244,7 @@ class GuidedMeditationViewController: UIViewController, FullScreenViewController
 	}
 	
 	func didTapProgressButton(button: UIButton!) {
+		togglePlayback(false)
 		relaxationDelegate?.relaxationViewControllerDidTapProgressButton?(self)
 	}
 	
