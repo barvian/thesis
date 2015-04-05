@@ -1,0 +1,23 @@
+// Media
+// =====
+
+@include b(#{$o-}media) {
+  @extend %#{u-}clearfix;
+  @extend %flush;
+
+  display: block;
+
+  @include e(aside) {
+    float: left;
+    margin-right: size(spacing);
+
+    > img {
+      display: block;
+    }
+  }
+
+  @include e(body) {
+    overflow: hidden;
+    display: block;
+  }
+}

@@ -1,0 +1,6 @@
+// Box
+// ===
+
+@include b(#{$o-}box) {
+  padding: size(spacing);
+}

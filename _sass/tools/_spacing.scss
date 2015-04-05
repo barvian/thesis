@@ -5,17 +5,23 @@
   * + & {
     margin-top: $space;
 
-    %horizontal > & {
-      margin-top: inherit;
-      margin-left: $space;
-    }
-
     %flush > & {
       margin-top: 0;
     }
 
     %tight > & {
       margin-top: $space / 2;
+    }
+
+    %horizontal > & {
+      margin-top: 0;
+      margin-left: $space;
+    }
+    %horizontal-flush > & {
+      margin-left: 0;
+    }
+    %horizontal-tight > & {
+      margin-left: $space / 2;
     }
   }
 }
@@ -24,17 +30,23 @@
   & + * {
     margin-top: $space;
 
-    %horizontal > & {
-      margin-top: inherit;
-      margin-left: $space;
-    }
-
     %flush > & {
       margin-top: 0;
     }
 
     %tight > & {
       margin-top: $space / 2;
+    }
+
+    %horizontal > & {
+      margin-top: 0;
+      margin-left: $space;
+    }
+    %horizontal-flush > & {
+      margin-left: 0;
+    }
+    %horizontal-tight > & {
+      margin-left: $space / 2;
     }
   }
 }

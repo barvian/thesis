@@ -1,0 +1,19 @@
+// Personas
+// ========
+
+@include b(#{$c-}persona) {
+  @include e(thumb) {
+    border-radius: 100%;
+    height: size(xxlarge);
+    width: size(xxlarge);
+  }
+
+  @include e(characteristic) {
+    @extend .small;
+
+    border: 1px solid $light;
+    border-radius: 100em;
+    padding: size(spacing)/4 size(spacing)/2 size(spacing)/4+0.25;
+    white-space: nowrap;
+  }
+}

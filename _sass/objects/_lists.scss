@@ -1,0 +1,38 @@
+// Lists
+// =====
+
+// Block list
+// ----------
+
+%#{$o-}block-list__item {
+  + %#{$o-}block-list__item {
+    border-top: 1px dashed $light;
+    padding-top: size(spacing);
+  }
+}
+
+@include b(#{$o-}block-list) {
+  @extend %#{$u-}invisible-list;
+
+  > li { @extend %#{$o-}block-list__item; }
+  @include e(item) { @extend %#{$o-}block-list__item; }
+}
+
+// Inline list
+// -----------
+
+%#{$o-}inline-list__item {
+  display: inline-block;
+}
+
+@include b(#{$o-}inline-list) {
+  @extend %#{$u-}invisible-list;
+  @extend %horizontal;
+
+  > li { @extend %#{$o-}inline-list__item; }
+  @include e(item) { @extend %#{$o-}inline-list__item; }
+
+  @include m(tight) {
+    @extend %horizontal-tight;
+  }
+}

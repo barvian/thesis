@@ -46,17 +46,29 @@ Broadly speaking, color psychology is the study of color as it affects mood, emo
 
 This thesis’ iPhone application will be developed using the official toolchain provided by Apple, Inc.  This includes the Xcode IDE (Integrated Development Environment), which itself contains Interface Builder for laying out the application’s UI components, Instruments for debugging the application, and Simulator for testing the application without a device; the UIKit framework; iTunes Connect for managing provisioning profiles and deploying on actual devices; and the newly released Swift programming language.  The codebase for the application will be version controlled using the popular Git system with a remote copy stored on Github.  In addition to these standard tools, however, several third-party frameworks will be used to save time and avoid unnecessary code duplication.
 
-#### Realm
-
-The [Realm mobile database](http://realm.io) will be used as a replacement for the Apple-provided Core Data framework.  Realm promises a simpler, thread-safe API with lower overhead and better integration with object-oriented programming constructs.  Every user-generated data object in this thesis’ application that needs to be stored persistently, excluding preferences and other configuration, will use the Realm database and accompanying programming structures.
-
 #### Async
 
 This [small library](https://github.com/duemunk/Async) provides a more elegant API for the Apple-provided Grand Central Dispatch (GCD) framework.  From the [Apple documentation](https://developer.apple.com/library/prerelease/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html):
 
 > Grand Central Dispatch (GCD) comprises language features, runtime libraries, and system enhancements that provide systemic, comprehensive improvements to the support for concurrent code execution on multicore hardware in iOS and OS X.
 
-All calls to asynchronous GCD methods in this thesis’ application will come from this library.
+The library offers simple block chaining as well, a feature sorely missing from GCD's standard API.
+
+#### SDCloudUserDefaults
+
+Traditionally, when developers need to save user preferences in iOS applications they'd rely on Apple's `NSUserDefaults` class, which "provides a programmatic interface for interacting with the defaults system" (according to the [documentation](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/index.html)). With the introduction of iCloud, however, it often became desirable to sync some or all of a user's preferences among all their devices automatically. [This library](https://github.com/sdarlington/SDCloudUserDefaults) promises a simple API for doing exactly that.
+
+#### Realm
+
+The [Realm mobile database](http://realm.io) is a replacement for Core Data, Apple's complex object graph and persistence framework. Though Core Data is undoubtedly powerful, it is often criticized as being unwieldy and unforgiving for novice programmers. Realm promises a simpler, thread-safe API with lower overhead and better integration with object-oriented programming constructs.
+
+#### SSDynamicText
+
+iOS 7 introduced a new feature called Dynamic Text that allows users to specify their preferred text size from the Settings application.  Developers who implement the appropriate APIs can use this feature to resize their application's text according to the user's global preference.  Unfortunately, these APIs are slightly cumbersome and often lead to repetitive code.  [SSDynamicText](https://github.com/splinesoft/SSDynamicText) greatly simplifies the process by subclassing `UILabel` and other base classes to incorporate Dynamic Text features directly.
+
+#### UIImage+Additions
+
+[This library](https://github.com/vilanovi/UIImage-Additions) offers numerous extensions to the `UIImage` class for manipulating images within Cocoa applications.  Examples include creating static images for a single color, resizable images with corner radii, tinted images from existing ones, superimposed images, gradient images, and more.
 
 ### Related Applications
 
@@ -84,13 +96,29 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 ## Methodology
 
+### Ideation
+
+The
+
+### Design
+
+#### User Personas
+
+To aid in the design process I created {{ site.data.personas | size }} personas.
+
+<ul class="o-block-list o-box">
+	{% for persona in site.data.personas %}
+		<li>{% include p.html p=forloop.index %}</li>
+	{% endfor %}
+</ul>
+
 ### Architecture
 
-This application was developed using the latest version of the standard iOS development toolkit provided by Apple, including Xcode 6.3 (with Swift 1.2) and iOS SDK 8.3.  The newer Swift language was preferred over its predecessor, Objective-C, for its modern features and familiar syntax.
+This application was developed using the latest version of the standard iOS development toolkit provided by Apple, including Xcode 6.3 (with Swift 1.2) and iOS SDK 8.3.  The newer Swift language was preferred over its predecessor, Objective-C, for its modern features and familiar syntax, though I didn't have experience with either language before this project.
 
 #### Dependencies
 
-All third-party dependencies were managed using the open-source [CocoaPods](http://cocoapods.org) dependency manager, version 0.36.1.  This seems to be the de facto standard for managing dependencies in Cocoa projects, besides [Git submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules) and plain copy-and-pasting.  The dependencies for this application are listed in a text file named `Podfile` in the project's root, which is analyzed by the CocoaPods command line tool:
+All third-party dependencies were managed using the open-source [CocoaPods](http://cocoapods.org) dependency manager, version 0.36.1.  This seems to be the de facto standard for managing dependencies in Cocoa projects, besides [Git submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules) or plain copy-and-pasting.  The dependencies for this application are listed in a text file named `Podfile` in the project's root, which is analyzed by the CocoaPods command line tool:
 
 ~~~ ruby
 pod 'Async', git: 'https://github.com/duemunk/Async.git', branch: 'feature/Swift_1.2'
@@ -101,6 +129,26 @@ pod 'UIImage+Additions'
 ~~~
 
 These frameworks were already discussed in the background section. Without specifying a version number, CocoaPods uses the latest version of each pod when installing or updating dependencies.  This had the potential to quickly break the application if a pod released an update with API changes, but due to the short development cycle and continuous updates to the Swift language itself, I found it beneficial to stay on the latest version of each dependency.
+
+##### Async
+
+I didn't up using Async nearly as much as I anticipated. In fact, I only used its timeout API in some of the relaxation exercises to hide the instruction prompts after a fixed delay.  If it were a larger library I'd consider removing it for file size reasons, but since it's nicely contained in a single `.swift` file I don't think this is an issue.  It's certainly an improvement over the Grand Central Dispatch API, in any case.
+
+##### SDCloudUserDefaults
+
+Though I only save two pieces of user data in this application - whether the user has seen the welcome tutorial and their previously viewed scene in the Calming Scene relaxation exercise - this library was absolutely painless to incorporate into the application, especially with Swift's extension system discussed below.  If nothing else, it guarantees that a user with iCloud enabled won't view the welcome tutorial more than once, and that's reason enough to include such a small library in my opinion.
+
+##### Realm
+
+I hardly used Realm to its full extent, only relying on it to persistently store one model of data and only querying the database from one controller, but I was thoroughly impressed with its ease of use. I have no experience with Core Data, so I won't bother to compare its API with Realm's, but judging from what I've read in Apple documentation it undoubtedly takes some time to familiarize oneself with Core Data enough to comfortably incorporate it into a project.  With Realm, on the other hand, I was able to create and query a model within minutes of installing the CocoaPod.
+
+##### SSDynamicText
+
+Simply put, nearly every label in this application is either a `SSDynamicLabel` or `SSDynamicTextView`.  This library made Dynamic Text incorporation absolutely trivial, and I never had to adjust my code to account for text size adjustments.  In nearly every case it was simply a matter of using the appropriate `SSDynamicText` subclass instead of the built-in Cocoa equivalent.
+
+##### UIImage+Additions
+
+This library was invaluable for tinting most of the user interface-related images in the application.  In early versions of the application, for example, I included different gradient images for the light blue background on the Learn tab, the blue background on the Relax tab, and the green background on the Reflect tab.  With this library, I was able to ship one version of each image and tint it appropriately before displaying it.  This not only saved countless hours slicing and exporting various versions of the same image, but also saved on file size (resulting from fewer images) and ensured each image was the exact same (besides tint color).
 
 #### Extensions
 
@@ -161,7 +209,7 @@ This class was used exclusively in the Reflect tab; the scrolling timeline fetch
 
 #### Views
 
-In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  I'm not keen on this pattern; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  I found it more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %}, respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
+In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  I'm not keen on this pattern; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  I found it more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
 
 <div class="o-layout">
 	<div class="o-layout__item o-1/2">
@@ -181,4 +229,26 @@ This class uses a delegate, `DailyReminderViewDelegate`, with handlers for chang
 }
 ~~~
 
-Each tab's view controller implements this protocol and creates or updates the global `UILocalNotification` object when either of these methods are invoked.
+Each tab's view controller creates an instance of this view, configures it using the class' public API, implements its protocol, and sets itself as the view's delegate.  In the delegate methods, each controller creates or updates the appropriate global `UILocalNotification` object for each reminder.
+
+#### Controllers
+
+Besides the aforementioned point of separating view-related concerns into their own `UIView` subclasses, I used `UIViewController`s in a seemingly traditional way throughout this application.  Each individual screen, including each tab, the new reflection modal, the relaxation exercises, etc. are represented with one `UIViewController`, which creates and manages its subviews and occasionally interfaces with the Realm database.
+
+Beyond these, I created a custom `UIViewController` subclass named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. I used this class for the welcome tutorial screen, shown in {% include fr.html f=5 %}, and the calming scene relaxation exercise.
+
+{% include f.html f=5 %}
+
+I also created a protocol named `FullScreenController` that's implemented by almost every controller in the application.  This protocol, and its accompanying global methods, manages various portions of the user interface to accommodate single-color backgrounds.  For example, in each of the three main tabs, this protocol ensures the tab bar background, the status bar background, and (sometimes) the navigation bar background all match the controller's primary color.  This creates the effect that each screen's elements are "floating" atop a solid background color.  Unlike the `SlidingViewController`, I chose to use a protocol instead of a subclass for this feature because I wanted to be able to implement it on any subclass of `UIViewController` I wanted.  If I made `FullScreenController` a subclass, I'd have to also create accompanying `FullScreenTabBarController`s, `FullScreenNavigationController`s, and `FullScreenTableViewController`s, just to name a few.  Unfortunately, Swift lacks mix-in functionality that's found in languages like Ruby, but I saw this "protocol-with-global-methods" pattern used repeatedly on many iOS development sites, and it worked quite well for this scenario.
+
+### Debugging
+
+This application was tested primarily on the iPhone simulator provided by the iOS developer toolkit.  The simulator is generally much faster than using an external device, so I often only tested major versions of the application on my personal iPhone 6.  The simulator makes it trivial to test against the numerous iPhone screen sizes as well, though near the end of the development cycle I tested on the iPhone 4S, iPhone 5, iPhone 5S,  and iPhone 6+ to ensure the resulting product matched the simulator's version.
+
+Xcode includes some incredibly helpful tools to debug applications through the simulator or connected device.  Breakpoints can be toggled and created at any point during execution, and all crashes are usually well-documented with stack traces other information.  There's also a tool to debug layouts visually, which was particularly helpful when first learning the ins-and-outs of the AutoLayout system.  Ultimately, I found no need to look beyond Xcode for any debugging tools, and only experienced a few truly "head-scratching" bugs.
+
+### Version Control
+
+By default, Xcode creates a Git repository for all new projects, so versioning this application was a straightforward process.  Before settling on a single direction I experimented with various approaches in separate Git branches, merging some as I went along until I arrived at a stable `master` branch.  I set up a remote [Github repository](http://github.com/mbarvian/thesis/) as well, which let me work with the same codebase on different computers.  I used the [Github for Mac app](https://mac.github.com) to make commits and keep the repository in sync.
+
+### Testing

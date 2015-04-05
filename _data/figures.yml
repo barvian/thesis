@@ -17,3 +17,7 @@
 - src: /img/reflection-reminder.png
   caption: Reflection Reminder Screen
   type: iPhone
+
+- src: /img/welcome.png
+  caption: Welcome Tutorial
+  type: iPhone
