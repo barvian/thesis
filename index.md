@@ -104,6 +104,11 @@ The.
 
 #### Goals
 
+Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the design process.
+
+1. ##### Be easy to use
+and more
+
 #### User Personas
 
 To aid in the design process I created {{ site.data.personas | size }} personas as representations of my target audience.  Considering I lacked quantitative user research or any sort of analytics that usually serve as reference points, I used my research of GAD symptoms and recurring personality traits as guidelines instead:
@@ -114,7 +119,7 @@ To aid in the design process I created {{ site.data.personas | size }} personas 
 	{% endfor %}
 </ul>
 
-I found this step crucial when trying to establish a clear direction for the application's design. It was easy in the early stages of the design process to lose focus and plan for too many features, attempting to accommodate unrealistic use cases or planning for features I'd personally enjoy implementing, rather than ones users might like to see.  By putting a face (albeit imaginary) to some exemplary users, I found it easier to establish a visual hierarchy for the application, prioritize certain features over others, and limit the number of overall screens to a bare minimum. It kept me slightly more motivated as well; having a list of users in mind kept me more enthused about the project than when I felt I was designing it exclusively for myself.  I referred to these personas repeatedly through the rest of the design process.
+I found this step crucial when trying to establish a clear direction for the application's design. It was easy in the early stages of the design process to lose focus and plan for too many features, attempting to accommodate unrealistic use cases or planning for features I'd personally enjoy implementing, rather than ones users might like to see.  By putting a face (albeit imaginary) to some exemplary users, I found it easier to establish a visual hierarchy for the application, prioritize certain features over others, and limit the number of overall screens to a bare minimum. It kept me slightly more motivated as well; having a list of users in mind kept me more enthused about the project than when I felt I was designing it exclusively for myself.  I referred to these personas repeatedly throughout the rest of the design process.
 
 #### Wireframes
 
