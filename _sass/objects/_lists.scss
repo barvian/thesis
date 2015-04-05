@@ -36,3 +36,32 @@
     @extend %horizontal-tight;
   }
 }
+
+// Numbered list
+// -------------
+
+%#{$o-}numbered-list__item {
+  counter-increment: ol;
+  position: relative;
+
+  &::before {
+    @extend %h5;
+
+    border-right: 1.5px solid $light;
+    content: counter(ol, decimal-leading-zero);
+    margin-right: size(spacing) / 2;
+    padding-right: size(spacing) / 2;
+    position: absolute;
+    right: 100%;
+    top: 0;
+  }
+}
+
+@include b(#{$o-}numbered-list) {
+  counter-reset: ol;
+  list-style-type: none;
+  margin-left: size(spacing);
+
+  @include e(item) { @extend %#{$o-}numbered-list__item; }
+  > li { @extend %#{$o-}numbered-list__item; } 
+}
