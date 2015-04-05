@@ -33,3 +33,15 @@
 - src: /img/wireframes/reflect.jpg
   caption: Reflect wireframe
   type: wireframe
+
+- src: /img/learn.png
+  caption: Learn tab
+  type: iPhone
+
+- src: /img/relax.png
+  caption: Relax tab
+  type: iPhone
+
+- src: /img/reflect.png
+  caption: Reflect tab
+  type: iPhone

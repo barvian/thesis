@@ -120,6 +120,24 @@ With the personas, goals, and core features in mind, I began sketching some init
 {% include f.html f=7 %}
 {% include f.html f=8 %}
 
+#### Final layout
+
+I designed the rest of the screens mostly as I developed the application.
+
+<div class="o-layout o-wrapper__wider">
+	<div class="o-layout__item o-1/3">
+		{% include f.html f=9 %}
+	</div><!--
+	--><div class="o-layout__item o-1/3">
+		{% include f.html f=10 %}
+	</div><!--
+	--><div class="o-layout__item o-1/3">
+		{% include f.html f=11 %}
+	</div>
+</div>
+
+The
+
 ### Architecture
 
 This application was developed using the latest version of the standard iOS development toolkit provided by Apple, including Xcode 6.3 (with Swift 1.2) and iOS SDK 8.3.  The newer Swift language was preferred over its predecessor, Objective-C, for its modern features and familiar syntax, though I didn't have experience with either language before this project.
@@ -219,7 +237,7 @@ This class was used exclusively in the Reflect tab; the scrolling timeline fetch
 
 In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  I'm not keen on this pattern; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  I found it more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
 
-<div class="o-layout">
+<div class="o-layout o-wrapper__wide">
 	<div class="o-layout__item o-1/2">
 		{% include f.html f=3 %}
 	</div><!--

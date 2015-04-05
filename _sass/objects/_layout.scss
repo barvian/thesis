@@ -11,7 +11,17 @@
   @include m(narrow) {
     max-width: 800px;
   }
+
+  @include e(wide) {
+    margin-left: -10%;
+    margin-right: -10%;
+  }
   
+  @include e(wider) {
+    margin-left: -25%;
+    margin-right: -25%;
+  }
+
   @include query(print) {
     max-width: auto;
   }
@@ -23,8 +33,9 @@ $layout-gutter: size(spacing) !default;
 @include b(#{$o-}layout) {
   @extend %flush;
 
+  left: -$layout-gutter;
   list-style: none;
-  margin-left: -$layout-gutter;
+  position: relative;
 
   @include e(item) {
     display: inline-block;
