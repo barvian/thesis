@@ -16,4 +16,8 @@
     padding: size(spacing)/4 size(spacing)/2 size(spacing)/4+0.25;
     white-space: nowrap;
   }
+
+  @include e(biography) {
+    @extend .small;
+  }
 }

@@ -21,23 +21,20 @@
 }
 
 %h1 {
-
 }
 
 %h2 {
-  font-size: size(large);
+  font-size: size(xlarge);
   text-align: center;
 
   .counter {
+    border: 3px solid $light;
+    border-radius: 100%;
     display: block;
-    font-size: size(large);
     font-weight: 400;
-    // font-style: italic;
-    margin: 0 auto; 
-
-    &::after {
-      content: '.';
-    }
+    height: size(spacing);
+    margin: 0 auto size(spacing)/6; 
+    width: size(spacing);
   }
 }
 
