@@ -98,7 +98,7 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 ### Ideation
 
-The
+The. 
 
 ### Design
 
@@ -111,6 +111,14 @@ To aid in the design process I created {{ site.data.personas | size }} personas.
 		<li>{% include p.html p=forloop.index %}</li>
 	{% endfor %}
 </ul>
+
+#### Wireframes
+
+With the personas, goals, and core features in mind, I began sketching some initial ideas for the application's layout and main screens:
+
+{% include f.html f=6 %}
+{% include f.html f=7 %}
+{% include f.html f=8 %}
 
 ### Architecture
 

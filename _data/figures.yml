@@ -11,13 +11,25 @@
   type: iPhone
 
 - src: /img/relaxation-reminder.png
-  caption: Relaxation Reminder Screen
+  caption: Relaxation reminder screen
   type: iPhone
 
 - src: /img/reflection-reminder.png
-  caption: Reflection Reminder Screen
+  caption: Reflection reminder screen
   type: iPhone
 
 - src: /img/welcome.png
-  caption: Welcome Tutorial
+  caption: Welcome tutorial
   type: iPhone
+
+- src: /img/wireframes/learn.jpg
+  caption: Learn wireframe
+  type: wireframe
+
+- src: /img/wireframes/relax.jpg
+  caption: Relax wireframe
+  type: wireframe
+
+- src: /img/wireframes/reflect.jpg
+  caption: Reflect wireframe
+  type: wireframe
