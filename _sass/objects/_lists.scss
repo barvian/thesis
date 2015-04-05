@@ -47,7 +47,7 @@
   &::before {
     @extend %h5;
 
-    border-right: 1.5px solid $light;
+    border-right: 1.5px solid $dark;
     content: counter(ol, decimal-leading-zero);
     margin-right: size(spacing) / 2;
     padding-right: size(spacing) / 2;

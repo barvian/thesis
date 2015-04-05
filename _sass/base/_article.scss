@@ -2,6 +2,9 @@
 // =======
 
 article {
+  section {
+    @extend %#{$u-}clearfix;
+  }
 }
 
 [data-section] {
