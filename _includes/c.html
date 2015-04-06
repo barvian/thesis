@@ -33,6 +33,7 @@
     {{ year }}
   {% endif %}
   {% if include.p %}
-    ,&#32;p&#32;{{ include.p }}
+    {% if include.a != false or include.y != false %},&#32;{% endif %}
+    p&#32;{{ include.p }}
   {% endif %}
 {% endcapture %}<cite>(<a href="#reference-{{ include.r }}">{{ c | strip_newlines | remove: ' ' }}</a>)</cite>
