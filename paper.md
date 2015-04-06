@@ -161,15 +161,17 @@ Surprisingly, these were the only wireframes I ever created for this application
 
 Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As I would be doing the development work myself, however, I skipped this step and designed most of the screens as I coded the application, only using a graphic editing program ([Sketch](http://bohemiancoding.com/sketch/)) to create specific visual assets I needed as I went along.  This is the layout I ultimately arrived at:
 
-<div class="o-layout o-wrapper__wider">
-	<div class="o-layout__item o-1/3">
-		{% include f.html f=9 %}
-	</div><!--
-	--><div class="o-layout__item o-1/3">
-		{% include f.html f=10 %}
-	</div><!--
-	--><div class="o-layout__item o-1/3">
-		{% include f.html f=11 %}
+<div class="o-wrapper__wider">
+	<div class="o-layout">
+		<div class="o-layout__item o-1/3">
+			{% include f.html f=9 %}
+		</div><!--
+		--><div class="o-layout__item o-1/3">
+			{% include f.html f=10 %}
+		</div><!--
+		--><div class="o-layout__item o-1/3">
+			{% include f.html f=11 %}
+		</div>
 	</div>
 </div>
 
@@ -179,21 +181,23 @@ The application is divided into three primary actions: "Learn", "Relax", and "Re
 
 When a user launches the app for the first time after downloading they're greeted with the following onboarding tutorial:
 
-<div class="o-layout o-wrapper__wider">
-	<div class="o-layout__item o-1/5">
-		{% include f.html f=12 %}
-	</div><!--
-	--><div class="o-layout__item o-1/5">
-		{% include f.html f=13 %}
-	</div><!--
-	--><div class="o-layout__item o-1/5">
-		{% include f.html f=5 %}
-	</div><!--
-	--><div class="o-layout__item o-1/5">
-		{% include f.html f=14 %}
-	</div><!--
-	--><div class="o-layout__item o-1/5">
-		{% include f.html f=15 %}
+<div class="o-wrapper__wider">
+	<div class="o-layout">
+		<div class="o-layout__item o-1/5">
+			{% include f.html f=12 %}
+		</div><!--
+		--><div class="o-layout__item o-1/5">
+			{% include f.html f=13 %}
+		</div><!--
+		--><div class="o-layout__item o-1/5">
+			{% include f.html f=5 %}
+		</div><!--
+		--><div class="o-layout__item o-1/5">
+			{% include f.html f=14 %}
+		</div><!--
+		--><div class="o-layout__item o-1/5">
+			{% include f.html f=15 %}
+		</div>
 	</div>
 </div>
 
@@ -232,11 +236,11 @@ The background color of this tab is light blue, chosen for its calming propertie
 
 ##### Relax tab
 
-This tab represents the second core feature from the section above.  Because of its importance, this tab is selected by default when the user launches the application (except in certain situations).
+This tab represents the second core feature from the section above.  Because of its importance, this tab is selected by default when the user launches the application (except in certain situations). The background color of this tab is a vibrant blue, chosen for its relaxing properties {% include c.html r=4 %} and to distinguish between the lighter blue of the Learn tab.
 
 {% include f.html f=24 align="right" %}
 
-There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed in the top because this seemed to align with Apple's placement of similar controls, as seen with the icon in Reminders.app ({% include fr.html f=24 %}).
+There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed at the top because the tab bar occupies the bottom (an iOS convention) and because this seemed to align with Apple's placement of similar controls, as seen with the "Scheduled" icon in Reminders.app ({% include fr.html f=24 %}).  When tapped ({% include fr.html f=22 %}), this icon opens the view in {% include fr.html f=23 %}, which lets the user toggle the daily relaxation reminder and change its time.  Changes to these settings are saved automatically, so this view can be dismissed by tapping anywhere else on the screen.
 
 <div class="c-flow">
 	<div class="c-flow__item">
@@ -246,6 +250,8 @@ There are two UI elements on this screen: a notification icon at the top and a m
 		{% include f.html f=23 %}
 	</div>
 </div>
+
+The mood picker is the primary focus of this screen, as it allows the user to launch an appropriate relaxation exercise, so it was vertically centered.  This picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one, a similar view appears for them to determine the duration of their relaxation session.
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -261,7 +267,7 @@ There are two UI elements on this screen: a notification icon at the top and a m
 	</div>
 </div>
 
-The background color of this tab is a vibrant blue, chosen for its relaxing properties {% include c.html r=4 %} and to distinguish between the lighter blue of the Learn tab.
+Thing
 
 ##### Reflect tab
 
@@ -366,12 +372,14 @@ This class was used exclusively in the Reflect tab; the scrolling timeline fetch
 
 In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  I'm not keen on this pattern; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  I found it more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
 
-<div class="o-layout o-wrapper__wide">
-	<div class="o-layout__item o-1/2">
-		{% include f.html f=3 %}
-	</div><!--
-	--><div class="o-layout__item o-1/2">
-		{% include f.html f=4 %}
+<div class="o-wrapper__wide">
+	<div class="o-layout">
+		<div class="o-layout__item o-1/2">
+			{% include f.html f=3 %}
+		</div><!--
+		--><div class="o-layout__item o-1/2">
+			{% include f.html f=4 %}
+		</div>
 	</div>
 </div>
 

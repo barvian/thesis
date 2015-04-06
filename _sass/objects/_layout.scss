@@ -33,9 +33,8 @@ $layout-gutter: size(spacing) !default;
 @include b(#{$o-}layout) {
   @extend %flush;
 
-  left: -$layout-gutter;
   list-style: none;
-  position: relative;
+  margin-left: -$layout-gutter;
 
   @include e(item) {
     display: inline-block;
