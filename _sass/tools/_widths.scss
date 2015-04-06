@@ -2,10 +2,12 @@
 // ======
 
 @mixin widths($max, $prefix: null) {
+  %#{$prefix}width { /* placeholder */ }
   @for $denom from 1 through $max {
     @for $num from 1 through $denom {
       $gcd: gcd($num, $denom);
       .#{$prefix}#{$num}\/#{$denom} {
+        @extend %#{$prefix}width;
         @if $gcd > 1 {
           @extend .#{$prefix}#{$num / $gcd}\/#{$denom / $gcd};
         } @else {

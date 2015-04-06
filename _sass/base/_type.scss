@@ -84,6 +84,10 @@ h6 { @extend %h6; }
 // Misc
 // ----
 
+.counter {
+  @extend %sans;
+}
+
 .lead {
   font-size: size(large);
   padding-left: size(large);
