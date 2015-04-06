@@ -64,6 +64,8 @@
 
 %h5 {
   font-size: size(base);
+
+  @include trailing(size(base));
 }
 
 %h6 {
