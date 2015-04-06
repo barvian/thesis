@@ -173,9 +173,29 @@ Traditionally, a designer at this point would likely create a few high-fidelity 
 	</div>
 </div>
 
-Tab choice
+The application is divided into three primary actions: "Learn", "Relax", and "Reflect", each representing one of the core features described above.  A tab layout was used in accordance to the iOS HIG, which prefers a tab bar “to support a flat information architecture” {% include c.html r=6 a=false p="49" %}.  The tab icons were taken from [the NounProject](https://thenounproject.com), used with permission.
 
 ##### Onboarding
+
+When a user launches the app for the first time after downloading they're greeted with the following onboarding tutorial:
+
+<div class="o-layout o-wrapper__wider">
+	<div class="o-layout__item o-1/5">
+		{% include f.html f=12 %}
+	</div><!--
+	--><div class="o-layout__item o-1/5">
+		{% include f.html f=13 %}
+	</div><!--
+	--><div class="o-layout__item o-1/5">
+		{% include f.html f=5 %}
+	</div><!--
+	--><div class="o-layout__item o-1/5">
+		{% include f.html f=14 %}
+	</div><!--
+	--><div class="o-layout__item o-1/5">
+		{% include f.html f=15 %}
+	</div>
+</div>
 
 Yadda yadda
 
@@ -314,9 +334,7 @@ Each tab's view controller creates an instance of this view, configures it using
 
 Besides the aforementioned point of separating view-related concerns into their own `UIView` subclasses, I used `UIViewController`s in a seemingly traditional way throughout this application.  Each individual screen, including each tab, the new reflection modal, the relaxation exercises, etc. are represented with one `UIViewController`, which creates and manages its subviews and occasionally interfaces with the Realm database.
 
-Beyond these, I created a custom `UIViewController` subclass named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. I used this class for the welcome tutorial screen, shown in {% include fr.html f=5 %}, and the calming scene relaxation exercise.
-
-{% include f.html f=5 %}
+Beyond these, I created a custom `UIViewController` subclass named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. I used this class for the welcome tutorial and the calming scene relaxation exercise shown above.
 
 I also created a protocol named `FullScreenController` that's implemented by almost every controller in the application.  This protocol, and its accompanying global methods, manages various portions of the user interface to accommodate single-color backgrounds.  For example, in each of the three main tabs, this protocol ensures the tab bar background, the status bar background, and (sometimes) the navigation bar background all match the controller's primary color.  This creates the effect that each screen's elements are "floating" atop a solid background color.  Unlike the `SlidingViewController`, I chose to use a protocol instead of a subclass for this feature because I wanted to be able to implement it on any subclass of `UIViewController` I wanted.  If I made `FullScreenController` a subclass, I'd have to also create accompanying `FullScreenTabBarController`s, `FullScreenNavigationController`s, and `FullScreenTableViewController`s, just to name a few.  Unfortunately, Swift lacks mix-in functionality that's found in languages like Ruby, but I saw this "protocol-with-global-methods" pattern used repeatedly on many iOS development sites, and it worked quite well for this scenario.
 

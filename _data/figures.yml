@@ -18,8 +18,8 @@
   caption: Reflection reminder screen
   type: iPhone
 
-- src: /img/welcome.png
-  caption: Welcome tutorial
+- src: /img/onboarding/tutorial.png
+  caption: Onboarding tutorial page
   type: iPhone
 
 - src: /img/wireframes/learn.jpg
@@ -44,4 +44,20 @@
 
 - src: /img/reflect.png
   caption: Reflect tab
+  type: iPhone
+
+- src: /img/onboarding/welcome.png
+  caption: Onboarding welcome page
+  type: iPhone
+
+- src: /img/onboarding/gad.png
+  caption: Onboarding GAD page
+  type: iPhone
+
+- src: /img/onboarding/reminders.png
+  caption: Onboarding reminder page
+  type: iPhone
+
+- src: /img/onboarding/done.png
+  caption: Onboarding complete page
   type: iPhone
