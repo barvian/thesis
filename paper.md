@@ -214,6 +214,18 @@ Once the user reaches the final slide of the tutorial and taps the "Get Started"
 
 Yadda yadda
 
+<div class="o-layout o-layout--center o-layout--middle">
+	<div class="o-layout__item o-1/3">
+		{% include f.html f=16 %}
+	</div><!--
+	--><div class="o-layout__item">
+		{% include svg/flow.svg %}
+	</div><!--
+	--><div class="o-layout__item o-1/3">
+		{% include f.html f=17 %}
+	</div>
+</div>
+
 ##### Relax tab
 
 Yadda yadda

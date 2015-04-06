@@ -41,11 +41,25 @@ $layout-gutter: size(spacing) !default;
     display: inline-block;
     padding-left: $layout-gutter;
     vertical-align: top;
-    width: 100%;
+    // width: 100%;
 
     > figure {
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  @include m(center) {
+    text-align: center;
+
+    @include e(item) {
+      text-align: left;
+    }
+  }
+
+  @include m(middle) {
+    @include e(item) {
+      vertical-align: middle;
     }
   }
 }

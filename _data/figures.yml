@@ -61,3 +61,11 @@
 - src: /img/onboarding/done.png
   caption: Onboarding complete page
   type: iPhone
+
+- src: /img/learn-tap.png
+  caption: User taps reading
+  type: iPhone
+
+- src: /img/reading.png
+  caption: Reading
+  type: iPhone
