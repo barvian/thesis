@@ -206,7 +206,7 @@ Onboarding tutorials like this are a kind of gray area in iOS app design.  At be
 The onboarding screen itself was then designed with Apple's guidelines in mind. Specifically, the HIG instructs:
 
 * “**Give users only the information they need to get started**” {% include c.html r=6 a=false y=false p="38" %}  
-The screens included in the final application were deemed most important for first launch.  A brief description of GAD, {% include fr.html f=13 %}, was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was given in {% include fr.html f=9 %}. The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder - which ideally would be set to the user's normal waking time - felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
+The screens included in the final application were deemed most important for first launch.  A brief description of GAD, {% include fr.html f=13 %}, was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was given in {% include fr.html f=9 %}. The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder -- which ideally would be set to the user's normal waking time -- felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
 * “**Use animation and interactivity to engage users and help them learn by doing**” {% include c.html r=6 a=false p="38" %}  
 Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=5 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
 * “**Make it easy to dismiss or skip the onboarding experience**” {% include c.html r=6 a=false y=false p="39" %}  
@@ -251,7 +251,7 @@ There are two UI elements on this screen: a notification icon at the top and a m
 	</div>
 </div>
 
-The mood picker is the primary focus of this screen, as it allows the user to launch an appropriate relaxation exercise, so it was vertically centered.  This picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one, a similar view appears for them to determine the duration of their relaxation session.
+The mood picker is the primary focus of this screen, as it allows the user to launch an appropriate relaxation exercise, so it was vertically centered.  This picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears for them to determine the duration of their relaxation session. Once the user selects one ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}).
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -297,7 +297,7 @@ I didn't up using Async nearly as much as I anticipated. In fact, I only used it
 
 ##### SDCloudUserDefaults
 
-Though I only save two pieces of user data in this application - whether the user has seen the welcome tutorial and their previously viewed scene in the Calming Scene relaxation exercise - this library was absolutely painless to incorporate into the application, especially with Swift's extension system discussed below.  If nothing else, it guarantees that a user with iCloud enabled won't view the welcome tutorial more than once, and that's reason enough to include such a small library in my opinion.
+Though I only save two pieces of user data in this application -- whether the user has seen the welcome tutorial and their previously viewed scene in the Calming Scene relaxation exercise -- this library was absolutely painless to incorporate into the application, especially with Swift's extension system discussed below.  If nothing else, it guarantees that a user with iCloud enabled won't view the welcome tutorial more than once, and that's reason enough to include such a small library in my opinion.
 
 ##### Realm
 
