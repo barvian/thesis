@@ -1,5 +1,6 @@
 ---
 layout: essay
+permalink: /
 ---
 
 ## Background
@@ -98,14 +99,14 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 ### Ideation
 
-Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application.  The topic
+Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application.  From here, however, the topic came quite naturally.  Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal while trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some self-help applications were to me, so I felt this project could be an incredible opportunity to help others recover as well.  It had a far greater sense of meaning to me than any of the other ideas I considered at the time, and as soon as I began researching I felt confident I had made the right choice.
 
 #### Core features 
 
-One of the first steps I took in brainstorming this application was to create a list of essential functions that my application would need to guide a user through the anxiety recovery process.  Based primarily on the background research I'd conducted, I settled on three core features:
+One of the first steps I took in brainstorming this application was to create a list of essential functions it would need to guide a user through the anxiety recovery process.  Based primarily on the background research I'd conducted, I settled on three core features:
 
 1. ##### Reading materials
-This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide user's through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to keep using it.
+This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to keep using it.
 1. ##### Immediate symptom relief
 This feature was self-explanatory.  Any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
  * Deep breathing
@@ -119,9 +120,11 @@ Normally, such a list might be subject to change as design and development of th
 
 ### Design
 
+I knew before I began that much of the design phase of this application would inevitably overlap with the development phase, as I'd be managing both aspects myself and wouldn't have to rely on a linear process as much as two separate teams dedicated to each task would.  That being said, I did make it a point to perform a few design-related steps before writing any code, as I felt they'd help me focus better during both phases.
+
 #### Goals
 
-Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the design process.
+Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's visual design, I solidified a few goals to keep in mind over the duration of the design process.
 
 1. ##### Be easy to use
 This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
@@ -152,11 +155,11 @@ With the personas, goals, and core features in mind, I began sketching some init
 {% include f.html f=7 %}
 {% include f.html f=8 %}
 
-Surprisingly, these were the only wireframes I ever created for this application.  It's possible I was close-minded to other layouts or approaches considering I'd mentally solidified my feature set above, but I'd like to think I had a clear enough direction at this point to move on from the wireframing stage altogether.  In any case, these wireframes served me well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in the section below.
+Surprisingly, these were the only wireframes I ever created for this application.  It's possible I was close-minded to other layouts or approaches considering I'd mentally solidified my feature set above, but I'd like to think I had a clear enough direction at this point to move on from the wireframing stage altogether.  In any case, these wireframes served me well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in detail in the section below.
 
 #### Final layout
 
-Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As I would be doing the development work myself, however, I skipped this step and designed most of the screens as I coded the application, only designing specific visual assets I needed as I went along.
+Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As I would be doing the development work myself, however, I skipped this step and designed most of the screens as I coded the application, only using a graphic editing program ([Sketch](http://bohemiancoding.com/sketch/)) to create specific visual assets I needed as I went along.  This is the layout I ultimately arrived at:
 
 <div class="o-layout o-wrapper__wider">
 	<div class="o-layout__item o-1/3">
@@ -170,7 +173,23 @@ Traditionally, a designer at this point would likely create a few high-fidelity 
 	</div>
 </div>
 
-The
+Tab choice
+
+##### Onboarding
+
+Yadda yadda
+
+##### Learn tab
+
+Yadda yadda
+
+##### Relax tab
+
+Yadda yadda
+
+##### Reflect tab
+
+Yadda yadda 
 
 ### Architecture
 
@@ -313,11 +332,24 @@ By default, Xcode creates a Git repository for all new projects, so versioning t
 
 ## Testing
 
-Thing
+After the application was complete, user testing was conducted to measure its perceived usefulness and ease of use. Participants were solicited from North Central College's PSY 100 participant pool via the online research credit management system, SONA.  Two sessions of 4 participants were needed with no further prerequisites for participation.  Participants received 1 research credit in exchange for their participation in the study.
+
+### Method
+
+These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form](public/informed-consent.pdf) and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were asked to perform a variety of tasks with the application, such as “write a reflection” or “change the relaxation reminder time”. Participants were encouraged to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](public/debriefing.pdf).
+
+### Results
+
+Pending.
+
+#### Modifications
+
+Pending.
 
 ## Conclusion
 
-and I'm extremely grateful to have found a topic that felt so meaningful to me.
+Overall, I and I'm extremely grateful to have found a topic that felt so meaningful to me.
 
 ### Future work
 
+My primary goal at this point is to continue tweaking the application until I feel comfortable publishing it on the App Store and making it available to all English-speaking iPhone users.  As expected, I 

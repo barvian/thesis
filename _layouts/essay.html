@@ -7,8 +7,10 @@ layout: default
     <h1>Honors Thesis</h1>
   </header>
   
-  {% assign counters = content | replace: '<h2>', '-SECTION-<header><h2><span class="counter">%SECTION%</span>' | replace: '</h2>', '</h2></header>' | replace: '<h3>', '-SUBSECTION-<header><h3><span class="counter">%SECTION%.%SUBSECTION%</span>' | replace: '</h3>', '</h3></header>' | replace: '<h4>', '-SUBSUBSECTION-<header><h4><span class="counter">%SECTION%.%SUBSECTION%.%SUBSUBSECTION%</span>' | replace: '</h4>', '</h4></header>' | replace: '<figure', '-FIGURE-<figure' %}
-  {% assign sections = counters | remove_first: '-SECTION-' | split: '-SECTION-' %}
+  {% assign content = content | replace: '<h2>', '-SECTION-<header><h2><span class="counter">%SECTION%</span>' | replace: '</h2>', '</h2></header>' | replace: '<h3>', '-SUBSECTION-<header><h3><span class="counter">%SECTION%.%SUBSECTION%</span>' | replace: '</h3>', '</h3></header>' | replace: '<h4>', '-SUBSUBSECTION-<header><h4><span class="counter">%SECTION%.%SUBSECTION%.%SUBSUBSECTION%</span>' | replace: '</h4>', '</h4></header>' | replace: '<figure', '-FIGURE-<figure' %}
+  {% capture link %}<a target="_blank" href="{{ site.baseurl }}/public/{% endcapture %}
+  {% assign content = content | replace: '<a href="public/', link %}
+  {% assign sections = content | remove_first: '-SECTION-' | split: '-SECTION-' %}
   {% for section in sections %}
     {% capture s %}{{ forloop.index }}{% endcapture %}
     <section data-section="{{ s }}">
