@@ -17,6 +17,13 @@
     }
   }
 
+  @include m(iPhone-short) {
+    img {
+      width: auto;
+      height: 250px;
+    }
+  }
+
   .counter {
     &::before {
       content: 'Figure ';

@@ -205,11 +205,11 @@ Onboarding tutorials like this are a kind of gray area in iOS app design.  At be
 
 The onboarding screen itself was then designed with Apple's guidelines in mind. Specifically, the HIG instructs:
 
-* “**Give users only the information they need to get started**” {% include c.html r=6 a=false y=false p="38" %}  
+* ###### "Give users only the information they need to get started" {% include c.html r=6 a=false y=false p="38" %}  
 The screens included in the final application were deemed most important for first launch.  A brief description of GAD, {% include fr.html f=13 %}, was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was given in {% include fr.html f=9 %}. The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder -- which ideally would be set to the user's normal waking time -- felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
-* “**Use animation and interactivity to engage users and help them learn by doing**” {% include c.html r=6 a=false p="38" %}  
+* ###### "Use animation and interactivity to engage users and help them learn by doing" {% include c.html r=6 a=false p="38" %}  
 Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=5 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
-* “**Make it easy to dismiss or skip the onboarding experience**” {% include c.html r=6 a=false y=false p="39" %}  
+* ###### "Make it easy to dismiss or skip the onboarding experience" {% include c.html r=6 a=false y=false p="39" %}  
 Apple encourages developers to remember whether a user has viewed the onboarding tutorial to ensure it's only displayed once.  This was implemented during the development phase of the application, discussed in the "Architecture" section below.
 
 Once the user reaches the final slide of the tutorial and taps the "Get Started" button, the tutorial is dismissed and they can begin exploring the application.
@@ -242,12 +242,14 @@ This tab represents the second core feature from the section above.  Because of 
 
 There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed at the top because the tab bar occupies the bottom (an iOS convention) and because this seemed to align with Apple's placement of similar controls, as seen with the "Scheduled" icon in Reminders.app ({% include fr.html f=24 %}).  When tapped ({% include fr.html f=22 %}), this icon opens the view in {% include fr.html f=23 %}, which lets the user toggle the daily relaxation reminder and change its time.  Changes to these settings are saved automatically, so this view can be dismissed by tapping anywhere else on the screen.
 
-<div class="c-flow">
-	<div class="c-flow__item">
-		{% include f.html f=22 %}
-	</div>
-	<div class="c-flow__item">
-		{% include f.html f=23 %}
+<div class="o-wrapper__wide">
+	<div class="c-flow">
+		<div class="c-flow__item">
+			{% include f.html f=22 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=23 %}
+		</div>
 	</div>
 </div>
 
@@ -267,9 +269,69 @@ The mood picker is the primary focus of this screen, as it allows the user to la
 	</div>
 </div>
 
-Thing
+<ol class="c-figure--iPhone-short">
+	<li>
+		<h6>Calming scene exercise</h6>
+		<p>Yeah way</p>
+		{% include f.html f=25 %}
+	</li>
+	<li>
+		<h6>Deep breathing exercise</h6>
+		<p>Nother one</p>
+		<div class="c-flow">
+			<div class="c-flow__item">
+				{% include f.html f=26 %}
+			</div>
+			<div class="c-flow__item">
+				{% include f.html f=27 %}
+			</div>
+			<div class="c-flow__item">
+				{% include f.html f=28 %}
+			</div>
+		</div>
+	</li>
+	<li>
+		<h6>Coping statements exercise</h6>
+		<p>Yeah way</p>
+		{% include f.html f=32 %}
+	</li>
+	<li>
+		<h6>Guided meditation exercise</h6>
+		<p>Nother one</p>
+		<div class="c-flow">
+			<div class="c-flow__item">
+				{% include f.html f=29 %}
+			</div>
+			<div class="c-flow__item">
+				{% include f.html f=30 %}
+			</div>
+			<div class="c-flow__item">
+				{% include f.html f=31 %}
+			</div>
+		</div>
+	</li>
+</ol>
 
 ##### Reflect tab
+
+This tab
+
+<div class="o-wrapper__wider">
+	<div class="c-flow">
+		<div class="c-flow__item">
+			{% include f.html f=33 %}
+		</div>	
+		<div class="c-flow__item">
+			{% include f.html f=34 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=35 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=36 %}
+		</div>
+	</div>
+</div>
 
 Yadda yadda 
 

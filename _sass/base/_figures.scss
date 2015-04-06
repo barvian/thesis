@@ -7,14 +7,30 @@ figure {
   margin-left: size(spacing) * 2;
   margin-right: size(spacing) * 2;
 
-  > a {
+  > a, .imgs > a {
     @extend %#{$u-}invisible-link;
-
-    display: block;
   }
 
   img {
     display: block;
+  }
+
+  .imgs {
+    @extend %horizontal-flush;
+
+    display: table;
+    left: size(spacing) * -1;
+    position: relative;
+    table-layout: fixed;
+    width: 100%;
+
+    @include calc(width, "100% + #{size(spacing)}");
+
+    > a {
+      display: table-cell;
+      padding-left: size(spacing);
+      vertical-align: top;
+    }
   }
 }
 

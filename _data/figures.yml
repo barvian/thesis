@@ -97,3 +97,56 @@
 - src: /img/reminders.app.png
   caption: Reminders.app
   type: iPhone
+
+- src:
+  - /img/calming-scene/1.png
+  - /img/calming-scene/3.png
+  - /img/calming-scene/4.png
+  caption: Calming Scene Meditation exercise
+  type: iPhone
+
+- src: /img/deep-breathing.png
+  caption: Deep breathing exercise
+  type: iPhone
+
+- src: /img/deep-breathing-tap.png
+  caption: User taps begin button
+  type: iPhone
+
+- src: /img/deep-breathing-started.png
+  caption: Exercise begins
+  type: iPhone
+
+- src: /img/guided-meditation.png
+  caption: Guided meditation exercise
+  type: iPhone
+
+- src: /img/guided-meditation-tap.png
+  caption: User taps play button
+  type: iPhone
+
+- src: /img/guided-meditation-started.png
+  caption: Exercise begins
+  type: iPhone
+
+- src:
+  - /img/coping-statements/1.png
+  - /img/coping-statements/2.png
+  caption: Coping statements exercise
+  type: iPhone
+
+- src: /img/reflect-tap.png
+  caption: User taps reflect button
+  type: iPhone
+
+- src: /img/new-reflection.png
+  caption: New reflection screen appears
+  type: iPhone
+
+- src: /img/new-reflection-done.png
+  caption: User taps Done button on keyboard
+  type: iPhone
+
+- src: /img/reflection-added.png
+  caption: Reflection is added to timeline
+  type: iPhone
