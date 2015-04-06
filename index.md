@@ -98,11 +98,30 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 ### Ideation
 
-Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application. 
+Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application.  The topic
+
+#### Core features 
+
+One of the first steps I took in brainstorming this application was to create a list of essential functions that my application would need to guide a user through the anxiety recovery process.  Based primarily on the background research I'd conducted, I settled on three core features:
+
+1. ##### Reading materials
+This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide user's through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to keep using it.
+1. ##### Immediate symptom relief
+This feature was self-explanatory.  Any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
+ * Deep breathing
+ * Calming scene (i.e. a video/image of a peaceful landscape)
+ * Guided meditation
+ * Coping statements
+1. ##### Long-term shift towards positivity
+Since the previous feature covered the CBT aspect of anxiety recovery, I knew I wanted to include a Positive Psychology aspect into my application.  Again, much of the research literature seemed to agree that the most helpful technique for overcoming relapses is to keep a daily journal of positive events, no matter how trivial.  I felt this could easily be incorporated into my application.
+
+Normally, such a list might be subject to change as design and development of the application progresses; features could be deemed unnecessary or priorities could shift to include new ones.  With my extremely limited timeframe, however, I knew I wouldn't want to deal with a growing feature set in the later stages of development, and I felt having such a short list would keep me focused on the most important aspects of the application at all times.  As soon as I felt confident in these features, then, I immediately moved on to the visual design phase.
+
+### Design
 
 #### Goals
 
-Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the ideation and design processes.
+Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's design, I solidified a few goals to keep in mind over the duration of the design process.
 
 1. ##### Be easy to use
 This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
@@ -111,13 +130,11 @@ Though I wanted to keep the feature set of this application to a bare minimum, I
 1. ##### Be unobtrusive yet involved
 I felt this was the most important balancing act I'd have to perform when designing the application.  On the one hand, I can speak anecdotally about the importance of consistency when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything feels like it's going smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, I didn't want users to start perceiving the application as an annoyance more than an aid, so I wanted to be mindful of this distinction as much as possible.
 
-After I wrote these down I felt I had a clear enough starting point to begin the design process.
-
-### Design
+After I wrote these down I felt I had a clear enough guide to begin laying out the application.
 
 #### User Personas
 
-To aid in the design process I created {{ site.data.personas | size }} personas as representations of my target audience.  Considering I lacked quantitative user research or any sort of analytics that usually serve as reference points, I used my research of GAD symptoms and recurring personality traits as guidelines instead:
+As an additional aid in the design process I created {{ site.data.personas | size }} personas as representations of my target audience.  Considering I lacked quantitative user research or any sort of analytics that usually serve as reference points, I used my research of GAD symptoms and recurring personality traits as guidelines instead:
 
 <ul class="o-block-list o-box">
 	{% for persona in site.data.personas %}
@@ -135,9 +152,11 @@ With the personas, goals, and core features in mind, I began sketching some init
 {% include f.html f=7 %}
 {% include f.html f=8 %}
 
+Surprisingly, these were the only wireframes I ever created for this application.  It's possible I was close-minded to other layouts or approaches considering I'd mentally solidified my feature set above, but I'd like to think I had a clear enough direction at this point to move on from the wireframing stage altogether.  In any case, these wireframes served me well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in the section below.
+
 #### Final layout
 
-I designed the rest of the screens mostly as I developed the application.
+Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As I would be doing the development work myself, however, I skipped this step and designed most of the screens as I coded the application, only designing specific visual assets I needed as I went along.
 
 <div class="o-layout o-wrapper__wider">
 	<div class="o-layout__item o-1/3">
