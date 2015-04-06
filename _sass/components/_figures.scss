@@ -13,7 +13,7 @@
 
   @include m(iPhone) {
     img {
-      max-height: 480px;
+      width: 320px;
     }
   }
 

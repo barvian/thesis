@@ -73,3 +73,27 @@
 - src: /img/reading-scrolled.png
   caption: User scrolls
   type: iPhone
+
+- src: /img/mood-tap.png
+  caption: User chooses mood
+  type: iPhone
+
+- src: /img/duration-tap.png
+  caption: User chooses duration
+  type: iPhone
+
+- src: /img/calming-scene.png
+  caption: Appropriate relaxation exercise(s) opens
+  type: iPhone
+
+- src: /img/relaxation-reminder-tap.png
+  caption: User taps reminder icon
+  type: iPhone
+
+- src: /img/relaxation-reminder.png
+  caption: Time picker opens
+  type: iPhone
+
+- src: /img/reminders.app.png
+  caption: Reminders.app
+  type: iPhone

@@ -232,7 +232,36 @@ The background color of this tab is light blue, chosen for its calming propertie
 
 ##### Relax tab
 
-Yadda yadda
+This tab represents the second core feature from the section above.  Because of its importance, this tab is selected by default when the user launches the application (except in certain situations).
+
+{% include f.html f=24 align="right" %}
+
+There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed in the top because this seemed to align with Apple's placement of similar controls, as seen with the icon in Reminders.app ({% include fr.html f=24 %}).
+
+<div class="c-flow">
+	<div class="c-flow__item">
+		{% include f.html f=22 %}
+	</div>
+	<div class="c-flow__item">
+		{% include f.html f=23 %}
+	</div>
+</div>
+
+<div class="o-wrapper__wide">
+	<div class="c-flow">
+		<div class="c-flow__item">
+			{% include f.html f=19 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=20 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=21 %}
+		</div>
+	</div>
+</div>
+
+The background color of this tab is a vibrant blue, chosen for its relaxing properties {% include c.html r=4 %} and to distinguish between the lighter blue of the Learn tab.
 
 ##### Reflect tab
 
