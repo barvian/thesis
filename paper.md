@@ -204,7 +204,7 @@ The onboarding screen itself was then designed with Apple's guidelines in mind. 
 * “**Give users only the information they need to get started**” {% include c.html r=6 a=false y=false p="38" %}  
 The screens included in the final application were deemed most important for first launch.  A brief description of GAD, {% include fr.html f=13 %}, was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was given in {% include fr.html f=9 %}. The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder - which ideally would be set to the user's normal waking time - felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
 * “**Use animation and interactivity to engage users and help them learn by doing**” {% include c.html r=6 a=false p="38" %}  
-Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=9 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
+Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=5 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
 * “**Make it easy to dismiss or skip the onboarding experience**” {% include c.html r=6 a=false y=false p="39" %}  
 Apple encourages developers to remember whether a user has viewed the onboarding tutorial to ensure it's only displayed once.  This was implemented during the development phase of the application, discussed in the "Architecture" section below.
 
@@ -212,19 +212,21 @@ Once the user reaches the final slide of the tutorial and taps the "Get Started"
 
 ##### Learn tab
 
-Yadda yadda
+This tab ({% include fr.html f=9 %}) represents the first core feature from the section above: reading materials.  There are two UI elements on this screen: a button to re-launch the instructions slide from the onboarding tutorial ({% include fr.html f=5 %}) and a table view listing of the available readings.
 
-<div class="o-layout o-layout--center o-layout--middle">
-	<div class="o-layout__item o-1/3">
-		{% include f.html f=16 %}
-	</div><!--
-	--><div class="o-layout__item">
-		{% include svg/flow.svg %}
-	</div><!--
-	--><div class="o-layout__item o-1/3">
-		{% include f.html f=17 %}
+<div class="o-wrapper__wide"><div>
+	<div class="c-flow">
+		<div class="c-flow__item">
+			{% include f.html f=16 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=17 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=18 %}
+		</div>
 	</div>
-</div>
+</div></div>
 
 ##### Relax tab
 

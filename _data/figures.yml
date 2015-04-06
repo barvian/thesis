@@ -67,5 +67,9 @@
   type: iPhone
 
 - src: /img/reading.png
-  caption: Reading
+  caption: Reading opens
+  type: iPhone
+
+- src: /img/reading-scrolled.png
+  caption: User scrolls
   type: iPhone

@@ -1,0 +1,38 @@
+// Flow
+// ====
+
+@include b(#{$c-}flow) {
+  @extend %horizontal-flush;
+
+  box-sizing: content-box;
+  display: table;
+  left: size(spacing) * -3;
+  position: relative;
+  table-layout: fixed;
+  width: 100%;
+
+  @include calc(width, "100% + #{size(spacing) * 3}");
+
+  @include e(item) {
+    display: table-cell;
+    padding-left: size(spacing) * 3;
+    position: relative;
+
+    & + & {
+      &::before {
+        background: url("../img/icons/flow.svg") no-repeat center center;
+        background-size: 100% auto;
+        content: '';
+        height: 100%;
+        left: size(spacing);
+        position: absolute;
+        width: size(spacing);
+      }
+    }
+
+    > figure {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
