@@ -150,3 +150,11 @@
 - src: /img/reflection-added.png
   caption: Reflection is added to timeline
   type: iPhone
+
+- src: /img/reflection-reminder-tap.png
+  caption: User taps reminder icon
+  type: iPhone
+
+- src: /img/reflection-reminder.png
+  caption: Time picker opens
+  type: iPhone

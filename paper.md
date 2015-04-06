@@ -316,6 +316,21 @@ The mood picker is the primary focus of this screen, as it allows the user to la
 
 This tab
 
+works identically
+
+<div class="o-wrapper__wide">
+	<div class="c-flow">
+		<div class="c-flow__item">
+			{% include f.html f=37 %}
+		</div>
+		<div class="c-flow__item">
+			{% include f.html f=38 %}
+		</div>
+	</div>
+</div>
+
+Main button
+
 <div class="o-wrapper__wider">
 	<div class="c-flow">
 		<div class="c-flow__item">
