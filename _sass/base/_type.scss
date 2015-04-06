@@ -51,7 +51,7 @@
 }
 
 %h3 {
-  font-size: size(spacing);
+  font-size: size(large);
 
   .counter {
     border-bottom: 2px solid currentColor;
@@ -59,10 +59,14 @@
 }
 
 %h4 {
-  font-size: size(base);
+  font-size: size(medium);
 }
 
 %h5 {
+  font-size: size(base);
+}
+
+%h6 {
   font-size: size(small);
 
   @include trailing(size(small));
@@ -73,6 +77,7 @@ h2 { @extend %h2; }
 h3 { @extend %h3; }
 h4 { @extend %h4; }
 h5 { @extend %h5; }
+h6 { @extend %h6; }
 
 // Misc
 // ----
