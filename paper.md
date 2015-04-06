@@ -212,9 +212,9 @@ Once the user reaches the final slide of the tutorial and taps the "Get Started"
 
 ##### Learn tab
 
-This tab ({% include fr.html f=9 %}) represents the first core feature from the section above: reading materials.  There are two UI elements on this screen: a button to re-launch the instructions slide from the onboarding tutorial ({% include fr.html f=5 %}) and a table view listing of the available readings.
+This tab ({% include fr.html f=9 %}) represents the first core feature from the section above: reading materials.  There are two UI elements on this screen: a button to re-launch the instructions slide from the onboarding tutorial ({% include fr.html f=5 %}) and a table view listing of the available readings.  A table view was selected to display this information per the iOS HIG, which recommends the control to "provide a list of options from which users can select" and "display hierarchical data" {% include c.html r=6 a=false p="337" %}.  The readings are excerpts from [Bourne](#reference-0) and the [National Institute of Mental Health](#reference-3).  When a user taps one of the available readings ({% include fr.html f=16 %}), an expanded reading view opens ({% include fr.html f=17 %}).  As the user scrolls to begin reading, the navigation bar and status bar disappears to support a full-screen presentation ({% include fr.html f=18 %}).  These elements reappear when the user scrolls back up, allowing him/her to return to the Learn tab.
 
-<div class="o-wrapper__wide"><div>
+<div class="o-wrapper__wide">
 	<div class="c-flow">
 		<div class="c-flow__item">
 			{% include f.html f=16 %}
@@ -226,7 +226,9 @@ This tab ({% include fr.html f=9 %}) represents the first core feature from the 
 			{% include f.html f=18 %}
 		</div>
 	</div>
-</div></div>
+</div>
+
+The background color of this tab is light blue, chosen for its calming properties {% include c.html r=4 %} and suitability for dark foreground text.
 
 ##### Relax tab
 
