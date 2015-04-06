@@ -197,7 +197,18 @@ When a user launches the app for the first time after downloading they're greete
 	</div>
 </div>
 
-Yadda yadda
+Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  I heeded their advice, ultimately deciding a brief welcome/instruction screen would be beneficial considering the nature of this application.  In accordance with one of my goals, I wanted to offer a guided recovery program for these users even from first launch, and felt I could do better than the default screen (the "Relax" tab) in this regard.
+
+The onboarding screen itself was then designed with Apple's guidelines in mind. Specifically, the HIG instructs:
+
+* “**Give users only the information they need to get started**” {% include c.html r=6 a=false p="38" %}  
+The screens included in the final application were deemed most important for first launch.  A brief description of GAD, {% include fr.html f=13 %}, was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was given in {% include fr.html f=9 %}. The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder - which ideally would be set to the user's normal waking time - felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
+* “**Use animation and interactivity to engage users and help them learn by doing**” {% include c.html r=6 a=false p="38" %}  
+Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=9 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false p="49" %} to allow users to swipe back and forth between slides.
+* “**Make it easy to dismiss or skip the onboarding experience**” {% include c.html r=6 a=false p="39" %}  
+Apple encourages developers to remember whether a user has viewed the onboarding tutorial to ensure it's only displayed once.  This was implemented during the development phase of the application, discussed in the "Architecture" section below.
+
+Once the user reaches the final slide of the tutorial and taps the "Get Started" button, the tutorial is dismissed and they can begin exploring the application.
 
 ##### Learn tab
 

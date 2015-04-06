@@ -19,10 +19,10 @@ article {
 
   ol {
     @extend .#{$o-}numbered-list;
-    
-    ul {
-      @extend %tight;
-    }
+  }
+  
+  ul:not([class]) {
+    @extend %tight;
   }
 }
 
