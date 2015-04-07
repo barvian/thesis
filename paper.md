@@ -201,7 +201,7 @@ When a user launches the app for the first time after downloading they're greete
 	</div>
 </div>
 
-Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  I heeded their advice, ultimately deciding a brief welcome/instruction screen would be beneficial considering the nature of this application.  In accordance with one of my goals, I wanted to offer a guided recovery program for these users even from first launch, and felt I could do better than the default screen (the "Relax" tab) in this regard.
+Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  I heeded their advice, ultimately deciding a brief welcome/instruction screen would be beneficial considering the nature of this application.  In accordance with one of my goals, I wanted to offer a guided recovery program for these users even from first launch, and felt I could do better than the default screen (the Relax tab) in this regard.
 
 The onboarding screen itself was then designed with Apple's guidelines in mind. Specifically, the HIG instructs:
 
@@ -253,7 +253,7 @@ There are two UI elements on this screen: a notification icon at the top and a m
 	</div>
 </div>
 
-The mood picker is the primary focus of this screen, as it allows the user to launch an appropriate relaxation exercise, so it was vertically centered.  This picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears for them to determine the duration of their relaxation session. Once the user selects one ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}).
+The mood picker is the primary focus of this screen, as it allows the user to begin the relaxation process.  The picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears underneath for them to determine the duration of their relaxation session. Once the user selects one ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}) and the user can begin relaxing.
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -269,15 +269,18 @@ The mood picker is the primary focus of this screen, as it allows the user to la
 	</div>
 </div>
 
+As discussed in a previous section, there are four relaxation exercises included in this application.  Depending on the user's choice of mood and duration, a relaxation session can consist of 1-3 exercises.  Each exercise has instructions at the top and a progress button at the bottom; if the current exercise is the only or final exercise in the sequence, this button is labelled "Done" and tapping it will return to the Relax tab.  Otherwise, this button is labelled "Next" and tapping it advances to the next exercise.  The relaxation exercises are determined in accordance with the guidelines from Bourne {% include c.html r=0 a=false %}, discussed in detail below:
+
 <ol class="c-figure--iPhone-short">
 	<li>
 		<h6>Calming scene exercise</h6>
-		<p>Yeah way</p>
+		<p>This exercise is prioritized for less anxious moods, and as such was designed to convey a more playful, lighthearted attitude.  It displays a full-screen looping video of a calming landscape which pans automatically if the user tilts their iPhone left or right.  The user can also swipe left or right to change to any of the 5 included landscapes, and the application will remember which one they viewed last to display the next time they use the exercise.</p>
 		{% include f.html f=25 %}
+		<p>The instruction text will fade out automatically after a brief interval, but the user can tap anywhere on the screen to make it reappear as desired.</p>
 	</li>
 	<li>
 		<h6>Deep breathing exercise</h6>
-		<p>Nother one</p>
+		<p>This exercise is prioritized for more anxious states, driven by a single button that guides the user through a deep abdomen breathing procedure.  When the user first taps the "Begin" button, the button's label changes to instructions while the button itself grows or shrinks as an additional visual aid.</p>
 		<div class="c-flow">
 			<div class="c-flow__item">
 				{% include f.html f=26 %}
@@ -289,15 +292,17 @@ The mood picker is the primary focus of this screen, as it allows the user to la
 				{% include f.html f=28 %}
 			</div>
 		</div>
+		<p>The user can pause the exercise by tapping on the button again. The instruction text functions the same as in the Calming Scene exercise; disappearing automatically and reappearing on tap.</p>
 	</li>
 	<li>
 		<h6>Coping statements exercise</h6>
-		<p>Yeah way</p>
+		<p>This is the simplest yet most helpful exercise for anxious mental states.  It displays a list of coping statements, taken mostly from Bourne {% include c.html r=0 a=false p="417-418" %}, that the user is encouraged to mentally repeat to create a feeling of acceptance, noting how the instinct to resist an anxious episode only makes it more unpleasant.  The user can scroll this list freely and focus on any statement that he/she finds most relevant.</p>
 		{% include f.html f=32 %}
+		<p>Due to its importance in these scenarios, it's always the first exercise whenever the user chooses the most anxious mood in the picker.</p>
 	</li>
 	<li>
 		<h6>Guided meditation exercise</h6>
-		<p>Nother one</p>
+		<p>This exercise is prioritized for the least anxious moods, as it likely requires the most focus and may not yield as immediate results as the other exercises.  Like the breathing exercise, it consists of a single button to play a guided 10-minute meditation recording.</p>
 		<div class="c-flow">
 			<div class="c-flow__item">
 				{% include f.html f=29 %}
@@ -309,6 +314,7 @@ The mood picker is the primary focus of this screen, as it allows the user to la
 				{% include f.html f=31 %}
 			</div>
 		</div>
+		<p>If the recording is already playing, the button can be used to pause playback, and vice-versa. The instruction text in this exercise behaves exactly the same as in the deep breathing exercise.</p>
 	</li>
 </ol>
 
