@@ -34,15 +34,17 @@
     }
   }
 
-  @include m(left) {
-    clear: left;
-    float: left;
-    margin: size(spacing) size(spacing) size(spacing) -20%;
-  }
+  @include query(screen) {
+    @include m(left) {
+      clear: left;
+      float: left;
+      margin: size(spacing) size(spacing) size(spacing) -20%;
+    }
 
-  @include m(right) {
-    clear: right;
-    float: right;
-    margin: size(spacing) -20% size(spacing) size(spacing);
+    @include m(right) {
+      clear: right;
+      float: right;
+      margin: size(spacing) -20% size(spacing) size(spacing);
+    }
   }
 }

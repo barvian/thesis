@@ -8,6 +8,12 @@ article {
   section {
     @extend %#{$u-}clearfix;
   }
+
+  > footer {
+    @include query(print) {
+      page-break-before: always;
+    }
+  }
 }
 
 [data-section] {
@@ -26,6 +32,12 @@ article {
   
   ul:not([class]) {
     @extend %tight;
+  }
+
+  @include query(print) {
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
 }
 

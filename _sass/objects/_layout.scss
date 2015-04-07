@@ -2,28 +2,27 @@
 // ======
 
 @include b(#{$o-}wrapper) {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 42em;
-  padding-left: size(spacing);
-  padding-right: size(spacing);
 
-  @include m(narrow) {
-    max-width: 800px;
-  }
+  @include query(screen) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42em;
+    padding-left: size(spacing);
+    padding-right: size(spacing);
 
-  @include e(wide) {
-    margin-left: -10%;
-    margin-right: -10%;
-  }
-  
-  @include e(wider) {
-    margin-left: -20%;
-    margin-right: -20%;
-  }
+    @include m(narrow) {
+      max-width: 800px;
+    }
 
-  @include query(print) {
-    max-width: auto;
+    @include e(wide) {
+      margin-left: -10%;
+      margin-right: -10%;
+    }
+    
+    @include e(wider) {
+      margin-left: -20%;
+      margin-right: -20%;
+    }
   }
 }
 

@@ -41,12 +41,16 @@
 
 %h3, %h4 {
   .counter {
-    display: block;
+    display: inline-block;
     font-size: size(small);
     line-height: 1.5;
     margin-right: 0.5em;
-    position: absolute;
-    right: 100%;
+
+    @include query(screen) {
+      display: block;
+      position: absolute;
+      right: 100%;
+    }
   }
 }
 

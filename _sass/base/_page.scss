@@ -16,6 +16,10 @@ html {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @include query(print) {
+    font-size: $ms-base * 0.9;
+  }
 }
 
 @include query(print) {
