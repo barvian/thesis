@@ -2,8 +2,6 @@
 // =======
 
 article {
-  padding-bottom: size(xxlarge) * 2;
-  padding-top: size(xxlarge) * 2;
 
   section {
     @extend %#{$u-}clearfix;
@@ -14,13 +12,15 @@ article {
       page-break-before: always;
     }
   }
+  
+  @include query(screen) {
+    padding-bottom: size(xxlarge) * 2;
+    padding-top: size(xxlarge) * 2;
+  }
 }
 
 [data-section] {
-  @include trailing(size(xxlarge));
-
   border-bottom: 2px solid hsb(0, 0, 92.5);
-  padding-bottom: size(xxlarge);
 
   > header {
     @include trailing(size(xxlarge));
@@ -34,7 +34,16 @@ article {
     @extend %tight;
   }
 
+  @include query(screen) {
+    @include trailing(size(xxlarge));
+  
+    padding-bottom: size(xxlarge);
+  }
+
   @include query(print) {
+    page-break-before: always;
+    padding-top: size(xxlarge)*2;
+
     &:last-of-type {
       border-bottom: none;
     }

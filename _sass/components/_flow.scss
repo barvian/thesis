@@ -4,7 +4,6 @@
 @include b(#{$c-}flow) {
   @extend %horizontal-flush;
 
-  box-sizing: content-box;
   display: table;
   left: size(spacing) * -3;
   position: relative;
