@@ -8,5 +8,9 @@ a {
 
   &[href^="#"] {
     border-bottom-style: dashed;
+
+    @include query(print) {
+      border-bottom: none;
+    }
   }
 }
