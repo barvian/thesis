@@ -238,9 +238,11 @@ The background color of this tab is light blue, chosen for its calming propertie
 
 This tab represents the second core feature from the section above.  Because of its importance, this tab is selected by default when the user launches the application (except in certain situations). The background color of this tab is a vibrant blue, chosen for its relaxing properties {% include c.html r=4 %} and to distinguish between the lighter blue of the Learn tab.
 
-{% include f.html f=24 align="right" %}
+There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed at the top because the tab bar occupies the bottom (an iOS convention) and because this seemed to align with Apple's placement of similar controls, as seen with the "Scheduled" icon in Reminders.app ({% include fr.html f=24 %}):
 
-There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed at the top because the tab bar occupies the bottom (an iOS convention) and because this seemed to align with Apple's placement of similar controls, as seen with the "Scheduled" icon in Reminders.app ({% include fr.html f=24 %}).  When tapped ({% include fr.html f=22 %}), this icon opens the view in {% include fr.html f=23 %}, which lets the user toggle the daily relaxation reminder and change its time.  Changes to these settings are saved automatically, so this view can be dismissed by tapping anywhere else on the screen.
+{% include f.html f=24 %}
+
+When tapped ({% include fr.html f=22 %}), the reminder icon opens the view in {% include fr.html f=23 %}, which lets the user toggle the daily relaxation reminder and change its time.  Changes to these settings are saved automatically, so this view can be dismissed by tapping anywhere else on the screen.
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -501,7 +503,7 @@ After the application was complete, user testing was conducted to measure its pe
 
 ### Method
 
-These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form](public/informed-consent.pdf) and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were asked to perform a variety of tasks with the application, such as “write a reflection” or “change the relaxation reminder time”. Participants were encouraged to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](public/debriefing.pdf).
+These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form]({{ site.baseurl }}/public/informed-consent.pdf){:target="_blank"} and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were asked to perform a variety of tasks with the application, such as “write a reflection” or “change the relaxation reminder time”. Participants were encouraged to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form]({{ site.baseurl }}/public/debriefing.pdf){:target="_blank"}.
 
 ### Results
 
@@ -513,8 +515,19 @@ Pending.
 
 ## Conclusion
 
-Overall, I and I'm extremely grateful to have found a topic that felt so meaningful to me.
+The goal of this project was to create an iPhone application that offered users a guided, comprehensive recovery program for GAD through the latest research in Cognitive Behavioral Therapy and Positive Psychology techniques and, ultimately, I feel it was a success. I'm proud and appreciative of all the work I was able to put into this application, and grateful to have found a topic that felt so meaningful to me.  I felt motivated and focused at all steps of the process and I truly look forward to continuing this application's development beyond the Honors program. I learned more about time management, anxiety disorder, iOS design and development, user testing, and project management over the course of this thesis than I ever imagined.
 
 ### Future work
 
-My primary goal at this point is to continue tweaking the application until I feel comfortable publishing it on the App Store and making it available to all English-speaking iPhone users.  As expected, I 
+My primary goal at this point is to continue tweaking the application until I feel comfortable publishing it on the App Store and making it available to all English-speaking iPhone users.  As expected, I saw many opportunities for new features or additional refinements throughout the development process:
+
+1. ##### More engaging onboarding experience
+This was brought up in the Methodology section, but I feel it deserves another mention here.  I didn't feel I had enough time to craft the truly engaging, interactive onboarding experience that Apple strongly recommends in the iOS HIG.  I've not yet determined what such an experience might entail, but I'm confident I could make noticeable improvements to the final version of the tutorial given more time.
+1. ##### Password-protected Reflect tab
+Given the delicate nature of this application, I originally planned to provide the option for a password-protected lock screen upon launch, though ultimately I reasoned the only sensitive data is in the timeline of the Reflect tab.  I think many users might feel a greater sense of security from such a feature.
+1. ##### Relax tab improvements
+Though I was very hesitant to muddle the Relax tab in any way, I feel some positive reinforcement would be a nice touch to encourage consistent daily relaxation.  The aforementioned [Headspace](http://headspace.com) meditation application, for example, rewards users for consecutive days of practice, and I can personally attest to the motivational power of this system.  I think a similar feature would be appropriate for this tab, though I'd want to feel utmost confident that the tab retained its ease of use and simplicity before attempting to change it.
+
+In closing, I'd like to sincerely thank everyone who offered their support to this project, and to the North Central Honors Program for offering this opportunity.
+
+![Signature]({{ site.baseurl }}/img/signature.png)
