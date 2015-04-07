@@ -21,7 +21,7 @@ GAD patients tend to view the world as a threatening place, a misperception that
 
 #### Positive Psychology
 
-Positive psychology is a semi-structured treatment for depression and anxiety that tries to shift patient’s focus towards positive emotions and personal strengths.  Techniques can include daily exercises that emphasize positive experiences or structured journals to record such episodes of wellbeing.  Positive psychology was designed as a complement to more comprehensive methods, like CBT, not a freestanding alternative in its own right.  That being said, studies show that positive psychology (also called Well-Being Therapy) paired with CBT can be more effective at preventing relapse in GAD patients than CBT alone {% include c.html r=1 %}.
+Positive psychology is a semi-structured treatment for depression and anxiety that tries to shift patients' focus towards positive emotions and personal strengths.  Techniques can include daily exercises that emphasize positive experiences or structured journals to record such episodes of wellbeing.  Positive psychology was designed as a complement to more comprehensive methods, like CBT, not a freestanding alternative in its own right.  That being said, studies show that positive psychology (also called Well-Being Therapy) paired with CBT can be more effective at preventing relapse in GAD patients than CBT alone {% include c.html r=1 %}.
 
 ### iOS Design
 
@@ -53,11 +53,11 @@ This [small library](https://github.com/duemunk/Async) provides a more elegant A
 
 > Grand Central Dispatch (GCD) comprises language features, runtime libraries, and system enhancements that provide systemic, comprehensive improvements to the support for concurrent code execution on multicore hardware in iOS and OS X.
 
-The library offers simple block chaining as well, a feature sorely missing from GCD's standard API.
+Async offers simple block chaining as well, a feature sorely missing from GCD's standard API.
 
 #### SDCloudUserDefaults
 
-Traditionally, when developers need to save user preferences in iOS applications they'd rely on Apple's `NSUserDefaults` class, which "provides a programmatic interface for interacting with the defaults system" (according to the [documentation](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/index.html)). With the introduction of iCloud, however, it often became desirable to sync some or all of a user's preferences among all their devices automatically. [This library](https://github.com/sdarlington/SDCloudUserDefaults) promises a simple API for doing exactly that.
+Traditionally, when developers need to save user preferences in iOS applications they'd rely on Apple's `NSUserDefaults` class, which according to the [documentation](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/index.html) "provides a programmatic interface for interacting with the defaults system". With the introduction of iCloud, however, it's become desirable to sync some or all of a user's preferences among all their devices automatically. [This library](https://github.com/sdarlington/SDCloudUserDefaults) promises a simple API for doing exactly that.
 
 #### Realm
 
@@ -99,32 +99,35 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 ### Ideation
 
-Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application.  From here, however, the topic came quite naturally.  Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal while trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some self-help applications were to me, so I felt this project could be an incredible opportunity to help others recover as well.  It had a far greater sense of meaning to me than any of the other ideas I considered at the time, and as soon as I began researching I felt confident I had made the right choice.
+Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application.  From here, however, the topic came quite naturally.  Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal while trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some computer-based applications could be in treating this disorder, so this project felt like an incredible opportunity to create a similar tool to (hopefully) assist others in their own recovery process.  It had a far greater sense of meaning to me than any of the other ideas I considered at the time, and as soon as I began researching I felt confident I had made the right choice.
 
 #### Core features 
 
-One of the first steps I took in brainstorming this application was to create a list of essential functions it would need to guide a user through the anxiety recovery process.  Based primarily on the background research I'd conducted, I settled on three core features:
+One of the first steps I took in brainstorming this application was to create a list of essential functions it would need to guide a user through the anxiety recovery process.  Based primarily on the background research from the previous section, I settled on three core features:
 
 1. ##### Reading materials
-This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to keep using it.
+This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.
 1. ##### Immediate symptom relief
-This feature was self-explanatory.  Any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
+This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
+
  * Deep breathing
  * Calming scene (i.e. a video/image of a peaceful landscape)
  * Guided meditation
  * Coping statements
+
+These will be covered in greater depth in a later section.
 1. ##### Long-term shift towards positivity
-Since the previous feature covered the CBT aspect of anxiety recovery, I knew I wanted to include a Positive Psychology aspect into my application.  Again, much of the research literature seemed to agree that the most helpful technique for overcoming relapses is to keep a daily journal of positive events, no matter how trivial.  I felt this could easily be incorporated into my application.
+Since the previous feature covered the CBT aspect of anxiety recovery, I knew I wanted to include a Positive Psychology aspect into the application as well.  Again, much of the research literature seemed to agree that the most helpful technique for creating such a shift is to keep a daily journal of positive events, no matter how trivial.  I felt this could easily be incorporated into my application.
 
 Normally, such a list might be subject to change as design and development of the application progresses; features could be deemed unnecessary or priorities could shift to include new ones.  With my extremely limited timeframe, however, I knew I wouldn't want to deal with a growing feature set in the later stages of development, and I felt having such a short list would keep me focused on the most important aspects of the application at all times.  As soon as I felt confident in these features, then, I immediately moved on to the visual design phase.
 
 ### Design
 
-I knew before I began that much of the design phase of this application would inevitably overlap with the development phase, as I'd be managing both aspects myself and wouldn't have to rely on a linear process as much as two separate teams dedicated to each task would.  That being said, I did make it a point to perform a few design-related steps before writing any code, as I felt they'd help me focus better during both phases.
+I expected much of the design phase of this application would inevitably overlap with the development phase, as I'd be managing both aspects myself and wouldn't have to rely on a linear process as much as, say, two separate teams dedicated to each task would.  That being said, I did make it a point to perform a few design-related steps before writing any code, as I felt they'd help me better focus during both phases.
 
 #### Goals
 
-Before I started thinking about layout, color palettes, interactions, or any specific detail of the application's visual design, I solidified a few goals to keep in mind over the duration of the design process.
+Before I began considering layout, color palettes, interactions, or any specific detail of the application's visual design, I solidified a few goals to keep in mind over the duration of the design process.
 
 1. ##### Be easy to use
 This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
@@ -137,7 +140,7 @@ After I wrote these down I felt I had a clear enough guide to begin laying out t
 
 #### User Personas
 
-As an additional aid in the design process I created {{ site.data.personas | size }} personas as representations of my target audience.  Considering I lacked quantitative user research or any sort of analytics that usually serve as reference points, I used my research of GAD symptoms and recurring personality traits as guidelines instead:
+As an additional aid in the design process I created {{ site.data.personas | size }} personas as representations of my target audience.  Considering I lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, I used my research of GAD symptoms and recurring personality traits as guidelines instead:
 
 <ul class="o-block-list o-box">
 	{% for persona in site.data.personas %}
@@ -179,7 +182,7 @@ The application is divided into three primary actions: "Learn", "Relax", and "Re
 
 ##### Onboarding
 
-When a user launches the app for the first time after downloading they're greeted with the following onboarding tutorial:
+When a user launches the application for the first time after downloading they're greeted with the following onboarding tutorial:
 
 <div class="o-wrapper__wider">
 	<div class="o-layout">
@@ -203,10 +206,10 @@ When a user launches the app for the first time after downloading they're greete
 
 Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  I heeded their advice, ultimately deciding a brief welcome/instruction screen would be beneficial considering the nature of this application.  In accordance with one of my goals, I wanted to offer a guided recovery program for these users even from first launch, and felt I could do better than the default screen (the Relax tab) in this regard.
 
-The onboarding screen itself was then designed with Apple's guidelines in mind. Specifically, the HIG instructs:
+The tutorial was designed with Apple's guidelines in mind. Specifically, the HIG instructs:
 
 * ###### "Give users only the information they need to get started" {% include c.html r=6 a=false y=false p="38" %}  
-The screens included in the final application were deemed most important for first launch.  A brief description of GAD, {% include fr.html f=13 %}, was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was given in {% include fr.html f=9 %}. The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder -- which ideally would be set to the user's normal waking time -- felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
+The screens included in the final application were deemed most important for first launch.  A brief description of GAD ({% include fr.html f=13 %}) was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was displayed ({% include fr.html f=9 %}). The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder -- which ideally would be set to the user's normal waking time -- felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
 * ###### "Use animation and interactivity to engage users and help them learn by doing" {% include c.html r=6 a=false p="38" %}  
 Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=5 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
 * ###### "Make it easy to dismiss or skip the onboarding experience" {% include c.html r=6 a=false y=false p="39" %}  
@@ -216,7 +219,7 @@ Once the user reaches the final slide of the tutorial and taps the "Get Started"
 
 ##### Learn tab
 
-This tab ({% include fr.html f=9 %}) represents the first core feature from the section above: reading materials.  There are two UI elements on this screen: a button to re-launch the instructions slide from the onboarding tutorial ({% include fr.html f=5 %}) and a table view listing of the available readings.  A table view was selected to display this information per the iOS HIG, which recommends the control to "provide a list of options from which users can select" and "display hierarchical data" {% include c.html r=6 a=false p="337" %}.  The readings are excerpts from [Bourne](#reference-0) and the [National Institute of Mental Health](#reference-3).  When a user taps one of the available readings ({% include fr.html f=16 %}), an expanded reading view opens ({% include fr.html f=17 %}).  As the user scrolls to begin reading, the navigation bar and status bar disappears to support a full-screen presentation ({% include fr.html f=18 %}).  These elements reappear when the user scrolls back up, allowing him/her to return to the Learn tab.
+This tab ({% include fr.html f=9 %}) represents the first core feature from the section above: reading materials.  There are two UI elements on this screen: a button to re-launch the instructions slide from the onboarding tutorial ({% include fr.html f=5 %}) and a table view listing of the available readings.  A table view was selected to display this information per the iOS HIG, which recommends the control to "provide a list of options from which users can select" and "display hierarchical data" {% include c.html r=6 a=false p="337" %}.  The readings are excerpts from [Bourne](#reference-0) and the [National Institute of Mental Health](#reference-3).  When a user taps one of the available readings ({% include fr.html f=16 %}), an expanded reading view opens ({% include fr.html f=17 %}).  As the user scrolls to begin reading, the navigation bar and status bar disappear to support a full-screen presentation ({% include fr.html f=18 %}).  These elements reappear when the user scrolls back up, allowing him/her to return to use the standard navigation buttons to return to the Learn tab.
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -255,7 +258,7 @@ When tapped ({% include fr.html f=22 %}), the reminder icon opens the view in {%
 	</div>
 </div>
 
-The mood picker is the primary focus of this screen, as it allows the user to begin the relaxation process.  The picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears underneath for them to determine the duration of their relaxation session. Once the user selects one ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}) and the user can begin relaxing.
+The mood picker is the primary focus of this screen, as it allows the user to begin the relaxation process.  The picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears underneath for him/her to determine the duration of their relaxation session. Once the user selects one ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}) and the user can begin relaxing.
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -276,9 +279,9 @@ As discussed in a previous section, there are four relaxation exercises included
 <ol class="c-figure--iPhone-short">
 	<li>
 		<h6>Calming scene exercise</h6>
-		<p>This exercise is prioritized for less anxious moods, and as such was designed to convey a more playful, lighthearted attitude.  It displays a full-screen looping video of a calming landscape which pans automatically if the user tilts their iPhone left or right.  The user can also swipe left or right to change to any of the 5 included landscapes, and the application will remember which one they viewed last to display the next time they use the exercise.</p>
+		<p>This exercise is prioritized for less anxious moods, and as such was designed to convey a more playful, lighthearted attitude.  It displays a full-screen looping video of a calming landscape which pans automatically if the user tilts their device left or right.  The user can also swipe left or right to change to any of the 5 included landscapes, and the application will remember which one they viewed last to display the next time they use the exercise.</p>
 		{% include f.html f=25 %}
-		<p>The instruction text will fade out automatically after a brief interval, but the user can tap anywhere on the screen to make it reappear as desired.</p>
+		<p>The instruction text will fade out automatically after a brief interval, but the user can tap anywhere on the screen to make it reappear if desired.</p>
 	</li>
 	<li>
 		<h6>Deep breathing exercise</h6>
@@ -298,7 +301,7 @@ As discussed in a previous section, there are four relaxation exercises included
 	</li>
 	<li>
 		<h6>Coping statements exercise</h6>
-		<p>This is the simplest yet most helpful exercise for anxious mental states.  It displays a list of coping statements, taken mostly from Bourne {% include c.html r=0 a=false p="417-418" %}, that the user is encouraged to mentally repeat to create a feeling of acceptance, noting how the instinct to resist an anxious episode only makes it more unpleasant.  The user can scroll this list freely and focus on any statement that he/she finds most relevant.</p>
+		<p>This is the simplest yet most beneficial exercise for anxious mental states.  It displays a list of coping statements, taken mostly from Bourne {% include c.html r=0 a=false p="417-418" %}, that the user is encouraged to mentally repeat to create a feeling of acceptance, understanding that the instinct to resist an anxious episode only makes it more unpleasant.  The user can scroll this list freely and focus on any statement that he/she finds most relevant.</p>
 		{% include f.html f=32 %}
 		<p>Due to its importance in these scenarios, it's always the first exercise whenever the user chooses the most anxious mood in the picker.</p>
 	</li>
@@ -386,7 +389,7 @@ Though I only save two pieces of user data in this application -- whether the us
 
 ##### Realm
 
-I hardly used Realm to its full extent, only relying on it to persistently store one model of data and only querying the database from one controller, but I was thoroughly impressed with its ease of use. I have no experience with Core Data, so I won't bother to compare its API with Realm's, but judging from what I've read in Apple documentation it undoubtedly takes some time to familiarize oneself with Core Data enough to comfortably incorporate it into a project.  With Realm, on the other hand, I was able to create and query a model within minutes of installing the CocoaPod.
+I hardly used Realm to its full extent, only relying on it to persistently store one model of data and only querying the database from one controller, but I was thoroughly impressed with its ease of use. I have no experience with Core Data, so I won't bother to compare its API with Realm's, but judging from what I've read in Apple's documentation it undoubtedly takes some time to familiarize oneself with Core Data enough to comfortably incorporate it into a project.  With Realm, on the other hand, I was able to create and query a model within minutes of installing the CocoaPod.
 
 ##### SSDynamicText
 
@@ -451,7 +454,7 @@ class Reflection: RLMObject {
 }
 ~~~
 
-This class was used exclusively in the Reflect tab; the scrolling timeline fetches all entries within the previous month and the new reflection screen creates a new `Reflection` object based the user's input.  Other sources of persistent data, like the readings in the Learn tab, are stored in files rather than the Realm database.
+This class was used exclusively in the Reflect tab; the scrolling timeline fetches all entries within the previous month and the New Reflection screen creates a `Reflection` object based the user's input.  Other sources of persistent data, like the readings in the Learn tab, are stored in files rather than the Realm database.
 
 #### Views
 
@@ -485,13 +488,13 @@ Besides the aforementioned point of separating view-related concerns into their 
 
 Beyond these, I created a custom `UIViewController` subclass named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. I used this class for the welcome tutorial and the calming scene relaxation exercise shown above.
 
-I also created a protocol named `FullScreenController` that's implemented by almost every controller in the application.  This protocol, and its accompanying global methods, manages various portions of the user interface to accommodate single-color backgrounds.  For example, in each of the three main tabs, this protocol ensures the tab bar background, the status bar background, and (sometimes) the navigation bar background all match the controller's primary color.  This creates the effect that each screen's elements are "floating" atop a solid background color.  Unlike the `SlidingViewController`, I chose to use a protocol instead of a subclass for this feature because I wanted to be able to implement it on any subclass of `UIViewController` I wanted.  If I made `FullScreenController` a subclass, I'd have to also create accompanying `FullScreenTabBarController`s, `FullScreenNavigationController`s, and `FullScreenTableViewController`s, just to name a few.  Unfortunately, Swift lacks mix-in functionality that's found in languages like Ruby, but I saw this "protocol-with-global-methods" pattern used repeatedly on many iOS development sites, and it worked quite well for this scenario.
+I also created a protocol named `FullScreenController` that's implemented by almost every controller in the application.  This protocol, and its accompanying global methods, manages various portions of the user interface to accommodate single-color backgrounds.  For example, in each of the three main tabs, this protocol ensures the tab bar background, the status bar background, and (sometimes) the navigation bar background all match the controller's primary color.  This creates the effect that each screen's elements are "floating" atop a solid background color.  Unlike the `SlidingViewController`, I chose to use a protocol instead of a subclass for this feature because I wanted to be able to implement it on any subclass of `UIViewController`.  If I made `FullScreenController` a subclass, I'd have to also create accompanying `FullScreenTabBarController`s, `FullScreenNavigationController`s, and `FullScreenTableViewController`s, just to name a few.  Unfortunately, Swift lacks mix-in functionality that's found in languages like Ruby, but I saw this "protocol-with-global-methods" pattern used repeatedly on many iOS development sites, and it worked quite well for this scenario.
 
 ### Debugging
 
 This application was tested primarily on the iPhone simulator provided by the iOS developer toolkit.  The simulator is generally much faster than using an external device, so I often only tested major versions of the application on my personal iPhone 6.  The simulator makes it trivial to test against the numerous iPhone screen sizes as well, though near the end of the development cycle I tested on the iPhone 4S, iPhone 5, iPhone 5S,  and iPhone 6+ to ensure the resulting product matched the simulator's version.
 
-Xcode includes some incredibly helpful tools to debug applications through the simulator or connected device.  Breakpoints can be toggled and created at any point during execution, and all crashes are usually well-documented with stack traces other information.  There's also a tool to debug layouts visually, which was particularly helpful when first learning the ins-and-outs of the AutoLayout system.  Ultimately, I found no need to look beyond Xcode for any debugging tools, and only experienced a few truly "head-scratching" bugs.
+Xcode includes some incredibly helpful tools to debug applications through the simulator or connected device.  Breakpoints can be toggled and created at any point during execution, and all crashes are usually well-documented with stack traces and other information.  There's also a tool to debug layouts visually, which was particularly helpful when first learning the ins-and-outs of the AutoLayout system.  Ultimately, I found no need to look beyond Xcode for any debugging tools, and only experienced a few truly "head-scratching" bugs.
 
 ### Version Control
 
@@ -522,12 +525,12 @@ The goal of this project was to create an iPhone application that offered users 
 My primary goal at this point is to continue tweaking the application until I feel comfortable publishing it on the App Store and making it available to all English-speaking iPhone users.  As expected, I saw many opportunities for new features or additional refinements throughout the development process:
 
 1. ##### More engaging onboarding experience
-This was brought up in the Methodology section, but I feel it deserves another mention here.  I didn't feel I had enough time to craft the truly engaging, interactive onboarding experience that Apple strongly recommends in the iOS HIG.  I've not yet determined what such an experience might entail, but I'm confident I could make noticeable improvements to the final version of the tutorial given more time.
+This was brought up in the Methodology section, but I feel it deserves another mention here.  I didn't feel I had enough time to craft the truly engaging, interactive onboarding experience that Apple strongly recommends in the iOS HIG.  I've not yet determined what such an experience might entail, but I'm confident I could make noticeable improvements to the final version of the tutorial with some additional time.
 1. ##### Password-protected Reflect tab
 Given the delicate nature of this application, I originally planned to provide the option for a password-protected lock screen upon launch, though ultimately I reasoned the only sensitive data is in the timeline of the Reflect tab.  I think many users might feel a greater sense of security from such a feature.
 1. ##### Relax tab improvements
 Though I was very hesitant to muddle the Relax tab in any way, I feel some positive reinforcement would be a nice touch to encourage consistent daily relaxation.  The aforementioned [Headspace](http://headspace.com) meditation application, for example, rewards users for consecutive days of practice, and I can personally attest to the motivational power of this system.  I think a similar feature would be appropriate for this tab, though I'd want to feel utmost confident that the tab retained its ease of use and simplicity before attempting to change it.
 
-In closing, I'd like to sincerely thank everyone who offered their support to this project, and to the North Central Honors Program for offering this opportunity.
+In closing, I'd like to sincerely thank everyone who offered their support to this project, and to the North Central Honors Program for the opportunity.
 
 ![Signature]({{ site.baseurl }}/img/signature.png)
