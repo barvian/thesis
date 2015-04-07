@@ -320,9 +320,9 @@ As discussed in a previous section, there are four relaxation exercises included
 
 ##### Reflect tab
 
-This tab
+This tab represents the final core feature: positive psychology with hopes to create a long-term shift towards positivity.  This tab uses a vibrant green background color, chosen for its calming properties {% include c.html r=4 %} and to differentiate between the Relax tab.
 
-works identically
+There are three main UI elements on this screen: a notification icon at the top, a compose button in the middle, and a timeline view below. The former works identically to the icon in the Relax tab, allowing the user to configure the daily reflection reminder:
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -335,7 +335,7 @@ works identically
 	</div>
 </div>
 
-Main button
+The compose button is the primary focus on this screen. When tapped ({% include fr.html f=33 %}), it opens the New Reflection screen ({% include fr.html f=34 %}) and lets the user log a positive event at any point during the day.  New events are added to the top of the timeline ({% include fr.html f=36 %}), which groups the last month's reflections in reverse chronological order by day.  The button itself uses the standard iOS compose icon found in Apple's own Mail.app.
 
 <div class="o-wrapper__wider">
 	<div class="c-flow">
@@ -354,7 +354,7 @@ Main button
 	</div>
 </div>
 
-Yadda yadda 
+The timeline is a customized table view, following Apple's aforementioned recommendation, and can be scrolled freely to view previous reflections.
 
 ### Architecture
 
