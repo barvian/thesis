@@ -41,6 +41,13 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		return label
 	}()
 	
+	private(set) lazy var floater: UIView = {
+		let floater = UIView()
+		floater.setTranslatesAutoresizingMaskIntoConstraints(false)
+		
+		return floater
+	}()
+	
 	private(set) lazy var breather: UIView = {
 		let breather = UIView()
 		breather.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -113,9 +120,10 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		view.addSubview(titleLabel)
 		view.addSubview(instructionsLabel)
 		view.addSubview(spacerViews[0])
+		floater.addSubview(breather)
+		floater.addSubview(actionLabel)
 		breather.addSubview(breatherButton)
-		view.addSubview(breather)
-		view.addSubview(actionLabel)
+		view.addSubview(floater)
 		view.addSubview(spacerViews[1])
 		view.addSubview(progressButton)
 		
@@ -129,6 +137,12 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		
 		updateFullScreenControllerColors(self, animated: false)
 		hideFullScreenControllerNavigationBar(self, animated: false)
+	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		floater.toggleApplicationFloatAnimation(false)
 	}
 	
 	// MARK: API
@@ -204,6 +218,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 				"titleLabel": titleLabel,
 				"instructionsLabel": instructionsLabel,
 				"spacer1": spacerViews[0],
+				"floater": floater,
 				"breather": breather,
 				"breatherButton": breatherButton,
 				"actionLabel": actionLabel,
@@ -218,14 +233,17 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 			]
 			
 			view.addConstraint(NSLayoutConstraint(item: progressButton, attribute: .Bottom, relatedBy: .Equal, toItem: bottomLayoutGuide, attribute: .Top, multiplier: 1, constant: -vMargin))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][breather(156)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(54)-[titleLabel]-[instructionsLabel][spacer1(>=0)][floater(156)][spacer2(==spacer1)][progressButton]", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[titleLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[instructionsLabel]-(hMargin)-|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[spacer1(0,==spacer2)]", options: nil, metrics: metrics, views: views))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[breather(156)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[floater(156)]", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[breather]|", options: nil, metrics: metrics, views: views))
+			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[breather]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[breatherButton]|", options: nil, metrics: metrics, views: views))
 			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[breatherButton]|", options: nil, metrics: metrics, views: views))
-			view.addConstraint(NSLayoutConstraint(item: actionLabel, attribute: .CenterY, relatedBy: .Equal, toItem: breather, attribute: .CenterY, multiplier: 1, constant: 0))
+			view.addConstraint(NSLayoutConstraint(item: actionLabel, attribute: .CenterY, relatedBy: .Equal, toItem: floater, attribute: .CenterY, multiplier: 1, constant: 0))
+			view.addConstraint(NSLayoutConstraint(item: actionLabel, attribute: .CenterX, relatedBy: .Equal, toItem: floater, attribute: .CenterX, multiplier: 1, constant: 0))
 			for (_, subview) in views {
 				view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0))
 			}
@@ -244,6 +262,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		
 		if !_started {
 			breathe()
+			floater.toggleApplicationFloatAnimation(true)
 		}
 		
 		_started = true

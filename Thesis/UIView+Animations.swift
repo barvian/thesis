@@ -8,6 +8,8 @@
 
 import UIKit
 
+private var _floatAnimations = [UIView: Bool]()
+
 extension UIView {
 	
 	func animateWithApplicationShake(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions, completion: ((Bool) -> Void)?) {
@@ -28,6 +30,22 @@ extension UIView {
 				self.transform = CGAffineTransformMakeTranslation(0, 0)
 			}
 		}, completion: completion)
+	}
+	
+	func toggleApplicationFloatAnimation(_ state: Bool? = nil) {
+		if let state = state {
+			_floatAnimations[self] = state
+		}
+		if _floatAnimations[self] != nil && _floatAnimations[self]! {
+			UIView.animateWithDuration(2.0, delay: 0, options: .CurveEaseInOut | .AllowUserInteraction, animations: {
+				let dx = CGFloat(Int(arc4random()) % 10 - 5)
+				let dy = CGFloat(Int(arc4random()) % 10 - 5)
+				self.transform = CGAffineTransformMakeTranslation(dx, dy)
+				}) { _ in
+					self.toggleApplicationFloatAnimation()
+			}
+		}
+		
 	}
 	
 }
