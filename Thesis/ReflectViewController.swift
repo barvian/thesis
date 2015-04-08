@@ -72,7 +72,7 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 		return .LightContent
 	}
 	
-	convenience override init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Reflect"

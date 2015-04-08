@@ -69,7 +69,7 @@ class StatementsViewController: UIViewController, FullScreenViewController, Rela
 		return .LightContent
 	}
 	
-	override convenience init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Statements"

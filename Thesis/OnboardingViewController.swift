@@ -72,7 +72,7 @@ class OnboardingViewController: UIViewController, FullScreenViewController, Onbo
 		return slide
 	}()
 	
-	convenience override init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Onboarding"

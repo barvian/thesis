@@ -61,7 +61,7 @@ class ReflectHeaderView: UIView {
 	
 	// MARK: Initializers
 	
-	convenience override init() {
+	convenience init() {
 		self.init(frame: CGRectZero)
 	}
 	

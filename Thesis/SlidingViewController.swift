@@ -117,7 +117,7 @@ class SlidingViewController: UIViewController, UIPageViewControllerDelegate, UIP
 		super.init(nibName: nil, bundle: nil)
 	}
 	
-	convenience override init() {
+	convenience init() {
 		self.init(spacing: 0)
 	}
 	

@@ -29,7 +29,7 @@ extension UILocalNotification {
 		notif.alertBody = "Have some time to relax?"
 		notif.alertAction = "Relax"
 		notif.soundName = UILocalNotificationDefaultSoundName
-		notif.repeatInterval = .DayCalendarUnit
+		notif.repeatInterval = .CalendarUnitDay
 		
 		return notif
 	}
@@ -46,7 +46,7 @@ extension UILocalNotification {
 		notif.alertBody = "Have you reflected on what went well today?"
 		notif.alertAction = "Reflect"
 		notif.soundName = UILocalNotificationDefaultSoundName
-		notif.repeatInterval = .DayCalendarUnit
+		notif.repeatInterval = .CalendarUnitDay
 		
 		return notif
 	}

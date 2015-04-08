@@ -108,7 +108,7 @@ class DeepBreathingViewController: UIViewController, FullScreenViewController, R
 		return .LightContent
 	}
 	
-	convenience override init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Deep Breathing"

@@ -45,7 +45,7 @@ class AddReflectionViewController: UIViewController, FullScreenViewController, U
 		return reasonPage
 	}()
 	
-	convenience override init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)

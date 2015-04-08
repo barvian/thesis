@@ -67,7 +67,7 @@ class TutorialViewController: UIViewController, FullScreenViewController {
 		return button
 	}()
 	
-	override convenience init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Tutorial"

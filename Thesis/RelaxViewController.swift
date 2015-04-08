@@ -77,7 +77,7 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		return .LightContent
 	}
 	
-	convenience override init() {
+	convenience init() {
 		self.init(nibName: nil, bundle: nil)
 		
 		title = "Relax"

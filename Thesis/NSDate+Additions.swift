@@ -15,7 +15,7 @@ extension NSDate: Comparable {
 		calendar.timeZone = timeZone
 		
 		// Selectively convert the date components (year, month, day) of the input date
-		let dateComps = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit, fromDate: self)
+		let dateComps = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: self)
 		dateComps.hour = 0
 		dateComps.minute = 0
 		dateComps.second = 0
@@ -29,7 +29,7 @@ extension NSDate: Comparable {
 		let timeZone = NSTimeZone.systemTimeZone()
 		calendar.timeZone = timeZone
 		
-		let dateComps = calendar.components(.YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit | .HourCalendarUnit | .MinuteCalendarUnit, fromDate: self)
+		let dateComps = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute, fromDate: self)
 		dateComps.second = 0
 		
 		return calendar.dateFromComponents(dateComps)!
