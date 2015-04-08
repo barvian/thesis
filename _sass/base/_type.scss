@@ -74,6 +74,7 @@
 
 %h6 {
   font-size: size(small);
+  line-height: strip-units(size(spacing));
 
   @include trailing(size(small));
 }

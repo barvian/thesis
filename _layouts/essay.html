@@ -42,7 +42,7 @@ layout: default
     {% endfor %}
   </div>
 
-  <footer class="o-wrapper">
+  <footer class="c-essay__footer o-wrapper">
     <ol>
       {% capture references %}{% for reference in site.data.bibliography %}{% assign id = forloop.index | minus: 1 %}{% include r.html r=id %}{{ id }}{% if forloop.last != true %}|{% endif %}{% endfor %}{% endcapture %}
       {% assign sortedreferences = references | upcase | split: '|' | sort %}

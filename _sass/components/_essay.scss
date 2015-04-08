@@ -20,7 +20,7 @@
     }
   }
 
-  > footer {
+  @include e(footer) {
     padding-bottom: size(xxlarge);
     padding-top: size(xxlarge);
 
