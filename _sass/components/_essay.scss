@@ -10,6 +10,14 @@
     > header {
       page-break-after: avoid;
     }
+
+    ol {
+      @extend .#{$o-}numbered-list;
+    }
+    
+    ul:not([class]) {
+      @extend %tight;
+    }
   }
 
   > footer {
@@ -29,14 +37,6 @@
       @include trailing(size(xxlarge));
     }
 
-    ol {
-      @extend .#{$o-}numbered-list;
-    }
-    
-    ul:not([class]) {
-      @extend %tight;
-    }
-
     @include query(screen) {
       border-bottom: 2px solid hsb(0, 0, 92.5);
     }
@@ -44,10 +44,6 @@
     @include query(print) {
       page-break-before: always;
       padding-top: size(xxlarge)*2;
-
-      &:last-of-type {
-        border-bottom: none;
-      }
     }
   }
 
