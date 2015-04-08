@@ -1,0 +1,67 @@
+// Essay
+// =====
+
+@include b(#{$c-}essay) {
+  @extend %flush;
+
+  section {
+    @extend .#{$u-}clearfix;
+
+    > header {
+      page-break-after: avoid;
+    }
+  }
+
+  > footer {
+    padding-bottom: size(xxlarge);
+    padding-top: size(xxlarge);
+
+    @include query(print) {
+      page-break-before: always;
+    }
+  }
+  
+  @include e(section) {
+    padding-bottom: size(xxlarge);
+    padding-top: size(xxlarge);
+
+    > header {
+      @include trailing(size(xxlarge));
+    }
+
+    ol {
+      @extend .#{$o-}numbered-list;
+    }
+    
+    ul:not([class]) {
+      @extend %tight;
+    }
+
+    @include query(screen) {
+      border-bottom: 2px solid hsb(0, 0, 92.5);
+    }
+
+    @include query(print) {
+      page-break-before: always;
+      padding-top: size(xxlarge)*2;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+
+  @include e(subsection) {
+    @include leading(size(xlarge));
+
+    > header {
+      @include trailing(size(large));
+    }
+  }
+
+  @include e(subsubsection) {
+    > header {
+      @include trailing(size(base));
+    }
+  }
+}

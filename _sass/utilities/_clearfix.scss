@@ -4,8 +4,7 @@
 /** 
  * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
  */
-.#{u-}clearfix,
-%#{u-}clearfix {
+.#{u-}clearfix {
   &::after {
     content: "";
     display: table;

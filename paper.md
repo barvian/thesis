@@ -109,12 +109,10 @@ One of the first steps I took in brainstorming this application was to create a 
 This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.
 1. ##### Immediate symptom relief
 This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
-
  * Deep breathing
  * Calming scene (i.e. a video/image of a peaceful landscape)
  * Guided meditation
  * Coping statements
-
 These will be covered in greater depth in a later section.
 1. ##### Long-term shift towards positivity
 Since the previous feature covered the CBT aspect of anxiety recovery, I knew I wanted to include a Positive Psychology aspect into the application as well.  Again, much of the research literature seemed to agree that the most helpful technique for creating such a shift is to keep a daily journal of positive events, no matter how trivial.  I felt this could easily be incorporated into my application.

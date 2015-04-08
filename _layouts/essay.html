@@ -2,45 +2,47 @@
 layout: default
 ---
 
-<article class="o-wrapper">
-  <!--<header>
+<article class="c-essay">
+  <header>
     <h1>Honors Thesis</h1>
   </header>
- --> 
-  {% assign content = content | replace: '<h2>', '-SECTION-<header><h2><span class="counter">%SECTION%</span>' | replace: '</h2>', '</h2></header>' | replace: '<h3>', '-SUBSECTION-<header><h3><span class="counter">%SECTION%.%SUBSECTION%</span>' | replace: '</h3>', '</h3></header>' | replace: '<h4>', '-SUBSUBSECTION-<header><h4><span class="counter">%SECTION%.%SUBSECTION%.%SUBSUBSECTION%</span>' | replace: '</h4>', '</h4></header>' | replace: '<figure', '-FIGURE-<figure' %}
-  {% assign sections = content | remove_first: '-SECTION-' | split: '-SECTION-' %}
-  {% for section in sections %}
-    {% capture s %}{{ forloop.index }}{% endcapture %}
-    <section data-section="{{ s }}">
-      {% assign figures = section | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
-      {% capture replaceFigures %}
-        {% for figure in figures %}
-          {{ figure | replace: '%FIGURE%', forloop.index + 1 }}
-        {% endfor %}
-      {% endcapture %}
-      {% assign subsections = replaceFigures | replace: '%SECTION%', s | split: '-SUBSECTION-' %}
-      {{ subsections | first }}
-      {% for subsection in subsections %}
-        {% if forloop.index > 1 %}
-          {% capture ss %}{{ forloop.index | minus: 1 }}{% endcapture %}
-          <section data-subsection="{{ ss }}">
-          {% assign subsubsections = subsection | replace: '%SUBSECTION%', ss | split: '-SUBSUBSECTION-' %}
-          {{ subsubsections | first }}
-          {% for subsubsection in subsubsections %}
-            {% if forloop.index > 1 %}
-              {% capture sss %}{{ forloop.index | minus: 1 }}{% endcapture %}
-              <section data-subsubsection="{{ sss }}">
-                {{ subsubsection | replace: '%SUBSUBSECTION%', sss }}
-              </section>
-            {% endif %}
-          {% endfor %}
-          </section>
-        {% endif %}
-      {% endfor %}
-    </section>
-  {% endfor %}
 
-  <footer>
+  <div class="o-wrapper">
+    {% assign content = content | replace: '<h2>', '-SECTION-<header><h2><span class="counter">%SECTION%</span>' | replace: '</h2>', '</h2></header>' | replace: '<h3>', '-SUBSECTION-<header><h3><span class="counter">%SECTION%.%SUBSECTION%</span>' | replace: '</h3>', '</h3></header>' | replace: '<h4>', '-SUBSUBSECTION-<header><h4><span class="counter">%SECTION%.%SUBSECTION%.%SUBSUBSECTION%</span>' | replace: '</h4>', '</h4></header>' | replace: '<figure', '-FIGURE-<figure' %}
+    {% assign sections = content | remove_first: '-SECTION-' | split: '-SECTION-' %}
+    {% for section in sections %}
+      {% capture s %}{{ forloop.index }}{% endcapture %}
+      <section class="c-essay__section" data-section="{{ s }}">
+        {% assign figures = section | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
+        {% capture replaceFigures %}
+          {% for figure in figures %}
+            {{ figure | replace: '%FIGURE%', forloop.index + 1 }}
+          {% endfor %}
+        {% endcapture %}
+        {% assign subsections = replaceFigures | replace: '%SECTION%', s | split: '-SUBSECTION-' %}
+        {{ subsections | first }}
+        {% for subsection in subsections %}
+          {% if forloop.index > 1 %}
+            {% capture ss %}{{ forloop.index | minus: 1 }}{% endcapture %}
+            <section class="c-essay__subsection"  data-subsection="{{ ss }}">
+            {% assign subsubsections = subsection | replace: '%SUBSECTION%', ss | split: '-SUBSUBSECTION-' %}
+            {{ subsubsections | first }}
+            {% for subsubsection in subsubsections %}
+              {% if forloop.index > 1 %}
+                {% capture sss %}{{ forloop.index | minus: 1 }}{% endcapture %}
+                <section class="c-essay__subsubsection" data-subsubsection="{{ sss }}">
+                  {{ subsubsection | replace: '%SUBSUBSECTION%', sss }}
+                </section>
+              {% endif %}
+            {% endfor %}
+            </section>
+          {% endif %}
+        {% endfor %}
+      </section>
+    {% endfor %}
+  </div>
+
+  <footer class="o-wrapper">
     <ol>
       {% capture references %}{% for reference in site.data.bibliography %}{% assign id = forloop.index | minus: 1 %}{% include r.html r=id %}{{ id }}{% if forloop.last != true %}|{% endif %}{% endfor %}{% endcapture %}
       {% assign sortedreferences = references | upcase | split: '|' | sort %}

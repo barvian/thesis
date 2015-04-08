@@ -2,7 +2,7 @@
 // =====
 
 @include b(#{$o-}media) {
-  @extend %#{u-}clearfix;
+  @extend .#{u-}clearfix;
   @extend %flush;
 
   display: block;

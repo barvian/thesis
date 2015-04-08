@@ -8,7 +8,7 @@ figure {
   margin-right: size(spacing) * 2;
 
   > a, .imgs > a {
-    @extend %#{$u-}invisible-link;
+    @extend .#{$u-}invisible-link;
   }
 
   img {

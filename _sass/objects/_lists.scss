@@ -12,7 +12,7 @@
 }
 
 @include b(#{$o-}block-list) {
-  @extend %#{$u-}invisible-list;
+  @extend .#{$u-}invisible-list;
 
   > li { @extend %#{$o-}block-list__item; }
   @include e(item) { @extend %#{$o-}block-list__item; }
@@ -26,7 +26,7 @@
 }
 
 @include b(#{$o-}inline-list) {
-  @extend %#{$u-}invisible-list;
+  @extend .#{$u-}invisible-list;
   @extend %horizontal;
 
   > li { @extend %#{$o-}inline-list__item; }
