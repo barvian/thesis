@@ -49,11 +49,12 @@
 
     border-right: 1.5px solid $dark;
     content: counter(ol, decimal-leading-zero);
-    margin-right: 1em;
-    padding-right: 1em;
+    margin-right: size(spacing)*.65;
     position: absolute;
     right: 100%;
+    text-align: left;
     top: 0;
+    width: size(spacing)*1.35;
   }
 }
 

@@ -32,6 +32,10 @@ figure {
       vertical-align: top;
     }
   }
+
+  @include query(print) {
+    page-break-before: avoid;
+  }
 }
 
 figcaption {
