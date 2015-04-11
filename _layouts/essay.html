@@ -69,14 +69,15 @@ layout: default
 {% assign essay = essay | replace: '	', '    ' %}
 
 {% comment %} Figures {% endcomment %}
-{% for figure in site.data.figures %}
-  {% capture f %}{{ forloop.index | minus: 1 }}{% endcapture %}
+{% assign length = site.data.figures | size | minus: 1 %}
+{% for f in (0..length) %}
   {% capture ref %}%FIGUREREF-{{ f }}%{% endcapture %}
   {% assign figs = figures | split: '|' %}
   {% for fig in figs %}
-    {% assign dict = fig | split: ':' %}
-    {% if dict[0] == f %}
-      {% assign essay = essay | replace: ref, dict[1] %}
+    {% assign id = fig | split: ':' | first | times: 1 %}
+    {% assign figure = fig | split: ':' | last %}
+    {% if id == f %}
+      {% assign essay = essay | replace: ref, figure %}
     {% endif %}
   {% endfor %}
 {% endfor %}
