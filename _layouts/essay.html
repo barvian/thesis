@@ -2,10 +2,10 @@
 layout: default
 ---
 
-{% comment %} Pre-processing {% endcomment %}
 {% assign figures = '' %}
 {% assign toc = '' %}
 
+{% comment %} Pre-processing {% endcomment %}
 {% capture essay %}
   {% assign sections = content | split: '<h2>' %}
   {{ sections | first }}
