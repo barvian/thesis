@@ -3,49 +3,70 @@ layout: default
 ---
 
 {% comment %} Pre-processing {% endcomment %}
+{% assign figures = '' %}
+{% assign toc = '' %}
+
 {% capture essay %}
-  {% assign content = content | replace: '<h2>', '-SECTION-<header><h2><span class="counter">%SECTION%</span>' | replace: '</h2>', '</h2></header>' | replace: '<h3>', '-SUBSECTION-<header><h3><span class="counter">%SECTION%.%SUBSECTION%</span>' | replace: '</h3>', '</h3></header>' | replace: '<h4>', '-SUBSUBSECTION-<header><h4><span class="counter">%SECTION%.%SUBSECTION%.%SUBSUBSECTION%</span>' | replace: '</h4>', '</h4></header>' | replace: '<figure', '-FIGURE-<figure' %}
-  {% assign content = content | replace: '	', '    ' %}
-  {% assign figures = '' %}
-  {% assign sections = content | remove_first: '-SECTION-' | split: '-SECTION-' %}
-  {% for section in sections %}
-    {% assign s = forloop.index %}
+  {% assign sections = content | split: '<h2>' %}
+  {{ sections | first }}
+  {% assign length = sections | size | minus: 1 %}
+  {% for s in (1..length) %}
+    {% assign title = sections[s] | split: '</h2>' | first %}
+    {% assign section = sections[s] | split: '</h2>' | last | replace: '%SECTION%', s %}
     <section class="c-essay__section" data-section="{{ s }}">
-      {% assign figs = section | replace: '%SECTION%', s | split: '-FIGURE-' %}
-      {% capture replaceFigures %}
-        {{ figs | first }}
+      <header>
+        <h2 id="{{ s }}">
+          <span class="counter">{{ s }}</span>
+          {{ title }}
+        </h2>
+      </header>
+      {% assign figs = section | replace: '<figure', '-FIGURE-<figure' | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
+      {% capture section %}
         {% for figure in figs %}
-          {% if forloop.first != true %}
-            {% assign f = forloop.index | minus: 1 %}
-            {% assign fig = figure | replace: '%FIGURE%', f %}
-            {% assign counterSplit = fig | split: '-FIGCOUNTER-' %}
-            {% assign figures = figures | append: counterSplit[1] | append: '|' %} 
-            {{ counterSplit[0] }}{{ counterSplit[2] }}
-          {% endif %}
+          {% assign f = forloop.index %}
+          {% assign fig = figure | replace: '%FIGURE%', f %}
+          {% assign counterSplit = fig | split: '-FIGCOUNTER-' %}
+          {% assign figures = figures | append: counterSplit[1] | append: '|' %} 
+          {{ counterSplit[0] }}{{ counterSplit[2] }}
         {% endfor %}
       {% endcapture %}
-      {% assign subsections = replaceFigures | split: '-SUBSECTION-' %}
+      {% assign subsections = section | split: '<h3>' %}
       {{ subsections | first }}
-      {% for subsection in subsections %}
-        {% if forloop.index > 1 %}
-          {% assign ss = forloop.index | minus: 1 %}
-          <section class="c-essay__subsection"  data-subsection="{{ ss }}">
-          {% assign subsubsections = subsection | replace: '%SUBSECTION%', ss | split: '-SUBSUBSECTION-' %}
+      {% assign length = subsections | size | minus: 1 %}
+      {% for ss in (1..length) %}
+        {% assign subtitle = subsections[ss] | split: '</h3>' | first %}
+        {% assign subsection = subsections[ss] | split: '</h3>' | last | replace: '%SUBSECTION%', ss %}
+        <section class="c-essay__subsection" data-subsection="{{ ss }}">
+          <header>
+            <h3 id="{{ s }}.{{ ss }}">
+              <span class="counter">{{ s }}.{{ ss }}</span>
+              {{ subtitle }}
+            </h3>
+          </header>
+          {% assign subsubsections = subsection | split: '<h4>' %}
           {{ subsubsections | first }}
-          {% for subsubsection in subsubsections %}
-            {% if forloop.index > 1 %}
-              {% assign sss = forloop.index | minus: 1 %}
-              <section class="c-essay__subsubsection" data-subsubsection="{{ sss }}">
-                {{ subsubsection | replace: '%SUBSUBSECTION%', sss }}
-              </section>
-            {% endif %}
+          {% assign length = subsubsections | size | minus: 1 %}
+          {% for sss in (1..length) %}
+            {% assign subsubtitle = subsubsections[sss] | split: '</h4>' | first %}
+            {% assign subsubsection = subsubsections[sss] | split: '</h4>' | last | replace: '%SUBSUBSECTION%', sss %}
+            <section class="c-essay__subsubsection" data-subsubsection="{{ sss }}">
+              <header>
+                <h4 id="{{ s }}.{{ ss }}.{{ sss }}">
+                  <span class="counter">{{ s }}.{{ ss }}.{{ sss }}</span>
+                  {{ subsubtitle }}
+                </h4>
+              </header>
+              {{ subsubsection | replace: '%SUBSUBSECTION%', sss }}
+            </section>
           {% endfor %}
-          </section>
-        {% endif %}
+        </section>
       {% endfor %}
     </section>
   {% endfor %}
 {% endcapture %}
+
+{% comment %} Tabs to spaces {% endcomment %}
+{% assign essay = essay | replace: '	', '    ' %}
 
 {% comment %} Figures {% endcomment %}
 {% for figure in site.data.figures %}
