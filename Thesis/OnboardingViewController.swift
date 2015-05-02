@@ -12,7 +12,7 @@ import UIKit
 	optional func onboardingViewControllerShouldDismiss(onboardingViewController: OnboardingViewController)
 }
 
-class OnboardingViewController: UIViewController, FullScreenViewController, OnboardingReminderSlideDelegate, OnboardingCompleteSlideDelegate {
+class OnboardingViewController: UIViewController, FullScreenViewController, OnboardingCompleteSlideDelegate, SlidingViewControllerDelegate {
 	
 	weak var delegate: OnboardingViewControllerDelegate?
 	
@@ -26,6 +26,7 @@ class OnboardingViewController: UIViewController, FullScreenViewController, Onbo
 	
 	private(set) lazy var slidingViewController: SlidingViewController = {
 		let controller = SlidingViewController()
+		controller.delegate = self
 		
 		controller.viewControllers = [
 			OnboardingSlideController(contentView: self.welcomeSlide),
@@ -60,7 +61,6 @@ class OnboardingViewController: UIViewController, FullScreenViewController, Onbo
 	
 	private(set) lazy var reminderSlide: OnboardingSlide = {
 		let slide = OnboardingReminderSlide()
-		slide.delegate = self
 		
 		return slide
 	}()
@@ -102,18 +102,11 @@ class OnboardingViewController: UIViewController, FullScreenViewController, Onbo
 		unhideFullScreenControllerNavigationBar(self, animated: false)
 	}
 	
-	// MARK: OnboardingReminderSlideDelegate
+	// MARK: SlidingViewControllerDelegate
 	
-	func onboardingReminderSlide(onboardingReminderSlide: OnboardingReminderSlide, didChangeTimePicker timePicker: UIDatePicker!) {
-		onboardingReminderSlide.setReminderButton.enabled = true
-	}
-	
-	func onboardingReminderSlide(onboardingReminderSlide: OnboardingReminderSlide, didTapSetReminderButton setReminderButton: UIButton!) {
-		UIApplication.sharedApplication().registerForNotifications() {
-			[unowned self] (settings: UIUserNotificationSettings) in
-			
-			UIApplication.sharedApplication().relaxationReminder = UILocalNotification.applicationRelaxationReminder(onboardingReminderSlide.timePicker.date)
-			setReminderButton.enabled = false
+	func slidingViewController(slidingViewController: SlidingViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+		if let previousViewController = previousViewControllers[0] as? OnboardingSlideController, slide = previousViewController.contentView as? OnboardingReminderSlide {
+			UIApplication.sharedApplication().relaxationReminder = UILocalNotification.applicationRelaxationReminder(slide.timePicker.date)
 		}
 	}
 	

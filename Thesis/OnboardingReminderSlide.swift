@@ -10,7 +10,6 @@ import UIKit
 
 @objc protocol OnboardingReminderSlideDelegate {
 	optional func onboardingReminderSlide(onboardingReminderSlide: OnboardingReminderSlide, didChangeTimePicker timePicker: UIDatePicker!)
-	optional func onboardingReminderSlide(onboardingReminderSlide: OnboardingReminderSlide, didTapSetReminderButton setReminderButton: UIButton!)
 }
 
 class OnboardingReminderSlide: OnboardingSlide {
@@ -27,22 +26,9 @@ class OnboardingReminderSlide: OnboardingSlide {
 		return picker
 	}()
 	
-	private(set) lazy var setReminderButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.setTitle("Set Reminder", forState: .Normal)
-		button.setTitle("Reminder set!", forState: .Disabled)
-		button.setTitleColor(UIColor(r: 149, g: 160, b: 176), forState: .Disabled)
-		
-		button.addTarget(self, action: "didTapSetReminderButton:", forControlEvents: .TouchUpInside)
-		
-		return button
-	}()
-	
 	override init(header: String, subheader: String) {
 		super.init(header: header, subheader: subheader)
 		
-		addSubview(setReminderButton)
 		addSubview(timePicker)
 	}
 	
@@ -60,8 +46,7 @@ class OnboardingReminderSlide: OnboardingSlide {
 	
 	override func updateConstraints() {if !_didSetupConstraints {
 			let views: [NSObject: AnyObject] = [
-				"timePicker": timePicker,
-				"setReminderButton": setReminderButton
+				"timePicker": timePicker
 			]
 			
 			let margin: CGFloat = 26
@@ -70,9 +55,8 @@ class OnboardingReminderSlide: OnboardingSlide {
 			]
 			
 			subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: timePicker, attribute: .Top, multiplier: 1, constant: -margin)
-			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[timePicker]-[setReminderButton]|", options: nil, metrics: metrics, views: views))
+			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[timePicker]|", options: nil, metrics: metrics, views: views))
 			addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[timePicker]|", options: nil, metrics: metrics, views: views))
-			addConstraint(NSLayoutConstraint(item: setReminderButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			
 			_didSetupConstraints = true
 		}
@@ -84,10 +68,6 @@ class OnboardingReminderSlide: OnboardingSlide {
 	
 	func didChangeTimePicker(picker: UIDatePicker!) {
 		delegate?.onboardingReminderSlide?(self, didChangeTimePicker: timePicker)
-	}
-	
-	func didTapSetReminderButton(button: UIButton!) {
-		delegate?.onboardingReminderSlide?(self, didTapSetReminderButton: button)
 	}
 	
 }
