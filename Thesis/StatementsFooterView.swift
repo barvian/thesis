@@ -17,8 +17,7 @@ class StatementsFooterView: UIView {
 	weak var delegate: StatementsFooterViewDelegate?
 	
 	private(set) lazy var progressButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		let button = UIButton.applicationTextButton()
 		button.setTitle("Done", forState: .Normal)
 		
 		button.addTarget(self, action: "didTapProgressButton:", forControlEvents: .TouchUpInside)

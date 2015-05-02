@@ -10,6 +10,14 @@ import UIKit
 
 extension UIButton {
 	
+	class func applicationTextButton() -> UIButton {
+		let button = UIButton.buttonWithType(.System) as! UIButton
+		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		button.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+		
+		return button
+	}
+	
 	class func applicationBellButton() -> UIButton {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		let bell = UIImage(named: "Bell")?.imageWithRenderingMode(.AlwaysTemplate)

@@ -58,8 +58,7 @@ class TutorialViewController: UIViewController, FullScreenViewController {
 	}()
 	
 	private(set) lazy var doneButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		let button = UIButton.applicationTextButton()
 		button.setTitle("Done", forState: .Normal)
 		
 		button.addTarget(self, action: "didTapDoneButton:", forControlEvents: .TouchUpInside)

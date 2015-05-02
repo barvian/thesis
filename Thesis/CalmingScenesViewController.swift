@@ -60,8 +60,7 @@ class CalmingScenesViewController: SlidingViewController, FullScreenViewControll
 	}()
 	
 	private(set) lazy var progressButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		let button = UIButton.applicationTextButton()
 		button.tintColor = UIColor.whiteColor()
 		
 		button.addTarget(self, action: "didTapProgressButton:", forControlEvents: .TouchUpInside)

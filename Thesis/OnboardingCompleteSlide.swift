@@ -17,8 +17,7 @@ class OnboardingCompleteSlide: OnboardingSlide {
 	weak var delegate: OnboardingCompleteSlideDelegate?
 	
 	private(set) lazy var doneButton: UIButton = {
-		let button = UIButton.buttonWithType(.System) as! UIButton
-		button.setTranslatesAutoresizingMaskIntoConstraints(false)
+		let button = UIButton.applicationTextButton()
 		button.setTitle("Get Started!", forState: .Normal)
 		
 		button.addTarget(self, action: "didTapDoneButton:", forControlEvents: .TouchUpInside)
