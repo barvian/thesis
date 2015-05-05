@@ -8,12 +8,14 @@
 
 import UIKit
 
+public let UIButtonApplicationTextButtonPadding: CGFloat = 15
+
 extension UIButton {
 	
 	class func applicationTextButton() -> UIButton {
 		let button = UIButton.buttonWithType(.System) as! UIButton
 		button.setTranslatesAutoresizingMaskIntoConstraints(false)
-		button.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+		button.contentEdgeInsets = UIEdgeInsets(top: UIButtonApplicationTextButtonPadding, left: UIButtonApplicationTextButtonPadding, bottom: UIButtonApplicationTextButtonPadding, right: UIButtonApplicationTextButtonPadding)
 		
 		return button
 	}

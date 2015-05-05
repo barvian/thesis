@@ -54,7 +54,7 @@ class OnboardingCompleteSlide: OnboardingSlide {
 				"margin": margin
 			]
 			
-			subheaderBottomConstraint = NSLayoutConstraint(item: subheaderLabel, attribute: .Bottom, relatedBy: .Equal, toItem: doneButton, attribute: .Top, multiplier: 1, constant: -margin)
+			subheaderBottomConstraint = NSLayoutConstraint(item: doneButton, attribute: .Top, relatedBy: .Equal, toItem: subheaderLabel, attribute: .Bottom, multiplier: 1, constant: (margin - UIButtonApplicationTextButtonPadding))
 			addConstraint(NSLayoutConstraint(item: doneButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
 			addConstraint(NSLayoutConstraint(item: doneButton, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1, constant: 0))
 			

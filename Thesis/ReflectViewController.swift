@@ -128,7 +128,9 @@ class ReflectViewController: UIViewController, FullScreenViewController, DailyRe
 	override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
 		super.touchesEnded(touches, withEvent: event)
 		
-		if (_showingReminderView) {
+		let touch = touches.first as! UITouch
+		let location = touch.locationInView(touch.view)
+		if _showingReminderView && !CGRectContainsPoint(reminderView.frame, location) {
 			UIView.animateWithDuration(0.4) {
 				self.toggleReminderView(false)
 			}
