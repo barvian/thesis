@@ -41,17 +41,20 @@ class ConstrainedTableView: UITableView {
 	func reconstrainView(view: UIView?) -> UIView? {
 		if let view = view {
 			for subview in view.subviews {
-				(subview as? UILabel)?.preferredMaxLayoutWidth = subview.frame.width
+				if let label = subview as? UILabel where label.numberOfLines == 0 {
+					label.preferredMaxLayoutWidth = label.frame.width
+					label.setNeedsUpdateConstraints()
+				}
 			}
 			
 			view.setNeedsLayout()
 			view.layoutIfNeeded()
 			let height = view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-			
-			// Update the header's frame and add it again
-			var headerFrame = view.frame
-			headerFrame.size.height = height
-			view.frame = headerFrame
+
+			// Update the view's frame
+			var viewFrame = view.frame
+			viewFrame.size.height = height
+			view.frame = viewFrame
 		}
 		
 		return view

@@ -17,11 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 		SDCloudUserDefaults.registerForNotifications()
-		SDCloudUserDefaults.hasSeenWelcome = false
-		let realm = RLMRealm.defaultRealm()
-		realm.transactionWithBlock() {
-			realm.deleteAllObjects()
-		}
 		
 		applyStylesheet()
 		
