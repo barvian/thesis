@@ -4,13 +4,13 @@
   {% if figure.src.last %}{% comment %}is array {% endcomment %}
     <div class="imgs">
       {% for img in figure.src %}
-        <a href="{{ img | prepend: site.baseurl }}">
+        <a href="{{ img }}">
           <img src="{{ img | prepend: site.baseurl }}" alt = "{{ figure.caption | escape }}" />
         </a>
       {% endfor %}
     </div>
   {% else %}
-    <a href="{{ figure.src | prepend: site.baseurl }}">
+    <a href="{{ figure.src }}">
       <img src="{{ figure.src | prepend: site.baseurl }}" alt="{{ figure.caption | escape }}" />
     </a>
   {% endif %}
