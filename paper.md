@@ -103,46 +103,46 @@ This thesis will attempt to preserve some of the core functionalities, reading m
 
 ### Ideation
 
-Truthfully, the only thing I knew when starting this thesis was that I wanted to develop an iPhone application.  From here, however, the topic came quite naturally.  Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal while trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some computer-based applications could be in treating this disorder, so this project felt like an incredible opportunity to create a similar tool to (hopefully) assist others in their own recovery process.  It had a far greater sense of meaning to me than any of the other ideas I considered at the time, and as soon as I began researching I felt confident I had made the right choice.
+Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some computer-based applications could be in treating this disorder, so this project felt like an incredible opportunity to create a similar tool to (hopefully) assist others in their own recovery process.
 
 #### Core features 
 
 In brainstorming this application it was important to create a list of essential functions users would need from a guided anxiety recovery process.  Based primarily on the background research from the previous section, three core features were decided upon:
 
 1. ##### GAD Reading materials
-This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.
+This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.
 1. ##### Immediate symptom relief
-This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
+This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so most of the work here was to decide which ones could most benefit from an interactive user experience, then realistically determine how many could be developed within the timeframe.  The following exercises were eventually selected:
  * Deep breathing
  * Calming scene (i.e. a video/image of a peaceful landscape)
  * Guided meditation
  * Coping statements
 These will be covered in greater depth in a later section.
 1. ##### Long-term shift towards positivity
-Since the previous feature covered the CBT aspect of anxiety recovery, I knew I wanted to include a Positive Psychology aspect into the application as well.  Again, much of the research literature seemed to agree that the most helpful technique for creating such a shift is to keep a daily journal of positive events, no matter how trivial.  I felt this could easily be incorporated into my application.
+Equally important to this application as the previous CBT-related features is a Positive Psychology aspect to prevent relapses during the recovery process.  Much of the research literature seems to agree that the most helpful technique for creating such a shift is to keep a daily journal of positive events, no matter how trivial.  It was decided that such a journal would be integrated into this application.
 
-Normally, such a list might be subject to change as design and development of the application progresses; features could be deemed unnecessary or priorities could shift to include new ones.  With my extremely limited timeframe, however, I knew I wouldn't want to deal with a growing feature set in the later stages of development, and I felt having such a short list would keep me focused on the most important aspects of the application at all times.  As soon as I felt confident in these features, then, I immediately moved on to the visual design phase.
+Normally, such a list might be subject to change as design and development of the application progresses; features could be deemed unnecessary or priorities could shift to include new ones.  Given the extremely limited timeframe, however, a growing feature set in the later stages of development would be undesirable, and a short list could better encourage focus on the most important aspects of the application at all times.  As such, this list was considered final and not subject to change throughout the rest of the process.
 
 ### Design
 
-I expected much of the design phase of this application would inevitably overlap with the development phase, as I'd be managing both aspects myself and wouldn't have to rely on a linear process as much as, say, two separate teams dedicated to each task would.  That being said, I did make it a point to perform a few design-related steps before writing any code, as I felt they'd help me better focus during both phases.
+Much of the design phase of this application inevitably overlapped with the development phase, as there was only one designer/developer so a linear process wasn't as important as it would be to, say, two separate teams dedicated to each task.  Either way, some design-related steps were performed before writing any code to better encourage focus during both phases.
 
 #### Goals
 
-Before I began considering layout, color palettes, interactions, or any specific detail of the application's visual design, I solidified a few goals to keep in mind over the duration of the design process.
+Before layout, color palettes, interactions, or any specific detail of the application's visual design were considered, a few goals were solidified to keep in mind over the duration of the design process.
 
 1. ##### Be easy to use
-This goal may sound trivial, but I felt it was necessary to keep in mind considering the target audience for the application.  I never wanted to find myself designing something obtuse, or anything that would add an unnecessary burden to the user's experience.  If the user was already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, I did not want this application to exacerbate it.
+This goal may sound trivial, but undoubtedly necessary to keep in mind considering the target audience for the application.  The design of this application should never be obtuse, or present an unnecessary burden to the user's experience.  If the user is already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, this application should not exacerbate it.
 1. ##### Cover the essential aspects of anxiety recovery
-Though I wanted to keep the feature set of this application to a bare minimum, I did feel it was important that I provided as complete a self-help anxiety recovery program as possible within my time frame.  I thought it would be ideal if the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) or [Calm](http://calm.com) for a more comprehensive meditation practice. 
+Though the feature set of this application was kept to a bare minimum, it is important that users are provided as complete a self-help anxiety recovery program as possible within the time frame.  Ideally, the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) or [Calm](http://calm.com) for a more comprehensive meditation practice. 
 1. ##### Be unobtrusive yet involved
-I felt this was the most important balancing act I'd have to perform when designing the application.  On the one hand, I can speak anecdotally about the importance of consistency when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything feels like it's going smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, I didn't want users to start perceiving the application as an annoyance more than an aid, so I wanted to be mindful of this distinction as much as possible.
+This felt like the most important balancing act to perform when designing the application.  From personal experience, consistency is clearly important when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything feels like it's going smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, users shouldn't start perceiving the application as an annoyance more than an aid, so being mindful of this distinction as much as possible seemed paramount.
 
-After I wrote these down I felt I had a clear enough guide to begin laying out the application.
+These finalized goals provided a clear enough guide to begin laying out the application.
 
 #### User Personas
 
-As an additional aid in the design process I created {{ site.data.personas | size }} personas as representations of my target audience.  Considering I lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, I used my research of GAD symptoms and recurring personality traits as guidelines instead:
+As an additional aid in the design process, {{ site.data.personas | size }} personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead:
 
 <ul class="o-block-list o-box">
 	{% for persona in site.data.personas %}
@@ -150,21 +150,21 @@ As an additional aid in the design process I created {{ site.data.personas | siz
 	{% endfor %}
 </ul>
 
-I found this step crucial when trying to establish a clear direction for the application's design. It was easy in the early stages of the design process to lose focus and plan for too many features, attempting to accommodate unrealistic use cases or planning for features I'd personally enjoy implementing, rather than ones users might like to see.  By putting a face (albeit imaginary) to some exemplary users, I found it easier to establish a visual hierarchy for the application, prioritize certain features over others, and limit the number of overall screens to a bare minimum. It kept me slightly more motivated as well; having a list of users in mind kept me more enthused about the project than when I felt I was designing it exclusively for myself.  I referred to these personas repeatedly throughout the rest of the design process.
+This step was crucial when trying to establish a clear direction for the application's design. It was easy in the early stages of the design process to lose focus and plan for too many features, attempting to accommodate unrealistic use cases or planning for features that seemed enjoyable from a personal perspective, rather than ones users might like to see.  By putting a face (albeit imaginary) to some exemplary users, it became easier to establish a visual hierarchy for the application, prioritize certain features over others, and limit the number of overall screens to a bare minimum. It was motivating as well; having a list of users in mind often makes a project more exciting than developing it purely for oneself. These personas were referred to repeatedly throughout the rest of the design process.
 
 #### Wireframes
 
-With the personas, goals, and core features in mind, I began sketching some initial ideas for the application's layout and main screens:
+With the personas, goals, and core features finalized, the next step was sketching wireframes with some initial ideas for the application's layout and main screens:
 
 {% include f.html f=6 %}
 {% include f.html f=7 %}
 {% include f.html f=8 %}
 
-Surprisingly, these were the only wireframes I ever created for this application.  It's possible I was close-minded to other layouts or approaches considering I'd mentally solidified my feature set above, but I'd like to think I had a clear enough direction at this point to move on from the wireframing stage altogether.  In any case, these wireframes served me well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in detail in the section below.
+Surprisingly, these were the only wireframes ever created for this application, hopefully due to having a clear enough direction and not close-mindedness.  In any case, these wireframes served well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in detail in the section below.
 
 #### Final layout
 
-Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As I would be doing the development work myself, however, I skipped this step and designed most of the screens as I coded the application, only using a graphic editing program ([Sketch](http://bohemiancoding.com/sketch/)) to create specific visual assets I needed as I went along.  This is the layout I ultimately arrived at:
+Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As there was only one designer/developer in this project, however, this step was skipped and most of the screens were designed as the application was coded. A graphic editing program ([Sketch](http://bohemiancoding.com/sketch/)) was used to create specific visual assets as needed.  This is the final version of the application's layout:
 
 <div class="o-wrapper__wider">
 	<div class="o-layout">
@@ -206,7 +206,7 @@ When a user launches the application for the first time after downloading they'r
 	</div>
 </div>
 
-Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  I heeded their advice, ultimately deciding a brief welcome/instruction screen would be beneficial considering the nature of this application.  In accordance with one of my goals, I wanted to offer a guided recovery program for these users even from first launch, and felt I could do better than the default screen (the Relax tab) in this regard.
+Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  Their advice was heeded, and ultimately a brief welcome/instruction screen was considered beneficial considering the nature of this application.  In accordance with one of the goals, it was important to offer a guided recovery program for these users even from first launch, and such a tutorial felt better than the default screen (the Relax tab) in this regard.
 
 The tutorial was designed with Apple's guidelines in mind. Specifically, the HIG instructs:
 
@@ -365,7 +365,7 @@ The timeline is a customized table view, following Apple's aforementioned recomm
 
 ### Architecture
 
-This application was developed using the latest version of the standard iOS development toolkit provided by Apple, including Xcode 6.3 (with Swift 1.2) and iOS SDK 8.3.  The newer Swift language was preferred over its predecessor, Objective-C, for its modern features and familiar syntax, though I didn't have experience with either language before this project.
+This application was developed using the latest version of the standard iOS development toolkit provided by Apple, including Xcode 6.3 (with Swift 1.2) and iOS SDK 8.3.  The newer Swift language was preferred over its predecessor, Objective-C, for its modern features and familiar syntax.
 
 #### Dependencies
 
@@ -379,31 +379,31 @@ pod 'SSDynamicText', :head
 pod 'UIImage+Additions'
 ~~~
 
-These frameworks were already discussed in the background section. Without specifying a version number, CocoaPods uses the latest version of each pod when installing or updating dependencies.  This had the potential to quickly break the application if a pod released an update with API changes, but due to the short development cycle and continuous updates to the Swift language itself, I found it beneficial to stay on the latest version of each dependency.
+These frameworks were already discussed in the background section. Without specifying a version number, CocoaPods uses the latest version of each pod when installing or updating dependencies.  This had the potential to quickly break the application if a pod released an update with API changes, but due to the short development cycle and continuous updates to the Swift language itself, it was beneficial to stay on the latest version of each dependency.
 
 ##### Async
 
-I didn't up using Async nearly as much as I anticipated. In fact, I only used its timeout API in some of the relaxation exercises to hide the instruction prompts after a fixed delay.  If it were a larger library I'd consider removing it for file size reasons, but since it's nicely contained in a single `.swift` file I don't think this is an issue.  It's certainly an improvement over the Grand Central Dispatch API, in any case.
+Async wasn't used nearly as much as anticipated. In fact, only its timeout API was used in some of the relaxation exercises to hide the instruction prompts after a fixed delay.  If it were a larger library it'd seem wise to remove it for file size reasons, but since it's nicely contained in a single `.swift` file this hardly seems an issue.  It's certainly an improvement over the Grand Central Dispatch API, in any case.
 
 ##### SDCloudUserDefaults
 
-Though I only save two pieces of user data in this application -- whether the user has seen the welcome tutorial and their previously viewed scene in the Calming Scene relaxation exercise -- this library was absolutely painless to incorporate into the application, especially with Swift's extension system discussed below.  If nothing else, it guarantees that a user with iCloud enabled won't view the welcome tutorial more than once, and that's reason enough to include such a small library in my opinion.
+Though there's only two persistent pieces of user data in this application -- whether the user has seen the welcome tutorial and their previously viewed scene in the Calming Scene relaxation exercise -- this library was absolutely painless to incorporate into the application, especially with Swift's extension system discussed below.  If nothing else, it guarantees that a user with iCloud enabled won't view the welcome tutorial more than once, and that seems reason enough to include such a small library.
 
 ##### Realm
 
-I hardly used Realm to its full extent, only relying on it to persistently store one model of data and only querying the database from one controller, but I was thoroughly impressed with its ease of use. I have no experience with Core Data, so I won't bother to compare its API with Realm's, but judging from what I've read in Apple's documentation it undoubtedly takes some time to familiarize oneself with Core Data enough to comfortably incorporate it into a project.  With Realm, on the other hand, I was able to create and query a model within minutes of installing the CocoaPod.
+Realm was hardly used to its full extent, only to persistently store one model of data and only queried from one controller, but its ease of use was thoroughly impressive. I have no experience with Core Data, so I won't bother to compare its API with Realm's, but judging from what I've read in Apple's documentation it undoubtedly takes some time to familiarize oneself with Core Data enough to comfortably incorporate it into a project.  With Realm, on the other hand, one can create and query a model within minutes of installing the CocoaPod.
 
 ##### SSDynamicText
 
-Simply put, nearly every label in this application is either a `SSDynamicLabel` or `SSDynamicTextView`.  This library made Dynamic Text incorporation absolutely trivial, and I never had to adjust my code to account for text size adjustments.  In nearly every case it was simply a matter of using the appropriate `SSDynamicText` subclass instead of the built-in Cocoa equivalent.
+Simply put, nearly every label in this application is either a `SSDynamicLabel` or `SSDynamicTextView`.  This library made Dynamic Text incorporation absolutely trivial, and code never had to be adjusted to account for text size adjustments.  In nearly every case it was simply a matter of using the appropriate `SSDynamicText` subclass instead of the built-in Cocoa equivalent.
 
 ##### UIImage+Additions
 
-This library was invaluable for tinting most of the user interface-related images in the application.  In early versions of the application, for example, I included different gradient images for the light blue background on the Learn tab, the blue background on the Relax tab, and the green background on the Reflect tab.  With this library, I was able to ship one version of each image and tint it appropriately before displaying it.  This not only saved countless hours slicing and exporting various versions of the same image, but also saved on file size (resulting from fewer images) and ensured each image was the exact same (besides tint color).
+This library was invaluable for tinting most of the user interface-related images in the application.  In early versions of the application, for example, different gradient images were included for the light blue background on the Learn tab, the blue background on the Relax tab, and the green background on the Reflect tab.  With this library, it became possible to ship one version of each image and tint it appropriately before displaying it.  This not only saved countless hours slicing and exporting various versions of the same image, but also saved on file size (resulting from fewer images) and ensured each image was the exact same (besides tint color).
 
 #### Extensions
 
-One of the most powerful features of the Swift programming language is the ability to extend types, including built-in classes, with new methods and computed properties.  I used this feature extensively throughout the project for two main purposes: to add functionality to core Cocoa abstractions like `NSDate` (for working with dates and times) and to create helper "factory" methods for application-specific constants.  The latter is a design pattern fully endorsed by Apple's official documentation; instead of specifying global `UIColor` constants for project-specific theme colors:
+One of the most powerful features of the Swift programming language is the ability to extend types, including built-in classes, with new methods and computed properties.  This feature was used extensively throughout the project for two main purposes: to add functionality to core Cocoa abstractions like `NSDate` (for working with dates and times) and to create helper "factory" methods for application-specific constants.  The latter is a design pattern fully endorsed by Apple's official documentation; instead of specifying global `UIColor` constants for project-specific theme colors:
 
 ~~~ swift
 public let blueColor = UIColor(r: 82, g: 173, b: 204)
@@ -442,7 +442,7 @@ extension UILabel {
 }
 ~~~
 
-I used this design pattern whenever possible, resorting to subclasses for only the most complex scenarios when method overrides were required.
+This design pattern was used whenever possible; subclasses were considered a final option for only the most complex scenarios when method overrides were required.
 
 #### Models
 
@@ -460,7 +460,7 @@ This class was used exclusively in the Reflect tab; the scrolling timeline fetch
 
 #### Views
 
-In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  I'm not keen on this pattern; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  I found it more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
+In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  Unfortunately, this pattern has some considerable disadavantages; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  In this application it seemed more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
 
 <div class="o-wrapper__wide">
 	<div class="o-layout">
@@ -486,21 +486,21 @@ Each tab's view controller creates an instance of this view, configures it using
 
 #### Controllers
 
-Besides the aforementioned point of separating view-related concerns into their own `UIView` subclasses, I used `UIViewController`s in a seemingly traditional way throughout this application.  Each individual screen, including each tab, the new reflection modal, the relaxation exercises, etc. are represented with one `UIViewController`, which creates and manages its subviews and occasionally interfaces with the Realm database.
+Besides the aforementioned point of separating view-related concerns into their own `UIView` subclasses, `UIViewController`s were used in a seemingly traditional way throughout this application.  Each individual screen, including each tab, the new reflection modal, the relaxation exercises, etc. are represented with one `UIViewController`, which creates and manages its subviews and occasionally interfaces with the Realm database.
 
-Beyond these, I created a custom `UIViewController` subclass named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. I used this class for the welcome tutorial and the calming scene relaxation exercise shown above.
+Beyond these, a custom `UIViewController` subclass was created named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. This class is used in the welcome tutorial and the calming scene relaxation exercise shown above.
 
-I also created a protocol named `FullScreenController` that's implemented by almost every controller in the application.  This protocol, and its accompanying global methods, manages various portions of the user interface to accommodate single-color backgrounds.  For example, in each of the three main tabs, this protocol ensures the tab bar background, the status bar background, and (sometimes) the navigation bar background all match the controller's primary color.  This creates the effect that each screen's elements are "floating" atop a solid background color.  Unlike the `SlidingViewController`, I chose to use a protocol instead of a subclass for this feature because I wanted to be able to implement it on any subclass of `UIViewController`.  If I made `FullScreenController` a subclass, I'd have to also create accompanying `FullScreenTabBarController`s, `FullScreenNavigationController`s, and `FullScreenTableViewController`s, just to name a few.  Unfortunately, Swift lacks mix-in functionality that's found in languages like Ruby, but I saw this "protocol-with-global-methods" pattern used repeatedly on many iOS development sites, and it worked quite well for this scenario.
+The application also uses a protocol named `FullScreenController` that's implemented by almost every controller in the application.  This protocol, and its accompanying global methods, manages various portions of the user interface to accommodate single-color backgrounds.  For example, in each of the three main tabs, this protocol ensures the tab bar background, the status bar background, and (sometimes) the navigation bar background all match the controller's primary color.  This creates the effect that each screen's elements are "floating" atop a solid background color.  Unlike the `SlidingViewController`, a protocol was chosen instead of a subclass for this feature for its ability to be implemented on any subclass of `UIViewController`.  If `FullScreenController` were a a subclass, there'd have to also be accompanying `FullScreenTabBarController`s, `FullScreenNavigationController`s, and `FullScreenTableViewController`s, just to name a few.  Unfortunately, Swift lacks mix-in functionality that's found in languages like Ruby, but this "protocol-with-global-methods" pattern can be found repeatedly on many iOS development sites, and it worked quite well for this scenario.
 
 ### Debugging
 
-This application was tested primarily on the iPhone simulator provided by the iOS developer toolkit.  The simulator is generally much faster than using an external device, so I often only tested major versions of the application on my personal iPhone 6.  The simulator makes it trivial to test against the numerous iPhone screen sizes as well, though near the end of the development cycle I tested on the iPhone 4S, iPhone 5, iPhone 5S,  and iPhone 6+ to ensure the resulting product matched the simulator's version.
+This application was tested primarily on the iPhone simulator provided by the iOS developer toolkit.  The simulator is generally much faster than using an external device, so often only major versions of the application were tested on a physical iPhone 6.  The simulator makes it trivial to test against the numerous iPhone screen sizes as well, though near the end of the development cycle the application was tested on the iPhone 4S, iPhone 5, iPhone 5S,  and iPhone 6+ to ensure the resulting product matched the simulator's version.
 
-Xcode includes some incredibly helpful tools to debug applications through the simulator or connected device.  Breakpoints can be toggled and created at any point during execution, and all crashes are usually well-documented with stack traces and other information.  There's also a tool to debug layouts visually, which was particularly helpful when first learning the ins-and-outs of the AutoLayout system.  Ultimately, I found no need to look beyond Xcode for any debugging tools, and only experienced a few truly "head-scratching" bugs.
+Xcode includes some incredibly helpful tools to debug applications through the simulator or connected device.  Breakpoints can be toggled and created at any point during execution, and all crashes are usually well-documented with stack traces and other information.  There's also a tool to debug layouts visually, which was particularly helpful when first learning the ins-and-outs of the AutoLayout system.  Ultimately, no external debugging tools seemed necessary.
 
 ### Version Control
 
-By default, Xcode creates a Git repository for all new projects, so versioning this application was a straightforward process.  Before settling on a single direction I experimented with various approaches in separate Git branches, merging some as I went along until I arrived at a stable `master` branch.  I set up a remote [Github repository](http://github.com/mbarvian/thesis/) as well, which let me work with the same codebase on different computers.  I used the [Github for Mac app](https://mac.github.com) to make commits and keep the repository in sync.
+By default, Xcode creates a Git repository for all new projects, so versioning this application was a straightforward process.  Before settling on a single direction various approaches were experimented with in separate Git branches, and merged as the project progressed until arriving at a stable `master` branch.  A remote [Github repository](http://github.com/mbarvian/thesis/) was set up as well so the same codebase could be downloaded on different computers.  The [Github for Mac app](https://mac.github.com) was used to make commits and keep the repository in sync.
 
 ## Testing
 
@@ -526,7 +526,7 @@ Despite the overall positive experiences, there were a few minor stumbling block
 			<li>User chooses relaxation reminder time using the time picker</li>
 			<li>User taps "Set Reminder" button to create the reminder</li>
 		</ol>
-		<p>From observing the users' behavior, however, the second step seemed redundant; as the relaxation reminder is created anyway, any time the user picks on this screen should be used without the additional confirmation step.  The "Set Reminder" button was therefore removed, and the functionality of the date picker was tweaked accordingly.</p>
+		<p>From observing the users' behavior, however, the second step seemed redundant; as the relaxation reminder is created anyway, any time the user picks on this screen should be used without the additional confirmation step.  The "Set Reminder" button was therefore removed, and the functionality of the date picker was tweaked to configure the reminder automatically.</p>
 		<div class="c-flow c-flow--diagram">
 			<div class="c-flow__item">
 				{% include f.html f=39 %}
