@@ -31,7 +31,7 @@ The design of any mobile application is arguably one of the biggest determinants
 
 At a very basic level, every software application performs two essential operations: accepting input from a user and outputting some form of data in return.  An application’s interface is where this transaction takes place, where people apply inputs so the computer can output the data they want. The goal of Human-Computer Interaction (also called “interaction design”, “UI/UX design”, or simply “software design”), quite simply, is to make this transaction as frictionless as possible.
 
-Unsurprisingly, application interfaces vary immensely among the countless operating systems and devices available. Common interface elements exist, of course: buttons usually trigger specific actions, text fields accept keyboard input, checkboxes toggle values on or off, etc. Most platforms rely on some notion of a screen, a unified arrangement of these elements that lets the user focus on a single task at once (i.e. logging in, creating a new calendar event, choosing a song to play, etc.). On the iOS platform, an application’s interface is often little more than a collection of individual screens.  The Weather application, for example, has a screen that lists the locations a user is interested in, a screen to add a new location to this list, and a screen detailing the weather for a specific location.  Because of this emphasis on individual screens, the sequence of actions a user takes to navigate through the application – often called “flow” – becomes crucially important.  One of the key principles of iOS design is to enable users to transition through screens in a way that closely resembles their own thought process for accomplishing their task.
+Unsurprisingly, application interfaces vary immensely among the countless operating systems and devices available. Common interface elements exist, of course: buttons usually trigger specific actions, text fields accept keyboard input, checkboxes toggle values on or off, etc. Most platforms rely on some notion of a screen, a unified arrangement of these elements that lets the user focus on a single task at once (i.e. logging in, creating a new calendar event, choosing a song to play, etc.). On the iOS platform used by Apple's iPhone, iPod Touch, and iPad products, an application’s interface is often little more than a collection of individual screens.  The Weather application, for example, has a screen that lists the locations a user is interested in, a screen to add a new location to this list, and a screen detailing the weather for a specific location.  Because of this emphasis on individual screens, the sequence of actions a user takes to navigate through the application – often called “flow” – becomes crucially important.  One of the key principles of iOS design is to enable users to transition through screens in a way that closely resembles their own thought process for accomplishing their task.
 
 Equally as important as flow, however, is the arrangement of elements on the screens themselves.  Nearly every screen is made up of interface elements with varying degrees of importance to the user’s task. In the new location screen from the Weather application mentioned above, the button to cancel the operation and return to the listing screen should appear less important than the textbox allowing the user to type in a new location, sensibly assuming the user didn’t end up on this screen by accident.  In all fields of design, visual hierarchy refers to the importance users tend to ascribe to certain elements over others.  There are numerous aspects that contribute to a sense of importance: placement on the screen (users often look near the top first, so any elements there will likely receive more attention than those elsewhere), size, color, shape, and more.  A large portion of software design in general, therefore, is establishing a visual hierarchy that most closely maps to the user’s intention in any given screen.
 
@@ -49,7 +49,7 @@ This thesis’ iPhone application will be developed using the official toolchain
 
 #### Async
 
-This [small library](https://github.com/duemunk/Async) provides a more elegant API for the Apple-provided Grand Central Dispatch (GCD) framework.  From the [Apple documentation](https://developer.apple.com/library/prerelease/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html):
+This [small library](https://github.com/duemunk/Async) provides a more elegant Application Program Interface (API) for the Apple-provided Grand Central Dispatch (GCD) framework.  From the [Apple documentation](https://developer.apple.com/library/prerelease/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html):
 
 > Grand Central Dispatch (GCD) comprises language features, runtime libraries, and system enhancements that provide systemic, comprehensive improvements to the support for concurrent code execution on multicore hardware in iOS and OS X.
 
@@ -95,6 +95,10 @@ Like SAM, however, Calm’s main screen might benefit from an improved visual hi
 
 Unfortunately, Calm also lacks any positive psychology/relapse prevention tools, though it doesn’t claim to target GAD patients in particular, so this choice may have been intentional.  In any case, the application’s limited scope and focused design is commendable and fully deserving of the many positive reviews it’s received on the App Store.
 
+#### Takeaways
+
+This thesis will attempt to preserve some of the core functionalities, reading materials, and relaxation techniques found in SAM, while also offering users a more guided approach like Calm's and Positive Psychology exercises as discussed above.
+
 ## Methodology
 
 ### Ideation
@@ -103,9 +107,9 @@ Truthfully, the only thing I knew when starting this thesis was that I wanted to
 
 #### Core features 
 
-One of the first steps I took in brainstorming this application was to create a list of essential functions it would need to guide a user through the anxiety recovery process.  Based primarily on the background research from the previous section, I settled on three core features:
+In brainstorming this application it was important to create a list of essential functions users would need from a guided anxiety recovery process.  Based primarily on the background research from the previous section, three core features were decided upon:
 
-1. ##### Reading materials
+1. ##### GAD Reading materials
 This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, I felt any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.
 1. ##### Immediate symptom relief
 This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so my job at this point was simply to decide which ones could most benefit from an interactive user experience, then realistically determine how many I would be able to develop within my timeframe.  I eventually settled on the following exercises:
@@ -508,7 +512,7 @@ These studies were carried out with a single researcher in an individualized –
 
 ### Results
 
-User feedback from these studies was largely positive. None of the eight testers encountered any obstacles or bugs they couldn't overcome on their own, and few voiced concerns after their evaluations.  Surprisingly, many users expressed that their favorite feature of the application was the Learn tab and the provided readings.
+User feedback from these studies was largely positive. None of the eight testers encountered any obstacles or bugs they couldn't overcome on their own, and few voiced concerns after their evaluations.  Surprisingly, many users expressed that their favorite feature of the application was the Learn tab and the provided readings.  For sake of completeness, all the (unedited) notes taken during these user studies can be found [here](/public/studies.pdf){:target="_blank"}.
 
 #### Modifications
 
