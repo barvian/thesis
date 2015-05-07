@@ -158,3 +158,11 @@
 - src: /img/reflection-reminder.png
   caption: Time picker opens
   type: iPhone
+
+- src: /img/onboarding/reminders.png
+  caption: Onboarding reminder page before testing
+  type: iPhone
+
+- src: /img/updates/onboarding/reminders.png
+  caption: Onboarding reminder page after testing
+  type: iPhone

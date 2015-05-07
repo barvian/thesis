@@ -35,4 +35,12 @@
       margin-right: auto;
     }
   }
+
+  @include m(diagram) {
+    @include e(item) {
+      &::before {
+        background-image: url("../img/icons/diagram.svg");
+      }
+    }
+  }
 }

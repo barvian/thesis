@@ -28,13 +28,24 @@
       }
     }
 
-    ol {
+    > ul, > ol {
+      ol {
+        @extend %flush;
+
+        list-style-type: lower-alpha;
+      }
+    }
+
+    > ol {
       @extend .#{$o-}numbered-list;
     }
     
     ul:not([class]) {
       @extend %tight;
     }
+  }
+
+  @include e(header) {
   }
 
   @include e(footer) {

@@ -68,6 +68,10 @@ layout: default
 {% comment %} Tabs to spaces {% endcomment %}
 {% assign essay = essay | replace: '	', '    ' %}
 
+{% comment %} Relative links {% endcomment %}
+{% capture relativeLink %}href="{{ site.baseurl }}/{% endcapture %}
+{% assign essay = essay | replace: 'href="/', relativeLink %}
+
 {% comment %} Figures {% endcomment %}
 {% assign length = site.data.figures | size | minus: 1 %}
 {% for f in (0..length) %}
@@ -86,8 +90,11 @@ layout: default
 {% capture references %}{% for reference in site.data.bibliography %}{% assign id = forloop.index | minus: 1 %}{% include r.html r=id %}:{{ id }}|{% endfor %}{% endcapture %}
 
 <article class="c-essay">
-  <!--<header>
+  <!--<header class="c-essay__header">
     <h1>Honors Thesis</h1>
+    <figure class="c-figure c-figure--feature">
+      {% include v.html src='/public/demo' autoload="autoload" %}
+    </figure>
   </header>-->
 
   <div class="o-wrapper">

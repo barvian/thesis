@@ -1,0 +1,10 @@
+{% capture attrs %}
+  {% for i in include %}
+    {% if i[0] != 'src' %}
+      {{ i[0] }}="{{ i[1] }}"
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+<video {{ attrs }}>
+  <source src="{{ site.baseurl }}/{{ include.src }}.mp4" type="video/mp4" />
+</video>

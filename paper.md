@@ -7,7 +7,7 @@ permalink: /
 
 ### Generalized Anxiety Disorder (GAD)
 
-Anxiety in itself is not disorderly.  In fact, as Bourne {% include c.html r=0 a=false %} and other authors have noted, anxiety is often considered inevitable in contemporary society.    Worrying can be a useful, appropriate response to challenging situations in everyday life.  It becomes a diagnosable disorder, however, when a person worries excessively about a variety of everyday problems for at least 6 months {% include c.html r=3 %} in a way that noticeably interferes with their normal lives. Physical symptoms of GAD can include fatigue, headaches, nausea, twitching, muscle aches, and irritability; mentally, patients can’t relax, startle easily, and have difficulty falling asleep.
+Anxiety in itself is not a disorder.  In fact, as Bourne {% include c.html r=0 a=false %} and other authors have noted, anxiety is often considered inevitable in contemporary society.    Worrying can be a useful, appropriate response to challenging situations in everyday life.  It becomes a diagnosable disorder, however, when a person worries excessively about a variety of everyday problems for at least 6 months {% include c.html r=3 %} in a way that noticeably interferes with their normal lives. Physical symptoms of GAD can include fatigue, headaches, nausea, twitching, muscle aches, and irritability; mentally, patients can’t relax, startle easily, and have difficulty falling asleep.
 
 GAD affects about 3.1% of American adults (aged 18 years or older) in a given year, totaling about 6.8 million with twice as many women as men.  The average age of onset is 31 years old, though it often develops gradually between childhood and middle age.  The goal of this thesis is to develop an interactive self-help iPhone application that offers a comprehensive recovery program for all GAD patients by incorporating principles from some of the most extensively researched treatments available.
 
@@ -504,15 +504,43 @@ After the application was complete, user testing was conducted to measure its pe
 
 ### Method
 
-These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form]({{ site.baseurl }}/public/informed-consent.pdf){:target="_blank"} and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were asked to perform a variety of tasks with the application, such as “write a reflection” or “change the relaxation reminder time”. Participants were encouraged to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form]({{ site.baseurl }}/public/debriefing.pdf){:target="_blank"}.
+These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form](/public/informed-consent.pdf){:target="_blank"} and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were asked to perform a variety of tasks with the application, such as “write a reflection” or “change the relaxation reminder time”. Participants were encouraged to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](/public/debriefing.pdf){:target="_blank"}.
 
 ### Results
 
-Pending.
+User feedback from these studies was largely positive. None of the eight testers encountered any obstacles or bugs they couldn't overcome on their own, and few voiced concerns after their evaluations.  Surprisingly, many users expressed that their favorite feature of the application was the Learn tab and the provided readings.
 
 #### Modifications
 
-Pending.
+Despite the overall positive experiences, there were a few minor stumbling blocks nearly every user seemed to run into during their tests, either knowingly or unknowingly.
+
+<ol class="c-figure--iPhone-short">
+	<li>
+		<h5>"Set Reminder" button in onboarding</h5>
+		<p>Only two of the eight users tapped the "Set Reminder" button from the daily relaxation reminder slide shown in {% include fr.html f=14 %}.  The intended flow of this screen was:</p>
+		<ol>
+			<li>User chooses relaxation reminder time using the time picker</li>
+			<li>User taps "Set Reminder" button to create the reminder</li>
+		</ol>
+		<p>From observing the users' behavior, however, the second step seemed redundant; as the relaxation reminder is created anyway, any time the user picks on this screen should be used without the additional confirmation step.  The "Set Reminder" button was therefore removed, and the functionality of the date picker was tweaked accordingly.</p>
+		<div class="c-flow c-flow--diagram">
+			<div class="c-flow__item">
+				{% include f.html f=39 %}
+			</div>
+			<div class="c-flow__item">
+				{% include f.html f=40 %}
+			</div>
+		</div>
+	</li>
+	<li>
+		<h5>Larger text button hit areas</h5>
+		<p>Many users "missed" some of the text-only buttons -- "Get Started" in {% include fr.html f=15 %}, "Next"/"Done" in any of the relaxation exercises, etc. -- so the tappable area of these buttons was increased by `15pt` on each side.  This change is invisible to the users, but should result in fewer mis-taps.</p>
+	</li>
+	<li>
+		<h5>Taps inside reminder views</h5>
+		<p>In trying to enable or disable a reminder using the toggle switch ({% include fr.html f=3 %}), some users inadvertently closed the view entirely.  This occurred because any taps in this view outside of the switch or date picker were improperly configured to dismiss the view.  This has been corrected; only taps outside the reminder view can dismiss it now.</p>
+	</li>
+</ol>
 
 ## Conclusion
 
