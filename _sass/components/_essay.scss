@@ -28,19 +28,7 @@
       }
     }
 
-    > ul, > ol {
-      ol {
-        @extend %flush;
-
-        list-style-type: lower-alpha;
-      }
-    }
-
-    > ol {
-      @extend .#{$o-}numbered-list;
-    }
-    
-    ul:not([class]) {
+    ul:not([class]), ol:not([class]) {
       @extend %tight;
     }
   }

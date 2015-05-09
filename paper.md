@@ -109,17 +109,27 @@ Anxiety is a personal issue to me; I've certainly experienced it myself and have
 
 In brainstorming this application it was important to create a list of essential functions users would need from a guided anxiety recovery process.  Based primarily on the background research from the previous section, three core features were decided upon:
 
-1. ##### GAD Reading materials
-This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.
-1. ##### Immediate symptom relief
-This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so most of the work here was to decide which ones could most benefit from an interactive user experience, then realistically determine how many could be developed within the timeframe.  The following exercises were eventually selected:
- * Deep breathing
- * Calming scene (i.e. a video/image of a peaceful landscape)
- * Guided meditation
- * Coping statements
-These will be covered in greater depth in a later section.
-1. ##### Long-term shift towards positivity
-Equally important to this application as the previous CBT-related features is a Positive Psychology aspect to prevent relapses during the recovery process.  Much of the research literature seems to agree that the most helpful technique for creating such a shift is to keep a daily journal of positive events, no matter how trivial.  It was decided that such a journal would be integrated into this application.
+<ol class="o-numbered-list">
+	<li>
+		<h5>GAD Reading materials</h5>
+		<p>This feature was guided more by my own experience coping with anxiety than any of the studies I'd read during my background research.  I've found it incredibly helpful to read objective, somewhat scientific explanations of anxiety and its symptoms; it offers the chance to step back from the unpleasant feelings associated with the disorder and gain a clearer understanding of their origin, which sometimes makes them disappear entirely.  Moreover, any application that would attempt to guide users through an anxiety recovery process would warrant at least a vague description of the actual disorder itself.  This would hopefully instill a sense of confidence in the user about the application's approach to recovery, and make them more likely to continue using it.</p>
+	</li>
+	<li>
+		<h5>Immediate symptom relief</h5>
+		<p>This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so most of the work here was to decide which ones could most benefit from an interactive user experience, then realistically determine how many could be developed within the timeframe.  The following exercises were eventually selected:</p>
+		<ol>
+			<li>Deep breathing</li>
+			<li>Calming scene (i.e. a video/image of a peaceful landscape)</li>
+			<li>Guided meditation</li>
+			<li>Coping statements</li>
+		</ol>
+		<p>These will be covered in greater depth in a later section.</p>
+	</li>
+	<li>
+		<h5>Long-term shift towards positivity</h5>
+		<p>Equally important to this application as the previous CBT-related features is a Positive Psychology aspect to prevent relapses during the recovery process.  Much of the research literature seems to agree that the most helpful technique for creating such a shift is to keep a daily journal of positive events, no matter how trivial.  It was decided that such a journal would be integrated into this application.</p>
+	</li>
+</ol>
 
 Normally, such a list might be subject to change as design and development of the application progresses; features could be deemed unnecessary or priorities could shift to include new ones.  Given the extremely limited timeframe, however, a growing feature set in the later stages of development would be undesirable, and a short list could better encourage focus on the most important aspects of the application at all times.  As such, this list was considered final and not subject to change throughout the rest of the process.
 
@@ -131,12 +141,20 @@ Much of the design phase of this application inevitably overlapped with the deve
 
 Before layout, color palettes, interactions, or any specific detail of the application's visual design were considered, a few goals were solidified to keep in mind over the duration of the design process.
 
-1. ##### Be easy to use
-This goal may sound trivial, but undoubtedly necessary to keep in mind considering the target audience for the application.  The design of this application should never be obtuse, or present an unnecessary burden to the user's experience.  If the user is already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, this application should not exacerbate it.
-1. ##### Cover the essential aspects of anxiety recovery
-Though the feature set of this application was kept to a bare minimum, it is important that users are provided as complete a self-help anxiety recovery program as possible within the time frame.  Ideally, the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) or [Calm](http://calm.com) for a more comprehensive meditation practice. 
-1. ##### Be unobtrusive yet involved
-This felt like the most important balancing act to perform when designing the application.  From personal experience, consistency is clearly important when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything feels like it's going smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, users shouldn't start perceiving the application as an annoyance more than an aid, so being mindful of this distinction as much as possible seemed paramount.
+<ol class="o-numbered-list">
+	<li>
+		<h5>Be easy to use</h5>
+		<p>This goal may sound trivial, but undoubtedly necessary to keep in mind considering the target audience for the application.  The design of this application should never be obtuse, or present an unnecessary burden to the user's experience.  If the user is already in an unpleasant or agitated mental state, a likely possibility given the nature of the disorder, this application should not exacerbate it.</p>
+	</li>
+	<li>
+		<h5>Cover the essential aspects of anxiety recovery</h5>
+		<p>Though the feature set of this application was kept to a bare minimum, it is important that users are provided as complete a self-help anxiety recovery program as possible within the time frame.  Ideally, the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) or [Calm](http://calm.com) for a more comprehensive meditation practice.</p>
+	</li>
+	<li>
+		<h5>Be unobtrusive yet involved</h5>
+		<p>This felt like the most important balancing act to perform when designing the application.  From personal experience, consistency is clearly important when attempting to overcome anxious symptoms; it's easy to "forget" to practice relaxation techniques when everything feels like it's going smoothly, though repetition seems to be a key aspect of long-term anxiety recovery.  On the other hand, users shouldn't start perceiving the application as an annoyance more than an aid, so being mindful of this distinction as much as possible seemed paramount.</p>
+	</li>
+</ol>
 
 These finalized goals provided a clear enough guide to begin laying out the application.
 
@@ -278,7 +296,7 @@ The mood picker is the primary focus of this screen, as it allows the user to be
 
 As discussed in a previous section, there are four relaxation exercises included in this application.  Depending on the user's choice of mood and duration, a relaxation session can consist of 1-3 exercises.  Each exercise has instructions at the top and a progress button at the bottom; if the current exercise is the only or final exercise in the sequence, this button is labelled "Done" and tapping it will return to the Relax tab.  Otherwise, this button is labelled "Next" and tapping it advances to the next exercise.  The relaxation exercises are determined in accordance with the guidelines from Bourne {% include c.html r=0 a=false %}, discussed in detail below:
 
-<ol class="c-figure--iPhone-short">
+<ol class="o-numbered-list c-figure--iPhone-short">
 	<li>
 		<h6>Calming scene exercise</h6>
 		<p>This exercise is prioritized for less anxious moods, and as such was designed to convey a more playful, lighthearted attitude.  It displays a full-screen looping video of a calming landscape which pans automatically if the user tilts their device left or right.  The user can also swipe left or right to change to any of the 5 included landscapes, and the application will remember which one they viewed last to display the next time they use the exercise.</p>
@@ -504,11 +522,22 @@ By default, Xcode creates a Git repository for all new projects, so versioning t
 
 ## Testing
 
-After the application was complete, user testing was conducted to measure its perceived usefulness and ease of use. Participants were solicited from North Central College's PSY 100 participant pool via the online research credit management system, SONA.  Two sessions of 4 participants were needed with no further prerequisites for participation.  Participants received 1 research credit in exchange for their participation in the study.
+After the application was complete, user testing was conducted to measure its perceived usefulness and ease of use. Participants were solicited from North Central College's PSY 100 participant pool via the online research credit management system, SONA.  Two sessions of 4 participants -- 8 participants total -- were needed with no further prerequisites for participation.  Participants received 1 research credit in exchange for their participation in the study.
 
 ### Method
 
-These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form](/public/informed-consent.pdf){:target="_blank"} and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were asked to perform a variety of tasks with the application, such as “write a reflection” or “change the relaxation reminder time”. Participants were encouraged to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](/public/debriefing.pdf){:target="_blank"}.
+These studies were carried out with a single researcher in an individualized – rather than traditional focus group – format. Participants were assigned a 15-minute block within the study’s allocated time so that each participant could receive equal attention from the researcher. All participants were first given an [informed consent form](/public/informed-consent.pdf){:target="_blank"} and a brief description of the application they’d be testing.  They were then assigned an identification number and given an iPhone (provided by the researcher) with the thesis’ application pre-installed.  They were asked to first interact with the application naturally without a specific goal in mind. Afterwards, they were prompted verbally to act out a variety of scenarios:
+
+1. You go to bed at 10:00 p.m. and want to be reminded to reflect then
+1. You’re feeling really stressed and you want to relax but don’t have much time
+1. You forgot how you’re supposed to use each of the tabs
+1. Something good just happened to you and you want to write it down
+1. You notice self-talk patterns and want to read more about them
+1. You wake up at different times every day so you don’t want to be reminded to relax
+1. You woke up in a good mood but you want to relax for just a little bit
+	1. You want to look at something different
+
+Participants were encouraged to work through these tasks at their own pace, and none took longer than the 15 minute session. They were invited to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](/public/debriefing.pdf){:target="_blank"}.
 
 ### Results
 
@@ -518,7 +547,7 @@ User feedback from these studies was largely positive. None of the eight testers
 
 Despite the overall positive experiences, there were a few minor stumbling blocks nearly every user seemed to run into during their tests, either knowingly or unknowingly.
 
-<ol class="c-figure--iPhone-short">
+<ol class="o-numbered-list c-figure--iPhone-short">
 	<li>
 		<h5>"Set Reminder" button in onboarding</h5>
 		<p>Only two of the eight users tapped the "Set Reminder" button from the daily relaxation reminder slide shown in {% include fr.html f=14 %}.  The intended flow of this screen was:</p>
@@ -554,12 +583,20 @@ The goal of this project was to create an iPhone application that offered users 
 
 My primary goal at this point is to continue tweaking the application until I feel comfortable publishing it on the App Store and making it available to all English-speaking iPhone users.  As expected, I saw many opportunities for new features or additional refinements throughout the development process:
 
-1. ##### More engaging onboarding experience
-This was brought up in the Methodology section, but I feel it deserves another mention here.  I didn't feel I had enough time to craft the truly engaging, interactive onboarding experience that Apple strongly recommends in the iOS HIG.  I've not yet determined what such an experience might entail, but I'm confident I could make noticeable improvements to the final version of the tutorial with some additional time.
-1. ##### Password-protected Reflect tab
-Given the delicate nature of this application, I originally planned to provide the option for a password-protected lock screen upon launch, though ultimately I reasoned the only sensitive data is in the timeline of the Reflect tab.  I think many users might feel a greater sense of security from such a feature.
-1. ##### Relax tab improvements
-Though I was very hesitant to muddle the Relax tab in any way, I feel some positive reinforcement would be a nice touch to encourage consistent daily relaxation.  The aforementioned [Headspace](http://headspace.com) meditation application, for example, rewards users for consecutive days of practice, and I can personally attest to the motivational power of this system.  I think a similar feature would be appropriate for this tab, though I'd want to feel utmost confident that the tab retained its ease of use and simplicity before attempting to change it.
+<ol class="o-numbered-list">
+	<li>
+		<h5>More engaging onboarding experience</h5>
+		<p>This was brought up in the Methodology section, but I feel it deserves another mention here.  I didn't feel I had enough time to craft the truly engaging, interactive onboarding experience that Apple strongly recommends in the iOS HIG.  I've not yet determined what such an experience might entail, but I'm confident I could make noticeable improvements to the final version of the tutorial with some additional time.</p>
+	</li>
+	<li>
+		<h5>Password-protected Reflect tab</h5>
+		<p>Given the delicate nature of this application, I originally planned to provide the option for a password-protected lock screen upon launch, though ultimately I reasoned the only sensitive data is in the timeline of the Reflect tab.  I think many users might feel a greater sense of security from such a feature.</p>
+	</li>
+	<li>
+		<h5>Relax tab improvements</h5>
+		<p>Though I was very hesitant to muddle the Relax tab in any way, I feel some positive reinforcement would be a nice touch to encourage consistent daily relaxation.  The aforementioned [Headspace](http://headspace.com) meditation application, for example, rewards users for consecutive days of practice, and I can personally attest to the motivational power of this system.  I think a similar feature would be appropriate for this tab, though I'd want to feel utmost confident that the tab retained its ease of use and simplicity before attempting to change it.</p>
+	</li>
+</ol>
 
 In closing, I'd like to sincerely thank everyone who offered their support to this project, and to the North Central Honors Program for the opportunity.
 
