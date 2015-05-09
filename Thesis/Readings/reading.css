@@ -28,20 +28,27 @@ header {
 	text-align: center;
 }
 
-	header::before, header::after {
-		bottom: 0;
+	footer::before, header::before, footer::after, header::after {
 		content: "";
 		left: 50%;
 		position: absolute;
 	}
 
-	header::before {
+	footer::before, footer::after {
+		top: 0;
+	}
+
+	header::before, header::after {
+		bottom: 0;
+	}
+
+	footer::before, header::before {
 		border-top: 1.5px dotted rgba(0, 0, 0, 0.5);
 		margin-left: -12.5%;
 		width: 25%;
 	}
 
-	header::after {
+	footer::after, header::after {
 		background-color: rgb(0, 0, 0);
 		box-shadow: 0 0 0 6px rgb(255, 255, 255);
 		border-radius: 100%;
@@ -81,6 +88,20 @@ h3 {
 
 ol, ul, dl {
 	padding-left: 1.618rem;
+}
+
+cite {
+	font-style: normal;
+}
+
+em {
+	font-style: italic;
+}
+
+footer {
+	padding-top: 1.618rem;
+	margin-top: 1.618rem;
+	position: relative;
 }
 
 /**
