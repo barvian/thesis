@@ -98,15 +98,15 @@ layout: default
   <div class="o-wrapper">
     <section class="c-essay__section">
       <header>
-        <h2 id="abstract">Contents</h2>
-      </header>
-      {% include toc.html t=toc %}
-    </section>
-    <section class="c-essay__section">
-      <header>
         <h2 id="abstract">Abstract</h2>
       </header>
       <p>{{ page.abstract }}</p>
+    </section>
+    <section class="c-essay__section">
+      <!--<header>
+        <h2 id="abstract">Contents</h2>
+      </header>-->
+      {% include toc.html t=toc %}
     </section>
     {{ essay }}
   </div>
