@@ -22,8 +22,8 @@ html {
   }
 }
 
-@include query(print) {
-  @page {
-    margin: 1in;
-  }
+@page {
+  counter-reset: page 1;
+  counter-increment: page;
+  margin: 1in;
 }

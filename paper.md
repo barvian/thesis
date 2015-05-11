@@ -162,7 +162,7 @@ These finalized goals provided a clear enough guide to begin laying out the appl
 
 #### User Personas
 
-As an additional aid in the design process, {{ site.data.personas | size }} personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead:
+As an additional aid in the design process, {{ site.data.personas | size }} personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead.  The webpage from the National Institutes of Mental Health {% include c.html r=3 a=false %} provided most of these traits along with some realistic quotes from GAD patients:
 
 <ul class="o-block-list o-box">
 	{% for persona in site.data.personas %}
@@ -543,7 +543,7 @@ Participants were encouraged to work through these tasks at their own pace, and 
 
 ### Results
 
-User feedback from these studies was largely positive. None of the eight testers encountered any obstacles or bugs they couldn't overcome on their own, and few voiced concerns after their evaluations.  Surprisingly, many users expressed that their favorite feature of the application was the Learn tab and the provided readings.  For sake of completeness, all the (unedited) notes taken during these user studies can be found [here](/public/studies.pdf){:target="_blank"}.
+User feedback from these studies was largely positive. None of the eight testers encountered any obstacles or bugs they couldn't overcome on their own, and few voiced concerns after their evaluations.  Many users expressed sincere support for the project, asking when it would be available for public download so they could recommend it to a friend or family member.  For sake of completeness, all the (unedited) notes taken during these user studies can be found [here](/public/studies.pdf){:target="_blank"}.
 
 #### Modifications
 

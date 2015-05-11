@@ -1,0 +1,18 @@
+{% assign sections = include.t | remove_first: '|' |split: '|' %}
+<ol class="c-toc">
+  {% for section in sections %}
+    {% assign title = section | split: ':' | first %}
+    {% assign s = forloop.index %}
+    {% assign subsections = section | split: ':' | last | remove_first: '--' | split: '--' %}
+    <li><a href="#{{ s }}">{{ title }}</a>
+      {% if subsections.size > 0 %}
+        <ol>
+        {% for subsection in subsections %}
+          {% assign ss = forloop.index %}
+          <li><a href="#{{ s }}.{{ ss }}">{{ subsection }}</a></li>
+        {% endfor %}        
+        </ol>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>

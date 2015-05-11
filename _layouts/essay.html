@@ -13,6 +13,7 @@ layout: default
   {% for s in (1..length) %}
     {% assign title = sections[s] | split: '</h2>' | first %}
     {% assign section = sections[s] | split: '</h2>' | last | replace: '%SECTION%', s %}
+    {% assign toc = toc | append: '|' | append: title | append: ':' %}
     <section class="c-essay__section" data-section="{{ s }}">
       <header>
         <h2 id="{{ s }}">
@@ -35,6 +36,7 @@ layout: default
       {% assign length = subsections | size | minus: 1 %}
       {% for ss in (1..length) %}
         {% assign subtitle = subsections[ss] | split: '</h3>' | first %}
+        {% assign toc = toc | append: '--' | append: subtitle %}
         {% assign subsection = subsections[ss] | split: '</h3>' | last | replace: '%SUBSECTION%', ss %}
         <section class="c-essay__subsection" data-subsection="{{ ss }}">
           <header>
@@ -96,9 +98,13 @@ layout: default
   <div class="o-wrapper">
     <section class="c-essay__section">
       <header>
-        <h2 id="abstract">
-          Abstract
-        </h2>
+        <h2 id="abstract">Contents</h2>
+      </header>
+      {% include toc.html t=toc %}
+    </section>
+    <section class="c-essay__section">
+      <header>
+        <h2 id="abstract">Abstract</h2>
       </header>
       <p>{{ page.abstract }}</p>
     </section>

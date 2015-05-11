@@ -1,0 +1,20 @@
+// TOC
+// ===
+
+@include b(#{$c-}toc) {
+  > li {
+    ol {
+      list-style-type: decimal;
+    }
+
+    a {
+      &::after {
+        content: leader('.') target-counter(attr(href), page);
+      }
+    }
+
+    > a {
+      @extend %h5;
+    }
+  }
+}
