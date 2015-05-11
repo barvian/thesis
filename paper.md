@@ -5,13 +5,19 @@ abstract: |
   The purpose of this thesis is to create a self-help iPhone application for anxiety patients that merges psychology research on Generalized Anxiety Disorder (GAD) treatment options with Apple's iOS 8 development toolkit. The goal of this application is twofold: in the short term it hopes to help users alleviate their immediate systems and anxious episodes; in the long term it hopes to provide a comprehensive, relapse-free recovery program for these patients.  Cognitive Behavior Therapy (CBT) and Positive Psychology/Well-Being Therapy (WBT) techniques were researched extensively for these goals, and the application incorporates their practices in helpful, interactive ways. Formal user testing was conducted with volunteer psychology students to gather feedback on the design and perceived usefulness of the application, and their feedback was compiled and incorporated into the final application before it was submitted.
 ---
 
+## Introduction
+
+Generalized Anxiety Disorder (GAD) affects about 3.1% of American adults (aged 18 years or older) in a given year, totaling about 6.8 million people {% include c.html r=3 %}.  The average age of onset is 31 years old, though it often develops gradually between childhood and middle age.  Contrary to popular belief, patients suffering from the disorder often experience physical effects alongside the potentially crippling mental ones.  Fortunately, treatment for GAD has been the subject of extensive academic research, and many techniques have proven effective in dealing with both short and long-term symptoms.
+
+The iOS platform used on Apple's iPhone, iPad, and iPod Touch products is one of the most popular available, and its mobile application market already features tools to help patients with anxiety, diabetes, cancer, and other illnesses.  Combined with its thriving and powerful development toolkit, iOS offers an extremely promising opportunity for GAD patients to treat their symptoms privately through interactive self-help techniques.
+
+The goal of this thesis is to design and develop an interactive self-help iPhone application that offers a comprehensive recovery program for all GAD patients by incorporating principles from some of the most heavily researched treatments available.  This application will be created for education requirements only, and will not be sold or distributed in the form detailed here. 
+
 ## Background
 
 ### Generalized Anxiety Disorder (GAD)
 
 Anxiety in itself is not a disorder.  In fact, as Bourne {% include c.html r=0 a=false %} and other authors have noted, anxiety is often considered inevitable in contemporary society.    Worrying can be a useful, appropriate response to challenging situations in everyday life.  It becomes a diagnosable disorder, however, when a person worries excessively about a variety of everyday problems for at least 6 months {% include c.html r=3 %} in a way that noticeably interferes with their normal lives. Physical symptoms of GAD can include fatigue, headaches, nausea, twitching, muscle aches, and irritability; mentally, patients can’t relax, startle easily, and have difficulty falling asleep.
-
-GAD affects about 3.1% of American adults (aged 18 years or older) in a given year, totaling about 6.8 million with twice as many women as men.  The average age of onset is 31 years old, though it often develops gradually between childhood and middle age.  The goal of this thesis is to develop an interactive self-help iPhone application that offers a comprehensive recovery program for all GAD patients by incorporating principles from some of the most extensively researched treatments available.  This application will be created for education requirements only, and will not be sold or distributed in the form detailed here.
 
 #### Treatment
 

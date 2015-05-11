@@ -5,7 +5,7 @@
     {% assign s = forloop.index %}
     {% assign subsections = section | split: ':' | last | remove_first: '--' | split: '--' %}
     <li><a href="#{{ s }}">{{ title }}</a>
-      {% if subsections.size > 0 %}
+      {% if subsections.size > 0 and subsections[0] != title %}
         <ol>
         {% for subsection in subsections %}
           {% assign ss = forloop.index %}
