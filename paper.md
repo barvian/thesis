@@ -2,7 +2,7 @@
 layout: essay
 permalink: /
 abstract: |
-  The purpose of this thesis is to create a self-help iPhone application for anxiety patients that merges psychology research on Generalized Anxiety Disorder (GAD) treatment options with Apple's iOS8 development toolkit. The goal of this application is twofold: in the short term it hopes to help users alleviate their immediate systems and anxious episodes; in the long term it hopes to provide a comprehensive, relapse-free recovery program for these patients.  Cognitive Behavior Therapy (CBT) and Positive Psychology/Well-Being Therapy (WBT) techniques were researched extensively for these goals, and the application incorporates their practices in helpful, interactive ways. Formal user testing was conducted with volunteer psychology students to gather feedback on the design and perceived usefulness of the application, and their feedback was compiled and incorporated into the final application before it was submitted.
+  The purpose of this thesis is to create a self-help iPhone application for anxiety patients that merges psychology research on Generalized Anxiety Disorder (GAD) treatment options with Apple's iOS 8 development toolkit. The goal of this application is twofold: in the short term it hopes to help users alleviate their immediate systems and anxious episodes; in the long term it hopes to provide a comprehensive, relapse-free recovery program for these patients.  Cognitive Behavior Therapy (CBT) and Positive Psychology/Well-Being Therapy (WBT) techniques were researched extensively for these goals, and the application incorporates their practices in helpful, interactive ways. Formal user testing was conducted with volunteer psychology students to gather feedback on the design and perceived usefulness of the application, and their feedback was compiled and incorporated into the final application before it was submitted.
 ---
 
 ## Background
@@ -15,7 +15,7 @@ GAD affects about 3.1% of American adults (aged 18 years or older) in a given ye
 
 #### Treatment
 
-Relapse is a major concern for GAD patients. Treatment options that address one or two contributing causes (biology, upbringing, conditioning, stressors, self-talk and belief, ability to express feelings, etc.) usually only alleviate GAD symptoms temporarily.  According to Bourne {% include c.html r=0 a=false %}, a complete program of recovery from an anxiety disorder must reduce physiological reactivity, eliminate avoidance behavior, and change subjective interpretations or self-talk which perpetuate a state of apprehension and worry. Meta-analyses have already shown computer-based self-help treatments to be effective in these areas {% include c.html r=2 %}.
+Relapse is a major concern for GAD patients. Treatment options that address one or two contributing causes -- biology, upbringing, conditioning, stressors, self-talk and belief, ability to express feelings, etc. -- usually only alleviate GAD symptoms temporarily.  According to Bourne {% include c.html r=0 a=false %}, a complete program of recovery from an anxiety disorder must reduce physiological reactivity, eliminate avoidance behavior, and change subjective interpretations or self-talk which perpetuate a state of apprehension and worry. Meta-analyses have already shown computer-based self-help treatments to be effective in these areas {% include c.html r=2 %}.
 
 #### Cognitive-Behavioral Therapy (CBT)
 
@@ -23,7 +23,7 @@ GAD patients tend to view the world as a threatening place, a misperception that
 
 #### Positive Psychology
 
-Positive psychology is a semi-structured treatment for depression and anxiety that tries to shift patients' focus towards positive emotions and personal strengths.  Techniques can include daily exercises that emphasize positive experiences or structured journals to record such episodes of wellbeing.  Positive psychology was designed as a complement to more comprehensive methods, like CBT, not a freestanding alternative in its own right.  That being said, studies show that positive psychology (also called Well-Being Therapy) paired with CBT can be more effective at preventing relapse in GAD patients than CBT alone {% include c.html r=1 %}.
+Positive psychology is a semi-structured treatment for depression and anxiety that tries to shift patients' focus towards positive emotions and personal strengths.  Techniques can include daily exercises that emphasize positive experiences or structured journals to record such episodes of wellbeing.  Positive psychology was designed as a complement to more comprehensive methods like CBT, not a freestanding alternative in its own right.  That being said, studies show that positive psychology (also called Well-Being Therapy) paired with CBT can be more effective at preventing relapse in GAD patients than CBT alone {% include c.html r=1 %}.
 
 ### iOS Design
 
@@ -35,7 +35,7 @@ At a very basic level, every software application performs two essential operati
 
 Unsurprisingly, application interfaces vary immensely among the countless operating systems and devices available. Common interface elements exist, of course: buttons usually trigger specific actions, text fields accept keyboard input, checkboxes toggle values on or off, etc. Most platforms rely on some notion of a screen, a unified arrangement of these elements that lets the user focus on a single task at once (i.e. logging in, creating a new calendar event, choosing a song to play, etc.). On the iOS platform used by Apple's iPhone, iPod Touch, and iPad products, an application’s interface is often little more than a collection of individual screens.  The Weather application, for example, has a screen that lists the locations a user is interested in, a screen to add a new location to this list, and a screen detailing the weather for a specific location.  Because of this emphasis on individual screens, the sequence of actions a user takes to navigate through the application – often called “flow” – becomes crucially important.  One of the key principles of iOS design is to enable users to transition through screens in a way that closely resembles their own thought process for accomplishing their task.
 
-Equally as important as flow, however, is the arrangement of elements on the screens themselves.  Nearly every screen is made up of interface elements with varying degrees of importance to the user’s task. In the new location screen from the Weather application mentioned above, the button to cancel the operation and return to the listing screen should appear less important than the textbox allowing the user to type in a new location, sensibly assuming the user didn’t end up on this screen by accident.  In all fields of design, visual hierarchy refers to the importance users tend to ascribe to certain elements over others.  There are numerous aspects that contribute to a sense of importance: placement on the screen (users often look near the top first, so any elements there will likely receive more attention than those elsewhere), size, color, shape, and more.  A large portion of software design in general, therefore, is establishing a visual hierarchy that most closely maps to the user’s intention in any given screen.
+Equally as important as flow, however, is the arrangement of elements on the screens themselves.  Nearly every screen is made up of interface elements with varying degrees of importance to the user’s task. In the new location screen from the Weather application mentioned above, the button to cancel the operation and return to the listing screen should appear less important than the textbox allowing the user to type in a new location, sensibly assuming the user didn’t end up on this screen by accident.  Visual hierarchy refers to the importance users tend to ascribe to certain elements over others.  There are numerous aspects that contribute to a sense of importance: placement on the screen (users often look near the top first, so any elements there will likely receive more attention than those elsewhere), size, color, shape, and more.  A large portion of software design in general, therefore, is establishing a visual hierarchy that most closely maps to the user’s intention in any given screen.
 
 #### iOS Human Interface Guidelines (HIG)
 
@@ -43,11 +43,11 @@ Beyond these foundational HCI principles, operating systems often have their own
 
 #### Color Psychology
 
-Broadly speaking, color psychology is the study of color as it affects mood, emotions, and behavior.  Though research in this area is sometimes criticized for its inconsistency, some studies undoubtedly make implications for software design.  The reason red is almost always used in error messages or alert dialogs, for example, is because the color has been found to excite more emotion than neutral colors like blue and green {% include c.html r=4 %}. In the latest version of iOS, color is often the only visual cue that distinguishes interactive interface elements from non-interactive elements.  By default, most buttons are now styled identically to normal text, differing only in font color (and sometimes size). Beyond these functional benefits, however, interfaces can also use color as decoration or to influence their users in some way.  An orange headline may draw more attention than a gray one, for example, while a light blue background may look more visually appealing than a white one.  In this thesis’ application, any colors would preferably ease users rather than exacerbate their anxious symptoms, so each color will be considered chosen based on relevant research from this discipline.
+Broadly speaking, color psychology is the study of color as it affects mood, emotions, and behavior.  Though research in this area is sometimes criticized for its inconsistency, some studies undoubtedly make implications for software design.  The reason red is almost always used in error messages or alert dialogs, for example, is because the color has been found to excite more emotion than neutral colors like blue and green {% include c.html r=4 %}. In the latest version of iOS, color is often the only visual cue that distinguishes interactive interface elements from non-interactive elements.  By default, most buttons are now styled identically to normal text, differing only in font color (and sometimes size). Beyond these functional benefits, however, interfaces can also use color as decoration or to influence their users in some way.  An orange headline may draw more attention than a gray one, for example, while a light blue background may look more visually appealing than a white one.  In this thesis’ application, any colors would preferably ease users rather than exacerbate their anxious symptoms, so each color will be chosen based on relevant research from this discipline.
 
 ### iOS Development
 
-This thesis’ iPhone application will be developed using the official toolchain provided by Apple, Inc.  This includes the Xcode IDE (Integrated Development Environment), which itself contains Interface Builder for laying out the application’s UI components, Instruments for debugging the application, and Simulator for testing the application without a device; the UIKit framework; iTunes Connect for managing provisioning profiles and deploying on actual devices; and the newly released Swift programming language.  The codebase for the application will be version controlled using the popular Git system with a remote copy stored on Github.  In addition to these standard tools, however, several third-party frameworks will be used to save time and avoid unnecessary code duplication.
+This thesis’ iPhone application will be developed using the official toolchain provided by Apple, Inc.  This includes the Xcode Integrated Development Environment (IDE), which itself contains Interface Builder for laying out the application’s UI components, Instruments for debugging the application, and Simulator for testing the application without a device; the UIKit framework; iTunes Connect for managing provisioning profiles and deploying on actual devices; and the newly released Swift programming language.  The codebase for the application will be version controlled using the popular Git system with a remote copy stored on Github.  In addition to these standard tools, however, several third-party frameworks will be used to save time and avoid unnecessary code duplication.
 
 #### Async
 
@@ -59,7 +59,7 @@ Async offers simple block chaining as well, a feature sorely missing from GCD's 
 
 #### SDCloudUserDefaults
 
-Traditionally, when developers need to save user preferences in iOS applications they'd rely on Apple's `NSUserDefaults` class, which according to the [documentation](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/index.html) "provides a programmatic interface for interacting with the defaults system". With the introduction of iCloud, however, it's become desirable to sync some or all of a user's preferences among all their devices automatically. [This library](https://github.com/sdarlington/SDCloudUserDefaults) promises a simple API for doing exactly that.
+Traditionally, when developers need to save user preferences in iOS applications they'd rely on Apple's `NSUserDefaults` class, which according to the [documentation](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSUserDefaults_Class/index.html) "provides a programmatic interface for interacting with the defaults system". With the introduction of iCloud, however, it's become desirable to sync some or all of a user's preferences among their devices automatically. [This library](https://github.com/sdarlington/SDCloudUserDefaults) promises a simple API for doing exactly that.
 
 #### Realm
 
@@ -71,7 +71,7 @@ iOS 7 introduced a new feature called Dynamic Text that allows users to specify 
 
 #### UIImage+Additions
 
-[This library](https://github.com/vilanovi/UIImage-Additions) offers numerous extensions to the `UIImage` class for manipulating images within Cocoa applications.  Examples include creating static images for a single color, resizable images with corner radii, tinted images from existing ones, superimposed images, gradient images, and more.
+[This library](https://github.com/vilanovi/UIImage-Additions) offers numerous extensions to the `UIImage` class for manipulating images within iOS applications.  Examples include creating static images for a single color, resizable images with corner radii, tinted images from existing ones, superimposed images, gradient images, and more.
 
 ### Related Applications
 
@@ -83,11 +83,11 @@ There are several iOS applications that already address anxiety or at least offe
 
 {% include f.html f=0 align="left" %}
 
-SAM clearly hopes to offer a comprehensive treatment program for anxiety patients, and for the most part, it likely succeeds. The relaxation techniques are robust and easy to follow, and all of the application’s features work as advertised.  The app has also received numerous positive reviews on the App Store, which is excellent considering its noble intentions. That being said, one improvement that may help the application better service its users is an improved flow. The grid of options seen in {% include fr.html f=0 %}, for example, is certainly useful, but doesn’t seem to guide users through the anxiety recovery process. Of course, users can tap the first button, “Working with SAM”, to get more information, but it’d be more helpful to incorporate the recovery process into the interface design itself without hiding it behind a button.  The grid also makes all the options look equally as important, even though some, like “Help for Anxiety NOW”, may be far more relevant if the user is currently experiencing an anxious episode (which would be a reasonable explanation for launching SAM in the first place).  Overall, though, SAM likely gets more right than wrong, and it’s encouraging to see another anxiety application having a positive impact on user’s lives.
+SAM clearly hopes to offer a comprehensive treatment program for anxiety patients, and for the most part, it likely succeeds. The relaxation techniques are robust and easy to follow, and all of the application’s features work as advertised.  The app has also received numerous positive reviews on the App Store, which is excellent considering its noble intentions. That being said, one improvement that may help the application better service its users is an improved flow. The grid of options seen in {% include fr.html f=0 %}, for example, is certainly useful, but doesn’t seem to guide users through the anxiety recovery process. Of course, users can tap the first button, “Working with SAM”, to get more information, but it’d be more helpful to incorporate the recovery process into the interface design itself without hiding it behind a button.  The grid also makes all the options look equally as important, even though some, like “Help for Anxiety NOW”, may be far more relevant if the user is currently experiencing an anxious episode (which would be a reasonable explanation for launching SAM in the first place).  Overall, though, SAM likely gets more right than wrong, and it’s encouraging to see another anxiety application having a positive impact on users' lives.
 
 #### Calm
 
-This [free application](https://appsto.re/us/QZpfI.i) by Calm.com, Inc. focuses exclusively on meditation and relaxation techniques. According to the application description5, it includes: 7 guided meditation sessions, 10 “immersive nature scenes”, 16 relaxing music tracks, and 50 additional, purchasable guided meditations.  Its user interface, shown in {% include fr.html f=1 %}, revolves around a user-customizable looping scene, which defaults to a video of rain on leaves.
+This [free application](https://appsto.re/us/QZpfI.i) by Calm.com, Inc. focuses exclusively on meditation and relaxation techniques. According to the application description, it includes: 7 guided meditation sessions, 10 “immersive nature scenes”, 16 relaxing music tracks, and 50 additional, purchasable guided meditations.  Its user interface, shown in {% include fr.html f=1 %}, revolves around a user-customizable looping scene, which defaults to a video of rain on leaves.
 
 {% include f.html f=1 align="right" %}
 
@@ -95,17 +95,17 @@ Like SAM, however, Calm’s main screen might benefit from an improved visual hi
 
 {% include f.html f=2 align="left" %}
 
-Unfortunately, Calm also lacks any positive psychology/relapse prevention tools, though it doesn’t claim to target GAD patients in particular, so this choice may have been intentional.  In any case, the application’s limited scope and focused design is commendable and fully deserving of the many positive reviews it’s received on the App Store.
+Unfortunately, Calm also lacks any positive psychology/relapse prevention tools, though it doesn’t claim to target GAD patients in particular, so this choice may have been intentional.  In any case, the application’s limited scope and focused design are commendable and fully deserving of the many positive reviews from the App Store.
 
 #### Takeaways
 
-This thesis' application will attempt to preserve some of the core functionalities, reading materials, and relaxation techniques found in SAM, while also offering users a more guided approach like Calm's and Positive Psychology exercises as discussed above.
+This thesis' application will attempt to preserve some of the core functionalities, reading materials, and relaxation techniques found in SAM with a more guided approach like Calm's, in addition to its own Positive Psychology exercises for long-term relapse prevention.
 
 ## Methodology
 
 ### Ideation
 
-Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some computer-based applications could be in treating this disorder, so this project felt like an incredible opportunity to create a similar tool to (hopefully) assist others in their own recovery process.
+Anxiety is a personal issue to me; I've certainly experienced it myself and have learned a great deal trying to treat it through self-help and other methods (with varying degrees of success).  I knew from firsthand experience how helpful some computer-based applications could be in treating this disorder, so this project felt like an incredible opportunity to create a similar tool to help assist others in their own recovery process.
 
 #### Core features 
 
@@ -118,7 +118,7 @@ In brainstorming this application it was important to create a list of essential
 	</li>
 	<li>
 		<h5>Immediate symptom relief</h5>
-		<p>This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so most of the work here was to decide which ones could most benefit from an interactive user experience, then realistically determine how many could be developed within the timeframe.  The following exercises were eventually selected:</p>
+		<p>This feature was self-explanatory; any application claiming to help users recover from anxiety should be expected to alleviate anxious symptoms, including shortness of breath, intense agitation and confusion, and the others mentioned in the background section.  Fortunately, studies on CBT offer a wealth of relaxation techniques, so the only work needed here was to decide which ones could most benefit from an interactive user experience, then realistically determine how many could be developed within the project's timeframe. The following exercises were eventually selected:</p>
 		<ol>
 			<li>Deep breathing</li>
 			<li>Calming scene (i.e. a video/image of a peaceful landscape)</li>
@@ -137,7 +137,7 @@ Normally, such a list might be subject to change as design and development of th
 
 ### Design
 
-Much of the design phase of this application inevitably overlapped with the development phase, as there was only one designer/developer so a linear process wasn't as important as it would be to, say, two separate teams dedicated to each task.  Either way, some design-related steps were performed before writing any code to better encourage focus during both phases.
+Much of the design phase of this application inevitably overlapped with the development phase, as there was only one designer/developer so a linear process wasn't as important as it would be to, say, two separate teams dedicated to each task.  Either way, some design-related steps were performed before writing any code to better maintain focus during both phases.
 
 #### Goals
 
@@ -150,7 +150,7 @@ Before layout, color palettes, interactions, or any specific detail of the appli
 	</li>
 	<li>
 		<h5>Cover the essential aspects of anxiety recovery</h5>
-		<p>Though the feature set of this application was kept to a bare minimum, it is important that users are provided as complete a self-help anxiety recovery program as possible within the time frame.  Ideally, the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as [Headspace](https://www.headspace.com) or [Calm](http://calm.com) for a more comprehensive meditation practice.</p>
+		<p>Though the feature set of this application was kept to a bare minimum, it is important that users are provided as complete a self-help anxiety recovery program as possible within the time frame.  Ideally, the application could confidently stand on its own as a starting point for relapse-free anxiety treatment, yet easily allow for the possibility of extending it through more specific applications, such as <a href="https://www.headspace.com">Headspace</a> or <a href="http://calm.com">Calm</a> for a more comprehensive meditation practice.</p>
 	</li>
 	<li>
 		<h5>Be unobtrusive yet involved</h5>
@@ -162,7 +162,7 @@ These finalized goals provided a clear enough guide to begin laying out the appl
 
 #### User Personas
 
-As an additional aid in the design process, {{ site.data.personas | size }} personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead.  The webpage from the National Institutes of Mental Health {% include c.html r=3 a=false %} provided most of these traits along with some realistic quotes from GAD patients:
+As an additional aid in the design process, {{ site.data.personas | size }} personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead {% include c.html r=3 %}:
 
 <ul class="o-block-list o-box">
 	{% for persona in site.data.personas %}
@@ -180,11 +180,11 @@ With the personas, goals, and core features finalized, the next step was sketchi
 {% include f.html f=7 %}
 {% include f.html f=8 %}
 
-Surprisingly, these were the only wireframes ever created for this application, hopefully due to having a clear enough direction and not close-mindedness.  In any case, these wireframes served well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in detail in the section below.
+Surprisingly, these were the only wireframes ever created for this application, hopefully due to having a clear enough direction and not close-mindedness.  In any case, these wireframes served well for the remainder of the design stage, and it's interesting to note how much the final design resembled these initial sketches.  For that reason, the layout choices visible here will be explained in detail below.
 
 #### Final layout
 
-Traditionally, a designer at this point would likely create a few high-fidelity mockups (and sometimes interactive prototypes) to send to a developer to code into a working application.  As there was only one designer/developer in this project, however, this step was skipped and most of the screens were designed as the application was coded. A graphic editing program ([Sketch](http://bohemiancoding.com/sketch/)) was used to create specific visual assets as needed.  This is the final version of the application's layout:
+Traditionally, a designer at this point would likely create a few high-fidelity mockups and sometimes interactive prototypes to send to a developer who would code them into a working application.  As there was only one designer/developer in this project, however, this step was skipped and most of the screens were designed as the application was coded. A graphic editing program ([Sketch](http://bohemiancoding.com/sketch/)) was used to create specific visual assets as needed.  This is the final version of the application's layout:
 
 <div class="o-wrapper__wider">
 	<div class="o-layout">
@@ -200,7 +200,7 @@ Traditionally, a designer at this point would likely create a few high-fidelity 
 	</div>
 </div>
 
-The application is divided into three primary actions: "Learn", "Relax", and "Reflect", each representing one of the core features described above.  A tab layout was used in accordance to the iOS HIG, which prefers a tab bar “to support a flat information architecture” {% include c.html r=6 a=false p="49" %}.  The tab icons were taken from [the NounProject](https://thenounproject.com), used with permission.
+The application is divided into three primary actions: "Learn", "Relax", and "Reflect", each representing one of the core features described above.  A tab layout was used in accordance to the iOS HIG, which prefers a tab bar “to support a flat information architecture” {% include c.html r=6 a=false p="49" %}.  The tab icons were taken from [the NounProject](https://thenounproject.com), and used with permission.
 
 ##### Onboarding
 
@@ -226,16 +226,16 @@ When a user launches the application for the first time after downloading they'r
 	</div>
 </div>
 
-Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  Their advice was heeded, and ultimately a brief welcome/instruction screen was considered beneficial considering the nature of this application.  In accordance with one of the goals, it was important to offer a guided recovery program for these users even from first launch, and such a tutorial felt better than the default screen (the Relax tab) in this regard.
+Onboarding tutorials like this are a kind of gray area in iOS app design.  At best, they provide a clearer starting point for new users than, say, an empty screen; at worst, they force the user to read fluffy marketing text and/or sign up for a service before they can begin using the application.  Apple seems divided on the issue as well, advising designers to "think carefully before providing an onboarding experience" {% include c.html r=6 p="36" %}.  Their advice was heeded, and ultimately a brief welcome/instruction screen was considered beneficial for this application.  In accordance with one of the goals, it was important to offer a guided recovery program for users even from first launch, and such a tutorial felt better than the default screen (the Relax tab) in this regard.
 
 The tutorial was designed with Apple's guidelines in mind. Specifically, the HIG instructs:
 
 * ###### "Give users only the information they need to get started" {% include c.html r=6 a=false y=false p="38" %}  
 The screens included in the final application were deemed most important for first launch.  A brief description of GAD ({% include fr.html f=13 %}) was included after the welcome slide to provide a clear understanding of the disorder and who might be affected.  Next, an explanation of the application's three main tabs and how to use them was displayed ({% include fr.html f=9 %}). The daily reflection reminder preference wasn't shown here, set to a reasonable default of 8p.m. instead, while the relaxation reminder -- which ideally would be set to the user's normal waking time -- felt more individualized so it was shown in the second to last slide ({% include fr.html f=14 %}). The last slide contained some final words of encouragement, and a button to dismiss the tutorial ({% include fr.html f=15 %}).
 * ###### "Use animation and interactivity to engage users and help them learn by doing" {% include c.html r=6 a=false p="38" %}  
-Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially {% include fr.html f=5 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
+Admittedly, the onboarding tutorial falls short from a user engagement perspective.  Given more time, some slides could certainly benefit from additional interactivity, especially the one shown in {% include fr.html f=5 %} which a user might reasonably skip due to its intimidating length.  In any case, the tutorial itself is interactive, using the recommended page control {% include c.html r=6 a=false y=false p="49" %} to allow users to swipe back and forth between slides.
 * ###### "Make it easy to dismiss or skip the onboarding experience" {% include c.html r=6 a=false y=false p="39" %}  
-Apple encourages developers to remember whether a user has viewed the onboarding tutorial to ensure it's only displayed once.  This was implemented during the development phase of the application, discussed in the "Architecture" section below.
+Apple encourages developers to remember whether a user has viewed the onboarding tutorial to ensure it's only displayed once.  This was implemented during the development phase of the application, discussed below.
 
 Once the user reaches the final slide of the tutorial and taps the "Get Started" button, the tutorial is dismissed and they can begin exploring the application.
 
@@ -263,7 +263,7 @@ The background color of this tab is light blue, chosen for its calming propertie
 
 This tab represents the second core feature from the section above.  Because of its importance, this tab is selected by default when the user launches the application (except in certain situations). The background color of this tab is a vibrant blue, chosen for its relaxing properties {% include c.html r=4 %} and to distinguish between the lighter blue of the Learn tab.
 
-There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed at the top because the tab bar occupies the bottom (an iOS convention) and because this seemed to align with Apple's placement of similar controls, as seen with the "Scheduled" icon in Reminders.app ({% include fr.html f=24 %}):
+There are two UI elements on this screen: a notification icon at the top and a mood picker in the middle.  The icon was placed at the top because the tab bar occupies the bottom (an iOS convention) and because this seemed to align with Apple's placement of similar controls, as seen with the "Scheduled" icon in Apple's Reminders application ({% include fr.html f=24 %}):
 
 {% include f.html f=24 %}
 
@@ -280,7 +280,7 @@ When tapped ({% include fr.html f=22 %}), the reminder icon opens the view in {%
 	</div>
 </div>
 
-The mood picker is the primary focus of this screen, as it allows the user to begin the relaxation process.  The picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears underneath for him/her to determine the duration of their relaxation session. Once the user selects one ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}) and the user can begin relaxing.
+The mood picker is the primary focus of this screen, as it allows the user to begin the relaxation process.  The picker consists of three buttons, labeled with appropriate Emoji characters to represent the various moods a user might identify with.  Once the user selects one ({% include fr.html f=19 %}), a similar view appears underneath for him/her to determine the duration of their relaxation session. When the duration is selected ({% include fr.html f=20 %}), an appropriate relaxation exercise -- or sequence of exercises, depending on the duration chosen -- appears ({% include fr.html f=21 %}) and the user can begin relaxing.
 
 <div class="o-wrapper__wide">
 	<div class="c-flow">
@@ -319,7 +319,7 @@ As discussed in a previous section, there are four relaxation exercises included
 				{% include f.html f=28 %}
 			</div>
 		</div>
-		<p>The user can pause the exercise by tapping on the button again. The instruction text functions the same as in the Calming Scene exercise; disappearing automatically and reappearing on tap.</p>
+		<p>The user can pause the exercise by tapping on the button again. The instruction text functions the same as in the Calming Scene exercise, disappearing automatically and reappearing on tap.</p>
 	</li>
 	<li>
 		<h6>Coping statements exercise</h6>
@@ -347,7 +347,7 @@ As discussed in a previous section, there are four relaxation exercises included
 
 ##### Reflect tab
 
-This tab represents the final core feature: positive psychology with hopes to create a long-term shift towards positivity.  This tab uses a vibrant green background color, chosen for its calming properties {% include c.html r=4 %} and to differentiate between the Relax tab.
+This tab represents the final core feature: positive psychology with hopes to create a long-term shift towards relapse prevention and positivity.  This tab uses a vibrant green background color, chosen for its calming properties {% include c.html r=4 %} and to differentiate between the Relax tab.
 
 There are three main UI elements on this screen: a notification icon at the top, a compose button in the middle, and a timeline view below. The former works identically to the icon in the Relax tab, allowing the user to configure the daily reflection reminder:
 
@@ -362,7 +362,7 @@ There are three main UI elements on this screen: a notification icon at the top,
 	</div>
 </div>
 
-The compose button is the primary focus on this screen. When tapped ({% include fr.html f=33 %}), it opens the New Reflection screen ({% include fr.html f=34 %}) and lets the user log a positive event at any point during the day.  New events are added to the top of the timeline ({% include fr.html f=36 %}), which groups the last month's reflections in reverse chronological order by day.  The button itself uses the standard iOS compose icon found in Apple's own Mail.app.
+The compose button is the primary focus on this screen. When tapped ({% include fr.html f=33 %}), it opens the New Reflection screen ({% include fr.html f=34 %}) and lets the user log a positive event at any point during the day.  New events are added to the top of the timeline ({% include fr.html f=36 %}), which groups the last month's reflections in reverse chronological order by day.  The button itself uses the standard iOS compose icon found in Apple's own Mail application.
 
 <div class="o-wrapper__wider">
 	<div class="c-flow">
@@ -389,10 +389,10 @@ This application was developed using the latest version of the standard iOS deve
 
 #### Dependencies
 
-All third-party dependencies were managed using the open-source [CocoaPods](http://cocoapods.org) dependency manager, version 0.36.1.  This seems to be the de facto standard for managing dependencies in Cocoa projects, besides [Git submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules) or plain copy-and-pasting.  The dependencies for this application are listed in a text file named `Podfile` in the project's root, which is analyzed by the CocoaPods command line tool:
+All third-party dependencies were managed using the open-source [CocoaPods](http://cocoapods.org) dependency manager, version 0.36.1.  This seems to be the de facto standard for managing dependencies in iOS projects, besides [Git submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules) or plain copy-and-pasting.  The dependencies for this application are listed in a text file named `Podfile` in the project's root, which is analyzed by the CocoaPods command line tool:
 
 ~~~ ruby
-pod 'Async', git: 'https://github.com/duemunk/Async.git', branch: 'feature/Swift_1.2'
+pod 'Async', git: 'https://github.com/duemunk/Async.git'
 pod 'SDCloudUserDefaults'
 pod 'Realm'
 pod 'SSDynamicText', :head 
@@ -415,7 +415,7 @@ Realm was hardly used to its full extent, only to persistently store one model o
 
 ##### SSDynamicText
 
-Simply put, nearly every label in this application is either a `SSDynamicLabel` or `SSDynamicTextView`.  This library made Dynamic Text incorporation absolutely trivial, and code never had to be adjusted to account for text size adjustments.  In nearly every case it was simply a matter of using the appropriate `SSDynamicText` subclass instead of the built-in Cocoa equivalent.
+Simply put, nearly every label in this application is either a `SSDynamicLabel` or `SSDynamicTextView`.  This library made Dynamic Text incorporation absolutely trivial, and code never had to be adjusted to account for text size adjustments.  In nearly every case it was simply a matter of using the appropriate `SSDynamicText` subclass instead of the built-in iOS equivalent.
 
 ##### UIImage+Additions
 
@@ -423,7 +423,7 @@ This library was invaluable for tinting most of the user interface-related image
 
 #### Extensions
 
-One of the most powerful features of the Swift programming language is the ability to extend types, including built-in classes, with new methods and computed properties.  This feature was used extensively throughout the project for two main purposes: to add functionality to core Cocoa abstractions like `NSDate` (for working with dates and times) and to create helper "factory" methods for application-specific constants.  The latter is a design pattern fully endorsed by Apple's official documentation; instead of specifying global `UIColor` constants for project-specific theme colors:
+One of the most powerful features of the Swift programming language is the ability to extend types, including built-in classes, with new methods and computed properties.  This feature was used extensively throughout the project for two main purposes: to add functionality to core iOS abstractions like `NSDate` (for working with dates and times) and to create helper "factory" methods for application-specific constants.  The latter is a design pattern fully endorsed by Apple's official documentation; instead of specifying global `UIColor` constants for project-specific theme colors:
 
 ~~~ swift
 public let blueColor = UIColor(r: 82, g: 173, b: 204)
@@ -480,7 +480,7 @@ This class was used exclusively in the Reflect tab; the scrolling timeline fetch
 
 #### Views
 
-In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  Unfortunately, this pattern has some considerable disadavantages; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  In this application it seemed more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
+In iOS development it seems quite common to delegate all view creation/manipulation responsibilities to the controllers rather than subclass `UIView` directly.  This pattern has some considerable disadavantages; controllers can very easily grow to thousands of lines this way, making it hard to distinguish between view/layout code and actual business logic.  In this application it seemed more elegant to abstract complex views into their own `UIView` subclasses with accompanying public APIs and delegate protocols for interaction with controllers.  This also drastically encouraged and simplified view re-usage. For example, instead of creating and configuring two separate `UIView`s for the relaxation and reflection reminders, shown in {% include fr.html f=3 %} and {% include fr.html f=4 %} respectively, an abstracted `DailyReminderView` class was created and configured by each tab's view controller.
 
 <div class="o-wrapper__wide">
 	<div class="o-layout">
@@ -506,7 +506,7 @@ Each tab's view controller creates an instance of this view, configures it using
 
 #### Controllers
 
-Besides the aforementioned point of separating view-related concerns into their own `UIView` subclasses, `UIViewController`s were used in a seemingly traditional way throughout this application.  Each individual screen, including each tab, the new reflection modal, the relaxation exercises, etc. are represented with one `UIViewController`, which creates and manages its subviews and occasionally interfaces with the Realm database.
+Besides the aforementioned point of separating view-related concerns into their own `UIView` subclasses, `UIViewController`s were used in a seemingly traditional way throughout this application.  Each individual screen, including each tab, the new reflection modal, the relaxation exercises, etc., are represented with one `UIViewController`, which creates and manages its subviews and occasionally interfaces with the Realm database.
 
 Beyond these, a custom `UIViewController` subclass was created named `SlidingViewController` that manages paginated view controllers with a nearly identical API to Apple's own `UITabBarController`. This class is used in the welcome tutorial and the calming scene relaxation exercise shown above.
 
@@ -537,9 +537,9 @@ These studies were carried out with a single researcher in an individualized –
 1. You notice self-talk patterns and want to read more about them
 1. You wake up at different times every day so you don’t want to be reminded to relax
 1. You woke up in a good mood but you want to relax for just a little bit
-	1. You want to look at something different
+	1. You want to look at a different scene
 
-Participants were encouraged to work through these tasks at their own pace, and none took longer than the 15 minute session. They were invited to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](/public/debriefing.pdf){:target="_blank"}.
+Participants were encouraged to work through these tasks at their own pace, and none took longer than the allocated 15 minutes. They were invited to voice any suggestions, criticisms, or other feedback during this time, all of which were compiled and selectively incorporated into the application after the studies were complete.  At the end of the study, participants were encouraged to ask any final questions or voice final concerns before being given a full explanation of the application and its intended use and audience.  Before leaving, they were thanked for their participation and given a final [debriefing form](/public/debriefing.pdf){:target="_blank"}.
 
 ### Results
 
@@ -569,7 +569,7 @@ Despite the overall positive experiences, there were a few minor stumbling block
 	</li>
 	<li>
 		<h5>Larger text button hit areas</h5>
-		<p>Many users "missed" some of the text-only buttons -- "Get Started" in {% include fr.html f=15 %}, "Next"/"Done" in any of the relaxation exercises, etc. -- so the tappable area of these buttons was increased by `15pt` on each side.  This change is invisible to the users, but should result in fewer mis-taps.</p>
+		<p>Many users "missed" some of the text-only buttons – "Get Started" in {% include fr.html f=15 %}, "Next"/"Done" in any of the relaxation exercises, etc. – so the tappable area of these buttons was increased by <code>15pt</code> on each side.  This change is invisible to the users, but should result in fewer mis-taps.</p>
 	</li>
 	<li>
 		<h5>Taps inside reminder views</h5>
@@ -579,7 +579,7 @@ Despite the overall positive experiences, there were a few minor stumbling block
 
 ## Conclusion
 
-The goal of this project was to create an iPhone application that offered users a guided, comprehensive recovery program for GAD through the latest research in Cognitive Behavioral Therapy and Positive Psychology techniques and, ultimately, I feel it was a success. I'm proud and appreciative of all the work I was able to put into this application, and grateful to have found a topic that felt so meaningful to me.  I felt motivated and focused at all steps of the process and I truly look forward to continuing this application's development beyond the Honors program. I learned more about time management, anxiety disorder, iOS design and development, user testing, and project management over the course of this thesis than I ever imagined.
+The goal of this project was to create an iPhone application that offers users a guided, comprehensive recovery program for GAD through the latest research in Cognitive Behavioral Therapy and Positive Psychology techniques and, ultimately, I feel it was a success. I'm proud and appreciative of all the work I was able to put into this application, and grateful to have found a topic that felt so meaningful to me.  I felt motivated and focused at all steps of the process and I truly look forward to continuing this application's development beyond the Honors program. I learned more about anxiety disorder, iOS design and development, user testing, and project management over the course of this thesis than I ever imagined.
 
 ### Future work
 
@@ -596,7 +596,7 @@ My primary goal at this point is to continue tweaking the application until I fe
 	</li>
 	<li>
 		<h5>Relax tab improvements</h5>
-		<p>Though I was very hesitant to muddle the Relax tab in any way, I feel some positive reinforcement would be a nice touch to encourage consistent daily relaxation.  The aforementioned [Headspace](http://headspace.com) meditation application, for example, rewards users for consecutive days of practice, and I can personally attest to the motivational power of this system.  I think a similar feature would be appropriate for this tab, though I'd want to feel utmost confident that the tab retained its ease of use and simplicity before attempting to change it.</p>
+		<p>Though I was very hesitant to muddle the Relax tab in any way, I feel some positive reinforcement would be a nice touch to encourage consistent daily relaxation.  The aforementioned <a href="http://headspace.com">Headspace</a> meditation application, for example, rewards users for consecutive days of practice, and I can personally attest to the motivational power of this system.  I think a similar feature would be appropriate for this tab, though I'd want to feel utmost confident that the tab retained its ease of use and simplicity before attempting to change it.</p>
 	</li>
 </ol>
 
