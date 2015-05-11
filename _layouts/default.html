@@ -11,7 +11,10 @@
   {% include typekit.html %}
   
   <main role="main">
-    {{ content }}
+    {% comment %} Relative links/paths {% endcomment %}
+    {% capture relativeLink %}href="{{ site.baseurl }}/{% endcapture %}
+    {% capture relativeSrc %}src="{{ site.baseurl }}/{% endcapture %}
+    {{ content | replace: 'href="/', relativeLink | replace: 'src="/', relativeSrc }}
   </main>
 
   <script src="{{ "/js/thesis.js" | prepend: site.baseurl }}" async defer></script>

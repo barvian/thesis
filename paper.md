@@ -1,6 +1,8 @@
 ---
 layout: essay
 permalink: /
+abstract: |
+  The purpose of this thesis is to create a self-help iPhone application for anxiety patients that merges psychology research on Generalized Anxiety Disorder (GAD) treatment options with the iOS8 development toolkit. The goal of this application is twofold: in the short term it hopes to help users alleviate their immediate systems and anxious episodes, in the long term it hopes to provide a comprehensive, relapse-free recovery program for these patients.  Cognitive Behavior Therapy (CBT) and Positive Psychology/Well-Being Therapy (WBT) techniques were researched extensively for these goals, and the application attempts to incorporate their practices in helpful, interactive ways. Formal user testing was conducted with volunteer psychology students to gather feedback on the design and perceived usefulness of the application, and their feedback was considered before the final version was submitted.
 ---
 
 ## Background
@@ -9,7 +11,7 @@ permalink: /
 
 Anxiety in itself is not a disorder.  In fact, as Bourne {% include c.html r=0 a=false %} and other authors have noted, anxiety is often considered inevitable in contemporary society.    Worrying can be a useful, appropriate response to challenging situations in everyday life.  It becomes a diagnosable disorder, however, when a person worries excessively about a variety of everyday problems for at least 6 months {% include c.html r=3 %} in a way that noticeably interferes with their normal lives. Physical symptoms of GAD can include fatigue, headaches, nausea, twitching, muscle aches, and irritability; mentally, patients can’t relax, startle easily, and have difficulty falling asleep.
 
-GAD affects about 3.1% of American adults (aged 18 years or older) in a given year, totaling about 6.8 million with twice as many women as men.  The average age of onset is 31 years old, though it often develops gradually between childhood and middle age.  The goal of this thesis is to develop an interactive self-help iPhone application that offers a comprehensive recovery program for all GAD patients by incorporating principles from some of the most extensively researched treatments available.
+GAD affects about 3.1% of American adults (aged 18 years or older) in a given year, totaling about 6.8 million with twice as many women as men.  The average age of onset is 31 years old, though it often develops gradually between childhood and middle age.  The goal of this thesis is to develop an interactive self-help iPhone application that offers a comprehensive recovery program for all GAD patients by incorporating principles from some of the most extensively researched treatments available.  This application will be created for education requirements only, and will not be sold or distributed in the form detailed here.
 
 #### Treatment
 
@@ -97,7 +99,7 @@ Unfortunately, Calm also lacks any positive psychology/relapse prevention tools,
 
 #### Takeaways
 
-This thesis will attempt to preserve some of the core functionalities, reading materials, and relaxation techniques found in SAM, while also offering users a more guided approach like Calm's and Positive Psychology exercises as discussed above.
+This thesis' application will attempt to preserve some of the core functionalities, reading materials, and relaxation techniques found in SAM, while also offering users a more guided approach like Calm's and Positive Psychology exercises as discussed above.
 
 ## Methodology
 
@@ -600,4 +602,4 @@ My primary goal at this point is to continue tweaking the application until I fe
 
 In closing, I'd like to sincerely thank everyone who offered their support to this project, and to the North Central Honors Program for the opportunity.
 
-![Signature]({{ site.baseurl }}/img/signature.png)
+![Signature](/img/signature.png)
