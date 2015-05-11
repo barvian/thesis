@@ -21,16 +21,18 @@ layout: default
           {{ title }}
         </h2>
       </header>
-      {% assign figs = section | replace: '<figure', '-FIGURE-<figure' | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
-      {% capture section %}
-        {% for figure in figs %}
-          {% assign f = forloop.index %}
-          {% assign fig = figure | replace: '%FIGURE%', f %}
-          {% assign counterSplit = fig | split: '-FIGCOUNTER-' %}
-          {% assign figures = figures | append: counterSplit[1] | append: '|' %} 
-          {{ counterSplit[0] }}{{ counterSplit[2] }}
-        {% endfor %}
-      {% endcapture %}
+      {% if section contains '<figure' %}
+        {% assign figs = section | replace: '<figure', '-FIGURE-<figure' | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
+        {% capture section %}
+          {% for figure in figs %}
+            {% assign f = forloop.index %}
+            {% assign fig = figure | replace: '%FIGURE%', f %}
+            {% assign counterSplit = fig | split: '-FIGCOUNTER-' %}
+            {% assign figures = figures | append: counterSplit[1] | append: '|' %} 
+            {{ counterSplit[0] }}{{ counterSplit[2] }}
+          {% endfor %}
+        {% endcapture %}
+      {% endif %}
       {% assign subsections = section | split: '<h3>' %}
       {{ subsections | first }}
       {% assign length = subsections | size | minus: 1 %}
