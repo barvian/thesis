@@ -168,7 +168,7 @@ These finalized goals provided a clear enough guide to begin laying out the appl
 
 #### User Personas
 
-As an additional aid in the design process, {{ site.data.personas | size }} personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead {% include c.html r=3 %}:
+As an additional aid in the design process, four personas were created as representations of the application's target audience.  Considering this project lacked quantitative user research or any sort of analytics that usually serve as reference points for such an exercise, research of GAD symptoms and recurring personality traits were used as guidelines instead.  Anxiety often develops gradually between childhood and middle age {% include c.html r=3 %}, so three of the four example users are in their early 20s or 30s. Female GAD patients outnumber males, but for simplicity’s sake both genders are equally represented.  The other characteristics -- hobbies, life situations, ethnicity -- are either arbitrary or included for diversity purposes:
 
 <ul class="o-block-list o-box">
 	{% for persona in site.data.personas %}
