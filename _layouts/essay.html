@@ -111,15 +111,15 @@ layout: default
       {% include toc.html t=toc %}
     </section>
     {{ essay }}
+    <footer class="c-essay__footer">
+      <h3>Cited References</h3>
+      <ol>
+        {% assign sortedReferences = references | upcase | split: '|' | sort %}
+        {% for ref in sortedReferences %}
+          {% assign id = ref | split: ':' | last | times: 1 %}
+          <li id="reference-{{ id }}">{% include r.html r=id %}</li>
+        {% endfor %}
+      </ol>
+    </footer>
   </div>
-
-  <footer class="c-essay__footer o-wrapper">
-    <ol>
-      {% assign sortedReferences = references | upcase | split: '|' | sort %}
-      {% for ref in sortedReferences %}
-        {% assign id = ref | split: ':' | last | times: 1 %}
-        <li id="reference-{{ id }}">{% include r.html r=id %}</li>
-      {% endfor %}
-    </ol>
-  </footer>
 </article>

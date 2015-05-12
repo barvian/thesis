@@ -40,6 +40,10 @@
     padding-bottom: size(xxlarge);
     padding-top: size(xxlarge);
 
+    > %heading {
+      text-align: center;
+    }
+
     @include query(print) {
       page-break-before: always;
     }

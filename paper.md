@@ -2,7 +2,7 @@
 layout: essay
 permalink: /
 abstract: |
-  The purpose of this thesis is to create a self-help iPhone application for anxiety patients that merges psychology research on Generalized Anxiety Disorder (GAD) treatment options with Apple's iOS 8 development toolkit. The goal of this application is twofold: in the short term it hopes to help users alleviate their immediate systems and anxious episodes; in the long term it hopes to provide a comprehensive, relapse-free recovery program for these patients.  Cognitive Behavior Therapy (CBT) and Positive Psychology/Well-Being Therapy (WBT) techniques were researched extensively for these goals, and the application incorporates their practices in helpful, interactive ways. Formal user testing was conducted with volunteer psychology students to gather feedback on the design and perceived usefulness of the application, and their feedback was compiled and incorporated into the final application before it was submitted.
+  The purpose of this thesis is to create a self-help iPhone application for anxiety patients that merges psychology research on Generalized Anxiety Disorder (GAD) treatment options with Apple's iOS 8 development toolkit. The goal of this application is twofold: in the short term it hopes to help users alleviate their immediate systems and anxious episodes; in the long term it hopes to provide a comprehensive, relapse-free recovery program for these patients.  Cognitive Behavior Therapy (CBT) and Positive Psychology/Well-Being Therapy (WBT) techniques were researched extensively for these goals, and the application incorporates their practices in helpful, interactive ways. Formal user testing was conducted with volunteer psychology students to gather feedback on the design and usability of the application, and their feedback was compiled and incorporated into the final application before it was submitted.
 ---
 
 ## Introduction
@@ -530,7 +530,7 @@ By default, Xcode creates a Git repository for all new projects, so versioning t
 
 ## Testing
 
-After the application was complete, user testing was conducted to measure its perceived usefulness and ease of use. Participants were solicited from North Central College's PSY 100 participant pool via the online research credit management system, SONA.  Two sessions of 4 participants -- 8 participants total -- were needed with no further prerequisites for participation.  Participants received 1 research credit in exchange for their participation in the study.
+After the application was complete, user testing was conducted to measure its ease of use. Participants were solicited from North Central College's PSY 100 participant pool via the online research credit management system, SONA.  Two sessions of 4 participants -- 8 participants total -- were needed with no further prerequisites for participation.  Participants received 1 research credit in exchange for their participation in the study.
 
 ### Method
 
