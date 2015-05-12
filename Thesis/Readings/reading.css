@@ -92,6 +92,7 @@ ol, ul, dl {
 
 cite {
 	font-style: normal;
+	word-break: break-word;
 }
 
 em {
