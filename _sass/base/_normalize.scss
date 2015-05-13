@@ -223,6 +223,11 @@ hr {
 
 pre {
   overflow: auto;
+
+  @include query(print) {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
 }
 
 /**

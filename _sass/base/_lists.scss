@@ -3,6 +3,7 @@
 
 %list, ol, ul {
   padding-left: size(spacing) * 2;
+  margin-left: 0;
   
   > li {
     > figure {

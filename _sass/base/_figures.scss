@@ -35,6 +35,7 @@ figure {
 
   @include query(print) {
     page-break-before: avoid;
+    page-break-inside: avoid;
   }
 }
 

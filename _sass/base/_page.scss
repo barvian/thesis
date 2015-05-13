@@ -26,4 +26,9 @@ html {
   counter-reset: page 1;
   counter-increment: page;
   margin: 1in;
+  size: 8.5in 11in;
+
+  @bottom-center {
+    content: counter(page);
+  }
 }

@@ -5,6 +5,8 @@
 // ----------
 
 %#{$o-}block-list__item {
+  page-break-inside: avoid;
+
   + %#{$o-}block-list__item {
     border-top: 1px dashed $light;
     padding-top: size(spacing);
@@ -55,6 +57,10 @@
     text-align: left;
     top: 0;
     width: size(spacing)*1.35;
+
+    @include query(print) {
+      page-break-after: avoid;
+    }
   }
 }
 
