@@ -130,9 +130,11 @@ class RelaxViewController: UIViewController, FullScreenViewController, Relaxatio
 		
 		let touch = touches.first as! UITouch
 		let location = touch.locationInView(touch.view)
-		if _showingReminderView && !CGRectContainsPoint(reminderView.frame, location) {
-			UIView.animateWithDuration(0.4) {
-				self.toggleReminderView(false)
+		if _showingReminderView {
+			if !CGRectContainsPoint(reminderView.frame, location) {
+				UIView.animateWithDuration(0.4) {
+					self.toggleReminderView(false)
+				}
 			}
 		} else if _showingDurationPicker {
 			UIView.animateWithDuration(0.25) {
