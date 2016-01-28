@@ -1,11 +1,11 @@
 # Site settings
 title: Honors Thesis
 email: max@barvian.me
-description: > # ignore newlines until "baseurl:"
+description: >
   A self-help iPhone application for patients with Generalized
   Anxiety Disorder (GAD).
-baseurl: '/thesis'
-url: "http://barvian.me" # the base hostname & protocol for your site
+baseurl: /thesis
+url: http://barvian.me # the base hostname & protocol for your site
 twitter_username: mbarvian
 github_username:  mbarvian
 
