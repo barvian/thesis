@@ -6,8 +6,6 @@ description: >
   Anxiety Disorder (GAD).
 baseurl: /thesis
 url: http://barvian.me
-twitter_username: mbarvian
-github_username:  mbarvian
 
 # Markdown
 markdown: kramdown
